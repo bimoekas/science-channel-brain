@@ -1,7 +1,21 @@
 # Content Pillars
 
-The channel has three content pillars:
+The channel has three content pillars. Setiap pilar mengikuti aturan inti: akurasi ilmiah, bedakan fakta/teori/hipotesis/spekulasi/fiksi, humor boleh absurd tetapi penjelasan tetap akurat, satu ide inti dan satu payoff per video. Rincian di bawah bersifat draft — perlu persetujuan.
 
-1. **Earth Glitch** — Definition, topic boundaries, and examples: `TBD`
-2. **Human Madness** — Definition, topic boundaries, and examples: `TBD`
-3. **Sci-Fi Parody** — Definition, topic boundaries, and examples: `TBD`
+## 1. Earth Glitch (draft — perlu persetujuan)
+
+- **Definisi:** Fenomena alam atau kejadian di Bumi yang tampak aneh, langka, atau mengejutkan, lalu dijelaskan secara ilmiah.
+- **Batasan topik:** Fokus pada fenomena teramati (geologi, cuaca, laut, atmosfer, biologi lingkungan). Hindari klaim tanpa bukti; jelaskan tingkat kepastian (fakta/teori/hipotesis/spekulasi).
+- **Contoh ide:** Petir Catatumbo; warna merah di Air Terjun Darah Antartika; batu yang “berjalan” di Racetrack Playa.
+
+## 2. Human Madness (draft — perlu persetujuan)
+
+- **Definisi:** Perilaku, persepsi, atau kebiasaan manusia yang terasa ekstrem/tak biasa, dijelaskan lewat sains (biologi, psikologi, neurosains, sejarah sains).
+- **Batasan topik:** Jelaskan mekanisme ilmiah tanpa menghakimi atau merendahkan individu/kelompok. Hindari sensasionalisasi bahaya; bedakan temuan mapan dari hipotesis/spekulasi.
+- **Contoh ide:** Efek placebo dan nocebo; ilusi optik yang “menipu” otak; mengapa kurang tidur mengganggu fokus dan emosi.
+
+## 3. Sci-Fi Parody (draft — perlu persetujuan)
+
+- **Definisi:** Skenario fiksi ilmiah atau imajinasi “bagaimana kalau” yang dibahas dengan sains nyata secara ringan, sambil memisahkan fiksi dari kenyataan.
+- **Batasan topik:** Beri label jelas: fiksi, hipotesis, atau fakta ilmiah. Jangan menyajikan fiksi sebagai fakta; gunakan humor untuk membandingkan ekspektasi fiksi dengan penjelasan sains.
+- **Contoh ide:** Bisakah suara ledakan terdengar di luar angkasa?; apa yang terjadi jika gravitasi Bumi hilang sejenak?; apakah “zombie” mungkin secara biologi (sebagai skenario fiksi yang dibedah).
