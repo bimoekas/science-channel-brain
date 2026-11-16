@@ -1,0 +1,19 @@
+{
+  "name": "science-channel-brain",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "hf": "pnpm dlx hyperframes@0.9.56",
+    "hf:doctor": "pnpm dlx hyperframes@0.9.56 doctor",
+    "hf:update": "pnpm dlx hyperframes@0.9.56 update --check",
+    "video:dev": "pnpm dlx hyperframes@0.9.56 preview video",
+    "video:lint": "pnpm dlx hyperframes@0.9.56 lint video",
+    "video:check": "pnpm dlx hyperframes@0.9.56 check video",
+    "video:snapshot": "pnpm dlx hyperframes@0.9.56 snapshot video",
+    "video:render": "pnpm dlx hyperframes@0.9.56 render video --quality looks -o renders/current.mp4",
+    "video:render:draft": "pnpm dlx hyperframes@0.9.56 render video --quality draft -o renders/current-draft.mp4",
+    "video:info": "pnpm dlx hyperframes@0.9.56 info video",
+    "video:timeline": "pnpm dlx hyperframes@0.9.56 timeline video",
+    "content:status": "node -e \"console.log('Active: content/current/ (script.md, voiceover.md, meta.md). Composition: video/ (index.html). Archive after 3 platforms published: see content/README.md')\""
+  }
+}

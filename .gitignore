@@ -1,0 +1,17 @@
+# Node / package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# HyperFrames / render artifacts
+.hyperframes/
+**/.hyperframes/
+renders/
+**/renders/
+snapshots/
+**/snapshots/
+
+# OS
+.DS_Store

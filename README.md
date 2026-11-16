@@ -44,9 +44,10 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 
 ## Workflow konten & arsip
 
-- **Aktif:** [`content/current/`](content/current/) = 1 konten yang dikerjakan/akan diupload. `script.md` naskah utama, `voiceover.md` narasi VO, `meta.md` status & tautan platform.
+- **Aktif (teks):** [`content/current/`](content/current/) = naskah/VO/metadata konten yang dikerjakan. `script.md` naskah utama, `voiceover.md` narasi VO, `meta.md` status & tautan platform.
+- **Aktif (video):** [`video/`](video/) = HyperFrames composition project (portrait 9:16, 1080×1920) untuk konten aktif. Jalankan dari root via script `npm run ...` (lihat [HyperFrames (CLI)](#hyperframes-cli)).
 - **Upload:** catat URL + tanggal TikTok, YouTube Shorts, Instagram Reels di `meta.md`.
-- **Arsip (setelah published di 3 platform):** `git mv content/current content/archive/NNN-<slug>` → buat `content/current/` baru dari `content/_templates/` → tambah baris di [`content/README.md`](content/README.md).
+- **Arsip (setelah published di 3 platform):** `git mv content/current content/archive/NNN-<slug>` → buat `content/current/` baru dari `content/_templates/` → tambah baris di [`content/README.md`](content/README.md). (Arsipkan/salin komposisi `video/` sesuai kebutuhan produksi.)
 - Detail alur & indeks: [`content/README.md`](content/README.md).
 
 ## Peta repo
@@ -59,9 +60,31 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 - [`03-production/ELEVENLABS-VOICE-GUIDE.md`](03-production/ELEVENLABS-VOICE-GUIDE.md): panduan voice generation.
 - [`03-production/VIDEO-STYLE-GUIDE.md`](03-production/VIDEO-STYLE-GUIDE.md): panduan gaya visual dan editing.
 - [`content/README.md`](content/README.md): pelacak konten & alur arsip.
-- [`content/current/`](content/current/): konten aktif (`script.md`, `voiceover.md`, `meta.md`).
+- [`content/current/`](content/current/): konten aktif teks (`script.md`, `voiceover.md`, `meta.md`).
 - [`content/_templates/`](content/_templates/): template konten baru.
 - [`content/archive/`](content/archive/): konten published (`NNN-<slug>/`).
+- [`video/`](video/): HyperFrames composition project untuk konten aktif (portrait 9:16, 1080×1920).
+- [`package.json`](package.json): script HyperFrames & utilitas root.
+- [`.gitignore`](.gitignore): abaikan `node_modules/`, `renders/`, `.hyperframes/`, snapshot, dll.
+
+## HyperFrames (CLI)
+
+Syarat: Node.js 22+, FFmpeg, pnpm. Jalankan dari root repo (script memakai `pnpm dlx hyperframes@0.9.56`, install global tidak wajib):
+
+| Script | Fungsi |
+| --- | --- |
+| `pnpm hf:doctor` | Cek lingkungan (Chrome, FFmpeg, dll) |
+| `pnpm video:dev` | Buka preview Studio untuk `video/` |
+| `pnpm video:lint` | Lint komposisi |
+| `pnpm video:check` | Gate: lint + runtime + layout + contrast |
+| `pnpm video:snapshot` | Ambil frame PNG (cek visual) |
+| `pnpm video:render` | Render `renders/current.mp4` (quality `looks`) |
+| `pnpm video:render:draft` | Render cepat `renders/current-draft.mp4` |
+| `pnpm video:info` | Metadata proyek video |
+| `pnpm video:timeline` | Tampilkan track/clip timeline |
+| `pnpm content:status` | Pengingat alur konten aktif |
+
+`renders/`, `.hyperframes/`, `node_modules/` di-ignore (`.gitignore`). Output render simpan/tautkan di luar repo bila final; saat iterasi lokal bisa di `renders/` (tidak di-commit). Instal skill HyperFrames (opsional, langkah user): `pnpm dlx hyperframes@latest skills update`.
 
 ## Catatan media
 
