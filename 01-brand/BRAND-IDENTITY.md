@@ -4,7 +4,7 @@
 
 - Channel: short-form science content for TikTok, YouTube Shorts, and Instagram Reels.
 - Scientific accuracy is foundational.
-- The channel should sit between pure comedy and dry education.
+- The channel is not pure comedy or dry education.
 - Humor may be absurd, while explanations stay accurate.
 
 ## To define
