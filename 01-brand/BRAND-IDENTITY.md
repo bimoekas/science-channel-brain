@@ -11,14 +11,14 @@
 
 - Target audience: Semua umur (universal). Konten harus dapat dipahami dan aman dinikmati lintas usia.
 
-## Positioning (draft — perlu persetujuan)
+## Positioning
 
 - Channel sains short-form universal yang menyajikan fenomena menarik dengan penjelasan jelas dan ringan, tanpa mengorbankan akurasi.
 
-## Unique value proposition / UVP (draft — perlu persetujuan)
+## Unique value proposition (UVP)
 
 - Satu ide sains per video, dikemas cepat dan mudah dipahami, dengan humor seperlunya dan payoff yang memuaskan.
 
-## Brand personality (draft — perlu persetujuan)
+## Brand personality
 
 - Ingin tahu, ramah, jenaka secukupnya, jelas, dan menghormati penonton semua umur.
