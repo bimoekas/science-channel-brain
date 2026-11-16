@@ -69,7 +69,7 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 
 ## HyperFrames (CLI)
 
-Syarat: Node.js 22+, FFmpeg, pnpm. Jalankan dari root repo (script memakai `pnpm dlx hyperframes@0.9.56`, install global tidak wajib):
+Syarat: Node.js 22+, FFmpeg, pnpm. Jalankan dari root repo (script memakai `pnpm dlx hyperframes@latest`, tanpa pin versi, install global tidak wajib):
 
 | Script | Fungsi |
 | --- | --- |
