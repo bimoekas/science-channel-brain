@@ -1,5 +1,14 @@
 # Contributing
 
+## Branch and collaboration
+
+- Work directly on `main`; do not create new branches. Commit on `main` and push from `main`.
+- Attribute Claude collaboration so GitHub detects it: end each commit message with this trailer (blank line before it):
+
+  ```
+  Co-Authored-By: Claude <noreply@anthropic.com>
+  ```
+
 ## Commit rules
 
 - Make each commit one reviewable, logical unit. Keep unrelated changes in separate commits.
