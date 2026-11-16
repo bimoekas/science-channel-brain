@@ -10,7 +10,7 @@
 ## Voice (fixed)
 
 - **Selected voice:** **Gadis - Cheerful Indonesian** (ElevenLabs, perempuan, Bahasa Indonesia) — hangat, natural, ekspresif, cocok untuk narasi sains.
-- **Voice ID:** `TBD` (kunci/catat Voice ID di akun ElevenLabs sebelum produksi rutin).
+- **Voice ID:** `aMSt68OGf4xUZAnLpTU8`
 - **Language and accent:** Bahasa Indonesia, aksen Indonesia umum (general).
 
 ## Pengaturan (fixed)
@@ -27,6 +27,15 @@
 - **Intonation:** Natural, ramah, dan hidup; sesuaikan nada dengan konteks (rasa ingin tahu, kejutan ringan, penegasan ilmiah) tanpa berlebihan. Tekankan kata kunci/istilah penting secukupnya.
 - **Pronunciation rules:** Ucapkan istilah sains dengan jelas; konsisten untuk nama/istilah asing; siapkan catatan pelafalan per script bila perlu (termasuk singkatan dan angka/satuan).
 - **Prohibited delivery traits:** Hindari nada merendahkan, menakut-nakuti, sarkastik berlebihan, atau terlalu cepat; hindari penyampaian yang membuat klaim terdengar lebih pasti daripada buktinya. Hindari ciri AI slop: nada datar/monoton, ritme repetitif mekanis, jeda/penekanan tidak alami, dan penyampaian generik tanpa nuansa.
+
+## Best practices prompting (ElevenLabs v4)
+
+- **No SSML `<break>`:** v4/v3 tidak mendukung `<break time="..."/>`. Atur jeda/pacing lewat struktur teks, pemenggalan kalimat/baris, tanda baca, dan elipsis (`…`/`...`).
+- **Audio tags:** gunakan secukupnya untuk arah ekspresi/penyampaian (contoh: `[curious]`, `[excited]`, `[thoughtful]`, `[whispers]`, `[laughs]`, `[sighs]`); tulis spesifik ke kualitas suara, cocok dengan karakter voice, dan uji hasilnya. Hindari tag berlebihan/ambigu (bisa terbaca sebagai efek suara).
+- **Tanda baca & penekanan:** elipsis memberi jeda/bobot; kapitalisasi seperlunya untuk penekanan; tanda baca standar menjaga ritme alami.
+- **Pace:** Speed `1.04` + gaya penulisan naratif dan pemenggalan kalimat; hindari kalimat terlalu panjang/rapat agar tempo tidak terburu-buru.
+- **Pelafalan & normalisasi teks:** tulis angka, satuan, singkatan, dan istilah agar mudah diucap (contoh: `tiga ratus ribu kilometer per detik`, `tiga ratus empat puluh tiga meter per detik`, `sekitar tiga detik`, `satu kilometer`). Untuk kasus khusus, v4 mendukung IPA dibungkus garis miring, mis. `"/.../"` (uji dengan voice terpilih).
+- **Iterasi:** uji phrasing/tag dan pilih hasil terbaik; hasil bisa bervariasi per voice/kalimat.
 
 ## Catatan produksi
 
