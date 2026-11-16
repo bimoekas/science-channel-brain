@@ -10,8 +10,9 @@
 ## Gaya visual & penyampaian (draft — perlu persetujuan)
 
 - **Ekspresif dan relevan:** visual harus membantu menjelaskan ide (ilustrasi, animasi, contoh visual, teks kunci singkat) dan terasa punya karakter, bukan generik.
-- **Kejelasan:** komposisi bersih, fokus pada satu hal penting per momen; teks di layar singkat, kontras, dan mudah dibaca.
-- **Pacing:** ritme potongan/transisi mengikuti narasi dan momen hook–penjelasan–payoff; beri variasi agar dinamis, tetapi tetap mudah diikuti.
+- **Kejelasan:** komposisi bersih, fokus pada satu hal penting per momen.
+- **Caption/subtitle:** wajib ada; sinkron dengan voice/narasi. Teks singkat, kontras, dan mudah dibaca; durasi tampil dan tempo baca mengikuti tempo bicara (tidak terlalu cepat).
+- **Pacing:** ritme potongan/transisi dan pergantian caption mengikuti narasi serta momen hook–penjelasan–payoff; tempo sesuai, tidak terburu-buru, tetapi tetap dinamis dan mudah diikuti.
 - **Konsistensi:** gaya warna, tipografi, dan elemen grafis konsisten agar membangun identitas channel (detail palet/aset: ditentukan kemudian).
 
 ## Hindari (anti "AI slop")
