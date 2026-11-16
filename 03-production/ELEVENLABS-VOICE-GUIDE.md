@@ -7,9 +7,9 @@
 - Durasi target video: 25–60 detik (sesuaikan pace narasi).
 - Audiens: semua umur (universal); penyampaian harus jelas dan aman lintas usia.
 
-## Voice (ditentukan sementara)
+## Voice (rekomendasi awal — perlu konfirmasi di akun ElevenLabs)
 
-- **Selected voice:** Belum dikonfirmasi (segera ditentukan). Kriteria: suara perempuan, terdengar natural dan mampu menyampaikan emosi secara halus.
+- **Selected voice:** **Gadis** (premade/Voice Library ElevenLabs, perempuan, Bahasa Indonesia) — rekomendasi awal: karakter hangat, natural, cocok untuk narasi sains ekspresif. Cari “Gadis” di ElevenLabs dan kunci **voice ID** di akun sebelum produksi. Jika tidak sesuai/tersedia, pilih alternatif suara perempuan Bahasa Indonesia (aksen umum) yang hangat, jelas, dan ekspresif; uji sampel 25–60 dtk.
 - **Language and accent:** Bahasa Indonesia, aksen Indonesia umum (general).
 
 ## Pengaturan & penyampaian (rekomendasi awal — perlu uji & persetujuan)
