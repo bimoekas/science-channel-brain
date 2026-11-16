@@ -13,11 +13,11 @@
 
 ## Positioning
 
-- Channel sains short-form universal yang menyajikan fenomena menarik dengan penjelasan jelas dan ringan, tanpa mengorbankan akurasi.
+- Channel sains short-form universal yang menyajikan fakta dan fenomena sains yang aneh, unik, dan mengejutkan dengan penjelasan jelas dan ringan, tanpa mengorbankan akurasi.
 
 ## Unique value proposition (UVP)
 
-- Satu ide sains per video, dikemas cepat dan mudah dipahami, dengan humor seperlunya dan payoff yang memuaskan.
+- Satu fakta atau ide sains yang aneh/mengejutkan per video, dikemas cepat dan mudah dipahami, dengan humor seperlunya dan payoff yang memuaskan.
 
 ## Brand personality
 
