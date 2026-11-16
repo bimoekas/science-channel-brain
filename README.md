@@ -24,7 +24,7 @@ Menyimpan brand identity, content system, workflow riset, scriptwriting, voice g
 ## Aturan utama
 
 - Akurasi ilmiah adalah fondasi utama.
-- Fokus pada fakta sains yang aneh, unik, atau mengejutkan—bukan sekadar fakta umum—dengan penjelasan tetap akurat dan terverifikasi.
+- Fokus pada fakta sains yang aneh, unik, nyeleneh, atau mengejutkan—bukan sekadar fakta umum—dari berbagai bidang sains (bukan hanya hewan), dengan penjelasan tetap akurat dan terverifikasi.
 - Humor boleh absurd, tetapi penjelasan harus akurat.
 - Bedakan fakta, teori, hipotesis, spekulasi, dan fiksi.
 - Jangan memosisikan channel sebagai komedi murni atau edukasi kering.
