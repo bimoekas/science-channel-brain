@@ -39,7 +39,15 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 3. Ikuti [script template](02-content-system/SCRIPT-TEMPLATE.md).
 4. Gunakan [fact-check checklist](02-content-system/FACT-CHECK-CHECKLIST.md).
 5. Ikuti [ElevenLabs voice guide](03-production/ELEVENLABS-VOICE-GUIDE.md).
-6. Jangan mengubah brand voice tanpa persetujuan.
+6. Kerjakan konten aktif di [`content/current/`](content/current/) (`script.md`, `voiceover.md`, `meta.md`); mulai dari [`content/_templates/`](content/_templates/).
+7. Jangan mengubah brand voice tanpa persetujuan.
+
+## Workflow konten & arsip
+
+- **Aktif:** [`content/current/`](content/current/) = 1 konten yang dikerjakan/akan diupload. `script.md` naskah utama, `voiceover.md` narasi VO, `meta.md` status & tautan platform.
+- **Upload:** catat URL + tanggal TikTok, YouTube Shorts, Instagram Reels di `meta.md`.
+- **Arsip (setelah published di 3 platform):** `git mv content/current content/archive/NNN-<slug>` → buat `content/current/` baru dari `content/_templates/` → tambah baris di [`content/README.md`](content/README.md).
+- Detail alur & indeks: [`content/README.md`](content/README.md).
 
 ## Peta repo
 
@@ -50,7 +58,11 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 - [`02-content-system/FACT-CHECK-CHECKLIST.md`](02-content-system/FACT-CHECK-CHECKLIST.md): pemeriksaan klaim.
 - [`03-production/ELEVENLABS-VOICE-GUIDE.md`](03-production/ELEVENLABS-VOICE-GUIDE.md): panduan voice generation.
 - [`03-production/VIDEO-STYLE-GUIDE.md`](03-production/VIDEO-STYLE-GUIDE.md): panduan gaya visual dan editing.
+- [`content/README.md`](content/README.md): pelacak konten & alur arsip.
+- [`content/current/`](content/current/): konten aktif (`script.md`, `voiceover.md`, `meta.md`).
+- [`content/_templates/`](content/_templates/): template konten baru.
+- [`content/archive/`](content/archive/): konten published (`NNN-<slug>/`).
 
 ## Catatan media
 
-Jangan simpan video final berukuran besar di repo. Simpan di Google Drive atau YouTube unlisted, lalu catat tautan dan status produksi di repo.
+Jangan simpan video/audio final berukuran besar di repo. Simpan di Google Drive atau YouTube unlisted, lalu catat tautan dan status produksi di `content/current/meta.md` (atau `content/archive/.../meta.md`).
