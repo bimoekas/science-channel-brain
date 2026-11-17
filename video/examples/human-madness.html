@@ -1,0 +1,105 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-gray-200);color:var(--npl-black)}
+/* Editorial collage: off-white ground, black type, one hot accent.
+   Deliberately NOT the dark look — pillar identity, shared grammar. */
+#hm-paper{position:absolute;inset:0;background:
+  radial-gradient(900px 700px at 30% 20%,#efece6 0%,#d6d3cc 60%,#bfbbb2 100%)}
+#hm-noise{position:absolute;inset:-40px;opacity:.07;mix-blend-mode:multiply}
+#hm-kick{position:absolute;left:var(--npl-margin);top:250px;color:var(--npl-gray-500)}
+#hm-hero{position:absolute;left:var(--npl-margin);top:300px;width:900px;color:var(--npl-black)}
+#hm-hero .npl-accent{color:var(--npl-human-b)}
+#hm-cut{position:absolute;right:-30px;top:720px;width:520px;height:620px;
+  background:var(--npl-black);clip-path:polygon(12% 0,100% 0,100% 88%,0 100%)}
+#hm-face{position:absolute;right:34px;top:770px;width:420px;height:520px}
+#hm-chip{position:absolute;left:var(--npl-margin);top:980px;display:inline-block;
+  padding:14px 24px;background:var(--npl-human-b);color:#fff;font-family:var(--npl-font-body);
+  font-weight:800;font-size:30px;letter-spacing:.06em;transform:rotate(-2.5deg)}
+#hm-note{position:absolute;left:var(--npl-margin);top:1080px;width:470px;
+  font-family:var(--npl-font-body);font-size:34px;font-weight:500;line-height:1.34;color:#3a3a40}
+#hm-tick{position:absolute;left:var(--npl-margin);top:1296px;display:flex;gap:14px}
+#hm-tick b{display:block;width:22px;height:22px;background:var(--npl-black);opacity:.2}
+#hm-skip{position:absolute;inset:0;pointer-events:none;opacity:0;overflow:hidden}
+</style>
+<div id="root" data-composition-id="hm-example" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="6" data-track-index="1">
+    <div id="hm-paper"></div>
+    <svg id="hm-noise" viewBox="0 0 1160 2000" aria-hidden="true">
+      <filter id="hm-nf"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="9" stitchTiles="stitch"/></filter>
+      <rect width="1160" height="2000" filter="url(#hm-nf)"/>
+    </svg>
+
+    <div id="hm-kick" class="npl-label">HUMAN MADNESS · 02</div>
+
+    <h1 id="hm-hero" class="npl-hero" style="color:#08080a">
+      Otakmu<br><span class="npl-accent" style="font-size:132px">menipu</span><br>matamu.
+    </h1>
+
+    <!-- cut-out figure: silhouette, no real people -->
+    <div id="hm-cut"></div>
+    <svg id="hm-face" viewBox="0 0 420 520" aria-hidden="true">
+      <g fill="#f5f3ef">
+        <path d="M210 40c74 0 118 54 118 124 0 52-20 84-46 104 34 12 56 34 56 62v150H82V330c0-28 22-50 56-62-26-20-46-52-46-104C92 94 136 40 210 40z"/>
+      </g>
+      <g fill="#08080a">
+        <ellipse cx="168" cy="186" rx="13" ry="17"/>
+        <ellipse cx="252" cy="186" rx="13" ry="17"/>
+        <path d="M150 262c40 22 80 22 120 0" fill="none" stroke="#08080a" stroke-width="7" stroke-linecap="round"/>
+      </g>
+      <!-- the illusion: two identical arcs that read as different sizes -->
+      <g fill="none" stroke="#ff4d6d" stroke-width="5">
+        <path d="M120 400c22-40 58-40 80 0"/><path d="M220 400c22-40 58-40 80 0"/>
+      </g>
+    </svg>
+
+    <div id="hm-chip">ILUSI OPTIK</div>
+
+    <p id="hm-note">Otak menebak ukuran dari konteks sekitarnya,
+      bukan dari benda itu sendiri.</p>
+
+    <div id="hm-tick">
+      <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+    </div>
+
+    <div id="hm-skip" class="npl-skip">
+      <div class="npl-skip-band npl-skip-red"></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 6;
+
+  /* Frame 0 strong: headline already placed. */
+  NPL.reveal(tl, "#hm-hero", 0, { y: 16, blur: 6, duration: .45, stagger: .05 });
+
+  /* Collage pieces land with different eases — nothing moves in unison. */
+  tl.fromTo("#hm-cut",{clipPath:"polygon(0 0,0 0,0 100%,0 100%)"},
+    {clipPath:"polygon(12% 0,100% 0,100% 88%,0 100%)",duration:.75,ease:"power3.out"},.25);
+  NPL.enter(tl, "#hm-face", .6, { scale: .92, y: 40, ease: "back.out(1.4)" });
+  tl.fromTo("#hm-chip",{opacity:0,rotation:-9,scale:.8,transformOrigin:"50% 50%"},
+    {opacity:1,rotation:-2.5,scale:1,duration:.5,ease:"elastic.out(1,.5)"},1.1);
+
+  /* Tick marks fill one by one: a beat you can read. */
+  tl.fromTo("#hm-tick b",{opacity:.2,scaleY:.4,transformOrigin:"50% 100%"},
+    {opacity:1,scaleY:1,duration:.18,ease:"power2.out",stagger:.07},1.5);
+
+  NPL.reveal(tl, "#hm-note", 1.9, { y: 20, blur: 6, duration: .45 });
+
+  /* Paper breathes; noise crawls. Keeps the frame alive without motion spam. */
+  tl.fromTo("#hm-paper",{scale:1.02,transformOrigin:"50% 50%"},
+    {scale:1.07,duration:DUR,ease:"sine.inOut"},0);
+  tl.fromTo("#hm-noise",{x:0,y:0},{x:-26,y:-18,duration:DUR,ease:"steps(40)"},0);
+
+  /* One comedic bounce on the chip, used sparingly. */
+  tl.to("#hm-chip",{scale:1.06,duration:.16,ease:"elastic.out(1,.4)",yoyo:true,repeat:1},3.1);
+
+  /* REALITY SKIP once, on the reveal of the illusion. */
+  NPL.realitySkip(tl, { at: 3.9, target: "#hm-face", layer: "#hm-skip", punch: 18 });
+
+  tl.set({},{},DUR);
+  window.__timelines["hm-example"] = tl;
+})();
+</script>
+</template>

@@ -32,15 +32,16 @@ Menyimpan brand identity, content system, workflow riset, scriptwriting, voice g
 
 ## Cara AI menggunakan repo
 
-Untuk membuat ide, script, caption, atau prompt produksi:
+Untuk membuat ide, script, caption, prompt produksi, atau **kode video**:
 
 1. Baca [identitas brand](01-brand/BRAND-IDENTITY.md).
 2. Baca [content pillars](02-content-system/CONTENT-PILLARS.md).
 3. Ikuti [script template](02-content-system/SCRIPT-TEMPLATE.md).
 4. Gunakan [fact-check checklist](02-content-system/FACT-CHECK-CHECKLIST.md).
 5. Ikuti [ElevenLabs voice guide](03-production/ELEVENLABS-VOICE-GUIDE.md).
-6. Kerjakan konten aktif di [`content/current/`](content/current/) (`script.md`, `voiceover.md`, `meta.md`); mulai dari [`content/_templates/`](content/_templates/).
-7. Jangan mengubah brand voice tanpa persetujuan.
+6. Ikuti [video style guide](03-production/VIDEO-STYLE-GUIDE.md) dan [video code guide (HyperFrames)](03-production/VIDEO-CODE-GUIDE.md) saat generate/edit kode video (`video/`).
+7. Kerjakan konten aktif di [`content/current/`](content/current/) (`script.md`, `voiceover.md`, `meta.md`); mulai dari [`content/_templates/`](content/_templates/).
+8. Jangan mengubah brand voice tanpa persetujuan.
 
 ## Workflow konten & arsip
 
@@ -53,12 +54,14 @@ Untuk membuat ide, script, caption, atau prompt produksi:
 ## Peta repo
 
 - [`01-brand/BRAND-IDENTITY.md`](01-brand/BRAND-IDENTITY.md): identitas dan positioning.
+- [`01-brand/BRAND-SYSTEM.md`](01-brand/BRAND-SYSTEM.md): sistem visual & motion (tipografi, caption, logo, Reality Skip, audio, outro) beserta cara memakainya.
 - [`02-content-system/CONTENT-PILLARS.md`](02-content-system/CONTENT-PILLARS.md): pilar konten.
 - [`02-content-system/IDEA-BANK.md`](02-content-system/IDEA-BANK.md): bank ide pilot.
 - [`02-content-system/SCRIPT-TEMPLATE.md`](02-content-system/SCRIPT-TEMPLATE.md): struktur script.
 - [`02-content-system/FACT-CHECK-CHECKLIST.md`](02-content-system/FACT-CHECK-CHECKLIST.md): pemeriksaan klaim.
 - [`03-production/ELEVENLABS-VOICE-GUIDE.md`](03-production/ELEVENLABS-VOICE-GUIDE.md): panduan voice generation.
 - [`03-production/VIDEO-STYLE-GUIDE.md`](03-production/VIDEO-STYLE-GUIDE.md): panduan gaya visual dan editing.
+- [`03-production/VIDEO-CODE-GUIDE.md`](03-production/VIDEO-CODE-GUIDE.md): panduan AI generate kode video HyperFrames (struktur, kontrak, style, 3D, QA).
 - [`content/README.md`](content/README.md): pelacak konten & alur arsip.
 - [`content/current/`](content/current/): konten aktif teks (`script.md`, `voiceover.md`, `meta.md`).
 - [`content/_templates/`](content/_templates/): template konten baru.

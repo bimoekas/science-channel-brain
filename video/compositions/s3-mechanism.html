@@ -1,0 +1,168 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#root .clip{position:absolute;inset:0;pointer-events:none}
+#root *{box-sizing:border-box}
+.t{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance}
+.w{display:inline-block}
+.kick{font-size:32px;font-weight:800;letter-spacing:.2em;color:#ffc857}
+.card{position:absolute;left:60px;width:960px;border-radius:36px;overflow:hidden;background:linear-gradient(135deg,rgba(18,32,58,.82),rgba(7,17,31,.66));border:2px solid rgba(255,255,255,.15);box-shadow:0 30px 90px rgba(0,0,0,.5);backdrop-filter:blur(16px)}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+.ice{background:linear-gradient(90deg,#7fdcff,#fff,#7fdcff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.fire{background:linear-gradient(90deg,#ff7a2f,#ffc857);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(4,9,18,0) 40%,rgba(4,9,18,.8) 100%)}
+.grain{position:absolute;left:-60px;top:-60px;width:1200px;height:2040px;opacity:.09;mix-blend-mode:overlay}
+.hud{position:absolute;left:60px;top:184px;width:960px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:28px;letter-spacing:.18em;color:rgba(244,247,251,.78)}
+.hud i{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff8a3d;margin-right:16px;box-shadow:0 0 18px #ff8a3d}
+.prog{position:absolute;left:60px;top:234px;width:960px;height:5px;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden}
+.prog b{position:absolute;inset:0;background:linear-gradient(90deg,#4cc9f0,#ffc857,#ff8a3d);border-radius:5px}
+.wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#07111f}
+.wipe::after{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+/* scene */
+#s3-bg{position:absolute;inset:0;background:radial-gradient(1000px 900px at 82% 28%,#2b2347 0%,#0e1a35 48%,#050c18 100%)}
+#s3-ti{position:absolute;left:60px;top:276px;width:960px;font-size:62px;line-height:1.06}
+.lab{position:absolute;padding:14px 28px;border-radius:999px;font-size:34px;font-weight:800;background:rgba(5,12,24,.86);letter-spacing:-.01em}
+#s3-l1{left:560px;top:1040px;border:2px solid #e8d36a}
+#s3-l2{left:60px;top:560px;border:2px solid #f4f7fb}
+#s3-ng{position:absolute;left:0;width:1080px;top:520px;text-align:center}
+#s3-num{font-size:210px;line-height:1;display:inline-block;background:linear-gradient(180deg,#fff,#7fdcff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#s3-sub{font-size:92px;line-height:1.05;margin-top:2px}
+#s3-sm{top:1040px;padding:34px 44px 38px 60px;font-size:60px;line-height:1.14}
+</style>
+<div id="root" data-composition-id="s3-mechanism" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="18" data-track-index="1"><div id="s3-bg"></div></div>
+
+  <div class="clip" data-start="0" data-duration="18" data-track-index="2">
+    <svg id="s3-svg" viewBox="0 0 1080 1920" width="1080" height="1920" style="position:absolute;left:0;top:0">
+      <defs>
+        <radialGradient id="s3-sg"><stop offset="0" stop-color="#ffd37a" stop-opacity=".9"/><stop offset=".4" stop-color="#ff9d3d" stop-opacity=".35"/><stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/></radialGradient>
+        <linearGradient id="s3-eg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c4f86"/><stop offset=".25" stop-color="#0f2c52"/><stop offset="1" stop-color="#050c18"/></linearGradient>
+        <radialGradient id="s3-hg"><stop offset="0" stop-color="#e3cf8c" stop-opacity=".85"/><stop offset=".6" stop-color="#bfae7c" stop-opacity=".38"/><stop offset="1" stop-color="#bfae7c" stop-opacity="0"/></radialGradient>
+        <marker id="s3-ma" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ffd37a"/></marker>
+        <marker id="s3-mb" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f4f7fb"/></marker>
+      </defs>
+      <g id="s3-stars"></g>
+      <g id="s3-sun">
+        <circle id="s3-glow" cx="900" cy="600" r="230" fill="url(#s3-sg)"/>
+        <circle cx="900" cy="600" r="72" fill="#ffc857"/>
+      </g>
+      <g id="s3-earth">
+        <path d="M-60 1330 Q540 1130 1140 1330 L1140 1920 L-60 1920 Z" fill="url(#s3-eg)"/>
+        <path d="M-60 1330 Q540 1130 1140 1330" fill="none" stroke="#4cc9f0" stroke-width="4" opacity=".6"/>
+        <polygon points="110,1272 175,1172 225,1172 295,1264" fill="#0c1426"/>
+        <ellipse id="s3-crater" cx="200" cy="1172" rx="22" ry="7" fill="#ff8a3d"/>
+      </g>
+      <g id="s3-haze" opacity="0">
+        <ellipse cx="540" cy="930" rx="580" ry="80" fill="url(#s3-hg)"/>
+        <ellipse id="s3-hz2" cx="470" cy="920" rx="430" ry="62" fill="url(#s3-hg)"/>
+        <ellipse id="s3-hz3" cx="640" cy="945" rx="410" ry="54" fill="url(#s3-hg)"/>
+        <g id="s3-hd"></g>
+      </g>
+      <g id="s3-plume"></g>
+      <g id="s3-tr" fill="none" stroke="#ffd37a" stroke-opacity=".3" stroke-width="3" stroke-dasharray="8 12" stroke-linecap="round">
+        <path class="s3-tr" d="M700 990 L690 1200"/><path class="s3-tr" d="M540 995 L530 1190"/><path class="s3-tr" d="M380 1000 L370 1215"/>
+      </g>
+      <g id="s3-in" fill="none" stroke="#ffd37a" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round">
+        <path class="s3-ray" d="M830 650 L705 895" marker-end="url(#s3-ma)"/><path class="s3-ray" d="M815 640 L545 900" marker-end="url(#s3-ma)"/><path class="s3-ray" d="M800 630 L385 905" marker-end="url(#s3-ma)"/>
+      </g>
+      <g id="s3-out" fill="none" stroke="#f4f7fb" stroke-width="5" stroke-dasharray="12 12" stroke-linecap="round">
+        <path class="s3-rf" d="M700 880 L575 660" marker-end="url(#s3-mb)"/><path class="s3-rf" d="M540 885 L415 665" marker-end="url(#s3-mb)"/><path class="s3-rf" d="M380 890 L255 670" marker-end="url(#s3-mb)"/>
+      </g>
+      <g id="s3-ld" opacity="0"><path d="M758 1036 L758 972" stroke="#e8d36a" stroke-width="3" fill="none"/><circle cx="758" cy="966" r="8" fill="#e8d36a"/></g>
+    </svg>
+  </div>
+
+  <div class="clip" data-start="0.4" data-duration="8.6" data-track-index="3"><div class="t" id="s3-ti">Bagaimana satu gunung bisa <span class="w ice">mendinginkan dunia?</span></div></div>
+  <div class="clip" data-start="3.6" data-duration="5.4" data-track-index="4"><div class="lab t" id="s3-l1">Abu &amp; gas belerang</div></div>
+  <div class="clip" data-start="6.6" data-duration="2.4" data-track-index="5"><div class="lab t" id="s3-l2">Sinar Matahari dipantulkan</div></div>
+
+  <div class="clip" data-start="9.4" data-duration="8.6" data-track-index="6">
+    <svg viewBox="0 0 1080 1920" width="1080" height="1920" style="position:absolute;left:0;top:0">
+      <g id="s3-gauge"><circle cx="540" cy="740" r="340" fill="none" stroke="#4cc9f0" stroke-opacity=".3" stroke-width="6" stroke-dasharray="2 22" stroke-linecap="round"/><circle id="s3-arc" cx="540" cy="740" r="340" fill="none" stroke="#7fdcff" stroke-width="8" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></g>
+    </svg>
+    <div id="s3-ng">
+      <div class="kick t" id="s3-nk">SUHU RATA-RATA GLOBAL</div>
+      <div id="s3-num" class="t">±0,5°C</div>
+      <div id="s3-sub" class="t">lebih dingin</div>
+    </div>
+  </div>
+  <div class="clip" data-start="13.2" data-duration="4.8" data-track-index="7">
+    <div class="card t" id="s3-sm">Kecil? Tapi cuaca jadi <em class="w fire" id="s3-k" style="font-style:normal">KACAU.</em></div>
+  </div>
+
+  <div class="clip" data-start="0" data-duration="18" data-track-index="9">
+    <div class="vig" data-layout-allow-occlusion></div>
+    <svg class="grain" viewBox="0 0 1200 2040"><filter id="s3-gf"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0"/></filter><rect width="1200" height="2040" filter="url(#s3-gf)"/></svg>
+    <div class="hud"><span><i></i>TAMBORA · 1815</span><span>03 / 06</span></div>
+    <div class="prog"><b id="s3-pg"></b></div>
+  </div>
+  <div class="clip" data-start="0" data-duration="0.8" data-track-index="10"><div class="wipe" id="s3-wp"></div></div>
+</div>
+<script>
+(function(){
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 18, $ = i => document.getElementById(i), NS="http://www.w3.org/2000/svg";
+  let seed=5;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const mk=(p,a)=>{const e=document.createElementNS(NS,"circle");for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+  const IN=(s,t,o={})=>tl.fromTo(s,{opacity:0,y:o.y??40,filter:"blur(16px)"},{opacity:1,y:0,filter:"blur(0px)",duration:o.d??.9,ease:"power4.out"},t);
+  const OUT=(s,t,d=.6)=>tl.fromTo(s,{opacity:1},{opacity:0,duration:d,ease:"power2.in",immediateRender:false},t);
+  const loop=(s,a,b,d,t0,ease)=>tl.fromTo(s,a,Object.assign({duration:d,yoyo:true,repeat:Math.max(0,Math.floor((DUR-t0)/d)-1),ease:ease||"sine.inOut"},b),t0);
+
+  tl.fromTo("#s3-pg",{scaleX:20/68.6,transformOrigin:"0% 50%"},{scaleX:38/68.6,duration:DUR,ease:"none"},0);
+  tl.fromTo(".grain",{x:0,y:0},{x:-50,y:-40,duration:DUR,ease:"steps(90)"},0);
+  tl.fromTo("#s3-wp",{x:0},{x:1240,duration:.75,ease:"power4.inOut"},0);
+
+  for(let i=0;i<36;i++){const s=mk($("s3-stars"),{cx:R()*1080,cy:300+R()*580,r:1.4+R()*2.2,fill:"#cfe3ff",opacity:.5});loop(s,{opacity:.2},{opacity:.85},1.2+(i%4)*.4,(i%7)*.2);}
+  for(let i=0;i<48;i++){const a=R()*Math.PI*2,r=Math.sqrt(R());mk($("s3-hd"),{cx:540+Math.cos(a)*r*540,cy:935+Math.sin(a)*r*70,r:2+R()*4,fill:i%3?"#e3cf8c":"#d6d9e2",opacity:.7});}
+  const pl=[],N=24;for(let i=0;i<N;i++)pl.push(mk($("s3-plume"),{cx:200,cy:1165,r:9+R()*9,fill:i%2?"#9aa6b8":"#e8d36a",opacity:0}));
+
+  /* intro */
+  tl.fromTo("#s3-sun",{opacity:0,y:-40},{opacity:1,y:0,duration:1.2,ease:"power3.out"},0);
+  tl.fromTo("#s3-earth",{opacity:0,y:60},{opacity:1,y:0,duration:1.2,ease:"power3.out"},.2);
+  loop("#s3-glow",{scale:1,transformOrigin:"50% 50%"},{scale:1.12},2,0);
+  loop("#s3-crater",{opacity:.4},{opacity:1},.7,1);
+  IN("#s3-ti",.5,{d:1});
+
+  /* plume rises, haze forms */
+  pl.forEach((c,i)=>{
+    const st=1.6+i*.12,tx=-60+(i/(N-1))*780+(R()-.5)*60,ty=-(1165-(930+R()*40));
+    tl.fromTo(c,{x:0,y:0,scale:.3,transformOrigin:"50% 50%"},{x:tx,y:ty,scale:1.1,duration:2.6,ease:"power2.out"},st);
+    tl.fromTo(c,{opacity:0},{opacity:.9,duration:.4},st);
+    tl.fromTo(c,{opacity:.9},{opacity:0,duration:1.2,ease:"power1.in",immediateRender:false},st+2.4);
+  });
+  tl.fromTo("#s3-haze",{opacity:0},{opacity:1,duration:2,ease:"power2.out"},4.4);
+  loop("#s3-hz2",{x:-30},{x:30},4,4.4);
+  loop("#s3-hz3",{x:30},{x:-30},5,4.4);
+
+  /* labels + rays */
+  IN("#s3-l1",3.7,{d:.9,y:30});
+  tl.fromTo("#s3-ld",{opacity:0},{opacity:1,duration:.6},4.2);
+  IN("#s3-l2",6.7,{d:.9,y:30});
+  document.querySelectorAll(".s3-ray").forEach((r,i)=>{
+    tl.fromTo(r,{opacity:0},{opacity:1,duration:.6,ease:"power2.out"},6+i*.25);
+    tl.fromTo(r,{strokeDashoffset:0},{strokeDashoffset:-280,duration:5,ease:"none",repeat:2},6+i*.25);});
+  document.querySelectorAll(".s3-rf").forEach((r,i)=>{
+    tl.fromTo(r,{opacity:0},{opacity:1,duration:.6,ease:"power2.out"},7.2+i*.25);
+    tl.fromTo(r,{strokeDashoffset:0},{strokeDashoffset:-240,duration:5,ease:"none",repeat:2},7.2+i*.25);});
+  document.querySelectorAll(".s3-tr").forEach((r,i)=>tl.fromTo(r,{opacity:0},{opacity:1,duration:.8},7.4+i*.2));
+  OUT("#s3-l1",8.4,.5);OUT("#s3-l2",8.4,.5);OUT("#s3-ti",8.4,.5);OUT("#s3-ld",8.4,.5);
+
+  /* big number */
+  tl.fromTo("#s3-svg",{opacity:1},{opacity:.22,duration:.9,ease:"power2.inOut",immediateRender:false},9.2);
+  tl.fromTo("#s3-nk",{opacity:0,y:24,filter:"blur(10px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.8,ease:"power4.out"},9.5);
+  tl.fromTo("#s3-arc",{strokeDashoffset:1},{strokeDashoffset:.28,duration:2.4,ease:"power3.out"},9.6);
+  loop("#s3-gauge",{rotation:0,svgOrigin:"540 740"},{rotation:20,svgOrigin:"540 740"},8,9.6,"none");
+  tl.fromTo("#s3-num",{opacity:0,scale:1.35,y:20,filter:"blur(22px)",transformOrigin:"50% 50%"},{opacity:1,scale:1,y:0,filter:"blur(0px)",duration:1.1,ease:"power4.out"},9.7);
+  IN("#s3-sub",10.5,{d:.9,y:30});
+  tl.fromTo("#s3-num",{scale:1},{scale:1.03,duration:1.2,yoyo:true,repeat:5,ease:"sine.inOut",immediateRender:false},11.2);
+
+  /* punchline */
+  IN("#s3-sm",13.3,{d:1,y:40});
+  tl.fromTo("#s3-k",{x:-4},{x:4,duration:.06,yoyo:true,repeat:15,ease:"none"},14.4);
+
+  tl.set({},{},DUR);
+  window.__timelines["s3-mechanism"] = tl;
+})();
+</script>
+</template>

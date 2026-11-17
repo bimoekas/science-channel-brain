@@ -1,0 +1,56 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black)}
+#o-bg{position:absolute;inset:0;background:
+  radial-gradient(900px 620px at 18% 22%,#17171c 0%,#08080a 62%,#050506 100%)}
+#o-noise{position:absolute;inset:-30px;opacity:.05}
+#o-wrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--npl-margin)}
+#o-l1{margin:0;font-family:var(--npl-font-display);font-weight:900;letter-spacing:-.045em;line-height:.92;font-size:76px;color:var(--npl-ink)}
+#o-l2{margin:16px 0 0;font-family:var(--npl-font-display);font-weight:800;letter-spacing:-.03em;line-height:.98;font-size:76px;color:var(--npl-gray-300)}
+#o-l2 em{font-style:normal;color:var(--npl-alert)}
+#o-rule{height:3px;width:0;margin-top:34px;background:linear-gradient(90deg,var(--npl-alert),var(--npl-highlight))}
+#o-sym{position:absolute;right:var(--npl-margin);bottom:calc(var(--npl-safe-bottom) - 10px);width:88px;height:88px;opacity:0}
+</style>
+<div id="root" data-composition-id="signature-outro" data-width="1080" data-height="1920">
+  <div class="clip" id="o-stage" data-start="0" data-duration="2.3" data-track-index="1">
+    <div id="o-bg"></div>
+    <svg id="o-noise" viewBox="0 0 1140 1980" aria-hidden="true">
+      <filter id="o-nf"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="21" stitchTiles="stitch"/></filter>
+      <rect width="1140" height="1980" filter="url(#o-nf)"/>
+    </svg>
+    <div id="o-wrap">
+      <h2 id="o-l1">PENTING GA PENTING,</h2>
+      <p id="o-l2">JAWABNYA <em>SERIUS.</em></p>
+      <div id="o-rule"></div>
+    </div>
+    <img id="o-sym" src="assets/brand/logo-symbol.svg" alt="NGGAK PENTING LAB">
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 2.3;
+
+  /* 1 - first line: kinetic type, one block. */
+  tl.fromTo("#o-l1",{opacity:0,y:34,filter:"blur(12px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.42,ease:"power3.out"},0);
+
+  /* 2 - second line: controlled scale overshoot, lands after line one. */
+  tl.fromTo("#o-l2",{opacity:0,y:26,scale:.94,transformOrigin:"0% 50%"},{opacity:1,y:0,scale:1,duration:.4,ease:"back.out(1.4)"},.10);
+
+  /* 3 - brand symbol. */
+  tl.fromTo("#o-sym",{opacity:0,scale:.7,rotation:-12,transformOrigin:"50% 50%"},{opacity:1,scale:1,rotation:0,duration:.36,ease:"back.out(1.7)"},.42);
+
+  /* rule draws under the lockup */
+  tl.fromTo("#o-rule",{width:0},{width:320,duration:.34,ease:"power3.out"},.34);
+
+  /* camera: a slow push, so the hold is not a dead frame. */
+  tl.fromTo("#o-bg",{scale:1.04,transformOrigin:"50% 50%"},{scale:1.12,duration:DUR,ease:"power2.inOut"},0);
+
+  /* 5 - finish cleanly: hold, then a fast confident exit. */
+  tl.fromTo("#o-wrap",{opacity:1},{opacity:0,duration:.18,ease:"power2.in"},DUR-.18);
+  tl.set({},{},DUR);
+
+  window.__timelines["signature-outro"] = tl;
+})();
+</script>
+</template>

@@ -15,6 +15,9 @@ Rujukan: `03-production/ELEVENLABS-VOICE-GUIDE.md` (voice fixed: Gadis - Cheerfu
 ### Payoff
 ...
 
+### Tagline penutup (fixed, jangan diubah)
+Penting ga penting, jawabnya serius.
+
 ## Catatan pelafalan & normalisasi
 
 - Istilah/asing: [cara ucap konsisten]

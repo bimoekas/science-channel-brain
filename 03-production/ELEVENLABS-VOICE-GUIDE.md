@@ -21,6 +21,22 @@
 - **Style Exaggeration:** `0`
 - **Speaker boost:** `On`
 
+## Tagline penutup (fixed)
+
+- Setiap VO diakhiri kalimat tetap: **"Penting ga penting, jawabnya serius."**
+- Teks tidak diparafrase dan tidak diterjemahkan. Jeda satu beat sebelum tagline (elipsis atau baris baru), setelah kalimat closing selesai.
+- Delivery: santai, sedikit jenaka, tidak ditekan keras; tetap jelas dan aman semua umur. Jangan terdengar seperti iklan.
+- Tambahkan ±2,5–3 dtk ke durasi VO. Sesuaikan timing video setelah audio final diukur.
+- Tagline juga muncul di layar sebagai signature outro
+  (`video/compositions/brand/signature-outro.html`), bukan hanya di audio. Keduanya harus
+  sinkron: saat VO tagline selesai direkam, ukur waktu mulainya lalu geser
+  `data-start` host `signature-outro` di `video/index.html` ke titik itu.
+
+**Status audio saat ini:** `video/voiceover.mp3` (68,597 dtk) adalah take **sebelum** tagline
+ditambahkan. Outro di komposisi saat ini berjalan setelah VO selesai (68,6–70,9 dtk) dan
+belum sinkron dengan suara. Setelah VO di-generate ulang dengan tagline, ukur ulang durasi
+dan timing.
+
 ## Penyampaian
 
 - **Pace:** Tempo sedang dan jelas, nyaman untuk semua umur, cukup untuk inti 25–60 detik. Variasikan ritme secara natural (jeda bermakna, penekanan pada momen penting) agar tidak monoton; tempo tidak terburu-buru dan sesuai caption.

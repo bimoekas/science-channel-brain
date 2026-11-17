@@ -15,3 +15,10 @@ snapshots/
 
 # OS
 .DS_Store
+
+# HyperFrames local caches
+**/.thumbnails/
+**/.waveform-cache/
+
+# Local Claude settings/state
+.claude/

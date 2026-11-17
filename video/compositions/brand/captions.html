@@ -1,0 +1,87 @@
+<template>
+<style>
+/* Phrase-level captions. Brand rule: the rail carries only VO lines the scene
+   does not already print in its own typography. This film is built from
+   kinetic type, so the hook, the eruption, the numbers and the closing lines
+   are already on screen; repeating them as subtitles would double every word.
+   What the rail adds is the connective explanation - the part with no card.
+   One group on screen at a time, max two lines, 2-7 words, no word karaoke.
+   Times measured on voiceover.mp3 (68.597 s) with ffmpeg silencedetect at
+   -32 dB / 0.25 s; re-measure when the VO is regenerated. */
+#root{position:absolute;inset:0;pointer-events:none}
+#cap-host{position:absolute;inset:0}
+
+.npl-cap{top:1300px;left:var(--npl-margin);right:var(--npl-margin)}
+.npl-cap .npl-cap-line{
+  background:rgba(6,8,12,.82);
+  border-left:3px solid var(--npl-signal);
+  font-size:42px;
+  line-height:1.14;
+  padding:12px 20px;
+}
+.npl-cap .npl-cap-key{color:var(--npl-highlight)}
+.npl-cap .npl-cap-key.warm{color:var(--npl-alert)}
+</style>
+<div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+  <div class="clip" id="cap-stage" data-start="0" data-duration="68.6" data-track-index="1" data-track-kind="captions">
+    <!-- The rail sits at y 1300, inside the caption band: above the platform's
+         bottom UI, below the scene's own content. Declared intentional so the
+         safe-zone audit does not flag every phrase. -->
+    <div id="cap-host" data-layout-allow-safe-zone>
+
+      <!-- 0-19 s: hook and eruption are printed by s1/s2. Rail stays silent. -->
+
+      <div class="npl-cap" id="cap-01" data-cap-start="19.05" data-cap-duration="1.45">
+        <span class="npl-cap-line" data-layout-allow-caption-zone>Abu dan <em class="npl-cap-key">gas belerang</em></span>
+      </div>
+      <div class="npl-cap" id="cap-02" data-cap-start="20.55" data-cap-duration="1.35">
+        <span class="npl-cap-line">terlontar ke atmosfer.</span>
+      </div>
+      <div class="npl-cap" id="cap-03" data-cap-start="22.35" data-cap-duration="1.60">
+        <span class="npl-cap-line">Jadi lapisan partikel</span>
+      </div>
+      <div class="npl-cap" id="cap-04" data-cap-start="24.00" data-cap-duration="1.55">
+        <span class="npl-cap-line">yang memantulkan<br><em class="npl-cap-key">sinar Matahari</em></span>
+      </div>
+      <div class="npl-cap" id="cap-05" data-cap-start="25.60" data-cap-duration="1.85">
+        <span class="npl-cap-line">kembali ke luar angkasa.</span>
+      </div>
+
+      <!-- 28-32 s prints the ±0,5 C gauge; 34-36 s prints KACAU. Silent. -->
+
+      <div class="npl-cap" id="cap-06" data-cap-start="32.75" data-cap-duration="1.05">
+        <span class="npl-cap-line">Kedengarannya kecil, ya?</span>
+      </div>
+
+      <!-- 37-45 s prints the three effect cards. Silent. -->
+
+      <div class="npl-cap" id="cap-07" data-cap-start="46.50" data-cap-duration="1.20">
+        <span class="npl-cap-line">Dan ini bagian</span>
+      </div>
+      <div class="npl-cap" id="cap-08" data-cap-start="47.75" data-cap-duration="1.20">
+        <span class="npl-cap-line">paling <em class="npl-cap-key">nggak terduga.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-09" data-cap-start="49.60" data-cap-duration="1.50">
+        <span class="npl-cap-line">Di Swiss, sekelompok penulis</span>
+      </div>
+      <div class="npl-cap" id="cap-10" data-cap-start="51.15" data-cap-duration="1.20">
+        <span class="npl-cap-line">terjebak di dalam rumah</span>
+      </div>
+      <div class="npl-cap" id="cap-11" data-cap-start="52.40" data-cap-duration="1.25">
+        <span class="npl-cap-line">karena cuaca suram.</span>
+      </div>
+
+      <!-- 54 s onward: the Shelley card and the closing sentence are printed. -->
+
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  NPL.captions(tl, "#cap-host");
+  tl.set({}, {}, 68.6);
+  window.__timelines["captions"] = tl;
+})();
+</script>
+</template>
