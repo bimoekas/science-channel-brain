@@ -1,0 +1,155 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#root .clip{position:absolute;inset:0;pointer-events:none}
+#root *{box-sizing:border-box}
+.t{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance}
+.w{display:inline-block}
+.kick{font-size:32px;font-weight:800;letter-spacing:.2em;color:#ffc857}
+.card{position:absolute;left:60px;width:960px;border-radius:36px;overflow:hidden;background:linear-gradient(135deg,rgba(18,32,58,.84),rgba(7,17,31,.7));border:2px solid rgba(255,255,255,.15);box-shadow:0 30px 90px rgba(0,0,0,.55);backdrop-filter:blur(16px)}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+.fire{background:linear-gradient(90deg,#ff7a2f,#ffe29a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(4,9,18,0) 40%,rgba(4,9,18,.8) 100%)}
+.grain{position:absolute;left:-60px;top:-60px;width:1200px;height:2040px;opacity:.09;mix-blend-mode:overlay}
+.hud{position:absolute;left:60px;top:184px;width:960px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:28px;letter-spacing:.18em;color:rgba(244,247,251,.78)}
+.hud i{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff8a3d;margin-right:16px;box-shadow:0 0 18px #ff8a3d}
+.prog{position:absolute;left:60px;top:234px;width:960px;height:5px;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden}
+.prog b{position:absolute;inset:0;background:linear-gradient(90deg,#4cc9f0,#ffc857,#ff8a3d);border-radius:5px}
+.wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#07111f}
+.wipe::after{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+/* scene */
+#s5-bg{position:absolute;inset:0;background:radial-gradient(900px 700px at 82% 56%,#4a2a14 0%,#14172b 44%,#050c18 100%)}
+#s5-chip{position:absolute;left:60px;top:276px;width:960px;font-size:96px;line-height:1.02}
+#s5-chip span{color:#7fdcff}
+#s5-card{top:1050px;padding:28px 44px 32px 60px}
+#s5-line{font-size:48px;font-weight:700;color:#cfe3ff;letter-spacing:-.01em}
+#s5-word{font-size:100px;line-height:1.08;display:inline-block}
+#s5-joke{font-size:34px;font-weight:700;color:#aebfdc;margin-top:2px}
+#s5-flash{position:absolute;inset:0;background:radial-gradient(800px 800px at 50% 60%,rgba(255,244,210,.95),rgba(255,200,87,.35) 50%,rgba(255,200,87,0) 78%);opacity:0}
+</style>
+<div id="root" data-composition-id="s5-frankenstein" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="13" data-track-index="1"><div id="s5-bg"></div></div>
+
+  <div class="clip" data-start="0" data-duration="13" data-track-index="2">
+    <svg id="s5-svg" viewBox="0 0 1080 1920" width="1080" height="1920" style="position:absolute;left:0;top:0">
+      <defs>
+        <clipPath id="s5-wc"><rect x="150" y="410" width="780" height="430" rx="10"/></clipPath>
+        <linearGradient id="s5-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070f20"/><stop offset="1" stop-color="#1b2c4d"/></linearGradient>
+        <linearGradient id="s5-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#43291a"/><stop offset="1" stop-color="#150d08"/></linearGradient>
+        <radialGradient id="s5-cg"><stop offset="0" stop-color="#ffd37a" stop-opacity=".9"/><stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/></radialGradient>
+      </defs>
+      <g id="s5-win">
+        <rect x="150" y="410" width="780" height="430" fill="url(#s5-sky)"/>
+        <g clip-path="url(#s5-wc)">
+          <ellipse id="s5-cl1" cx="300" cy="450" rx="270" ry="72" fill="#0a1020" opacity=".92"/>
+          <ellipse id="s5-cl2" cx="720" cy="440" rx="310" ry="82" fill="#0c1426" opacity=".95"/>
+          <polygon points="150,840 150,750 270,660 340,720 470,620 590,740 690,680 800,750 930,700 930,840" fill="#0b1324"/>
+          <rect x="150" y="780" width="780" height="60" fill="#13223f"/>
+          <polygon id="s5-bolt" points="560,410 505,600 555,600 515,790 635,570 580,570 625,410" fill="#fff6cf" opacity="0"/>
+          <g id="s5-rain"></g>
+          <rect id="s5-wf" x="150" y="410" width="780" height="430" fill="#dfe9ff" opacity="0"/>
+        </g>
+        <rect x="150" y="410" width="780" height="430" rx="10" fill="none" stroke="#2a1c13" stroke-width="20"/>
+        <path d="M540 410V840M150 625H930" stroke="#2a1c13" stroke-width="14"/>
+      </g>
+      <rect x="0" y="890" width="1080" height="1030" fill="url(#s5-wood)"/>
+      <path d="M0 890H1080" stroke="#7a4d2d" stroke-width="4" opacity=".7"/>
+      <ellipse id="s5-cglow" cx="880" cy="930" rx="220" ry="140" fill="url(#s5-cg)"/>
+      <rect x="868" y="940" width="24" height="70" rx="6" fill="#e9dfc7"/>
+      <ellipse id="s5-flame" cx="880" cy="924" rx="10" ry="21" fill="#ffb25a"/>
+      <rect x="196" y="946" width="44" height="52" rx="10" fill="#1a1a26"/>
+      <polygon points="270,1010 340,915 740,915 810,1010" fill="#efe6d0"/>
+      <g fill="none" stroke="#3a2a20" stroke-width="5" stroke-linecap="round">
+        <path id="s5-L1" d="M375 940L705 940" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+        <path id="s5-L2" d="M360 962L720 962" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+        <path id="s5-L3" d="M345 984L700 984" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      </g>
+      <g id="s5-q"><g id="s5-qi">
+        <path d="M0 0C30 -30 70 -100 130 -170C112 -105 82 -52 46 -22Z" fill="#f4f7fb" stroke="#bcc7de" stroke-width="3"/>
+        <path d="M0 0L128 -168" stroke="#8b97b3" stroke-width="3"/></g></g>
+    </svg>
+  </div>
+
+  <div class="clip" data-start="0.3" data-duration="12.7" data-track-index="3"><div class="t" id="s5-chip">Swiss, <span>1816</span></div></div>
+
+  <div class="clip" data-start="4.2" data-duration="8.8" data-track-index="4">
+    <div class="card" id="s5-card">
+      <div class="t" id="s5-line">Mary Shelley mulai menulis...</div>
+      <div class="t fire" id="s5-word" style="opacity:0">FRANKENSTEIN</div>
+      <div class="t" id="s5-joke" style="opacity:0">(ya, yang itu)</div>
+    </div>
+  </div>
+
+  <div class="clip" data-start="7.9" data-duration="1.5" data-track-index="5"><div id="s5-flash"></div><svg viewBox="0 0 1080 1920" width="1080" height="1920" style="position:absolute;left:0;top:0"><g id="s5-sp"></g></svg></div>
+
+  <div class="clip" data-start="0" data-duration="13" data-track-index="9">
+    <div class="vig" data-layout-allow-occlusion></div>
+    <svg class="grain" viewBox="0 0 1200 2040"><filter id="s5-gf"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="11" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0"/></filter><rect width="1200" height="2040" filter="url(#s5-gf)"/></svg>
+    <div class="hud"><span><i></i>TAMBORA · 1815</span><span>05 / 06</span></div>
+    <div class="prog"><b id="s5-pg"></b></div>
+  </div>
+  <div class="clip" data-start="0" data-duration="0.8" data-track-index="10"><div class="wipe" id="s5-wp"></div></div>
+</div>
+<script>
+(function(){
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 13, $ = i => document.getElementById(i), NS="http://www.w3.org/2000/svg";
+  let seed=9;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const IN=(s,t,o={})=>tl.fromTo(s,{opacity:0,y:o.y??36,filter:"blur(16px)"},{opacity:1,y:0,filter:"blur(0px)",duration:o.d??.9,ease:"power4.out"},t);
+  const loop=(s,a,b,d,t0,ease)=>tl.fromTo(s,a,Object.assign({duration:d,yoyo:true,repeat:Math.max(0,Math.floor((DUR-t0)/d)-1),ease:ease||"sine.inOut"},b),t0);
+
+  tl.fromTo("#s5-pg",{scaleX:47/68.6,transformOrigin:"0% 50%"},{scaleX:60/68.6,duration:DUR,ease:"none"},0);
+  tl.fromTo(".grain",{x:0,y:0},{x:-50,y:-40,duration:DUR,ease:"steps(65)"},0);
+  tl.fromTo("#s5-wp",{x:0},{x:1240,duration:.75,ease:"power4.inOut"},0);
+
+  /* rain, clouds, lightning, candle */
+  const rg=$("s5-rain");
+  for(let i=0;i<36;i++){const l=document.createElementNS(NS,"line");const x=140+R()*820;l.setAttribute("x1",x);l.setAttribute("y1",370);l.setAttribute("x2",x-14);l.setAttribute("y2",412);l.setAttribute("stroke","#8fb4ff");l.setAttribute("stroke-width","2.5");l.setAttribute("opacity",".55");rg.appendChild(l);
+    const d=.55+R()*.35;tl.fromTo(l,{y:0},{y:520,duration:d,ease:"none",repeat:Math.ceil(DUR/d)},R()*.6);}
+  loop("#s5-cl1",{x:-40},{x:40},5,0);loop("#s5-cl2",{x:40},{x:-40},6,0);
+  [2.6,6,10].forEach(t=>{
+    tl.fromTo("#s5-bolt",{opacity:0},{opacity:1,duration:.08,ease:"none"},t);
+    tl.fromTo("#s5-bolt",{opacity:1},{opacity:0,duration:.35,ease:"power2.in",immediateRender:false},t+.1);
+    tl.fromTo("#s5-wf",{opacity:0},{opacity:.5,duration:.08,ease:"none"},t);
+    tl.fromTo("#s5-wf",{opacity:.5},{opacity:0,duration:.6,ease:"power2.in",immediateRender:false},t+.1);});
+  loop("#s5-flame",{scaleY:.85,scaleX:.95,transformOrigin:"50% 100%"},{scaleY:1.15,scaleX:1.05},.35,0);
+  loop("#s5-cglow",{opacity:.7},{opacity:1},.7,0);
+  tl.fromTo("#s5-svg",{scale:1,transformOrigin:"50% 50%"},{scale:1.05,duration:DUR,ease:"sine.inOut"},0);
+
+  /* chip */
+  tl.fromTo("#s5-chip",{opacity:0,x:-50,filter:"blur(14px)"},{opacity:1,x:0,filter:"blur(0px)",duration:1,ease:"power4.out"},.4);
+
+  /* writing: 3 lines + quill */
+  tl.fromTo("#s5-L1",{strokeDashoffset:1},{strokeDashoffset:0,duration:2.2,ease:"none"},1.2);
+  tl.fromTo("#s5-L2",{strokeDashoffset:1},{strokeDashoffset:0,duration:2.2,ease:"none"},3.6);
+  tl.fromTo("#s5-L3",{strokeDashoffset:1},{strokeDashoffset:0,duration:1.9,ease:"none"},6);
+  tl.fromTo("#s5-q",{x:375,y:940},{x:705,y:940,duration:2.2,ease:"none"},1.2);
+  tl.fromTo("#s5-q",{x:705,y:940},{x:360,y:962,duration:.2,ease:"power2.inOut",immediateRender:false},3.4);
+  tl.fromTo("#s5-q",{x:360,y:962},{x:720,y:962,duration:2.2,ease:"none",immediateRender:false},3.6);
+  tl.fromTo("#s5-q",{x:720,y:962},{x:345,y:984,duration:.2,ease:"power2.inOut",immediateRender:false},5.8);
+  tl.fromTo("#s5-q",{x:345,y:984},{x:700,y:984,duration:1.9,ease:"none",immediateRender:false},6);
+  tl.fromTo("#s5-qi",{rotation:0,svgOrigin:"0 0"},{rotation:-4,svgOrigin:"0 0",duration:.25,yoyo:true,repeat:27,ease:"sine.inOut"},1.2);
+
+  /* caption */
+  IN("#s5-card",4.3,{d:1,y:50});
+  tl.fromTo("#s5-line",{opacity:0,x:-30},{opacity:1,x:0,duration:.8,ease:"power3.out"},4.6);
+
+  /* reveal */
+  const sp=$("s5-sp");
+  for(let i=0;i<14;i++){const c=document.createElementNS(NS,"circle");c.setAttribute("cx",540);c.setAttribute("cy",1160);c.setAttribute("r",5+R()*6);c.setAttribute("fill",i%2?"#ffc857":"#fff2c8");c.setAttribute("opacity",0);sp.appendChild(c);
+    const a=R()*Math.PI*2,d=240+R()*260;
+    tl.fromTo(c,{x:0,y:0,opacity:1},{x:Math.cos(a)*d,y:Math.sin(a)*d*.5-120,opacity:0,duration:.9+R()*.4,ease:"power2.out"},8.05);}
+  tl.fromTo("#s5-win",{opacity:1},{opacity:.4,duration:.6,ease:"power2.out",immediateRender:false},8);
+  tl.fromTo("#s5-flash",{opacity:0},{opacity:.85,duration:.1,ease:"power2.out"},8);
+  tl.fromTo("#s5-flash",{opacity:.85},{opacity:0,duration:.9,ease:"power2.in",immediateRender:false},8.1);
+  tl.fromTo("#s5-word",{opacity:0,scale:1.55,filter:"blur(26px)",transformOrigin:"0% 50%"},{opacity:1,scale:1,filter:"blur(0px)",duration:.6,ease:"power4.out"},8);
+  tl.fromTo("#s5-word",{scale:1},{scale:1.04,duration:.45,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},8.8);
+  tl.fromTo("#s5-svg",{x:0},{x:9,duration:.05,yoyo:true,repeat:9,ease:"none",immediateRender:false},8);
+  IN("#s5-joke",10,{d:.9,y:20});
+
+  tl.set({},{},DUR);
+  window.__timelines["s5-frankenstein"] = tl;
+})();
+</script>
+</template>

@@ -1,0 +1,104 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black)}
+#sf-deep{position:absolute;inset:0;background:
+  linear-gradient(180deg,#0d0a1c 0%,#14102b 42%,#08080a 100%)}
+#sf-horizon{position:absolute;left:-10%;top:58%;width:120%;height:2px;background:
+  linear-gradient(90deg,transparent,var(--npl-scifi-a),transparent);opacity:.7}
+#sf-floor{position:absolute;left:-20%;top:58%;width:140%;height:900px;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(179,156,255,.28) 0 1px,transparent 1px 96px),
+    repeating-linear-gradient(0deg,rgba(179,156,255,.22) 0 1px,transparent 1px 96px);
+  transform:perspective(680px) rotateX(64deg);transform-origin:50% 0}
+#sf-kick{position:absolute;left:var(--npl-margin);top:250px}
+#sf-kick span{color:var(--npl-scifi-a)}
+#sf-hero{position:absolute;left:var(--npl-margin);top:302px;width:940px;font-size:112px}
+#sf-hero .q{color:var(--npl-scifi-b)}
+#sf-ship{position:absolute;left:600px;top:800px;width:400px;height:248px}
+#sf-holo{position:absolute;left:var(--npl-margin);top:1080px;width:760px;
+  border:1px solid rgba(92,242,192,.45);padding:24px 28px;
+  background:linear-gradient(180deg,rgba(92,242,192,.10),rgba(92,242,192,.02))}
+#sf-holo .npl-label{color:var(--npl-scifi-b)}
+#sf-holo p{margin:10px 0 0;font-family:var(--npl-font-body);font-size:33px;
+  font-weight:500;line-height:1.32;color:var(--npl-gray-200)}
+#sf-bars{position:absolute;left:var(--npl-margin);top:1330px;display:flex;gap:10px;align-items:flex-end;height:80px}
+#sf-bars b{display:block;width:14px;background:var(--npl-scifi-a);opacity:.75}
+#sf-skip{position:absolute;inset:0;pointer-events:none;opacity:0;overflow:hidden}
+</style>
+<div id="root" data-composition-id="sf-example" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="6" data-track-index="1">
+    <div id="sf-deep"></div>
+    <div id="sf-floor"></div>
+    <div id="sf-horizon"></div>
+
+    <div id="sf-kick" class="npl-label">SCI-FI PARODY · <span>03</span></div>
+    <h1 id="sf-hero" class="npl-hero">Bisakah kamu<br>dengar ledakan<br>di <span class="q">luar angkasa?</span></h1>
+
+    <svg id="sf-ship" viewBox="0 0 420 260" aria-hidden="true">
+      <defs>
+        <linearGradient id="sf-hull" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#e7e2f7"/><stop offset="1" stop-color="#8d84b8"/>
+        </linearGradient>
+        <radialGradient id="sf-glow"><stop offset="0" stop-color="#5cf2c0" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#5cf2c0" stop-opacity="0"/></radialGradient>
+      </defs>
+      <ellipse cx="210" cy="140" rx="150" ry="46" fill="url(#sf-glow)" opacity=".55"/>
+      <path d="M60 150c40-34 110-52 180-52s126 16 148 40c-30 26-92 44-166 44S96 172 60 150z"
+            fill="url(#sf-hull)"/>
+      <path d="M150 118c22-16 52-24 84-24s58 8 76 22" fill="none" stroke="#5cf2c0" stroke-width="3" opacity=".8"/>
+      <circle cx="286" cy="140" r="16" fill="#14102b" stroke="#5cf2c0" stroke-width="3"/>
+      <circle id="sf-lamp" cx="120" cy="150" r="7" fill="#ffc94a"/>
+    </svg>
+
+    <div id="sf-holo">
+      <div class="npl-label">STATUS · FISIKA</div>
+      <p id="sf-holo-p">Suara butuh medium. Di ruang hampa, tidak ada yang bisa bergetar.</p>
+    </div>
+
+    <div id="sf-bars">
+      <b style="height:30%"></b><b style="height:52%"></b><b style="height:78%"></b>
+      <b style="height:44%"></b><b style="height:66%"></b><b style="height:24%"></b>
+      <b style="height:58%"></b><b style="height:38%"></b>
+    </div>
+
+    <div id="sf-skip" class="npl-skip">
+      <div class="npl-skip-band npl-skip-cyan"></div>
+      <div class="npl-skip-band npl-skip-red" style="opacity:.22"></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 6;
+
+  /* Frame 0: type on screen, horizon already lit. */
+  NPL.reveal(tl, "#sf-hero", 0, { y: 18, blur: 8, duration: .5, stagger: .04 });
+
+  /* Floor runs toward camera: power2.inOut camera move, never a linear slide. */
+  tl.fromTo("#sf-floor",{y:0,scale:1},{y:130,scale:1.18,duration:DUR,ease:"power2.inOut"},0);
+  tl.fromTo("#sf-horizon",{opacity:.4},{opacity:.95,duration:DUR*.6,ease:"sine.inOut"},0);
+
+  /* Ship drifts in, then holds with a slow bob. */
+  NPL.enter(tl, "#sf-ship", .35, { scale: .9, y: 60, ease: "power3.out" });
+  tl.fromTo("#sf-ship",{y:0,rotation:-1.5,transformOrigin:"50% 50%"},
+    {y:-22,rotation:1.5,duration:DUR*.75,ease:"sine.inOut"},.9);
+
+  /* Lamp blinks deterministically. */
+  tl.fromTo("#sf-lamp",{opacity:1},{opacity:.25,duration:.34,ease:"steps(1)",yoyo:true,repeat:7},.6);
+
+  /* Holographic panel: scale overshoot, then equalizer bars animate. */
+  NPL.enter(tl, "#sf-holo", 1.5, { scale: .94, y: 34, ease: "back.out(1.5)" });
+  NPL.reveal(tl, "#sf-holo-p", 1.8, { y: 14, blur: 6, duration: .4 });
+  tl.fromTo("#sf-bars b",{scaleY:.15,transformOrigin:"50% 100%"},
+    {scaleY:1,duration:.42,ease:"power2.out",stagger:.05},1.9);
+  tl.fromTo("#sf-bars b",{opacity:.45},{opacity:.95,duration:.5,ease:"sine.inOut",stagger:{each:.05,from:"center"},yoyo:true,repeat:3},2.6);
+
+  /* REALITY SKIP at the reveal. */
+  NPL.realitySkip(tl, { at: 4.1, target: "#sf-ship", layer: "#sf-skip", punch: 24 });
+
+  tl.set({},{},DUR);
+  window.__timelines["sf-example"] = tl;
+})();
+</script>
+</template>

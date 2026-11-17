@@ -1,0 +1,153 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#root .clip{position:absolute;inset:0;pointer-events:none}
+#root *{box-sizing:border-box}
+.t{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance}
+.w{display:inline-block}
+.kick{font-size:32px;font-weight:800;letter-spacing:.2em;color:#ffc857}
+.card{position:absolute;left:60px;width:960px;border-radius:36px;overflow:hidden;background:linear-gradient(135deg,rgba(18,32,58,.82),rgba(7,17,31,.66));border:2px solid rgba(255,255,255,.15);box-shadow:0 30px 90px rgba(0,0,0,.5);backdrop-filter:blur(16px)}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+.ice{background:linear-gradient(90deg,#7fdcff,#fff,#7fdcff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.fire{background:linear-gradient(90deg,#ff7a2f,#ffc857);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(4,9,18,0) 40%,rgba(4,9,18,.8) 100%)}
+.grain{position:absolute;left:-60px;top:-60px;width:1200px;height:2040px;opacity:.09;mix-blend-mode:overlay}
+.hud{position:absolute;left:60px;top:184px;width:960px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:28px;letter-spacing:.18em;color:rgba(244,247,251,.78)}
+.hud i{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff8a3d;margin-right:16px;box-shadow:0 0 18px #ff8a3d}
+.prog{position:absolute;left:60px;top:234px;width:960px;height:5px;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden}
+.prog b{position:absolute;inset:0;background:linear-gradient(90deg,#4cc9f0,#ffc857,#ff8a3d);border-radius:5px}
+/* scene */
+#s1-bg{position:absolute;inset:0;background:radial-gradient(1200px 1100px at 50% 46%,#16335f 0%,#0b1b36 46%,#050c18 100%)}
+#s1-leak{position:absolute;left:480px;top:980px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,61,.32),rgba(255,138,61,0) 65%);mix-blend-mode:screen}
+#s1-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,18,.92) 0,rgba(4,9,18,.8) 340px,rgba(4,9,18,0) 720px,rgba(4,9,18,0) 1000px,rgba(4,9,18,.85) 1340px)}
+#s1-h{position:absolute;left:60px;top:276px;width:960px}
+#s1-y{font-size:176px;line-height:.92;color:#ffc857;display:block}
+.s1-l{font-size:104px;line-height:1.02;display:block}
+#s1-ul{width:430px;height:10px;border-radius:10px;margin-top:16px;background:linear-gradient(90deg,#7fdcff,#4cc9f0)}
+.pill{position:absolute;left:0;width:1080px;top:900px;text-align:center}
+.pill span{display:inline-block;padding:12px 30px;border-radius:999px;font-size:30px;font-weight:800;letter-spacing:.16em;background:rgba(5,12,24,.84);border:2px solid #4cc9f0;color:#fff}
+#s1-pS span{border-color:#ffc857;color:#ffc857}
+#s1-ln{font-size:46px;font-weight:700;color:#cfe3ff;letter-spacing:-.01em}
+#s1-big{font-size:118px;line-height:1.02}
+#s1-bar{width:300px;height:9px;border-radius:9px;margin-top:10px;background:linear-gradient(90deg,#ff8a3d,#ffc857)}
+.wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#07111f}
+</style>
+<div id="root" data-composition-id="s1-hook" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="9" data-track-index="1">
+    <div id="s1-bg"></div>
+    <div id="s1-leak"></div>
+    <svg viewBox="0 0 1080 1920" width="1080" height="1920" style="position:absolute;left:0;top:0">
+      <defs><linearGradient id="s1-rg" gradientUnits="userSpaceOnUse" x1="950" y1="200" x2="1489" y2="493"><stop offset="0" stop-color="#4cc9f0"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient></defs>
+      <g id="s1-world">
+        <path id="s1-land" fill="none" stroke="#5f8fc4" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/>
+        <path id="s1-eur" fill="none" stroke="#7fdcff" stroke-opacity=".9" stroke-width="4.4" stroke-linecap="round"/>
+        <path id="s1-idnG" fill="none" stroke="#ff8a3d" stroke-opacity=".3" stroke-width="5" stroke-linejoin="round"/>
+        <path id="s1-idn" fill="#e9702f" stroke="#ffb067" stroke-width=".8"/>
+        <path id="s1-sbw" fill="#ffc857" stroke="#fff2c8" stroke-width=".5"/>
+        <path d="M950 200 Q1220 80 1489 493" fill="none" stroke="url(#s1-rg)" stroke-width="1.6" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" id="s1-route"/>
+        <circle id="s1-rE1" cx="950" cy="200" r="5" fill="none" stroke="#4cc9f0" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <circle id="s1-rE2" cx="950" cy="200" r="5" fill="none" stroke="#4cc9f0" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <circle cx="950" cy="200" r="3.2" fill="#4cc9f0"/>
+        <circle id="s1-rS1" cx="1489" cy="493" r="5" fill="none" stroke="#ff8a3d" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <circle id="s1-rS2" cx="1489" cy="493" r="5" fill="none" stroke="#ffc857" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <circle id="s1-rS3" cx="1489" cy="493" r="5" fill="none" stroke="#ff8a3d" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        <circle id="s1-dS" cx="1489" cy="493" r="3.6" fill="#fff2c8"/>
+      </g>
+    </svg>
+    <div id="s1-scrim"></div>
+  </div>
+
+  <div class="clip" data-start="0" data-duration="9" data-track-index="2">
+    <div id="s1-h">
+      <span class="t s1-hw" id="s1-y">1816:</span>
+      <span class="t s1-l s1-hw">EROPA TANPA</span>
+      <span class="t s1-l s1-hw"><span class="w ice">MUSIM</span> <span class="w ice">PANAS</span></span>
+      <div id="s1-ul"></div>
+    </div>
+  </div>
+
+  <div class="clip" data-start="0" data-duration="9" data-track-index="3">
+    <div class="pill" id="s1-pE"><span>EROPA</span></div>
+    <div class="pill" id="s1-pS"><span>SUMBAWA</span></div>
+  </div>
+
+  <div class="clip" data-start="3.2" data-duration="5.8" data-track-index="4">
+    <div class="card" id="s1-c2" style="top:1030px;padding:32px 48px 36px 60px">
+      <div class="t" id="s1-ln">Penyebabnya ada di</div>
+      <div class="t fire" id="s1-big">INDONESIA</div>
+      <div id="s1-bar"></div>
+    </div>
+  </div>
+
+  <div class="clip" data-start="0" data-duration="9" data-track-index="9">
+    <div class="vig" data-layout-allow-occlusion></div>
+    <svg class="grain" viewBox="0 0 1200 2040"><filter id="s1-gf"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0"/></filter><rect width="1200" height="2040" filter="url(#s1-gf)"/></svg>
+    <div class="hud"><span><i></i>TAMBORA · 1815</span><span>01 / 06</span></div>
+    <div class="prog"><b id="s1-pg"></b></div>
+  </div>
+</div>
+<script>
+(function(){
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 9, $ = i => document.getElementById(i);
+
+  /* ---------- dot-matrix world map ---------- */
+  const EUR="-10,36 -9,43 -2,44 -4,48 2,51 8,54 6,58 11,64 18,69 28,71 40,67 60,69 80,73 105,77 130,72 160,69 180,66 180,62 163,58 156,51 142,53 140,46 131,42 129,35 122,40 121,31 118,24 108,21 106,10 100,13 104,1 98,8 94,17 90,22 87,21 80,15 77,8 73,18 68,24 58,25 56,27 50,30 51,24 56,24 59,22 52,16 43,13 35,28 32,31 36,36 28,36 26,40 22,37 19,41 13,45 18,40 16,38 12,42 8,44 3,43 -2,37";
+  const GBR="-5,50 1,51 2,53 -2,56 -5,58 -6,54 -4,52";
+  const AFR="-17,21 -10,35 10,37 32,31 35,28 43,12 51,12 41,-2 40,-15 35,-25 27,-34 18,-34 12,-17 9,-1 9,4 -8,4 -17,14";
+  const NAM="-168,66 -140,70 -110,72 -82,70 -62,60 -56,52 -67,45 -76,38 -81,31 -80,25 -90,29 -97,26 -105,22 -96,16 -83,9 -78,8 -87,14 -105,20 -112,30 -124,40 -125,49 -140,60 -165,60";
+  const SAM="-80,8 -62,10 -50,0 -35,-6 -40,-22 -58,-38 -66,-55 -74,-50 -72,-30 -70,-18 -81,-5";
+  const AUS="114,-22 130,-12 142,-11 153,-26 150,-37 138,-35 115,-34";
+  const GRN="-55,60 -45,60 -20,70 -20,82 -50,83 -70,78";
+  const IDN=["95,5 98,4 106,-3 106,-6 101,-3","105,-6 114,-7 114,-8.5 106,-7.5","109,1 117,7 119,1 116,-4 110,-3","119,0 125,1 122,-4 120,-5","131,-1 141,-3 150,-10 141,-9 134,-4"];
+  const SBW="116.7,-8.3 118.8,-8.2 118.5,-9 117,-8.8";
+  const P=(a,b)=>[(a+180)*5,(90-b)*5];
+  const PG=s=>s.trim().split(/\s+/).map(p=>{const q=p.split(",");return P(+q[0],+q[1]);});
+  const D=g=>"M"+g.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join("L")+"Z";
+  const IS=(x,y,g)=>{let c=false;for(let i=0,j=g.length-1;i<g.length;j=i++){const a=g[i],b=g[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])c=!c;}return c;};
+  const LAND=[EUR,GBR,AFR,NAM,SAM,AUS,GRN].map(PG);
+  let L="",E="";
+  for(let r=0;r<=100;r++){const y=r*9;for(let x=(r%2)*4.5;x<=1800;x+=9){for(let k=0;k<LAND.length;k++){if(IS(x,y,LAND[k])){const lo=x/5-180,la=90-y/5;const eu=(k===0||k===1)&&lo>-11&&lo<35&&la>36;if(eu){E+="M"+x+" "+y+"h.1";}else{L+="M"+x+" "+y+"h.1";}break;}}}}
+  $("s1-land").setAttribute("d",L);$("s1-eur").setAttribute("d",E);
+  const idn=IDN.map(PG).map(D).join("");
+  $("s1-idn").setAttribute("d",idn);$("s1-idnG").setAttribute("d",idn);
+  $("s1-sbw").setAttribute("d",D(PG(SBW)));
+
+  /* ---------- HUD / grain ---------- */
+  tl.fromTo("#s1-pg",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:9/68.6,duration:DUR,ease:"none"},0);
+  tl.fromTo(".grain",{x:0,y:0},{x:-50,y:-40,duration:DUR,ease:"steps(45)"},0);
+  tl.fromTo("#s1-leak",{x:0,y:0,opacity:.7},{x:-160,y:-120,opacity:1,duration:DUR,ease:"sine.inOut"},0);
+
+  /* ---------- headline (visible at frame 0) ---------- */
+  tl.fromTo(".s1-hw",{scale:1.05,transformOrigin:"0% 50%"},{scale:1,duration:2.2,ease:"power3.out"},0);
+  tl.fromTo(".ice",{backgroundPosition:"100% 0%"},{backgroundPosition:"0% 0%",duration:2.4,yoyo:true,repeat:2,ease:"sine.inOut"},.2);
+  tl.fromTo("#s1-ul",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.9,ease:"power4.out"},.5);
+
+  /* ---------- camera: Europe -> Sumbawa ---------- */
+  const EU=[950,200],SB=[1489,493],c0=2.2,c1=3.8,c2=3.86,CX=540,CY=850;
+  tl.fromTo("#s1-world",{x:CX-EU[0]*c0,y:CY-EU[1]*c0,scale:c0,svgOrigin:"0 0"},{x:CX-SB[0]*c1,y:CY-SB[1]*c1,scale:c1,svgOrigin:"0 0",duration:6,ease:"power3.inOut"},1);
+  tl.fromTo("#s1-world",{x:CX-SB[0]*c1,y:CY-SB[1]*c1,scale:c1,svgOrigin:"0 0"},{x:CX-SB[0]*c2,y:CY-SB[1]*c2,scale:c2,svgOrigin:"0 0",duration:2,ease:"sine.inOut",immediateRender:false},7);
+  tl.fromTo("#s1-route",{strokeDashoffset:1},{strokeDashoffset:0,duration:6,ease:"power2.inOut"},1);
+
+  /* pills */
+  tl.fromTo("#s1-pE",{opacity:1,y:0},{opacity:0,y:-26,duration:.6,ease:"power2.in"},1.3);
+  tl.fromTo("#s1-pS",{opacity:0,y:30,filter:"blur(12px)"},{opacity:1,y:0,filter:"blur(0px)",duration:.9,ease:"power4.out"},6.3);
+
+  /* pulses */
+  [["#s1-rE1",0],["#s1-rE2",.9]].forEach(a=>tl.fromTo(a[0],{scale:.6,opacity:.9,transformOrigin:"50% 50%"},{scale:5,opacity:0,duration:1.4,ease:"power1.out"},a[1]));
+  tl.fromTo("#s1-dS",{scale:.1,opacity:0,transformOrigin:"50% 50%"},{scale:1,opacity:1,duration:.6,ease:"back.out(2)"},5.6);
+  [["#s1-rS1",6],["#s1-rS2",6.7],["#s1-rS3",7.4]].forEach(a=>tl.fromTo(a[0],{scale:.6,opacity:.95,transformOrigin:"50% 50%"},{scale:7,opacity:0,duration:1.2,ease:"power1.out"},a[1]));
+
+  /* ---------- card ---------- */
+  tl.fromTo("#s1-c2",{opacity:0,y:70,filter:"blur(16px)"},{opacity:1,y:0,filter:"blur(0px)",duration:1,ease:"power4.out"},3.3);
+  tl.fromTo("#s1-ln",{opacity:0,x:-30},{opacity:1,x:0,duration:.8,ease:"power3.out"},3.6);
+  tl.fromTo("#s1-big",{opacity:0,scale:.86,y:24,filter:"blur(18px)",transformOrigin:"0% 50%"},{opacity:1,scale:1,y:0,filter:"blur(0px)",duration:1,ease:"power4.out"},3.9);
+  tl.fromTo("#s1-bar",{scaleX:0,transformOrigin:"0% 50%"},{scaleX:1,duration:.8,ease:"power3.out"},4.6);
+  tl.fromTo("#s1-big",{scale:1},{scale:1.03,duration:1.1,yoyo:true,repeat:3,ease:"sine.inOut",immediateRender:false},5.2);
+
+  tl.set({},{},DUR);
+  window.__timelines["s1-hook"] = tl;
+})();
+</script>
+</template>

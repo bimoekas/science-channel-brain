@@ -1,0 +1,132 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black)}
+#eg-sky{position:absolute;inset:0;background:
+  radial-gradient(1200px 900px at 62% 34%,#1b3d63 0%,#0b1b30 46%,#08080a 100%)}
+#eg-scan{position:absolute;inset:0;opacity:.16;mix-blend-mode:screen}
+#eg-grid{position:absolute;left:-80px;top:520px;width:1240px;height:1240px;opacity:.22}
+#eg-globe{position:absolute;left:300px;top:470px;width:480px;height:480px}
+#eg-rim{position:absolute;left:286px;top:456px;width:508px;height:508px;border-radius:50%;
+  background:radial-gradient(circle,rgba(126,212,255,.22) 55%,rgba(126,212,255,0) 72%)}
+#eg-arc{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#eg-kick{position:absolute;left:var(--npl-margin);top:250px}
+#eg-kick span{color:var(--npl-signal)}
+#eg-hero{position:absolute;left:var(--npl-margin);top:305px;width:820px}
+#eg-num{position:absolute;right:var(--npl-margin);top:600px;text-align:right}
+#eg-num b{display:block;font-family:var(--npl-font-display);font-weight:900;font-size:150px;
+  line-height:.85;letter-spacing:-.05em;color:var(--npl-alert)}
+#eg-num i{display:block;margin-top:26px;font-style:normal}
+#eg-note{position:absolute;left:var(--npl-margin);top:1120px;width:640px;font-family:var(--npl-font-body);
+  font-size:34px;font-weight:500;line-height:1.34;color:var(--npl-gray-300)}
+#eg-skip{position:absolute;inset:0;pointer-events:none;opacity:0;overflow:hidden}
+</style>
+<div id="root" data-composition-id="eg-example" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="6" data-track-index="1">
+    <div id="eg-sky"></div>
+
+    <svg id="eg-scan" viewBox="0 0 1080 1920" aria-hidden="true">
+      <defs><pattern id="eg-lines" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="8" height="1" fill="#7ed4ff"/></pattern></defs>
+      <rect width="1080" height="1920" fill="url(#eg-lines)"/>
+    </svg>
+
+    <svg id="eg-grid" viewBox="0 0 1000 1000" aria-hidden="true">
+      <g fill="none" stroke="#7ed4ff" stroke-opacity=".30" stroke-width="1.4">
+        <circle cx="500" cy="500" r="180"/><circle cx="500" cy="500" r="300"/>
+        <circle cx="500" cy="500" r="420"/>
+        <path d="M80 500h840M500 80v840"/>
+      </g>
+    </svg>
+
+    <div id="eg-rim"></div>
+    <svg id="eg-globe" viewBox="0 0 480 480" aria-hidden="true">
+      <defs>
+        <radialGradient id="eg-fill" cx="38%" cy="30%">
+          <stop offset="0" stop-color="#1f4f7a"/><stop offset="1" stop-color="#080d16"/>
+        </radialGradient>
+        <clipPath id="eg-clip"><circle cx="240" cy="240" r="212"/></clipPath>
+      </defs>
+      <circle cx="240" cy="240" r="212" fill="url(#eg-fill)" stroke="#7ed4ff" stroke-opacity=".5" stroke-width="2"/>
+      <g clip-path="url(#eg-clip)" fill="none" stroke="#7ed4ff" stroke-opacity=".32" stroke-width="1.6">
+        <ellipse cx="240" cy="240" rx="212" ry="74"/>
+        <ellipse cx="240" cy="240" rx="212" ry="150"/>
+        <ellipse cx="240" cy="240" rx="74" ry="212"/>
+        <ellipse cx="240" cy="240" rx="150" ry="212"/>
+      </g>
+      <!-- sulphur veil: the actual mechanism, drawn as a band, not a card -->
+      <g clip-path="url(#eg-clip)" id="eg-veil">
+        <path d="M0 210c120-46 240 40 360-6s180-30 260 10v90c-90-40-190-24-280 14s-210 40-340-8z"
+              fill="#ff5a2f" fill-opacity=".28"/>
+      </g>
+      <g clip-path="url(#eg-clip)" id="eg-veil2">
+        <path d="M0 286c130 38 230-26 350 6s190 44 270 4v70c-90 40-200 24-300-8s-200-28-320 12z"
+              fill="#ffc94a" fill-opacity=".16"/>
+      </g>
+    </svg>
+
+    <svg id="eg-arc" viewBox="0 0 1080 1920" aria-hidden="true">
+      <path id="eg-ray" d="M540 700 C 470 420, 610 300, 700 150"
+            fill="none" stroke="#ffc94a" stroke-width="3" stroke-opacity=".7"
+            stroke-dasharray="9 13" pathLength="1" stroke-dashoffset="1"/>
+      <circle id="eg-dot" cx="700" cy="150" r="7" fill="#ffc94a"/>
+    </svg>
+
+    <div id="eg-kick" class="npl-label">EARTH GLITCH · <span>01</span></div>
+    <h1 id="eg-hero" class="npl-hero">Tahun tanpa<br>musim panas.</h1>
+
+    <div id="eg-num">
+      <b>1816</b>
+      <i class="npl-label">SUMBAWA · 1815</i>
+    </div>
+
+    <p id="eg-note">Gas belerang naik ke stratosfer, memantulkan sinar
+      Matahari, dan menurunkan suhu global.</p>
+
+    <div id="eg-skip" class="npl-skip">
+      <div class="npl-skip-band npl-skip-red"></div>
+      <div class="npl-skip-band npl-skip-cyan" style="opacity:.3"></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 6;
+
+  /* Frame 0 is strong: hero type is already on screen. */
+  NPL.reveal(tl, "#eg-hero", 0, { y: 18, blur: 8, duration: .5 });
+
+  /* Camera: slow push on the globe, power2.inOut. */
+  tl.fromTo("#eg-globe",{scale:1.04,rotation:-3,transformOrigin:"50% 50%"},
+    {scale:1.14,rotation:2,duration:DUR,ease:"power2.inOut"},0);
+  tl.fromTo("#eg-rim",{scale:.9,opacity:.5,transformOrigin:"50% 50%"},
+    {scale:1.2,opacity:.95,duration:DUR,ease:"sine.inOut"},0);
+
+  /* Continuous micro-motion: scanlines and grid never freeze. */
+  tl.fromTo("#eg-scan",{y:0},{y:32,duration:DUR,ease:"none"},0);
+  tl.fromTo("#eg-grid",{rotation:0,svgOrigin:"500 500"},{rotation:9,duration:DUR,ease:"none"},0);
+
+  /* Mechanism: sulphur veil drifts across the sphere. */
+  tl.fromTo("#eg-veil",{y:-60,opacity:.4},{y:70,opacity:.85,duration:DUR,ease:"sine.inOut"},0);
+  tl.fromTo("#eg-veil2",{y:40,opacity:.2},{y:-50,opacity:.6,duration:DUR*.8,ease:"sine.inOut"},.3);
+
+  /* The number lands, then the year counter reads as a data point. */
+  NPL.enter(tl, "#eg-num b", .55, { scale: .8, y: 24, ease: "back.out(1.4)" });
+  NPL.reveal(tl, "#eg-num i", .9, { y: 12, blur: 4, duration: .4 });
+
+  /* Note arrives late, bottom-left, asymmetric. */
+  NPL.reveal(tl, "#eg-note", 1.6, { y: 22, blur: 8, duration: .5 });
+
+  /* Ray: the energy path leaving the planet. */
+  tl.fromTo("#eg-ray",{strokeDashoffset:1},{strokeDashoffset:0,duration:2.2,ease:"power2.inOut"},2.1);
+  tl.fromTo("#eg-dot",{scale:0,opacity:0,transformOrigin:"50% 50%"},
+    {scale:1,opacity:1,duration:.4,ease:"back.out(2)"},2.9);
+
+  /* REALITY SKIP, once, at the payoff. */
+  NPL.realitySkip(tl, { at: 4.3, target: "#eg-globe", layer: "#eg-skip", punch: 22 });
+
+  tl.set({},{},DUR);
+  window.__timelines["eg-example"] = tl;
+})();
+</script>
+</template>
