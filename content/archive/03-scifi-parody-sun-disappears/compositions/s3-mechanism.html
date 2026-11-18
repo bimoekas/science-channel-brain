@@ -1,0 +1,82 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#f59e0b;border-radius:30px;color:#1c1917;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#b45309;border:3px solid #fef3c7;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#050811;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;position:relative}
+
+/* Orbit Simulation SVG */
+#orbit-svg{position:absolute;inset:0;width:100%;height:100%}
+
+#speed-badge{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);background:#1e293b;border:3px solid #facc15;border-radius:20px;padding:12px 32px;font-size:28px;font-weight:900;color:#facc15;text-align:center}
+</style>
+
+<div id="root" data-composition-id="s3-mechanism" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="12.65" data-track-index="1">
+    <div id="top-badge">BATAS KECEPATAN SEMESTA</div>
+    <div id="title-banner"><h2>KECEPATAN CAHAYA & GRAVITASI</h2></div>
+
+    <div id="stage-card">
+      <svg id="orbit-svg" viewBox="0 0 900 900">
+        <!-- Jalur Pancaran Cahaya Gelombang -->
+        <line x1="200" y1="450" x2="700" y2="450" stroke="#facc15" stroke-width="6" stroke-dasharray="16 12"/>
+
+        <!-- Paket Cahaya Fotone Berjalan Melintasi Ruang -->
+        <g id="photon-packet" transform="translate(200, 450)">
+          <circle cx="0" cy="0" r="16" fill="#facc15" filter="drop-shadow(0 0 15px #facc15)"/>
+          <circle cx="-25" cy="0" r="10" fill="#facc15" opacity="0.6"/>
+          <circle cx="-45" cy="0" r="6" fill="#facc15" opacity="0.3"/>
+        </g>
+
+        <!-- Titik Matahari (Kiri) -->
+        <g transform="translate(160, 450)">
+          <circle r="70" fill="#ea580c" stroke="#facc15" stroke-width="8"/>
+          <text x="0" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#facc15">MATAHARI</text>
+        </g>
+
+        <!-- Titik Bumi (Kanan) -->
+        <g transform="translate(740, 450)">
+          <circle r="45" fill="#0284c7" stroke="#38bdf8" stroke-width="6"/>
+          <text x="0" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#38bdf8">BUMI</text>
+        </g>
+      </svg>
+
+      <div id="speed-badge">⚡ KECEPATAN: 300.000 KM/DETIK</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 12.65;
+
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+
+  // Paket cahaya meluncur dari Matahari ke Bumi berulang kali
+  tl.fromTo("#photon-packet", 
+    { x: 220 }, 
+    { x: 700, duration: 2.2, repeat: 4, ease: "none" }, 
+    0.6
+  );
+
+  // Kata "300.000 KM/DETIK" di detik 3.41 scene (~31.34s film)
+  tl.fromTo("#speed-badge", {scale:0.7, opacity:0}, {scale:1, opacity:1, duration:0.4, ease:"back.out(2)"}, 3.4);
+
+  // Kata "8 MENIT 20 DETIK" (detik 6.77 scene, ~34.70s film) -> ganti teks badge
+  tl.call(() => {
+    const b = document.getElementById("speed-badge");
+    b.innerText = "⏱️ PERJALANAN: 8 MENIT 20 DETIK";
+    b.style.borderColor = "#38bdf8";
+    b.style.color = "#38bdf8";
+  }, null, 6.7);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s3-mechanism"] = tl;
+})();
+</script>
+</template>

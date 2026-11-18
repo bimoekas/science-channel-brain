@@ -1,0 +1,31 @@
+<template>
+<style>
+/* Brand watermark: one vertical rail on the right edge, mounted once at the
+   root so no scene duplicates it. It sits outside the 90px content margin
+   (x 1033-1059), so it never touches cards, type or captions. */
+#root{position:absolute;inset:0;pointer-events:none}
+#wm{position:absolute;right:34px;top:50%;
+  transform:translateY(-50%) rotate(90deg);transform-origin:100% 50%;
+  display:flex;align-items:center;gap:13px;opacity:0}
+#wm img{display:block;width:auto}
+#wm .s{height:30px}
+#wm .w{height:27px}
+</style>
+<div id="root" data-composition-id="watermark" data-width="1080" data-height="1920">
+  <div class="clip" id="wm-stage" data-start="0" data-duration="80.62" data-track-index="1">
+    <div id="wm" data-layout-allow-safe-zone>
+      <img class="s" src="assets/brand/logo-symbol.svg" alt="">
+      <img class="w" src="assets/brand/logo-wordmark-compact.svg" alt="NGGAK PENTING LAB">
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  /* Fades in once the hook has landed and holds at a low, readable weight. */
+  tl.fromTo("#wm", { opacity: 0 }, { opacity: .34, duration: .7, ease: "power2.out" }, 1.4);
+  tl.set({}, {}, 80.62);
+  window.__timelines["watermark"] = tl;
+})();
+</script>
+</template>

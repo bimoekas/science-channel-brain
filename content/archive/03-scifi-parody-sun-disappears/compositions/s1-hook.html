@@ -1,0 +1,111 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+
+/* ---------------- THUMBNAIL (Detik 0.0 - 0.5s) ---------------- */
+#thumbnail-frame{position:absolute;inset:0;z-index:999;background:#090d16;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#thumb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:contrast(1.2) brightness(0.8)}
+#thumb-badge{position:relative;z-index:2;background:#f59e0b;padding:12px 36px;border-radius:40px;color:#1c1917;font-size:32px;font-weight:900;letter-spacing:0.1em;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+#thumb-headline{position:relative;z-index:2;margin-top:30px;font-size:70px;font-weight:900;line-height:1.05;text-align:center;color:#ffffff;text-transform:uppercase;text-shadow:0 8px 30px rgba(0,0,0,0.9);letter-spacing:-0.03em}
+#thumb-headline em{font-style:normal;color:#facc15}
+#thumb-photo-wrap{position:relative;z-index:2;margin-top:40px;width:760px;height:520px;border-radius:32px;overflow:hidden;border:6px solid #facc15;box-shadow:0 25px 60px rgba(0,0,0,0.9)}
+#thumb-photo-wrap img{width:100%;height:100%;object-fit:cover}
+#thumb-sticker{position:absolute;right:30px;bottom:30px;background:#ef4444;color:#ffffff;padding:12px 28px;border-radius:20px;font-size:34px;font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,0.6);transform:rotate(-6deg)}
+
+/* ---------------- SCENE 1 MAIN CONTENT ---------------- */
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#f59e0b;border-radius:30px;color:#1c1917;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:760px;padding:20px;background:#b45309;border:3px solid #fef3c7;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h1{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;position:relative}
+
+/* Sun & Space Visual */
+#space-sky{position:absolute;inset:0;background:#050811}
+#sun-nasa-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;object-fit:cover;border-radius:50%;box-shadow:0 0 100px #f59e0b}
+#delete-cross{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:360px;height:360px;opacity:0}
+
+/* Animated Cartoon Character (ClaudeAnimationBase Style) */
+#char-svg{position:absolute;left:80px;bottom:40px;width:240px;height:320px}
+</style>
+
+<div id="root" data-composition-id="s1-hook" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="14.92" data-track-index="1">
+    
+    <!-- Thumbnail Frame (Detik 0.0 - 0.35s) -->
+    <div id="thumbnail-frame">
+      <img id="thumb-bg" src="assets/images/sun-nasa.jpg" alt="">
+      <div id="thumb-badge">☀️ SKENARIO SCI-FI</div>
+      <h2 id="thumb-headline">KALAU MATAHARI<br>TIBA-TIBA <em>HILANG?!</em></h2>
+      <div id="thumb-photo-wrap">
+        <img src="assets/images/sun-nasa.jpg" alt="Matahari NASA">
+        <div id="thumb-sticker">ADA JEDA 8 MENIT!</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="top-badge">FISIKA ANTARIKSA</div>
+    <div id="title-banner"><h1>MATAHARI TIBA-TIBA DI-DELETE?!</h1></div>
+
+    <div id="stage-card">
+      <div id="space-sky">
+        <img id="sun-nasa-img" src="assets/images/sun-nasa.jpg" alt="Matahari">
+        
+        <!-- Tanda X Delete Merah -->
+        <svg id="delete-cross" viewBox="0 0 100 100">
+          <line x1="15" y1="15" x2="85" y2="85" stroke="#ef4444" stroke-width="16" stroke-linecap="round"/>
+          <line x1="85" y1="15" x2="15" y2="85" stroke="#ef4444" stroke-width="16" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Karakter 2D Ekspresif Panik / Kaget -->
+        <svg id="char-svg" viewBox="0 0 100 140">
+          <!-- Badan -->
+          <rect x="25" y="70" width="50" height="55" rx="14" fill="#3b82f6" stroke="#ffffff" stroke-width="4"/>
+          <!-- Tangan Kiri Panik ke Atas -->
+          <path id="arm-l" d="M25 80 Q10 50 15 35" stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <!-- Tangan Kanan Panik ke Atas -->
+          <path id="arm-r" d="M75 80 Q90 50 85 35" stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <!-- Kepala -->
+          <circle cx="50" cy="45" r="28" fill="#fed7aa" stroke="#ffffff" stroke-width="4"/>
+          <!-- Mata Kaget Bulat Lebar -->
+          <circle cx="40" cy="42" r="7" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+          <circle cx="40" cy="42" r="3" fill="#1e293b"/>
+          <circle cx="60" cy="42" r="7" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+          <circle cx="60" cy="42" r="3" fill="#1e293b"/>
+          <!-- Mulut Menganga Kaget (O-shape) -->
+          <ellipse id="char-mouth" cx="50" cy="58" rx="8" ry="10" fill="#1e293b"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 14.92;
+
+  tl.to("#thumbnail-frame", {opacity:0, duration:0.35, ease:"power2.out"}, 0.3);
+  tl.set("#thumbnail-frame", {display:"none"}, 0.65);
+
+  tl.fromTo("#stage-card", {scale:0.95, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.35);
+  tl.fromTo("#title-banner", {y:-30, opacity:0}, {y:0, opacity:1, duration:0.4, ease:"power2.out"}, 0.4);
+
+  // Karakter bergerak panik
+  tl.to("#char-svg", {y:-15, repeat:10, yoyo:true, duration:0.25, ease:"sine.inOut"}, 1.0);
+
+  // Kata "LENYAP DI-DELETE" di detik 3.98
+  tl.fromTo("#delete-cross", {scale:2, opacity:0}, {scale:1, opacity:1, duration:0.4, ease:"elastic.out(1, 0.4)"}, 3.98);
+  tl.to("#sun-nasa-img", {scale:0, opacity:0, duration:0.5, ease:"power2.in"}, 4.4);
+
+  // Kata "TAPI FAKTANYA NGGAK BEGITU" di detik 12.23 -> Matahari balik lagi bersinar
+  tl.to("#delete-cross", {opacity:0, duration:0.2}, 12.0);
+  tl.to("#sun-nasa-img", {scale:1, opacity:1, duration:0.6, ease:"back.out(1.5)"}, 12.2);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s1-hook"] = tl;
+})();
+</script>
+</template>

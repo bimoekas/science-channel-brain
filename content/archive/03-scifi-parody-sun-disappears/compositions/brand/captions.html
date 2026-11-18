@@ -1,0 +1,77 @@
+<template>
+<style>
+#root{position:absolute;inset:0;pointer-events:none}
+#cap-host{position:absolute;inset:0;display:flex;justify-content:center}
+.npl-cap{
+  position:absolute;
+  left:0;
+  right:0;
+  top:1360px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.npl-cap-pill{
+  display:inline-block;
+  padding:14px 28px;
+  background:#090d16;
+  border:2.5px solid #1e293b;
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.7);
+  max-width:880px;
+}
+.npl-cap-line{
+  display:inline-block;
+  font-family:Inter,system-ui,sans-serif;
+  font-size:36px;
+  font-weight:800;
+  line-height:1.3;
+  letter-spacing:-0.01em;
+  color:#ffffff;
+  text-align:center;
+  text-wrap:balance;
+}
+.npl-cap-line em{
+  font-style:normal;
+  color:#38bdf8;
+  font-weight:900;
+}
+.npl-cap-line b{
+  font-weight:900;
+  color:#facc15;
+}
+</style>
+<div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+  <div class="clip" id="cap-stage" data-start="0" data-duration="58" data-track-index="1" data-track-kind="captions">
+    <div id="cap-host" data-layout-allow-safe-zone>
+      <div class="npl-cap" id="cap-01" data-cap-start="0.30" data-cap-duration="3.50"><div class="npl-cap-pill"><span class="npl-cap-line">Bayangin kamu lagi asyik santai di luar...</span></div></div>
+      <div class="npl-cap" id="cap-02" data-cap-start="3.98" data-cap-duration="2.80"><div class="npl-cap-pill"><span class="npl-cap-line">tiba-tiba... <b>Matahari lenyap di-delete!</b></span></div></div>
+      <div class="npl-cap" id="cap-03" data-cap-start="6.92" data-cap-duration="4.70"><div class="npl-cap-pill"><span class="npl-cap-line">Di film fiksi ilmiah, Bumi biasanya langsung gelap gulita.</span></div></div>
+      <div class="npl-cap" id="cap-04" data-cap-start="12.23" data-cap-duration="2.65"><div class="npl-cap-pill"><span class="npl-cap-line">Tapi faktanya... <em>NGGAK BEGITU!</em></span></div></div>
+      <div class="npl-cap" id="cap-05" data-cap-start="14.92" data-cap-duration="2.75"><div class="npl-cap-pill"><span class="npl-cap-line">Kamu masih punya waktu sekitar <b>8 MENIT</b>...</span></div></div>
+      <div class="npl-cap" id="cap-06" data-cap-start="17.71" data-cap-duration="2.70"><div class="npl-cap-pill"><span class="npl-cap-line">sebelum sadar Matahari beneran hilang!</span></div></div>
+      <div class="npl-cap" id="cap-07" data-cap-start="20.45" data-cap-duration="4.35"><div class="npl-cap-pill"><span class="npl-cap-line">Kok bisa? Karena jaraknya luar biasa jauh:</span></div></div>
+      <div class="npl-cap" id="cap-08" data-cap-start="24.80" data-cap-duration="3.10"><div class="npl-cap-pill"><span class="npl-cap-line">sekitar <em>150 JUTA KILOMETER!</em></span></div></div>
+      <div class="npl-cap" id="cap-09" data-cap-start="27.93" data-cap-duration="3.40"><div class="npl-cap-pill"><span class="npl-cap-line">Cahaya dan gravitasi merambat dengan batas kecepatan:</span></div></div>
+      <div class="npl-cap" id="cap-10" data-cap-start="31.34" data-cap-duration="3.00"><div class="npl-cap-pill"><span class="npl-cap-line"><b>300.000 kilometer per detik.</b></span></div></div>
+      <div class="npl-cap" id="cap-11" data-cap-start="34.70" data-cap-duration="3.55"><div class="npl-cap-pill"><span class="npl-cap-line">Butuh waktu <b>8 menit 20 detik</b> bagi cahaya terakhir...</span></div></div>
+      <div class="npl-cap" id="cap-12" data-cap-start="38.28" data-cap-duration="2.30"><div class="npl-cap-pill"><span class="npl-cap-line">untuk sampai ke mata kamu.</span></div></div>
+      <div class="npl-cap" id="cap-13" data-cap-start="40.58" data-cap-duration="3.30"><div class="npl-cap-pill"><span class="npl-cap-line">Selama 8 menit itu, Bumi masih <em>terang benderang</em>...</span></div></div>
+      <div class="npl-cap" id="cap-14" data-cap-start="43.88" data-cap-duration="3.80"><div class="npl-cap-pill"><span class="npl-cap-line">dan tetap mengorbit normal sebelum jadi malam abadi!</span></div></div>
+      <div class="npl-cap" id="cap-15" data-cap-start="47.73" data-cap-duration="3.30"><div class="npl-cap-pill"><span class="npl-cap-line">Tenang, setidaknya kamu masih sempat nyelesaiin...</span></div></div>
+      <div class="npl-cap" id="cap-16" data-cap-start="51.04" data-cap-duration="3.85"><div class="npl-cap-pill"><span class="npl-cap-line">satu lagu di playlist kamu! 🎧</span></div></div>
+      <div class="npl-cap" id="cap-17" data-cap-start="54.93" data-cap-duration="2.70"><div class="npl-cap-pill"><span class="npl-cap-line">Penting ga penting... <b>jawabnya serius.</b></span></div></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  NPL.captions(tl, "#cap-host");
+  tl.set({}, {}, 58);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["captions"] = tl;
+})();
+</script>
+</template>

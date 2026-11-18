@@ -1,0 +1,64 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#38bdf8;border-radius:30px;color:#083344;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#0284c7;border:3px solid #e0f2fe;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:48px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:40px 30px;box-sizing:border-box;position:relative}
+
+/* Stopwatch Timer Besar */
+#stopwatch-box{margin-top:20px;width:340px;height:340px;border-radius:50%;background:#0f172a;border:10px solid #38bdf8;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 15px 40px rgba(0,0,0,0.3)}
+.timer-val{font-size:80px;font-weight:900;color:#38bdf8;font-variant-numeric:tabular-nums;line-height:1}
+.timer-lbl{font-size:24px;font-weight:900;color:#94a3b8;margin-top:8px}
+
+#distance-callout{margin-top:40px;width:100%;background:#e0f2fe;border:3px solid #0284c7;border-radius:24px;padding:24px;display:flex;flex-direction:column;align-items:center}
+.dist-title{font-size:28px;font-weight:900;color:#0369a1;margin:0}
+.dist-val{font-size:52px;font-weight:900;color:#0284c7;margin:8px 0 0}
+
+#calm-badge{margin-top:30px;background:#10b981;color:#ffffff;padding:12px 36px;border-radius:20px;font-size:28px;font-weight:900;box-shadow:0 8px 20px rgba(16,185,129,0.4);opacity:0}
+</style>
+
+<div id="root" data-composition-id="s2-setup" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="13.01" data-track-index="1">
+    <div id="top-badge">JEDA KOSMIK</div>
+    <div id="title-banner"><h2>WAKTU TUNDA 8 MENIT</h2></div>
+
+    <div id="stage-card">
+      <div id="stopwatch-box">
+        <span class="timer-val" id="time-text">08:20</span>
+        <span class="timer-lbl">WAKTU TUNDA</span>
+      </div>
+
+      <div id="distance-callout">
+        <span class="dist-title">JARAK MATAHARI KE BUMI</span>
+        <span class="dist-val">150 JUTA KM</span>
+      </div>
+
+      <div id="calm-badge">⏳ KITA BELUM MENYADARINYA!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 13.01;
+
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+  tl.fromTo("#stopwatch-box", {scale:0.6, opacity:0}, {scale:1, opacity:1, duration:0.6, ease:"elastic.out(1, 0.5)"}, 0.5);
+
+  // Efek denyut timer
+  tl.to("#stopwatch-box", {scale:1.06, repeat:6, yoyo:true, duration:0.5, ease:"power1.inOut"}, 1.5);
+
+  // Kata "150 JUTA KM" di detik 9.88 di scene (~24.80s film)
+  tl.fromTo("#distance-callout", {y:30, opacity:0}, {y:0, opacity:1, duration:0.5, ease:"back.out(1.5)"}, 9.0);
+  tl.fromTo("#calm-badge", {scale:0.8, opacity:0}, {scale:1, opacity:1, duration:0.4, ease:"back.out(2)"}, 9.8);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s2-setup"] = tl;
+})();
+</script>
+</template>

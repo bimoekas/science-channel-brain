@@ -1,0 +1,74 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#10b981;border-radius:30px;color:#064e3b;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#059669;border:3px solid #d1fae5;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;box-sizing:border-box}
+
+/* Karakter Santai Mendengarkan Lagu (Headphones) */
+#chill-char{width:260px;height:300px;margin-bottom:20px}
+.takeaway-title{font-size:46px;font-weight:900;color:#1e293b;text-align:center;line-height:1.2;margin:0}
+.takeaway-sub{font-size:30px;font-weight:700;color:#047857;text-align:center;margin-top:16px;line-height:1.35}
+
+#badge-playlist{margin-top:30px;background:#047857;color:#ffffff;padding:14px 40px;border-radius:24px;font-size:32px;font-weight:900;box-shadow:0 10px 25px rgba(4,120,87,0.4)}
+</style>
+
+<div id="root" data-composition-id="s4-impact" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="14.35" data-track-index="1">
+    <div id="top-badge">KESIMPULAN KOSMIK</div>
+    <div id="title-banner"><h2>MASIH BISA SANTAI!</h2></div>
+
+    <div id="stage-card">
+      <!-- Karakter Kartun Pakai Headphone Santai Goyang Kepala -->
+      <svg id="chill-char" viewBox="0 0 100 120">
+        <!-- Badan -->
+        <rect x="25" y="65" width="50" height="50" rx="12" fill="#10b981" stroke="#1e293b" stroke-width="4"/>
+        <!-- Kepala -->
+        <circle cx="50" cy="40" r="24" fill="#fed7aa" stroke="#1e293b" stroke-width="4"/>
+        <!-- Mata Tersenyum Merem Santai (Kurva) -->
+        <path d="M40 38 Q45 44 50 38" stroke="#1e293b" stroke-width="3" fill="none"/>
+        <path d="M52 38 Q57 44 62 38" stroke="#1e293b" stroke-width="3" fill="none"/>
+        <!-- Senyum -->
+        <path d="M44 50 Q51 58 58 50" stroke="#1e293b" stroke-width="3" fill="none"/>
+        <!-- Headphone Besar -->
+        <path d="M22 40 C22 18 78 18 78 40" stroke="#1e293b" stroke-width="6" fill="none"/>
+        <rect x="16" y="32" width="12" height="20" rx="6" fill="#f59e0b" stroke="#1e293b" stroke-width="3"/>
+        <rect x="72" y="32" width="12" height="20" rx="6" fill="#f59e0b" stroke="#1e293b" stroke-width="3"/>
+        <!-- Nada Musik Melayang -->
+        <text class="note-float" x="80" y="25" font-size="20">🎵</text>
+        <text class="note-float" x="15" y="20" font-size="18">🎶</text>
+      </svg>
+
+      <p class="takeaway-title">Bumi Masih Normal<br>Selama 8 Menit!</p>
+      <p class="takeaway-sub">Cahaya & gravitasi butuh waktu menyeberangi angkasa.</p>
+
+      <div id="badge-playlist">🎧 SEMPAT 1 LAGU PLAYLIST!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 14.35;
+
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+
+  // Karakter goyang kepala menikmati musik
+  tl.to("#chill-char", {rotation: 8, transformOrigin:"50% 80%", repeat:14, yoyo:true, duration:0.45, ease:"sine.inOut"}, 0.5);
+
+  // Nada musik bergerak ke atas
+  tl.fromTo(".note-float", {y:5, opacity:0.4}, {y:-15, opacity:1, repeat:12, yoyo:true, duration:0.6}, 0.5);
+
+  tl.fromTo("#badge-playlist", {scale:0.7, opacity:0}, {scale:1.1, opacity:1, duration:0.5, ease:"back.out(2)"}, 7.1);
+  tl.to("#badge-playlist", {scale:1, duration:0.2}, 7.6);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s4-impact"] = tl;
+})();
+</script>
+</template>
