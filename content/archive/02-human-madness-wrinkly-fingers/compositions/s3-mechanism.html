@@ -1,0 +1,86 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#ef4444;border-radius:30px;color:#ffffff;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#b91c1c;border:3px solid #fee2e2;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;position:relative}
+
+#scene-svg{position:absolute;inset:0;width:100%;height:100%}
+
+#status-tag{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);background:#1e293b;border:3px solid #ef4444;border-radius:20px;padding:12px 32px;font-size:28px;font-weight:900;color:#fca5a5;text-align:center}
+</style>
+
+<div id="root" data-composition-id="s3-mechanism" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="9.50" data-track-index="1">
+    <div id="top-badge">MEKANISME BIOLOGIS</div>
+    <div id="title-banner"><h2>PEMBULUH DARAH MENYEMPIT</h2></div>
+
+    <div id="stage-card">
+      <svg id="scene-svg" viewBox="0 0 900 900">
+        <!-- Lapisan Kulit Atas (Epidermis) -->
+        <path id="skin-surface" d="M100 240 L800 240" stroke="#fbcfe8" stroke-width="24" stroke-linecap="round"/>
+        <text x="120" y="200" font-family="Inter,sans-serif" font-size="26" font-weight="900" fill="#db2777">LAPISAN KULIT LUAR</text>
+
+        <!-- Daging Bawah Kulit -->
+        <rect x="100" y="260" width="700" height="480" rx="20" fill="#fed7aa" opacity="0.5"/>
+
+        <!-- Pembuluh Darah (Vasokonstriksi) -->
+        <g id="vessel-group">
+          <!-- Pembuluh darah lebar awal -->
+          <path id="vessel-pipe" d="M180 500 C300 420 600 420 720 500" fill="none" stroke="#ef4444" stroke-width="48" stroke-linecap="round"/>
+          <text x="450" y="580" text-anchor="middle" font-family="Inter,sans-serif" font-size="30" font-weight="900" fill="#b91c1c">PEMBULUH DARAH</text>
+        </g>
+
+        <!-- Tanda Panah Menyempit -->
+        <g id="shrink-arrows" opacity="0">
+          <path d="M450 360 L450 420 M435 405 L450 420 L465 405" stroke="#1e293b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M450 560 L450 500 M435 515 L450 500 L465 515" stroke="#1e293b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <!-- Lekukan Kerutan Kulit (Muncul saat volume turun) -->
+        <path id="wrinkle-creases" d="M100 240 Q 250 300 400 240 Q 550 300 700 240 L800 240" fill="none" stroke="#db2777" stroke-width="24" stroke-linecap="round" opacity="0"/>
+      </svg>
+
+      <div id="status-tag">🔴 1. PEMBULUH DARAH NORMAL</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 9.50;
+
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+
+  // Kata "MENYEMPIT!" di detik 0.0 scene (~26.75s film)
+  tl.call(() => {
+    document.getElementById("status-tag").innerText = "⚠️ 2. VASOKONSTRIKSI (MENYEMPIT)";
+    document.getElementById("status-tag").style.borderColor = "#f59e0b";
+    document.getElementById("status-tag").style.color = "#fde047";
+  }, null, 0.4);
+
+  // Pembuluh darah mengecil (stroke-width dari 48 -> 16)
+  tl.to("#vessel-pipe", {strokeWidth: 16, duration: 1.0, ease:"power2.inOut"}, 0.5);
+  tl.fromTo("#shrink-arrows", {opacity:0, scale:0.7}, {opacity:1, scale:1, duration:0.4, repeat:3, yoyo:true}, 0.6);
+
+  // Kata "KULIT KETARIK BERKERUT" (detik 5.6 scene, ~32.35s film)
+  tl.call(() => {
+    document.getElementById("status-tag").innerText = "✨ 3. VOLUME TURUN → KULIT BERKERUT!";
+    document.getElementById("status-tag").style.borderColor = "#10b981";
+    document.getElementById("status-tag").style.color = "#6ee7b7";
+  }, null, 5.4);
+
+  // Kulit atas berubah jadi berkerut melengkung
+  tl.to("#skin-surface", {opacity: 0, duration: 0.3}, 5.6);
+  tl.fromTo("#wrinkle-creases", {opacity:0, y:-10}, {opacity:1, y:0, duration: 0.8, ease:"back.out(1.5)"}, 5.6);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s3-mechanism"] = tl;
+})();
+</script>
+</template>

@@ -1,0 +1,101 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+
+/* ---------------- THUMBNAIL (Detik 0.0 - 0.5s) ---------------- */
+#thumbnail-frame{position:absolute;inset:0;z-index:999;background:#090d16;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#thumb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:contrast(1.2) brightness(0.8)}
+#thumb-badge{position:relative;z-index:2;background:#06b6d4;padding:12px 36px;border-radius:40px;color:#083344;font-size:32px;font-weight:900;letter-spacing:0.1em;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+#thumb-headline{position:relative;z-index:2;margin-top:30px;font-size:72px;font-weight:900;line-height:1.05;text-align:center;color:#ffffff;text-transform:uppercase;text-shadow:0 8px 30px rgba(0,0,0,0.9);letter-spacing:-0.03em}
+#thumb-headline em{font-style:normal;color:#38bdf8}
+#thumb-photo-wrap{position:relative;z-index:2;margin-top:40px;width:760px;height:520px;border-radius:32px;overflow:hidden;border:6px solid #06b6d4;box-shadow:0 25px 60px rgba(0,0,0,0.9)}
+#thumb-photo-wrap img{width:100%;height:100%;object-fit:cover}
+#thumb-sticker{position:absolute;right:30px;bottom:30px;background:#ef4444;color:#ffffff;padding:12px 28px;border-radius:20px;font-size:34px;font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,0.6);transform:rotate(-6deg)}
+
+/* ---------------- SCENE 1 MAIN CONTENT ---------------- */
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#06b6d4;border-radius:30px;color:#083344;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:760px;padding:20px;background:#0e7490;border:3px solid #cffafe;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h1{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;position:relative}
+
+/* Real photo */
+#real-photo-stage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.3) 0%,rgba(15,23,42,0.85) 100%)}
+#photo-tag{position:absolute;left:40px;top:40px;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);border:2px solid #38bdf8;border-radius:18px;padding:10px 24px;font-size:24px;font-weight:900;color:#38bdf8;letter-spacing:0.05em}
+
+/* Animated Water Waves & Ripple */
+#water-anim{position:absolute;left:0;right:0;bottom:0;height:380px}
+#question-bubble{position:absolute;left:50%;bottom:60px;transform:translateX(-50%);background:#ffffff;border:3px solid #1e293b;border-radius:24px;padding:16px 36px;font-size:32px;font-weight:900;color:#0e7490;box-shadow:0 10px 20px rgba(0,0,0,0.2);white-space:nowrap}
+</style>
+
+<div id="root" data-composition-id="s1-hook" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="14.30" data-track-index="1">
+    
+    <!-- Thumbnail Frame (Detik 0.0 - 0.3s) -->
+    <div id="thumbnail-frame">
+      <img id="thumb-bg" src="assets/images/wrinkly-fingers.jpg" alt="">
+      <div id="thumb-badge">🧠 BIOLOGI TUBUH</div>
+      <h2 id="thumb-headline">KENAPA JARI KISUT<br>PAS <em>MAIN AIR?!</em></h2>
+      <div id="thumb-photo-wrap">
+        <img src="assets/images/wrinkly-fingers.jpg" alt="Jari Keriput Air">
+        <div id="thumb-sticker">BUKAN KEMBUNG!</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="top-badge">BIOLOGI & NEUROSAINS</div>
+    <div id="title-banner"><h1>KENAPA JARI KERIPUT DI AIR?!</h1></div>
+
+    <div id="stage-card">
+      <img id="real-photo-stage" src="assets/images/wrinkly-fingers.jpg" alt="Foto Jari Keriput">
+      <div id="photo-overlay"></div>
+      <div id="photo-tag">📍 FENOMENA KULIT AIR</div>
+
+      <!-- Water Ripple Animation -->
+      <svg id="water-anim" viewBox="0 0 900 300">
+        <path d="M0 80 Q225 20 450 80 T900 80 L900 300 L0 300 Z" fill="#0284c7" opacity="0.6"/>
+        <path d="M0 120 Q225 180 450 120 T900 120 L900 300 L0 300 Z" fill="#38bdf8" opacity="0.4"/>
+      </svg>
+
+      <div id="question-bubble">💧 Kulit Menyerap Air Seperti Spons?</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 14.30;
+
+  tl.to("#thumbnail-frame", {opacity:0, duration:0.35, ease:"power2.out"}, 0.3);
+  tl.set("#thumbnail-frame", {display:"none"}, 0.65);
+
+  tl.fromTo("#stage-card", {scale:0.95, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.35);
+  tl.fromTo("#title-banner", {y:-30, opacity:0}, {y:0, opacity:1, duration:0.4, ease:"power2.out"}, 0.4);
+
+  // Gelombang air berayun
+  tl.to("#water-anim", {y:-15, repeat:12, yoyo:true, duration:1.0, ease:"sine.inOut"}, 0.5);
+
+  // Mitos spons muncul di detik 6.1
+  tl.fromTo("#question-bubble", {scale:0.8, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.5)"}, 6.1);
+
+  // Kata "SALAH BESAR" di detik 10.8 -> bubble berubah merah
+  tl.call(() => {
+    const b = document.getElementById("question-bubble");
+    b.innerText = "❌ SALAH BESAR!";
+    b.style.background = "#fee2e2";
+    b.style.borderColor = "#ef4444";
+    b.style.color = "#b91c1c";
+  }, null, 10.8);
+
+  tl.to("#question-bubble", {scale:1.15, repeat:1, yoyo:true, duration:0.25}, 10.8);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s1-hook"] = tl;
+})();
+</script>
+</template>

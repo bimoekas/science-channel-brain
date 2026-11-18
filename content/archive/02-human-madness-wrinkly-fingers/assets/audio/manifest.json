@@ -1,0 +1,46 @@
+{
+  "$comment": "NGGAK PENTING LAB audio identity. Paths are relative to video/. status: 'missing' means the file does not exist yet and must be produced or licensed before it is referenced in a render. Never invent a file path that is not on disk.",
+  "mix": {
+    "integratedLufs": -14,
+    "truePeakDbtp": -1,
+    "voicePriority": "highest",
+    "musicDuckDuringVoiceDb": [4, 8],
+    "sfxMustNotMaskVoice": true,
+    "intentionalSilenceBeforePunchline": true
+  },
+  "music": {
+    "direction": "Cinematic ambient. Subtle synth pulse. Atmospheric tension. Minimal percussion. Intensity follows the story.",
+    "status": "missing",
+    "path": null,
+    "note": "No bed exists in the repo. Reference only after a licensed track is placed in assets/audio/."
+  },
+  "signatureSting": {
+    "name": "reality-skip-sting",
+    "durationSec": [0.5, 0.8],
+    "layers": ["signal chirp", "low-frequency impact", "short tape-stop or static tail"],
+    "status": "missing",
+    "path": "assets/audio/signature-sting.wav",
+    "usedBy": "signature outro + Reality Skip transitions"
+  },
+  "palettes": {
+    "earth-glitch": {
+      "status": "missing",
+      "cues": ["low rumble", "atmospheric drone", "static crackle", "reverse swell", "cinematic impact", "digital signal distortion"],
+      "paths": []
+    },
+    "human-madness": {
+      "status": "missing",
+      "cues": ["dry pop", "tick", "rubber bounce", "tape stop", "playful comedic accent", "short silence before punchline"],
+      "paths": []
+    },
+    "sci-fi-parody": {
+      "status": "missing",
+      "cues": ["synthetic blip", "retro synth arpeggio", "mechanical click", "futuristic notification", "exaggerated cinematic impact"],
+      "paths": []
+    }
+  },
+  "licensing": {
+    "rule": "Do not ship copyrighted music or SFX without a license. Record the source and license per file before use.",
+    "sources": []
+  }
+}
