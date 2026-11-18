@@ -1,0 +1,44 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#a855f7;border-radius:30px;color:#ffffff;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#7e22ce;border:3px solid #f3e8ff;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:48px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;box-sizing:border-box}
+
+#gem-display{width:220px;height:220px;margin-bottom:30px}
+.takeaway-title{font-size:46px;font-weight:900;color:#1e293b;text-align:center;line-height:1.2;margin:0}
+.takeaway-sub{font-size:30px;font-weight:700;color:#6b21a8;text-align:center;margin-top:20px;line-height:1.35}
+</style>
+
+<div id="root" data-composition-id="s4-impact" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="4.80" data-track-index="1">
+    <div id="top-badge">KESIMPULAN</div>
+    <div id="title-banner"><h2>KARYA SENI ALAM</h2></div>
+
+    <div id="stage-card">
+      <svg id="gem-display" viewBox="0 0 100 100">
+        <polygon points="50,5 90,30 75,85 25,85 10,30" fill="#38bdf8" stroke="#0284c7" stroke-width="4"/>
+        <polygon points="50,5 50,85 75,85 90,30" fill="#7dd3fc" opacity="0.6"/>
+        <circle cx="50" cy="45" r="8" fill="#ffffff" opacity="0.8"/>
+      </svg>
+      <p class="takeaway-title">Petir Bikin Kaca Alami<br>Langsung dari Tanah!</p>
+      <p class="takeaway-sub">Keajaiban sains nyata di sekitar kita.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 4.80;
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+  tl.fromTo("#gem-display", {rotation:-15, scale:0.7, opacity:0}, {rotation:0, scale:1, opacity:1, duration:0.6, ease:"elastic.out(1, 0.5)"}, 0.5);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s4-impact"] = tl;
+})();
+</script>
+</template>

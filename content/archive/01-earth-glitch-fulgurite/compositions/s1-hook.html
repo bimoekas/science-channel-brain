@@ -1,0 +1,101 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+
+/* ---------------- THUMBNAIL (Detik 0.0 - 0.5s) ---------------- */
+/* Frame 0 ini yang akan otomatis tertangkap oleh YouTube/TikTok/Reels sebagai poster awal */
+#thumbnail-frame{position:absolute;inset:0;z-index:999;background:#090d16;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#thumb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:contrast(1.2) brightness(0.8)}
+#thumb-badge{position:relative;z-index:2;background:#f59e0b;padding:12px 36px;border-radius:40px;color:#1c1917;font-size:32px;font-weight:900;letter-spacing:0.1em;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+#thumb-headline{position:relative;z-index:2;margin-top:30px;font-size:74px;font-weight:900;line-height:1.05;text-align:center;color:#ffffff;text-transform:uppercase;text-shadow:0 8px 30px rgba(0,0,0,0.9);letter-spacing:-0.03em}
+#thumb-headline em{font-style:normal;color:#38bdf8}
+#thumb-photo-wrap{position:relative;z-index:2;margin-top:40px;width:760px;height:520px;border-radius:32px;overflow:hidden;border:6px solid #facc15;box-shadow:0 25px 60px rgba(0,0,0,0.9)}
+#thumb-photo-wrap img{width:100%;height:100%;object-fit:cover}
+#thumb-sticker{position:absolute;right:30px;bottom:30px;background:#ef4444;color:#ffffff;padding:12px 28px;border-radius:20px;font-size:34px;font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,0.6);transform:rotate(-6deg)}
+
+/* ---------------- SCENE 1 MAIN CONTENT (Setelah detik 0.3) ---------------- */
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#f59e0b;border-radius:30px;color:#1c1917;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#b45309;border:3px solid #fef3c7;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h1{margin:0;font-size:46px;font-weight:900;color:#ffffff;line-height:1.15;letter-spacing:-0.02em}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;position:relative}
+
+/* Real photo footage split */
+#real-photo-stage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:30px}
+#photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.4) 0%,rgba(15,23,42,0.85) 100%)}
+#photo-tag{position:absolute;left:40px;top:40px;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);border:2px solid #facc15;border-radius:18px;padding:10px 24px;font-size:24px;font-weight:900;color:#facc15;letter-spacing:0.05em}
+
+/* Sand & Character Overlay */
+#character{position:absolute;left:100px;bottom:80px;width:140px;height:200px}
+#bolt-impact{position:absolute;right:160px;top:120px;width:240px;height:420px}
+</style>
+
+<div id="root" data-composition-id="s1-hook" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="11.75" data-track-index="1">
+    
+    <!-- 1. THUMBNAIL FRAME (Tampil di frame ke-0 sebagai poster video yang memikat klik) -->
+    <div id="thumbnail-frame">
+      <img id="thumb-bg" src="assets/images/lightning-real.jpg" alt="">
+      <div id="thumb-badge">⚡ SAINS NYATA</div>
+      <h2 id="thumb-headline">PETIR BIKIN<br>PASIR JADI <em>KACA?!</em></h2>
+      <div id="thumb-photo-wrap">
+        <img src="assets/images/fulgurite-specimen.jpg" alt="Fosil Kaca Fulgurit">
+        <div id="thumb-sticker">ASLI DARI ALAM!</div>
+      </div>
+    </div>
+
+    <!-- 2. MAIN SCENE 1 CONTENT -->
+    <div id="top-badge">FAKTA BUMI · GEOLOGI</div>
+    <div id="title-banner"><h1>PETIR BISA NYULAP PASIR JADI KACA?!</h1></div>
+
+    <div id="stage-card">
+      <!-- Real photo background (NOAA Public Domain Lightning) -->
+      <img id="real-photo-stage" src="assets/images/lightning-real.jpg" alt="Sambaran Petir Asli">
+      <div id="photo-overlay"></div>
+      <div id="photo-tag">📍 DOKUMENTASI NYATA · NOAA</div>
+
+      <!-- Kartun Petir & Karakter -->
+      <svg id="bolt-impact" viewBox="0 0 100 200" fill="none">
+        <path d="M60 0 L15 110 L50 110 L30 200 L95 80 L60 80 Z" fill="#facc15" stroke="#ffffff" stroke-width="4"/>
+      </svg>
+
+      <svg id="character" viewBox="0 0 80 120">
+        <ellipse cx="40" cy="25" rx="30" ry="10" fill="#eab308"/>
+        <circle cx="40" cy="40" r="18" fill="#fed7aa" stroke="#334155" stroke-width="3"/>
+        <circle cx="34" cy="38" r="3" fill="#1e293b"/>
+        <circle cx="46" cy="38" r="3" fill="#1e293b"/>
+        <path d="M35 48 Q40 54 45 48" stroke="#1e293b" stroke-width="2" fill="none"/>
+        <rect x="25" y="58" width="30" height="40" rx="8" fill="#3b82f6" stroke="#334155" stroke-width="3"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 11.75;
+
+  // Thumbnail fade-out cepat (hanya tampil di frame 0-0.3s agar menjadi poster video)
+  tl.to("#thumbnail-frame", {opacity:0, duration:0.35, ease:"power2.out"}, 0.3);
+  tl.set("#thumbnail-frame", {display:"none"}, 0.65);
+
+  // Scene 1 elements entrance
+  tl.fromTo("#stage-card", {scale:0.95, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.35);
+  tl.fromTo("#title-banner", {y:-30, opacity:0}, {y:0, opacity:1, duration:0.4, ease:"power2.out"}, 0.4);
+
+  // Petir menyambar di detik 3.3
+  tl.fromTo("#bolt-impact", {opacity:0, scaleY:0.2}, {opacity:1, scaleY:1, duration:0.18, repeat:4, yoyo:true, ease:"power4.in"}, 3.4);
+  tl.to("#bolt-impact", {opacity:1, duration:0.1}, 4.2);
+
+  // Reaksi karakter
+  tl.to("#character", {y:-25, repeat:1, yoyo:true, duration:0.2, ease:"power2.out"}, 3.6);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s1-hook"] = tl;
+})();
+</script>
+</template>

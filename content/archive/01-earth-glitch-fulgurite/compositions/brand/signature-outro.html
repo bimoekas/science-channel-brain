@@ -1,0 +1,37 @@
+<template>
+<style>
+/* Signature outro: simpel & ringan (fade only), holds to clip duration. */
+#root{position:absolute;inset:0;overflow:hidden;background:#08080a}
+#o-wrap{position:absolute;left:var(--npl-margin);top:860px;width:900px}
+#o-l1{margin:0;font-family:var(--npl-font-display);font-weight:900;
+  font-size:76px;line-height:1.02;letter-spacing:-.045em;color:var(--npl-ink)}
+#o-l2{margin:6px 0 0;font-family:var(--npl-font-display);font-weight:800;
+  font-size:76px;line-height:1.02;letter-spacing:-.045em;color:var(--npl-ink)}
+#o-l2 em{font-style:normal;color:var(--npl-alert)}
+#o-rule{width:320px;height:3px;margin-top:28px;
+  background:linear-gradient(90deg,var(--npl-alert),var(--npl-highlight))}
+#o-sym{position:absolute;right:var(--npl-margin);bottom:700px;width:88px;height:88px}
+#o-sym img{display:block;width:100%;height:100%}
+</style>
+<div id="root" data-composition-id="signature-outro" data-width="1080" data-height="1920">
+  <div class="clip" id="o-stage" data-start="0" data-duration="3.38" data-track-index="1">
+    <div id="o-wrap">
+      <p id="o-l1">PENTING GA PENTING,</p>
+      <p id="o-l2">JAWABNYA <em>SERIUS.</em></p>
+      <div id="o-rule"></div>
+    </div>
+    <div id="o-sym"><img src="assets/brand/logo-symbol.svg" alt=""></div>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const host = document.querySelector('[data-composition-id="signature-outro"] .clip');
+  const DUR = parseFloat(host && host.getAttribute('data-duration')) || 3.38;
+  tl.fromTo("#o-stage", {opacity:0}, {opacity:1, duration:0.4, ease:"power2.out"}, 0);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["signature-outro"] = tl;
+})();
+</script>
+</template>

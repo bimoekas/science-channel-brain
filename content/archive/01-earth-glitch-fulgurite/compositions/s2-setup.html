@@ -1,0 +1,84 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#0d182b;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#top-badge{position:absolute;left:50%;top:180px;transform:translateX(-50%);padding:10px 28px;background:#38bdf8;border-radius:30px;color:#0f172a;font-size:26px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase}
+#title-banner{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:740px;padding:20px;background:#0284c7;border:3px solid #e0f2fe;border-radius:24px;text-align:center;box-shadow:0 12px 0 rgba(0,0,0,0.3)}
+#title-banner h2{margin:0;font-size:48px;font-weight:900;color:#ffffff;line-height:1.15}
+
+/* Stage Card */
+#stage-card{position:absolute;left:90px;top:400px;width:900px;height:900px;background:#fbf7ee;border:4px solid #1e293b;border-radius:36px;box-shadow:0 16px 0 rgba(0,0,0,0.25);overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:36px 30px;box-sizing:border-box;position:relative}
+
+/* Foto Asli Fosil Kaca Fulgurit */
+#specimen-photo-box{width:800px;height:420px;border-radius:24px;overflow:hidden;border:4px solid #0284c7;box-shadow:0 12px 30px rgba(0,0,0,0.2);position:relative}
+#specimen-photo-box img{width:100%;height:100%;object-fit:cover}
+#specimen-tag{position:absolute;right:20px;bottom:20px;background:rgba(2,132,199,0.9);color:#ffffff;font-size:24px;font-weight:900;padding:8px 20px;border-radius:14px;letter-spacing:0.05em}
+
+/* Perbandingan Suhu */
+#vs-box{margin-top:30px;width:100%;display:flex;justify-content:space-around;align-items:center}
+.circle-item{display:flex;flex-direction:column;align-items:center}
+.circle-bubble{width:180px;height:180px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+.sun-bubble{background:#f97316;border:4px solid #ea580c}
+.lightning-bubble{background:#e11d48;border:4px solid #be123c}
+.bubble-val{color:#ffffff;font-size:32px;font-weight:900;text-align:center;line-height:1.1}
+.item-lbl{margin-top:12px;font-size:24px;font-weight:900;color:#1e293b}
+
+#arrow-compare{width:60px;height:50px}
+#highlight-tag{margin-top:25px;background:#fee2e2;border:3px solid #ef4444;border-radius:18px;padding:12px 28px;font-size:28px;font-weight:900;color:#b91c1c}
+</style>
+
+<div id="root" data-composition-id="s2-setup" data-width="1080" data-height="1920">
+  <div class="clip" data-start="0" data-duration="13.20" data-track-index="1">
+    <div id="top-badge">FOSIL KACA NYATA</div>
+    <div id="title-banner"><h2>INILAH FULGURIT!</h2></div>
+
+    <div id="stage-card">
+      <!-- Foto Asli Spesimen Fulgurit dari Museum (Public Domain) -->
+      <div id="specimen-photo-box">
+        <img src="assets/images/fulgurite-specimen.jpg" alt="Fosil Kaca Fulgurit Asli">
+        <div id="specimen-tag">📍 SPESIMEN ASLI DARI PASIR</div>
+      </div>
+
+      <!-- Perbandingan Suhu Panas -->
+      <div id="vs-box">
+        <div class="circle-item" id="sun-side">
+          <div class="circle-bubble sun-bubble"><span class="bubble-val">5.500°C</span></div>
+          <span class="item-lbl">Permukaan Matahari</span>
+        </div>
+
+        <svg id="arrow-compare" viewBox="0 0 50 40">
+          <path d="M5 20 L35 20 M25 10 L35 20 L25 30" stroke="#0f172a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <div class="circle-item" id="bolt-side">
+          <div class="circle-bubble lightning-bubble"><span class="bubble-val">30.000°C</span></div>
+          <span class="item-lbl">Sambaran Petir</span>
+        </div>
+      </div>
+
+      <div id="highlight-tag">🔥 5x LEBIH PANAS DARI MATAHARI!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 13.20;
+  tl.fromTo("#stage-card", {scale:0.92, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.4)"}, 0.2);
+  tl.fromTo("#specimen-photo-box", {scale:0.8, opacity:0}, {scale:1, opacity:1, duration:0.5, ease:"back.out(1.3)"}, 0.5);
+
+  // Suhu muncul di detik 3.9 (18.5s film)
+  tl.fromTo("#sun-side", {y:25, opacity:0}, {y:0, opacity:1, duration:0.4}, 3.5);
+  tl.fromTo("#bolt-side", {y:25, opacity:0}, {y:0, opacity:1, duration:0.4}, 4.2);
+  tl.fromTo("#arrow-compare", {opacity:0, scale:0.5}, {opacity:1, scale:1, duration:0.3}, 4.8);
+
+  // 5x lebih panas muncul di detik 6.1 (21.75s film)
+  tl.fromTo("#highlight-tag", {scale:0.6, opacity:0}, {scale:1.1, opacity:1, duration:0.4, ease:"back.out(2)"}, 6.1);
+  tl.to("#highlight-tag", {scale:1, duration:0.2}, 6.5);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s2-setup"] = tl;
+})();
+</script>
+</template>
