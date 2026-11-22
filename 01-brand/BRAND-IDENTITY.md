@@ -1,83 +1,87 @@
-# Brand Identity — NGGAK PENTING LAB
+# Brand Identity — SINI AKU CERITAIN
 
 ## Name
 
-- **Channel:** NGGAK PENTING LAB
-- **Wordmark:** `NGGAK PENTING.`
-- **Tagline:** `PERTANYAAN NGGAK PENTING. JAWABANNYA TERLALU SERIUS.`
-- **Handle:** `@nggakpentinglab` — **proposed only.** Availability is unverified; do not
+- **Channel:** SINI AKU CERITAIN
+- **Wordmark:** `SINI AKU CERITAIN.`
+- **Penutup khas:** `Sini aku ceritain.`
+- **Handle:** `@siniakuceritain` — **proposed only.** Availability is unverified; do not
   claim or register it until it has been checked on each platform.
 
 ## Concept
 
-> Reality is serious. Until it isn't.
+> Sini aku ceritain.
 
-Sains dijawab dengan tingkat keseriusan yang absurd: pertanyaannya konyol, risetnya nyata,
-sumbernya bisa ditelusuri, dan penjelasannya disampaikan seperti laporan laboratorium.
+Konten bercerita dengan konteks yang padat dan penuh isi: membedah cerita/ide/topik secara jelas, merangkum inti dengan akurat, dan tetap jujur soal mana fakta terverifikasi, cerita/mitos, atau spekulasi (bila ada).
 
 ## Art direction
 
-**CINEMATIC ABSURDISM.** Setiap scene diartikan sebagai frame film, bukan sebagai slide.
-Full-bleed, asimetris, berlapis (foreground / midground / background), kamera yang bergerak
-dengan alasan, dan tipe yang berperan sebagai gambar — bukan kotak berisi teks.
+Sinematik, padat, dan fokus cerita. Setiap scene diartikan sebagai frame film, bukan sebagai slide.
+Full-bleed, asimetris, berlapis (foreground / midground / background), gerak seperlunya dengan alasan,
+dan tipe yang berperan sebagai gambar — bukan kotak berisi teks.
 
 Lawan dari arah ini: layout PowerPoint, motion graphics korporat, kartu rounded, dashboard
 statis, komposisi tengah yang berulang, dan teks di dalam kotak dekoratif.
 
 ## Personality
 
-- Cerdas dan sarkastik, tanpa merendahkan penonton.
-- Rasa ingin tahu yang absurd; pertanyaan sepele diperlakukan sebagai kasus besar.
-- Penjelasan ilmiah yang serius dan akurat; humor datang dari kontrasnya, bukan dari
-  merusak fakta.
-- Sinematik dan eksperimental dalam visual; tenang dan percaya diri dalam penyampaian.
+- Cerdas dan tajam, tanpa merendahkan penonton.
+- Komedi: absurd-relatable dari keseharian. Horror: tegang/misterius, merinding tanpa eksploitasi.
+- Gaya bercerita: padat, jelas, penuh konteks; penyampaian percaya diri.
+- Humor/tegang datang dari kontras dan suasana, bukan dari menyesatkan.
+- Sinematik dan fokus pada isi cerita.
 
 ## Audience
 
-- Semua umur. Konten harus dapat dipahami dan aman dinikmati lintas usia.
-- Akurasi ilmiah adalah fondasi. Humor tidak boleh menyesatkan.
+- Target 18+ (dewasa), bukan semua umur. Konten ditujukan untuk audiens dewasa.
+- Horror: berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah) — bukan karangan ngawang. Tegang/merinding dan tema dewasa/gelap boleh; tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
+- Jika menyentuh klaim/fakta/cerita, jaga akurasi dan bedakan fakta terverifikasi, kesaksian/cerita beredar, mitos/legenda, spekulasi, dan fiksi; cantumkan asal/sumber cerita.
 
 ## Positioning
 
-Channel sains short-form yang menjawab pertanyaan yang tidak pernah ditanyakan siapa pun
-dengan standar riset yang berlebihan — aneh, nyeleneh, mengejutkan, dan tetap akurat.
+Channel short-form dua niche — **Komedi** (relatable harian) dan **Horror** (misteri berbasis real story) — bercerita padat dan penuh konteks, dikemas sinematik, untuk audiens dewasa (18+).
 
 ## Unique value proposition
 
-Satu pertanyaan absurd per video, dijawab dengan kedalaman yang tidak proporsional,
-dikemas sinematik, dan ditutup dengan satu fakta yang membuat penonton merasa tertipu
-dengan cara yang menyenangkan.
+Satu ide per video dengan cerita padat dan penuh isi: komedi yang “terlalu nyata” dari hidup harian, atau misteri berbasis cerita nyata (kesaksian, sejarah, mitos daerah) yang merinding sekaligus memberi konteks jelas dan mengajak berpikir kritis.
 
-## Content pillars
+## Content niches
 
-Satu identitas, tiga suhu visual. Setiap pillar memakai grammar yang sama — tipe editorial
-bold, simbol tanda tanya, watermark, caption, Reality Skip — tetapi dengan karakter sendiri.
+Satu identitas, dua suhu visual. Grammar sama — tipe editorial bold, simbol tanda tanya, watermark, caption, Reality Skip — karakter berbeda per niche.
 
-| Pillar | Wilayah | Karakter visual | Palet |
+| Niche | Wilayah | Karakter visual | Palet token |
 | --- | --- | --- | --- |
-| **Earth Glitch** | Bumi, iklim, geologi, bencana | Dingin, instrumen, atmosferik; grid, globe, garis data | `--npl-earth-a` `--npl-earth-b` |
-| **Human Madness** | Otak, persepsi, perilaku, sejarah manusia | Editorial kolase; kertas off-white, tipe hitam, satu aksen panas | `--npl-human-a` `--npl-human-b` |
-| **Sci-Fi Parody** | Fisika, ruang, teknologi, masa depan | Neon redup, horizon sintetis, panel holografik | `--npl-scifi-a` `--npl-scifi-b` |
+| **Komedi** | Relatable harian, absurditas keseharian | Hangat, playful, kontras tegas; ritme komedi | `--npl-komedi-a` `--npl-komedi-b` (alias `--npl-human-a/b`) |
+| **Horror** | Misteri berbasis real story (kesaksian/cerita orang, sejarah, mitos daerah), tegang non-grafis | Gelap, misterius, sinematik; bayangan & sorot | `--npl-horror-a` `--npl-horror-b` (alias `--npl-scifi-a/b`) |
+
+> Catatan kompatibilitas: token lama `--npl-earth-*`, `--npl-human-*`, `--npl-scifi-*` tetap ada di `video/assets/brand/tokens.css` untuk aset/arsip lama.
 
 ## Logo
 
-- **Primary:** wordmark horizontal `NGGAK PENTING.` — tipe editorial bold, tracking rapat,
+- **Primary:** wordmark horizontal `SINI AKU CERITAIN.` — tipe editorial bold, tracking rapat,
   titik akhir terbelah oleh satu glitch slice.
 - **Compact:** wordmark dua baris untuk watermark dan penempatan kecil.
-- **Symbol:** tanda tanya minimalis yang batangnya dipotong oleh signal break; terbaca
-  pada 16px, dua tinta.
-- **Closing lockup:** tagline dua baris + rule gradien + symbol, di outro.
+- **Symbol:** **kutip pembuka ganda** (`“`) — dua blok miring tebal, kutip kanan dipotong
+  satu signal break dengan pecahan aksen; terbaca pada 16px, dua tinta. Lihat spesifikasi
+  konstruksi di `BRAND-SYSTEM.md` §4.
+- **Closing lockup:** penutup `SINI AKU / CERITAIN.` + rule gradien + symbol, di outro.
 - **Watermark:** rail vertikal di tepi kanan, di luar margin konten, opasitas rendah.
 
-Larangan: lightbulb, rocket, atom, brain, dan ikon sains klise lainnya.
+**Kenapa kutip, bukan tanda tanya.** Tanda tanya adalah ikon "FAQ / bantuan / tidak tahu", dan
+klise nomor satu untuk kanal misteri — ia menanyakan cerita, bukan menceritakan. Kutip pembuka
+adalah tanda bahwa ada orang yang sedang berbicara: persis janji channel ini. Simbolnya juga
+tipografis, jadi satu bahasa dengan wordmark yang juga tipografis.
+
+Larangan: lightbulb, rocket, atom, brain, tanda tanya, mata, hantu, dan ikon klise lainnya.
 
 Semua aset logo berupa SVG yang dapat diedit di `video/assets/brand/`.
 
 ## Tone of voice
 
 - Bahasa Indonesia percakapan, kalimat pendek, tanpa jargon yang tidak dijelaskan.
-- Serius saat menjelaskan, ringan saat menyimpulkan.
-- Tidak pernah mengklaim lebih pasti daripada buktinya.
+- Komedi: ringan, jenaka, relatable. Horror: tegang, narator tenang-dingin, **runut faktual & ringkas** (kronologi → temuan/keterangan → mitos/cerita beredar dipisah) — seram dari detail nyata, bukan kata-kata seram/atmosfer ngambang; berpijak pada cerita/sumber nyata, tidak eksploitasi.
+- Tidak pernah mengklaim lebih pasti daripada buktinya; kesaksian/cerita beredar/mitos/legenda diberi label jelas dan dibedakan dari fakta terverifikasi.
+- **Mitos boleh jadi isi, bukan cuma catatan kaki.** Selama asalnya bersumber, sebuah mitos/legenda boleh menempati porsi besar cerita — tidak wajib didampingi bantahan. Syaratnya dua: (1) sumbernya disebut, (2) sikapnya diserahkan ke penonton — "percaya atau tidak, ini yang diceritakan orang", bukan "ini yang terjadi". Yang dilarang tetap satu: menyebut mitos sebagai fakta terverifikasi.
 
 ## Referensi implementasi
 

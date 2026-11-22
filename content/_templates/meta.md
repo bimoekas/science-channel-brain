@@ -1,6 +1,7 @@
 # [NNN] — [Judul / Slug]
 
-- **Pilar:** Earth Glitch | Human Madness | Sci-Fi Parody
+- **Niche:** Komedi | Horror
+- **Audiens:** 18+ (dewasa)
 - **Pertanyaan inti:** ...
 - **Ide inti / payoff:** ...
 - **Status:** draft | siap-upload | published
@@ -14,5 +15,5 @@
 ## Aset & catatan
 
 - **Aset eksternal:** [link Drive/audio/video final] (jangan simpan file besar di repo)
-- **Fact-check:** [tautan/catatan sumber]
+- **Fact-check:** [tautan/catatan sumber/basis cerita]
 - **Catatan:** ...

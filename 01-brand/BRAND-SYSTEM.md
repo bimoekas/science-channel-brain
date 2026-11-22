@@ -1,4 +1,4 @@
-# NGGAK PENTING LAB — Brand & Motion System
+# SINI AKU CERITAIN — Brand & Motion System
 
 Cara memakai identitas ini di setiap video baru. Semua nilai di sini berasal dari file yang
 sudah ada di `video/`; dokumen ini menjelaskan cara memakainya, bukan menduplikasinya.
@@ -12,7 +12,7 @@ sudah ada di `video/`; dokumen ini menjelaskan cara memakainya, bukan menduplika
 | Caption rail | `video/compositions/brand/captions.html` |
 | Signature outro | `video/compositions/brand/signature-outro.html` |
 | Audio identity | `video/assets/audio/manifest.json` |
-| Contoh per pillar | `video/examples/*.html` |
+| Contoh per niche/pillar (legacy) | `video/examples/*.html` |
 
 ---
 
@@ -90,20 +90,20 @@ Palet inti hitam / off-white / abu netral; aksen hanya untuk makna.
 | `--npl-black` | `#08080a` | ground utama |
 | `--npl-coal` / `--npl-graphite` | `#0f0f12` / `#17171c` | lapisan elevasi gelap |
 | `--npl-gray-700` … `--npl-gray-300` | `#2a2a31` … `#b4b2ad` | garis, label, teks sekunder |
-| `--npl-gray-200` | `#d6d3cc` | ground terang (Human Madness) |
+| `--npl-gray-200` | `#d6d3cc` | ground terang (opsional, mis. gaya hangat/legacy) |
 | `--npl-ink` | `#f5f3ef` | teks utama di ground gelap |
 | `--npl-signal` | `#7ed4ff` | data, atmosfer, instrumen |
 | `--npl-alert` | `#ff5a2f` | bahaya, erupsi, penekanan keras |
 | `--npl-highlight` | `#ffc94a` | reveal, payoff, kata kunci caption |
 
-Pillar hanya mengganti dua token, bukan seluruh palet:
+Niche aktif mengganti dua token, bukan seluruh palet:
 
-- Earth Glitch: `--npl-earth-a` / `--npl-earth-b`
-- Human Madness: `--npl-human-a` / `--npl-human-b`
-- Sci-Fi Parody: `--npl-scifi-a` / `--npl-scifi-b`
+- **Komedi:** `--npl-komedi-a` / `--npl-komedi-b` (hangat, playful)
+- **Horror:** `--npl-horror-a` / `--npl-horror-b` (misterius, tegang)
 
-Ground tidak harus gelap: Human Madness memakai `--npl-gray-200` dengan tipe `--npl-black`.
-Itu tetap satu identitas karena grammar tipe, watermark, caption, dan motion sama.
+Token legacy (arsip/episode lama) tetap tersedia: `--npl-earth-a/b`, `--npl-human-a/b`, `--npl-scifi-a/b`.
+
+Ground tidak harus gelap; suhu visual mengikuti niche. Grammar tipe, watermark, caption, dan motion tetap satu identitas.
 
 ---
 
@@ -117,6 +117,7 @@ Itu tetap satu identitas karena grammar tipe, watermark, caption, dan motion sam
 
 - Ketiga SVG memakai `font-family="Inter, Helvetica, Arial"`. Karena itu wordmark
   **bergantung pada Inter**; jangan memakai SVG ini di luar proyek yang memuat Inter.
+  (Symbol tidak memuat teks — ia satu-satunya aset logo yang aman di luar konteks Inter.)
 - Warna di dalam SVG di-hardcode (`#F5F3EF`, `#FF5A2F`). Di atas ground terang, ganti fill
   ke `#08080A` — jangan menaruh wordmark off-white di atas kertas off-white.
 - Ukuran minimum symbol: 24px tinggi. Di bawah itu glitch shard hilang.
@@ -124,6 +125,42 @@ Itu tetap satu identitas karena grammar tipe, watermark, caption, dan motion sam
   `.34`. Ia berada di luar `--npl-margin` 90px, jadi tidak menyentuh kartu, tipe, atau
   caption. Jangan menaikkan opasitas di atas `.4` — itu mulai terbaca sebagai UI.
 - Watermark fade-in pada 1.4s supaya hook pembuka bersih. Pertahankan.
+
+### 4a. Symbol (ikon) — kutip pembuka
+
+**Makna.** Kutip pembuka berarti "ada orang yang sedang berbicara". Itu janji channel ini.
+Tanda tanya ditolak: ia ikon FAQ/bantuan, dan klise nomor satu kanal misteri — ia menanyakan
+cerita, bukan menceritakan.
+
+**Konstruksi — `logo-symbol.svg`, viewBox `0 0 64 64`, tanpa stroke, semua `fill`.**
+
+Dua blok kutip identik, tebal, miring 6px ke kanan dari atas ke bawah. Kutip kanan dipotong
+`signal break`: bagian bawahnya terlepas dan bergeser +4px, diberi warna aksen.
+
+| Bagian | Bentuk | Koordinat (polygon, x/y) | Fill |
+| --- | --- | --- | --- |
+| Kutip kiri | trapesium miring | `12,16 28,16 34,38 18,38` | `#F5F3EF` |
+| Kutip kanan (atas) | trapesium miring, dipotong di y32 | `36,16 52,16 56,32 40,32` | `#F5F3EF` |
+| Pecahan (bawah) | potongan yang terlepas, geser +4px | `44,36 60,36 63,44 47,44` | `#FF5A2F` |
+
+- Jarak bebas: minim 6px dari tepi kiri/kanan viewBox, 16px dari atas, 20px dari bawah.
+- Dua tinta saja. Jangan menambah bayangan, gradien, outline, atau sudut bulat.
+
+**Ukuran & penempatan.**
+
+| Pakai | Tinggi | Catatan |
+| --- | --- | --- |
+| Avatar / profil platform | penuh | isi kanvas, jangan tambah teks |
+| Closing lockup (outro) | 88px | kanan bawah, `--npl-margin` dari tepi |
+| Watermark | 30px | bagian dari rail, opasitas `.34` |
+| Minimum absolut | 24px | di bawah ini pecahan aksen menyatu dengan kutip kanan |
+
+**Larangan ikon.** Tanda tanya, lightbulb, rocket, atom, brain, mata, hantu, tengkorak, jam
+pasir, teleskop, kaca pembesar, pin lokasi. Semuanya ikon klise yang sudah dipakai ribuan
+kanal misteri — tidak membedakan apa pun.
+
+**Bila mengganti symbol:** ganti `logo-symbol.svg` saja. Wordmark, watermark, dan outro
+memuat file itu lewat `<img>`, jadi tidak ada markup yang perlu disentuh.
 
 ---
 
@@ -136,9 +173,23 @@ Aturan yang mengikat setiap video:
 1. Maksimal **2 baris** per grup, **2–7 kata** per grup.
 2. Segmen mengikuti frasa alami bahasa Indonesia, bukan potongan mekanis.
 3. Satu grup tampil pada satu waktu. Tidak ada dua caption bersamaan.
-4. **Jangan menduplikasi teks yang sudah tercetak di scene.** Film ini dibangun dari kinetic
-   type; caption hanya untuk baris VO yang tidak muncul sebagai tipe. Contoh nyata: di
-   `captions.html`, hanya 11 grup (19–27s dan 46.5–53.65s).
+4. **Nol duplikasi: caption tidak boleh mengulang teks yang sudah tercetak di scene.** Ini
+   aturan keras, bukan preferensi. Kalau sebuah baris VO sudah tampil sebagai tipe scene
+   (judul, lead, kartu, badge, label), grup caption untuk baris itu **dibuang seluruhnya** —
+   tidak dipendekkan, tidak diparafrase, tidak dipertahankan "biar sinkron". Dua teks identik
+   di layar pada saat yang sama selalu salah, sekalipun posisinya berjauhan.
+
+   **Tes wajib sebelum menambah grup caption:**
+   - Baca markup scene yang aktif pada jendela waktu grup itu.
+   - Ambil teks yang terlihat (bukan komentar, bukan `alt`, bukan kredit).
+   - Bandingkan dengan teks grup. Sama? Buang grupnya. Hampir sama (hanya beda partikel,
+     sinonim, atau urutan)? Tetap buang — pembaca melihatnya sebagai pengulangan.
+   - Scene boleh mencetak frasa kunci dari baris itu; caption lalu **diam** untuk jendela
+     tersebut. Kekosongan caption bukan cacat; pengulangan yang cacat.
+
+   Contoh nyata kegagalan: di `s6-payoff`, `#lead` mencetak "Yang mencekam bukan kabutnya,
+   tapi batas yang jelas." sementara `cap-15` mencetak kalimat yang sama persis. Yang benar:
+   `#lead` mencetak kalimat itu, grup caption-nya tidak ada.
 5. Highlight maksimal satu frasa per grup (`.npl-cap-key`), warna `--npl-highlight`;
    `.warm` untuk `--npl-alert`.
 6. Entrance 120–180ms, opacity + y 14px, `power2.out`. Tanpa bounce.
@@ -162,7 +213,7 @@ untuk UI platform. Caption tidak boleh menutupi subjek utama; geser `top` per sc
 perlu.
 
 **Catatan timing:** timestamp saat ini diukur dari `voiceover.mp3` (68.597s) memakai
-`ffmpeg silencedetect -32dB/0.25s`. Setelah VO diregenerasi (termasuk tagline), ukur ulang.
+`ffmpeg silencedetect -32dB/0.25s`. Setelah VO diregenerasi (termasuk penutup), ukur ulang.
 `hyperframes transcribe` tidak dipakai: default-nya `small.en`/`--language en` dan akan
 menerjemahkan Bahasa Indonesia; whisper.cpp crash (SIGABRT) di mesin ini.
 
@@ -260,13 +311,14 @@ Target mix (dari manifest):
 Signature sound: **0.5–0.8s** — signal chirp + low-frequency impact + tape-stop/static tail.
 Dipakai oleh Reality Skip dan signature outro.
 
-Palet SFX per pillar (deskriptif, belum ada file):
+Palet SFX per niche (deskriptif, belum ada file):
 
-| Pillar | Karakter |
+| Niche | Karakter |
 | --- | --- |
-| Earth Glitch | low rumble, drone atmosferik, static crackle, reverse swell, impact sinematik |
-| Human Madness | dry pop, tick, rubber bounce, tape stop, aksen komedi |
-| Sci-Fi Parody | synthetic blip, arpeggio retro, mechanical click, notifikasi futuristik |
+| Komedi | dry pop, tick, rubber bounce, tape stop, aksen komedi, jeda sebelum punchline |
+| Horror | low drone, subtle rumble, distant creak, static crackle, reverse swell, tension hit, intentional silence |
+
+Palet legacy (`earth-glitch`, `human-madness`, `sci-fi-parody`) tetap tercatat di `manifest.json` untuk arsip.
 
 Musik: ambient sinematik, pulse synth halus, tension atmosferik, perkusi minimal.
 
@@ -281,8 +333,8 @@ lisensi per file di `manifest.json` (`licensing.sources`) sebelum dipakai.
 
 Urutan:
 
-1. `PENTING GA PENTING,` — kinetic type, `power3.out`, 0.42s.
-2. `JAWABNYA SERIUS.` — scale overshoot terkendali `back.out(1.4)`, mulai 0.18s.
+1. `SINI AKU` — kinetic type, `power3.out`, 0.42s.
+2. `CERITAIN.` — scale overshoot terkendali `back.out(1.4)`, mulai 0.18s.
 3. Symbol tanda tanya — `back.out(1.7)`, mulai 0.42s.
 4. Rule gradien `--npl-alert` → `--npl-highlight` tergambar 0.34s.
 5. Audio sting (saat aset tersedia).
@@ -290,10 +342,10 @@ Urutan:
 
 Aturan:
 
-- Teks **tidak boleh diparafrase**. `PENTING GA PENTING,` / `JAWABNYA SERIUS.`
+- Teks **tidak boleh diparafrase**. Narasi: `Sini aku ceritain.` / lockup: `SINI AKU` / `CERITAIN.`
 - Outro tidak boleh memakan hook pembuka: mount setelah scene terakhir selesai.
 - Ini bukan layar "subscribe" generik. Tanpa tombol, tanpa ikon sosial, tanpa CTA.
-- Tagline juga diucapkan di VO (`content/current/voiceover.md`), bukan hanya di layar.
+- Penutup juga diucapkan di VO (`content/current/voiceover.md`), bukan hanya di layar.
 - Jika outro dipakai di video yang lebih pendek, ubah `data-duration` host-nya, bukan
   timeline internal.
 
@@ -304,11 +356,17 @@ Aturan:
 - [ ] `npm run check` → 0 error.
 - [ ] Font: tidak ada family di luar Inter / EB Garamond tanpa `@font-face`.
 - [ ] Wordmark terbaca pada ukuran penempatannya; warna cocok dengan ground.
+- [ ] Symbol = kutip pembuka (§4a), bukan tanda tanya atau ikon klise; tinggi ≥24px;
+      pecahan aksen masih terbaca.
 - [ ] Watermark ada, opasitas ≤ .4, tidak menyentuh konten.
-- [ ] Caption ≤ 2 baris, 2–7 kata, tidak menduplikasi tipe scene.
+- [ ] **Opening bait screen ±3 dtk di awal**: bait (klaim/pertanyaan) + jangkar konteks, foto objek
+      hanya latar — frame tetap menarik bila dijadikan thumbnail statis. Tipe terbesar, frame 0
+      terisi, handover cut/fade ≤0.4 dtk ke scene 1, tidak mengulang caption atau tipe scene 1.
+- [ ] Caption ≤ 2 baris, 2–7 kata. **Nol duplikasi** — tidak ada grup caption yang mengulang
+      teks tipe scene yang tampil pada jendela waktu yang sama. Diperiksa per grup, bukan sekilas.
 - [ ] Timing caption cocok dengan VO aktual.
 - [ ] Reality Skip dipakai pada momen yang tepat, bukan setiap cut.
 - [ ] Tidak ada `Date.now()`, `Math.random()`, `repeat:-1`, `tl.play()`.
 - [ ] Tidak ada path audio yang belum ada di disk.
-- [ ] Outro memakai teks tagline yang benar.
+- [ ] Outro memakai teks penutup yang benar (`Sini aku ceritain.`).
 - [ ] Snapshot frame di momen yang diedit sudah dibaca, bukan hanya check lulus.

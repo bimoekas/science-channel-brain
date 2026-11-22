@@ -2,34 +2,34 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create a core Markdown reference set for consistent AI-assisted production of the Science Channel Brain's short-form science content.
+**Goal:** Create a core Markdown reference set for consistent AI-assisted production of the SINI AKU CERITAIN short-form content.
 
-**Architecture:** Use a root README as the entry point and five focused Markdown references grouped by brand, content system, and production. Record known decisions from the spec; mark every unprovided detail `TBD`.
+**Architecture:** Use a root README as the entry point and focused Markdown references grouped by brand, content system, and production. Record known decisions from the spec; mark unprovided/unverified details `TBD`.
 
 **Tech Stack:** Markdown, Git directory structure; no dependencies.
 
-**Spec:** `docs/superpowers/specs/2026-11-16-science-channel-brain-design.md`
+**Spec:** `docs/_archive/2026-11-16-foundation-plan/specs/2026-11-16-science-channel-brain-design.md`
 
 ## Global Constraints
 
 - Target platforms: TikTok, YouTube Shorts, Instagram Reels.
-- Target format: 25–60 seconds, vertical 9:16, one core idea per video.
-- Hook: 0–2 seconds; explanation: 6–30 seconds; payoff/ending: 30–60 seconds.
-- Content pillars: Earth Glitch, Human Madness, Sci-Fi Parody.
-- Scientific accuracy is foundational; distinguish fact, theory, hypothesis, speculation, and fiction.
-- Humor can be absurd, while explanations stay accurate.
-- Each video has one core question and one payoff.
-- Do not position the channel as pure comedy or dry education.
-- Mark unprovided brand and production decisions `TBD`; do not invent approved rules.
-- Do not store final video files or publish/configure GitHub in this plan.
+- Target format: 70–90 detik, vertikal 9:16, satu ide inti, satu pertanyaan inti, satu payoff.
+- Audiens: 18+ (dewasa).
+- Hook: 0–2 detik; penjelasan: 3–50 detik; payoff/ending: 50–90 detik.
+- Konsep/penutup: *Sini aku ceritain.* — narasi/lockup "Sini aku ceritain." / `SINI AKU` `CERITAIN.`
+- Content niche: **Komedi** (relatable harian) dan **Horror** (misteri, berbasis real story — kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah; bukan ngawang).
+- Akurasi/kejujuran konteks penting: bedakan fakta terverifikasi, teori, hipotesis, spekulasi, kesaksian/cerita beredar, mitos/legenda, dan fiksi. Horror wajib cantumkan basis/asal/sumber dan label klaim jelas.
+- Komedi boleh absurd-relatable. Horror tegang/atmosferik, tanpa glorifikasi/eksploitasi, hindari gore/kekerasan eksplisit-grafis; hormati korban/keluarga/masyarakat/kepercayaan.
+- Mark unprovided/unverified decisions `TBD`; do not invent approved rules.
+- Do not store final video files. Jangan update `content/archive/` atau aset/produksi legacy `video/` kecuali diminta terpisah.
 
 ## Review Focus
 
-- Missing channel decisions must remain clearly `TBD`, not appear as approved facts; inspect every starter file for unsupported specifics.
+- Missing/unverified decisions must remain clearly `TBD`, not appear as approved facts.
 - README pointers must resolve to existing files; verify each linked path.
-- Script timing ranges overlap and do not fully cover 25–60 seconds; preserve supplied timing and mark unallocated timing `TBD`, rather than silently changing ranges.
-- Scientific claims must distinguish evidence strength and fact/theory/hypothesis/speculation/fiction; verify checklist contains an explicit check for these labels.
-- Voice specifics are not supplied; verify the voice guide marks voice, pace, and prosody `TBD`.
+- Script timing must align to 70–90 detik target (hook 0–2, penjelasan 3–50, payoff/ending 50–90) and mark unallocated/uncertain timing `TBD`.
+- Claims/cerita must distinguish evidence/label strength (fakta terverifikasi, teori, hipotesis, spekulasi, kesaksian/cerita beredar, mitos/legenda, fiksi); verify checklist contains explicit checks.
+- Voice specifics: keep voice identity/settings as documented; mark uncertain delivery/measurement details `TBD` where applicable.
 
 ---
 
@@ -39,7 +39,7 @@
 - Create: `README.md`
 
 **Interfaces:**
-- Consumes: `docs/superpowers/specs/2026-11-16-science-channel-brain-design.md`
+- Consumes: `docs/_archive/2026-11-16-foundation-plan/specs/2026-11-16-science-channel-brain-design.md`
 - Produces: repository map and AI reading order linking the five reference files.
 
 - [ ] **Step 1: Write `README.md`**
@@ -48,7 +48,7 @@ Include purpose, platforms, format, pillars, core rules, AI reading order, and a
 
 - [ ] **Step 2: Check README against the spec**
 
-Verify all supplied platform, duration, orientation, pillar, timing, and scientific accuracy details match the spec verbatim in meaning. Confirm all five referenced paths are listed for creation in Tasks 2–5.
+Verify platform, duration, orientation, niche, audiens, timing, penutup, dan aturan konteks/akurasi match the spec in meaning. Confirm referenced paths exist.
 
 **Completion:** README contains the entry-point context and has no unsupported brand decisions.
 
@@ -60,7 +60,7 @@ Verify all supplied platform, duration, orientation, pillar, timing, and scienti
 
 **Interfaces:**
 - Consumes: spec constraints and README conventions from Task 1.
-- Produces: brand identity and content pillar reference files.
+- Produces: brand identity and content niche reference files.
 
 - [ ] **Step 1: Write `01-brand/BRAND-IDENTITY.md`**
 
@@ -68,11 +68,11 @@ Record channel positioning as a short-form science channel for TikTok, YouTube S
 
 - [ ] **Step 2: Write `02-content-system/CONTENT-PILLARS.md`**
 
-List Earth Glitch, Human Madness, and Sci-Fi Parody. Mark pillar definitions, topic boundaries, and examples `TBD`.
+List niche **Komedi** (relatable harian) dan **Horror** (misteri, berbasis real story). Mark definitions, boundaries, and examples `TBD` where unprovided.
 
 - [ ] **Step 3: Check these files for invented decisions**
 
-Confirm that exact audience, UVP, personality, and pillar meanings are not filled with guesses.
+Confirm that unverified audience/UVP/personality/niche details are not filled with guesses.
 
 **Completion:** Both files capture supplied facts and mark every unprovided brand detail `TBD`.
 
@@ -88,7 +88,7 @@ Confirm that exact audience, UVP, personality, and pillar meanings are not fille
 
 - [ ] **Step 1: Write `02-content-system/SCRIPT-TEMPLATE.md`**
 
-Provide fields for core question, hook (0–2 seconds), explanation (6–30 seconds), payoff/ending (30–60 seconds), and source notes. Keep unspecified beat allocations and exact word counts `TBD`; preserve the overall 25–60-second target and one-idea rule.
+Provide fields for core question, hook (0–2 detik), explanation (3–50 detik), payoff/ending (50–90 detik), penutup (fixed "Sini aku ceritain."), and source notes. Keep unspecified beat allocations and exact word counts `TBD`; preserve the overall 70–90-detik target and one-idea rule.
 
 - [ ] **Step 2: Write `02-content-system/FACT-CHECK-CHECKLIST.md`**
 
@@ -111,7 +111,7 @@ Confirm script timing matches the supplied ranges and the checklist explicitly t
 
 - [ ] **Step 1: Write the voice guide**
 
-Mark selected voice, language/accent, stability/style settings, pace, intonation, pronunciation rules, and prohibited delivery traits `TBD`. State that generated narration must preserve scientific meaning and fit the 25–60-second format.
+Document selected voice/model (as specified), language/accent, settings, pace, intonation, pronunciation rules, prohibited delivery traits, and fixed penutup. State narration must preserve meaning/accuracy and fit the 70–90-detik format; mark uncertain details `TBD`.
 
 - [ ] **Step 2: Check for invented audio settings**
 

@@ -1,6 +1,6 @@
 # Science Channel Brain
 
-Repository pusat referensi untuk channel sains short-form di TikTok, YouTube Shorts, dan Instagram Reels.
+Repository pusat referensi untuk channel short-form **SINI AKU CERITAIN** di TikTok, YouTube Shorts, dan Instagram Reels.
 
 ## Tujuan
 
@@ -8,34 +8,33 @@ Menyimpan brand identity, content system, workflow riset, scriptwriting, voice g
 
 ## Format
 
-- Durasi: 25–60 detik
+- Durasi: 70–90 detik
 - Orientasi: vertikal 9:16
 - Satu video: satu ide inti
 - Hook: 0–2 detik
-- Penjelasan: 6–30 detik
-- Payoff/ending: 30–60 detik
+- Penjelasan: 3–50 detik
+- Payoff/ending: 50–90 detik
 
-## Content pillars
+## Content niches
 
-1. Earth Glitch
-2. Human Madness
-3. Sci-Fi Parody
+1. **Komedi** — relatable harian, absurd-realita keseharian Indonesia.
+2. **Horror** — misteri/tegang berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah), bukan karangan ngawang. Target 18+ (dewasa): tema gelap/mature boleh, tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis; label & bedakan cerita/kesaksian/mitos vs fakta terverifikasi.
 
 ## Aturan utama
 
-- Akurasi ilmiah adalah fondasi utama.
-- Fokus pada fakta sains yang aneh, unik, nyeleneh, atau mengejutkan—bukan sekadar fakta umum—dari berbagai bidang sains (bukan hanya hewan), dengan penjelasan tetap akurat dan terverifikasi.
-- Humor boleh absurd, tetapi penjelasan harus akurat.
-- Bedakan fakta, teori, hipotesis, spekulasi, dan fiksi.
-- Jangan memosisikan channel sebagai komedi murni atau edukasi kering.
-- Setiap video punya satu pertanyaan inti dan satu payoff.
+- Satu video punya satu ide inti dan satu payoff. Target audiens 18+ (dewasa), bukan semua umur.
+- **Komedi:** humor boleh absurd, relatable, dan ringan.
+- **Horror:** wajib berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah) — bukan ngawang; cantumkan asal/sumber cerita. Tegang/merinding dan tema dewasa/gelap boleh, tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
+- Jika ada klaim/fakta/cerita: jaga akurasi, bedakan fakta, fakta sejarah terverifikasi, teori, hipotesis, spekulasi, kesaksian/cerita beredar, rumor/legenda/mitos, dan fiksi. Jangan menyajikan cerita/rumor sebagai fakta terverifikasi.
+- Jangan mengubah brand voice tanpa persetujuan.
 
 ## Cara AI menggunakan repo
 
 Untuk membuat ide, script, caption, prompt produksi, atau **kode video**:
 
+0. Baca [`CLAUDE.md`](CLAUDE.md) — aturan keras repo (VO, klaim/etika, jangan timpa `content/current/`).
 1. Baca [identitas brand](01-brand/BRAND-IDENTITY.md).
-2. Baca [content pillars](02-content-system/CONTENT-PILLARS.md).
+2. Baca [content pillars/niches](02-content-system/CONTENT-PILLARS.md).
 3. Ikuti [script template](02-content-system/SCRIPT-TEMPLATE.md).
 4. Gunakan [fact-check checklist](02-content-system/FACT-CHECK-CHECKLIST.md).
 5. Ikuti [ElevenLabs voice guide](03-production/ELEVENLABS-VOICE-GUIDE.md).
@@ -55,7 +54,7 @@ Untuk membuat ide, script, caption, prompt produksi, atau **kode video**:
 
 - [`01-brand/BRAND-IDENTITY.md`](01-brand/BRAND-IDENTITY.md): identitas dan positioning.
 - [`01-brand/BRAND-SYSTEM.md`](01-brand/BRAND-SYSTEM.md): sistem visual & motion (tipografi, caption, logo, Reality Skip, audio, outro) beserta cara memakainya.
-- [`02-content-system/CONTENT-PILLARS.md`](02-content-system/CONTENT-PILLARS.md): pilar konten.
+- [`02-content-system/CONTENT-PILLARS.md`](02-content-system/CONTENT-PILLARS.md): niche konten (Komedi, Horror).
 - [`02-content-system/IDEA-BANK.md`](02-content-system/IDEA-BANK.md): bank ide pilot.
 - [`02-content-system/SCRIPT-TEMPLATE.md`](02-content-system/SCRIPT-TEMPLATE.md): struktur script.
 - [`02-content-system/FACT-CHECK-CHECKLIST.md`](02-content-system/FACT-CHECK-CHECKLIST.md): pemeriksaan klaim.

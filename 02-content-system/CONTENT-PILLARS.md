@@ -1,21 +1,26 @@
 # Content Pillars
 
-The channel has three content pillars. Konten mengangkat fakta sains yang aneh, unik, nyeleneh, atau mengejutkan—bukan sekadar fakta umum—dari berbagai bidang sains (fisika, kimia, biologi, bumi & antariksa, teknologi, tubuh & perilaku manusia, dll.; bukan hanya hewan), dengan penjelasan tetap akurat dan terverifikasi. Setiap pilar mengikuti aturan inti: akurasi ilmiah, bedakan fakta/teori/hipotesis/spekulasi/fiksi, humor boleh absurd tetapi penjelasan tetap akurat, satu ide inti dan satu payoff per video. Rincian di bawah bersifat draft — perlu persetujuan.
+Channel punya dua niche konten. Setiap niche mengikuti aturan inti: satu ide inti dan satu payoff per video, target 18+ (dewasa), dan pisahkan fakta/teori/hipotesis/spekulasi/rumor/fiksi dengan jelas. Humor boleh absurd, tetapi penjelasan harus akurat.
 
-## 1. Earth Glitch (draft — perlu persetujuan)
+## 1. Komedi (Relatable Harian)
 
-- **Definisi:** Fakta dan fenomena alam atau kejadian di Bumi yang tampak aneh, nyeleneh, langka, atau mengejutkan, lalu dijelaskan secara ilmiah.
-- **Batasan topik:** Fokus pada fenomena/fakta teramati dan terverifikasi dari berbagai bidang (geologi, cuaca, laut, atmosfer, antariksa, biologi lingkungan, dll.). Hindari klaim tanpa bukti; jelaskan tingkat kepastian (fakta/teori/hipotesis/spekulasi).
-- **Contoh ide:** Petir Catatumbo; warna merah di Air Terjun Darah Antartika; batu yang “berjalan” di Racetrack Playa; awan mammatus yang tampak seperti kantong menggantung; komodo betina yang bisa bereproduksi tanpa pejantan (partenogenesis).
+- **Definisi:** Komedi situasi sehari-hari yang relatable untuk penonton Indonesia.
+- **Cakupan:** Macet/ojol ngaret, meeting nggak jelas, saldo sekarat akhir bulan, ngantuk Senin pagi, salah kirim chat/stiker, drama kos/rumah, antrean, dan absurditas hidup harian lainnya.
+- **Gaya:** Ringan, hangat, absurd-relatable; punchline dari kontras realita harian.
+- **Batasan:** Target 18+ (dewasa). Hindari merendahkan individu/kelompok. Jika memakai konteks fakta, jaga akurasi.
 
-## 2. Human Madness (draft — perlu persetujuan)
+## 2. Horror (Misteri, Berbasis Real Story)
 
-- **Definisi:** Fakta aneh dan nyeleneh tentang perilaku, persepsi, atau tubuh manusia yang terasa ekstrem/tak biasa, dijelaskan lewat sains (biologi, psikologi, neurosains, sejarah sains).
-- **Batasan topik:** Jelaskan mekanisme ilmiah tanpa menghakimi atau merendahkan individu/kelompok. Hindari sensasionalisasi bahaya; bedakan temuan mapan dari hipotesis/spekulasi.
-- **Contoh ide:** Efek placebo dan nocebo; ilusi optik yang “menipu” otak; mengapa kurang tidur mengganggu fokus dan emosi; manusia bisa “mendengar” senyum lewat nada suara; merinding saat dengar musik (frisson).
-
-## 3. Sci-Fi Parody (draft — perlu persetujuan)
-
-- **Definisi:** Skenario fiksi ilmiah atau imajinasi “bagaimana kalau” yang nyeleneh, dibahas dengan sains nyata secara ringan, sambil memisahkan fiksi dari kenyataan.
-- **Batasan topik:** Beri label jelas: fiksi, hipotesis, atau fakta ilmiah. Jangan menyajikan fiksi sebagai fakta; gunakan humor untuk membandingkan ekspektasi fiksi dengan penjelasan sains.
-- **Contoh ide:** Bisakah suara ledakan terdengar di luar angkasa?; apa yang terjadi jika gravitasi Bumi hilang sejenak?; apakah “zombie” mungkin secara biologi (sebagai skenario fiksi yang dibedah).
+- **Definisi:** Cerita seram/tegang berbasis **real story** — wajib punya pijakan nyata, bukan karangan/ngawang.
+- **Gaya penceritaan (ringkas):** narator tenang-dingin, **runut faktual** — buka fakta/konteks → **kronologi** → **temuan/keterangan** (apa yang ditemukan/tercatat) → **mitos/cerita beredar** dipisah tegas. Seram/mencekam dari detail nyata & kontras fakta, bukan dari kata-kata seram/atmosfer ngambang. Jujur soal tingkat kepastian/sumber.
+- **Basis cerita (wajib, minimal satu):**
+  - **Kesaksian/omongan orang:** cerita dari narasumber/saksi atau pengalaman/cerita yang beredar (urban legend) — sebutkan sumber/asal.
+  - **Fakta/peristiwa sejarah:** kejadian atau catatan sejarah terdokumentasi.
+  - **Mitos/legenda/cerita rakyat daerah:** sebutkan daerah/asal-usul ceritanya.
+- **Cakupan:** Kasus misteri nyata terdokumentasi, urban legend, kisah saksi/narasumber, misteri peristiwa sejarah, mitos/legenda & asal-usul daerah, fenomena janggal yang diceritakan/tercatat — dibahas dari sisi cerita dan konteks/fakta yang bisa diverifikasi.
+- **Batasan tegas:**
+  - **Wajib cantumkan basis/asal cerita** (narasumber/kesaksian, catatan/sumber sejarah, atau mitos/legenda daerah). Dilarang horror ngawang/fiksi murni tanpa pijakan.
+  - Wajib beri label & bedakan: **kesaksian/cerita beredar**, **fakta sejarah terverifikasi**, **mitos/legenda**, **spekulasi**, atau **fiksi** (rekonstruksi/dramatisasi). Jangan menyajikan cerita/rumor sebagai fakta terverifikasi; sampaikan tingkat kepastian secara jujur.
+  - Tanpa glorifikasi kekerasan atau pelaku; tidak mengeksploitasi.
+  - Hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
+  - Target 18+ (dewasa): tegang/merinding dan tema dewasa/gelap boleh; tidak menakut-nakuti berlebihan.

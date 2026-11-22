@@ -22,6 +22,6 @@ File audio/video final simpan di luar repo; tautkan di `meta.md`.
 
 ## Indeks
 
-| No | Slug | Pilar | Status | TikTok | YouTube Shorts | Instagram Reels |
+| No | Slug | Niche | Status | TikTok | YouTube Shorts | Instagram Reels |
 | --- | --- | --- | --- | --- | --- | --- |
 | - | _(current)_ | - | draft | pending | pending | pending |

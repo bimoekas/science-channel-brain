@@ -15,8 +15,8 @@ Rujukan: `03-production/ELEVENLABS-VOICE-GUIDE.md` (voice fixed: Gadis - Cheerfu
 ### Payoff
 ...
 
-### Tagline penutup (fixed, jangan diubah)
-Penting ga penting, jawabnya serius.
+### Penutup (fixed, jangan diubah)
+Sini aku ceritain.
 
 ## Catatan pelafalan & normalisasi
 
@@ -26,5 +26,5 @@ Penting ga penting, jawabnya serius.
 
 ## Catatan produksi
 
-- Target durasi: 25–60 detik; tempo jelas, tidak monoton, selaras caption.
+- Target durasi: 70–90 detik; tempo jelas, tidak monoton, selaras caption.
 - File audio final simpan di luar repo; tautkan di `meta.md`.

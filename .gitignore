@@ -22,3 +22,6 @@ snapshots/
 
 # Local Claude settings/state
 .claude/
+
+# Large stills kept out of git; archive folders own the images they use
+video/assets/images/
