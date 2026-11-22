@@ -351,7 +351,7 @@ Aturan:
 
 ---
 
-## 10. Checklist sebelum render
+## 10. Checklist sebelum serah (preview)
 
 - [ ] `npm run check` → 0 error.
 - [ ] Font: tidak ada family di luar Inter / EB Garamond tanpa `@font-face`.

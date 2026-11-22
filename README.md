@@ -80,8 +80,8 @@ Syarat: Node.js 22+, FFmpeg, pnpm. Jalankan dari root repo (script memakai `pnpm
 | `pnpm video:lint` | Lint komposisi |
 | `pnpm video:check` | Gate: lint + runtime + layout + contrast |
 | `pnpm video:snapshot` | Ambil frame PNG (cek visual) |
-| `pnpm video:render` | Render `renders/current.mp4` (quality `looks`) |
-| `pnpm video:render:draft` | Render cepat `renders/current-draft.mp4` |
+| `pnpm video:render` | Render `renders/current.mp4` (quality `looks`) — hanya bila diminta, lambat |
+| `pnpm video:render:draft` | Render cepat `renders/current-draft.mp4` — hanya bila diminta |
 | `pnpm video:info` | Metadata proyek video |
 | `pnpm video:timeline` | Tampilkan track/clip timeline |
 | `pnpm content:status` | Pengingat alur konten aktif |

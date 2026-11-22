@@ -45,3 +45,5 @@ Bila tugas menyentuh `voiceover.md` (siapa pun yang memintanya):
 ## Video
 
 Untuk kerja di `video/`: baca `video/CLAUDE.md` dan ikuti skill HyperFrames. Kontrak ringkas ada di `03-production/VIDEO-CODE-GUIDE.md`.
+
+Hasil akhir = bisa di-preview di HyperFrames Studio. **Jangan render MP4** kecuali user meminta eksplisit — render sangat lambat dan bukan gate kelulusan.

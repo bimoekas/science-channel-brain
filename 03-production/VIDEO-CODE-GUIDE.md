@@ -1,12 +1,12 @@
 # Video Code Guide (HyperFrames) — AI
 
-Panduan agar AI menghasilkan kode video konsisten untuk channel ini (HyperFrames: HTML + CSS + GSAP, render ke MP4). Baca bersama: `01-brand/BRAND-IDENTITY.md`, `02-content-system/CONTENT-PILLARS.md`, `03-production/VIDEO-STYLE-GUIDE.md`, `03-production/ELEVENLABS-VOICE-GUIDE.md`, `content/current/script.md`.
+Panduan agar AI menghasilkan kode video konsisten untuk channel ini (HyperFrames: HTML + CSS + GSAP; hasil akhirnya di-preview di HyperFrames Studio). Baca bersama: `01-brand/BRAND-IDENTITY.md`, `02-content-system/CONTENT-PILLARS.md`, `03-production/VIDEO-STYLE-GUIDE.md`, `03-production/ELEVENLABS-VOICE-GUIDE.md`, `content/current/script.md`.
 
 ## 1. Input & alur
 - Sumber: `content/current/script.md` (struktur hook/penjelasan/payoff, timing, source notes), `content/current/voiceover.md`, durasi `video/voiceover.mp3` (jadikan audio sumber timing). Catat aset/status di `content/current/meta.md`.
-- Output kode: `video/index.html` + `video/compositions/s1-*.html` (6 scene/beat) → 1 video render utuh.
+- Output kode: `video/index.html` + `video/compositions/s1-*.html` (6 scene/beat) → 1 film utuh yang bisa di-preview di HyperFrames Studio. Render MP4 **bukan** bagian alur default.
 - Default: 1080×1920, 9:16 (`data-resolution="portrait"`), durasi = durasi VO (format 70–90 dtk; jika VO beda, sesuaikan eksplisit). Satu ide + satu payoff.
-- Visual + caption on-screen. Tanpa VO/musik/SFX di render kecuali diminta (track narasi ditambah terpisah). Jika render silent, warning `audio_file_without_element`/`film_silent` wajar.
+- Visual + caption on-screen. Tanpa VO/musik/SFX di episode kecuali diminta (track narasi ditambah terpisah).
 
 ## 2. Struktur proyek
 - `index.html` (root): muat GSAP, deklarasi variabel root, mount scene, timeline root.
@@ -149,12 +149,13 @@ Penjelasan sistem lengkap: `01-brand/BRAND-SYSTEM.md`.
 
 ## 6. Perintah
 Jalankan dari root (butuh Node 22+, FFmpeg, pnpm):
-- `pnpm video:dev` preview, `pnpm video:lint`, `pnpm video:check`
-- `pnpm video:snapshot` cek frame, `pnpm video:render:draft` / `pnpm video:render` (→ `renders/`, silent)
+- `pnpm video:dev` preview Studio (verifikasi utama), `pnpm video:lint`, `pnpm video:check`
+- `pnpm video:snapshot` cek frame PNG
 - `npx hyperframes docs <topic>` referensi (`data-attributes`, `gsap`, `compositions`, `rendering`, `troubleshooting`, `examples`)
+- `pnpm video:render` / `pnpm video:render:draft` **hanya bila diminta** — lambat, bukan gate kelulusan.
 
-## 7. QA sebelum render final
-- `video:check` 0 error. Review warning: safe zone, kontras, occlusion/overflow, `text_below_floor`, dead stretch. Snapshot momen kunci & baca hasilnya.
+## 7. QA sebelum serah (preview, bukan render)
+- `video:check` 0 error. Review warning: safe zone, kontras, occlusion/overflow, `text_below_floor`, dead stretch. Snapshot momen kunci & baca hasilnya. Preview di Studio untuk cek gerak & timing.
 - Cek: frame 0 terisi + **hook screen ±3 dtk terbaca dan menyambung ke scene 1**, caption terbaca & aman, **tidak ada caption kembar** (per grup, dibandingkan dengan tipe scene pada jendela yang sama), visual relevan & jelas, timing pas VO. Jika ada klaim/cerita: tidak lebih pasti dari bukti, label & asal/sumber jelas (lihat `FACT-CHECK-CHECKLIST.md`). Horror: berbasis real story (bukan ngawang), tanpa glorifikasi/eksploitasi, hindari gore/kekerasan eksplisit-grafis.
 
 ## 8. Rule guide (wajib, urutan kerja)
@@ -173,7 +174,7 @@ Jalankan dari root (butuh Node 22+, FFmpeg, pnpm):
 4. **Kode deterministik** — Struktur & kontrak §2–§3: `index.html` + scene `<template>`, elemen ber-timing `class="clip"` + `data-start/duration`, `fromTo`, timeline paused ter-register setelah tween, id host/root/key konsisten, root `data-duration` menutup semua.
 5. **Animasi minimal** — Default statis + fade opacity sederhana; hindari slide/pan/zoom/blur/scale, kamera, mikro-gerak kontinu, partikel, dan transisi berat. 3D hanya bila benar-benar perlu & deterministik (§5). Jaga ringan.
 6. **Caption sinkron VO** — Turunkan caption dari audio key notes/narasi (`content/current/script.md` + `video/voiceover.mp3`), bagi per frasa (2–7 kata, ≤2 baris), beri `data-cap-start`/`data-cap-duration` selaras jeda ucapan (tidak statis), dan panggil `NPL.captions(tl, scope)`. Buang grup yang menduplikasi tipe scene (lihat §8 butir 3 & `BRAND-SYSTEM.md` §5.4).
-7. **QA gate** — `pnpm video:lint` & `pnpm video:check` **0 error**. `pnpm video:snapshot` momen kunci lalu baca hasilnya. Perbaiki P0/P1: safe zone, kontras, occlusion/overflow, teks <28px, dead stretch, peta/visual tak jelas, timing/caption vs VO. Klaim visual tidak lebih pasti dari bukti.
+7. **QA gate** — `pnpm video:lint` & `pnpm video:check` **0 error**. `pnpm video:snapshot` momen kunci lalu baca hasilnya. Cek gerak & timing di Studio (`pnpm video:dev`). Render MP4 tidak diminta kecuali user minta eksplisit. Perbaiki P0/P1: safe zone, kontras, occlusion/overflow, teks <28px, dead stretch, peta/visual tak jelas, timing/caption vs VO. Klaim visual tidak lebih pasti dari bukti.
 
 ## 9. Rujukan skill & guide
 - **HyperFrames skill/CLI**: `/hyperframes` (kontrak & loop kerja), `/hyperframes-cli` (scaffold/check/snapshot/render/preview), `/hyperframes-registry` (blok siap pakai). Referensi: `npx hyperframes docs <topic>` — `data-attributes`, `gsap`, `compositions`, `rendering`, `examples`, `troubleshooting`. Untuk video: `references/format.md`, `motion.md`, `review.md`, `story.md`, `look.md`, `types/vertical.md`, `runtimes.md`, `types/3d.md`, `path-tracing.md`.
