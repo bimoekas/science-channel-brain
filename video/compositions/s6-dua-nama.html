@@ -1,0 +1,61 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
+  font-family:var(--npl-font-display);color:var(--npl-ink)}
+/* The pivot of the episode: two names, and which one the tradition ranks first.
+   Caption 08 answers it, so the rail stays silent until 48.20. */
+#s6-head{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:386px}
+#s6-duo{margin:34px 0 0;display:flex;flex-direction:column;gap:34px}
+#s6-a,#s6-b{margin:0;font-size:78px;font-weight:900;line-height:.98;
+  letter-spacing:-.035em}
+#s6-a{color:var(--npl-ink)}
+#s6-b{color:var(--npl-horror-a)}
+#s6-b small{display:block;margin-top:16px;font-family:var(--npl-font-body);
+  font-size:var(--npl-label-size);font-weight:600;letter-spacing:var(--npl-label-track);
+  text-transform:uppercase;color:var(--npl-gray-400)}
+#s6-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:800px}
+#s6-rank{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:868px;
+  display:flex;align-items:flex-end;gap:16px}
+#s6-rank b{display:block;flex:1;font-family:var(--npl-font-display);font-weight:900;
+  font-size:96px;line-height:.85;letter-spacing:-.05em;color:var(--npl-gray-500)}
+#s6-rank b.on{color:var(--npl-horror-b)}
+#s6-rank b em{display:block;margin-top:14px;font-family:var(--npl-font-body);
+  font-style:normal;font-size:24px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--npl-gray-400)}
+</style>
+<div id="root" data-composition-id="s6-dua-nama" data-width="1080" data-height="1920">
+  <div class="clip" id="s6-stage" data-start="0" data-duration="13.19" data-track-index="1">
+    <div class="npl-ground"></div>
+    <div class="npl-vignette"></div>
+
+    <div id="s6-head" data-layout-allow-safe-zone>
+      <p class="npl-label">Satu nama, dua sosok</p>
+      <div id="s6-duo">
+        <p id="s6-a">Nyi Roro Kidul</p>
+        <p id="s6-b">Kanjeng Ratu Kidul<small>kepercayaan Jawa</small></p>
+      </div>
+    </div>
+    <div id="s6-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
+    <div id="s6-rank" data-layout-allow-safe-zone>
+      <b id="s6-r1">I<em>disebut pertama</em></b>
+      <b id="s6-r2" class="on">II<em>bawahannya</em></b>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  /* local = abs - 37.96 */
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 13.19;
+  tl.fromTo("#s6-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.04);
+  tl.fromTo("#s6-a", {opacity:0, y:18, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.44, ease:"power3.out"}, 7.08); /* 45.04 */
+  tl.fromTo("#s6-b", {opacity:0, y:18, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.44, ease:"power3.out"}, 8.26); /* 46.22 */
+  tl.fromTo("#s6-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.62, ease:"power2.inOut"}, 10.24); /* 48.20 */
+  tl.fromTo("#s6-r1", {opacity:0, y:14}, {opacity:1, y:0, duration:.34, ease:"power2.out"}, 10.30);
+  tl.fromTo("#s6-r2", {opacity:0, y:14}, {opacity:1, y:0, duration:.34, ease:"power2.out"}, 11.40); /* 49.36 */
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s6-dua-nama"] = tl;
+})();
+</script>
+</template>

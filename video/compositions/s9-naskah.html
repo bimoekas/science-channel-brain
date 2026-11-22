@@ -1,0 +1,67 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
+  font-family:var(--npl-font-display);color:var(--npl-ink)}
+/* Three recorded titles, then a chair with nothing in it. The chair is drawn,
+   not captioned: the rail prints the sentence, the frame prints the object. */
+#s9-head{position:absolute;left:var(--npl-margin);top:392px}
+#s9-list{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:500px;
+  display:flex;flex-direction:column;gap:22px}
+#s9-list p{margin:0;display:flex;align-items:baseline;gap:22px;
+  font-family:var(--npl-font-accent);font-style:italic;font-size:58px;
+  line-height:1.16;color:var(--npl-ink)}
+#s9-list span{display:block;width:34px;height:2px;flex:none;
+  background:var(--npl-horror-b);align-self:center;opacity:.7}
+#s9-chair{position:absolute;left:var(--npl-margin);top:800px;width:250px;height:300px}
+#s9-chair .seat{position:absolute;left:0;bottom:38px;width:250px;height:26px;
+  border:3px solid rgba(179,156,255,.55)}
+#s9-chair .back{position:absolute;left:0;bottom:64px;width:250px;height:180px;
+  border:3px solid rgba(179,156,255,.40);border-bottom:0}
+#s9-chair .l1,#s9-chair .l2{position:absolute;bottom:0;width:3px;height:40px;
+  background:rgba(179,156,255,.45)}
+#s9-chair .l1{left:14px}
+#s9-chair .l2{right:14px}
+#s9-chair-note{position:absolute;left:390px;top:900px;margin:0;
+  font-family:var(--npl-font-body);font-size:var(--npl-label-size);font-weight:600;
+  letter-spacing:var(--npl-label-track);text-transform:uppercase;
+  color:var(--npl-gray-500)}
+</style>
+<div id="root" data-composition-id="s9-naskah" data-width="1080" data-height="1920">
+  <div class="clip" id="s9-stage" data-start="0" data-duration="12.39" data-track-index="1">
+    <div class="npl-ground"></div>
+    <div class="npl-vignette"></div>
+
+    <div id="s9-head" data-layout-allow-safe-zone>
+      <p class="npl-label">Yang tertulis</p>
+    </div>
+    <div id="s9-list" data-layout-allow-safe-zone>
+      <p id="s9-m1"><span></span>Babad Tanah Jawi</p>
+      <p id="s9-m2"><span></span>Babad Dipanegara</p>
+      <p id="s9-m3"><span></span>Serat Centhini</p>
+    </div>
+    <div id="s9-chair" data-layout-allow-safe-zone>
+      <div class="back"></div><div class="seat"></div>
+      <div class="l1"></div><div class="l2"></div>
+    </div>
+    <p id="s9-chair-note" data-layout-allow-safe-zone>Surakarta</p>
+  </div>
+</div>
+<script>
+(function(){
+  /* local = abs - 67.36 */
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 12.39;
+  tl.fromTo("#s9-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.04);
+  tl.fromTo("#s9-m1", {opacity:0, y:14}, {opacity:1, y:0, duration:.40, ease:"power3.out"}, 2.68); /* 70.04 */
+  tl.fromTo("#s9-m2", {opacity:0, y:14}, {opacity:1, y:0, duration:.40, ease:"power3.out"}, 4.18); /* 71.54 */
+  tl.fromTo("#s9-m3", {opacity:0, y:14}, {opacity:1, y:0, duration:.40, ease:"power3.out"}, 5.78); /* 73.14 */
+  /* 74.85 — the titles step back; the chair arrives and the rail names it. */
+  tl.fromTo("#s9-list", {opacity:1}, {opacity:.26, duration:.45, ease:"power2.inOut"}, 7.30);
+  tl.fromTo("#s9-chair", {opacity:0, y:18}, {opacity:1, y:0, duration:.55, ease:"power2.out"}, 7.49);
+  tl.fromTo("#s9-chair-note", {opacity:0}, {opacity:1, duration:.40, ease:"power2.out"}, 7.80);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s9-naskah"] = tl;
+})();
+</script>
+</template>

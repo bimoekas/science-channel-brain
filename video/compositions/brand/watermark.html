@@ -12,10 +12,10 @@
 #wm .w{height:27px}
 </style>
 <div id="root" data-composition-id="watermark" data-width="1080" data-height="1920">
-  <div class="clip" id="wm-stage" data-start="0" data-duration="68.6" data-track-index="1">
+  <div class="clip" id="wm-stage" data-start="0" data-duration="101.60" data-track-index="1">
     <div id="wm" data-layout-allow-safe-zone>
       <img class="s" src="assets/brand/logo-symbol.svg" alt="">
-      <img class="w" src="assets/brand/logo-wordmark-compact.svg" alt="NGGAK PENTING LAB">
+      <img class="w" src="assets/brand/logo-wordmark-compact.svg" alt="SINI AKU CERITAIN">
     </div>
   </div>
 </div>
@@ -24,7 +24,7 @@
   const tl = gsap.timeline({ paused: true });
   /* Fades in once the hook has landed and holds at a low, readable weight. */
   tl.fromTo("#wm", { opacity: 0 }, { opacity: .34, duration: .7, ease: "power2.out" }, 1.4);
-  tl.set({}, {}, 68.6);
+  tl.set({}, {}, 77.30);
   window.__timelines["watermark"] = tl;
 })();
 </script>

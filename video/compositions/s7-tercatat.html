@@ -1,0 +1,44 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
+  font-family:var(--npl-font-display);color:var(--npl-ink)}
+/* The turn. Four short seconds: the claim splits, and the frame stops talking
+   about a figure and starts talking about an act. */
+#s7-wrap{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:530px}
+/* one step above gray-500: the root grain lifts the black ground, and gray-500
+   lands at 2.99:1 against it instead of the 3:1 a large line needs. */
+#s7-neg{position:absolute;left:0;top:0;margin:0;font-size:76px;font-weight:900;
+  letter-spacing:-.035em;line-height:1;color:#5e5e68}
+#s7-pos{position:absolute;left:0;top:0;margin:0;font-size:76px;font-weight:900;
+  letter-spacing:-.035em;line-height:1;color:var(--npl-ink)}
+#s7-pos em{font-style:normal;color:var(--npl-horror-b)}
+#s7-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:820px}
+</style>
+<div id="root" data-composition-id="s7-tercatat" data-width="1080" data-height="1920">
+  <div class="clip" id="s7-stage" data-start="0" data-duration="4.65" data-track-index="1">
+    <div class="npl-ground"></div>
+    <div class="npl-vignette"></div>
+
+    <div id="s7-wrap" data-layout-allow-safe-zone data-layout-allow-overlap>
+      <p id="s7-neg">Yang tercatat,<br>bukan sosoknya.</p>
+      <p id="s7-pos">Tapi yang mereka<br><em>lakukan</em> setiap tahun.</p>
+    </div>
+    <div id="s7-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
+  </div>
+</div>
+<script>
+(function(){
+  /* local = abs - 51.15 */
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 4.65;
+  tl.fromTo("#s7-neg", {opacity:0, y:16, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.42, ease:"power3.out"}, 0.06);
+  /* 53.35 — the correction crosses in and the negative drops away. */
+  tl.fromTo("#s7-neg", {opacity:1}, {opacity:0, duration:.30, ease:"power2.in", immediateRender:false}, 2.20);
+  tl.fromTo("#s7-pos", {opacity:0, y:16, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.42, ease:"power3.out"}, 2.22);
+  tl.fromTo("#s7-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.55, ease:"power2.inOut"}, 2.40);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s7-tercatat"] = tl;
+})();
+</script>
+</template>

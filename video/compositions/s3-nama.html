@@ -1,0 +1,50 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
+  font-family:var(--npl-font-display);color:var(--npl-ink)}
+/* The name, then the fact that it splits three ways. Captions stay silent from
+   9.28 to 14.10 so the honour lands on the name alone. */
+#s3-head{position:absolute;left:var(--npl-margin);top:430px}
+#s3-name{margin:26px 0 0;font-size:132px;font-weight:900;line-height:.9;
+  letter-spacing:-.045em}
+#s3-name em{font-style:normal;color:var(--npl-horror-a)}
+#s3-sub{position:absolute;left:var(--npl-margin);top:820px;margin:0;
+  font-family:var(--npl-font-accent);font-style:italic;font-size:50px;
+  line-height:1.2;color:var(--npl-gray-200)}
+#s3-versi{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:932px;
+  display:flex;gap:18px}
+#s3-versi i{display:block;flex:1;height:132px;border:2px solid rgba(179,156,255,.42)}
+#s3-versi i:nth-child(2){border-color:rgba(179,156,255,.26)}
+#s3-versi i:nth-child(3){border-color:rgba(179,156,255,.14)}
+</style>
+<div id="root" data-composition-id="s3-nama" data-width="1080" data-height="1920">
+  <div class="clip" id="s3-stage" data-start="0" data-duration="7.56" data-track-index="1">
+    <div class="npl-ground"></div>
+    <div class="npl-vignette"></div>
+
+    <div id="s3-head" data-layout-allow-safe-zone>
+      <p class="npl-label">Nama</p>
+      <h1 id="s3-name">Nyi Roro<br><em>Kidul</em></h1>
+    </div>
+    <p id="s3-sub" data-layout-allow-safe-zone>Penguasa laut selatan.</p>
+    <div id="s3-versi" data-layout-allow-safe-zone><i></i><i></i><i></i></div>
+  </div>
+</div>
+<script>
+(function(){
+  /* local = abs - 9.28 */
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 7.56;
+  tl.fromTo("#s3-head .npl-label", {opacity:0, y:8}, {opacity:1, y:0, duration:.28, ease:"power2.out"}, 0.02);
+  tl.fromTo("#s3-name", {opacity:0, y:20, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.50, ease:"power3.out"}, 0.10);
+  tl.fromTo("#s3-sub", {opacity:0, y:12}, {opacity:1, y:0, duration:.42, ease:"power2.out"}, 2.40);
+  /* 13.96 — "tapi ceritanya tidak satu versi": the name steps back, three
+     frames rise under it, and the caption says the rest. */
+  tl.fromTo("#s3-name", {opacity:1}, {opacity:.32, duration:.42, ease:"power2.inOut", immediateRender:false}, 4.66);
+  tl.fromTo("#s3-versi i", {opacity:0, y:16}, {opacity:1, y:0, duration:.34, ease:"power2.out", stagger:.10}, 4.74);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s3-nama"] = tl;
+})();
+</script>
+</template>

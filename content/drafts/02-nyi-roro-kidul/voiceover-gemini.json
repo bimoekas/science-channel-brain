@@ -1,0 +1,73 @@
+{
+  "$comment": "Gemini TTS manifest — padanan voiceover.md versi ElevenLabs. Tidak ada tag per baris; delivery lewat `style` per segmen, jeda lewat `<long pause>` inline dan `pauseAfter`. Aturan isi sama (03-production/GEMINI-TTS-VOICE-GUIDE.md). Voice belum diuji untuk Bahasa Indonesia — uji 2-3 kandidat (Enceladus, Algenib, Gacrux) sebelum produksi.",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Enceladus",
+  "output": "video/assets/audio/voiceover-gemini.wav",
+  "segments": [
+    {
+      "text": "Di pantai selatan, ada aturan tak tertulis. JANGAN pakai baju hijau.",
+      "style": "deadpan, quiet, unsettling, speaking slowly",
+      "pauseAfter": 1
+    },
+    {
+      "text": "Katanya, itu warna kesukaan sang ratu.",
+      "style": "soft, almost inaudible whisper",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Namanya Nyi Roro Kidul. Penguasa laut selatan. Tapi ceritanya... tidak satu versi.",
+      "style": "low, steady, measured, unhurried",
+      "pauseAfter": 0.8
+    },
+    {
+      "text": "Ada yang menyebutnya Dewi Kadita. Putri Pajajaran. Dikutuk ibu tiri. Diusir... lalu menghilang ke dalam air.",
+      "style": "flat, clinical narration, deadpan",
+      "pauseAfter": 0.8
+    },
+    {
+      "text": "Ada versi lain. Kulitnya rusak. Ia berkelana ke selatan. <long pause> Ombak besar datang... dan ia tak kembali.",
+      "style": "soft, almost inaudible whisper, speaking slowly",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Dua sosok, satu nama. Dalam kepercayaan Jawa, mereka dua. Nyi Roro Kidul... dan Kanjeng Ratu Kidul.",
+      "style": "cold, measured, honest",
+      "pauseAfter": 0.8
+    },
+    {
+      "text": "Yang tercatat, bukan sosoknya. Tapi yang mereka lakukan setiap tahun.",
+      "style": "tense, unmoving, speaking slowly",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Keraton Yogyakarta melabuh sesaji ke Pantai Parangkusumo. Kain. Kemben hijau. Sebagian dikubur di pasir hitam... tepat di atas garis air.",
+      "style": "flat, clinical narration, measured",
+      "pauseAfter": 0.8
+    },
+    {
+      "text": "Naskah lama juga menyebutnya. <long pause> Babad Tanah Jawi. <short pause> Babad Dipanegara. <short pause> Serat Centhini. <short pause> Dan satu kursi di Surakarta... kosong.",
+      "style": "cold, deliberate, hushed",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Di sini batasnya. Yang tersisa adalah legenda. Bukan klaim yang bisa dibuktikan.",
+      "style": "cold, measured, honest",
+      "pauseAfter": 0.6
+    },
+    {
+      "text": "Larangan baju hijau itu sendiri... lebih banyak beredar sebagai cerita.",
+      "style": "quiet, controlled, faint unease, speaking slowly",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Yang mencekam bukan ombaknya. Tapi satu cerita yang bertahan ratusan tahun.",
+      "style": "calm delivery of something deeply wrong, almost whispered",
+      "pauseAfter": 1.2
+    },
+    {
+      "text": "Sini aku ceritain.",
+      "style": "eerie, detached, hushed",
+      "pauseAfter": 0
+    }
+  ]
+}

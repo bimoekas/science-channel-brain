@@ -4,38 +4,93 @@
     "integratedLufs": -14,
     "truePeakDbtp": -1,
     "voicePriority": "highest",
-    "musicDuckDuringVoiceDb": [4, 8],
+    "musicDuckDuringVoiceDb": [
+      4,
+      8
+    ],
     "sfxMustNotMaskVoice": true,
     "intentionalSilenceBeforePunchline": true
   },
   "music": {
-    "direction": "Cinematic ambient. Subtle synth pulse. Atmospheric tension. Minimal percussion. Intensity follows the story.",
+    "direction": "Cinematic ambient. Subtle synth pulse. Atmospheric tension. Minimal percussion. Intensity follows the story and niche (komedi/horror).",
     "status": "missing",
     "path": null,
     "note": "No bed exists in the repo. Reference only after a licensed track is placed in assets/audio/."
   },
   "signatureSting": {
     "name": "reality-skip-sting",
-    "durationSec": [0.5, 0.8],
-    "layers": ["signal chirp", "low-frequency impact", "short tape-stop or static tail"],
+    "durationSec": [
+      0.5,
+      0.8
+    ],
+    "layers": [
+      "signal chirp",
+      "low-frequency impact",
+      "short tape-stop or static tail"
+    ],
     "status": "missing",
     "path": "assets/audio/signature-sting.wav",
     "usedBy": "signature outro + Reality Skip transitions"
   },
   "palettes": {
+    "komedi": {
+      "status": "missing",
+      "cues": [
+        "dry pop",
+        "tick",
+        "rubber bounce",
+        "tape stop",
+        "playful comedic accent",
+        "short silence before punchline"
+      ],
+      "paths": []
+    },
+    "horror": {
+      "status": "missing",
+      "cues": [
+        "low drone",
+        "subtle rumble",
+        "distant creak",
+        "static crackle",
+        "reverse swell",
+        "cinematic tension hit",
+        "intentional silence"
+      ],
+      "paths": []
+    },
     "earth-glitch": {
       "status": "missing",
-      "cues": ["low rumble", "atmospheric drone", "static crackle", "reverse swell", "cinematic impact", "digital signal distortion"],
+      "cues": [
+        "low rumble",
+        "atmospheric drone",
+        "static crackle",
+        "reverse swell",
+        "cinematic impact",
+        "digital signal distortion"
+      ],
       "paths": []
     },
     "human-madness": {
       "status": "missing",
-      "cues": ["dry pop", "tick", "rubber bounce", "tape stop", "playful comedic accent", "short silence before punchline"],
+      "cues": [
+        "dry pop",
+        "tick",
+        "rubber bounce",
+        "tape stop",
+        "playful comedic accent",
+        "short silence before punchline"
+      ],
       "paths": []
     },
     "sci-fi-parody": {
       "status": "missing",
-      "cues": ["synthetic blip", "retro synth arpeggio", "mechanical click", "futuristic notification", "exaggerated cinematic impact"],
+      "cues": [
+        "synthetic blip",
+        "retro synth arpeggio",
+        "mechanical click",
+        "futuristic notification",
+        "exaggerated cinematic impact"
+      ],
       "paths": []
     }
   },

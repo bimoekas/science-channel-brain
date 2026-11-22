@@ -1,0 +1,57 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
+  font-family:var(--npl-font-display);color:var(--npl-ink)}
+/* The rule of the channel, said out loud on screen: what is left is legend,
+   belief and tradition. Each word lands on its own spoken beat. The rest of
+   the beat is carried by the caption rail, so this scene stops at 85.4. */
+#s10-head{position:absolute;left:var(--npl-margin);top:398px}
+#s10-list{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:486px}
+#s10-list p{margin:0 0 18px;font-size:84px;font-weight:900;line-height:1;
+  letter-spacing:-.035em;color:var(--npl-ink)}
+#s10-list p:first-child{font-size:44px;font-weight:600;letter-spacing:0;
+  color:var(--npl-gray-400);margin-bottom:34px}
+#s10-list p:nth-child(2){color:var(--npl-horror-a)}
+#s10-list p:nth-child(3){color:var(--npl-horror-b)}
+#s10-list p:last-child{color:var(--npl-gray-200)}
+#s10-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:960px}
+</style>
+<div id="root" data-composition-id="s10-batas" data-width="1080" data-height="1920">
+  <div class="clip" id="s10-stage" data-start="0" data-duration="14.01" data-track-index="1">
+    <div class="npl-ground"></div>
+    <div class="npl-vignette"></div>
+
+    <div id="s10-head" data-layout-allow-safe-zone>
+      <p class="npl-label">Yang tersisa</p>
+    </div>
+    <div id="s10-list" data-layout-allow-safe-zone>
+      <p id="s10-l0">bukan klaim yang bisa dibuktikan</p>
+      <p id="s10-l1">Legenda,</p>
+      <p id="s10-l2">kepercayaan,</p>
+      <p id="s10-l3">tradisi.</p>
+    </div>
+    <div id="s10-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
+  </div>
+</div>
+<script>
+(function(){
+  /* local = abs - 79.75. Caption punch "Di sini batasnya." takes 79.80–81.14,
+     so the scene holds the frame empty until 81.32. */
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 14.01;
+  tl.fromTo("#s10-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 1.55);
+  tl.fromTo("#s10-l1", {opacity:0, y:20, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.42, ease:"power3.out"}, 2.65); /* 82.40 */
+  tl.fromTo("#s10-l2", {opacity:0, y:20, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.42, ease:"power3.out"}, 3.39); /* 83.14 */
+  tl.fromTo("#s10-l3", {opacity:0, y:20, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.42, ease:"power3.out"}, 4.70); /* 84.45 */
+  tl.fromTo("#s10-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.70, ease:"power2.inOut"}, 4.80);
+  /* 85.40 — the caption rail takes the next sentence; this scene clears out
+     of its way so two blocks of type never share the frame. */
+  tl.fromTo("#s10-head", {opacity:1}, {opacity:0, duration:.40, ease:"power2.in", immediateRender:false}, 5.60);
+  tl.fromTo("#s10-list", {opacity:1}, {opacity:0, duration:.45, ease:"power2.in", immediateRender:false}, 5.60);
+  tl.fromTo("#s10-wl", {opacity:1}, {opacity:0, duration:.45, ease:"power2.in", immediateRender:false}, 5.60);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s10-batas"] = tl;
+})();
+</script>
+</template>

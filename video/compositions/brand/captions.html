@@ -1,86 +1,132 @@
 <template>
 <style>
-/* Phrase-level captions. Brand rule: the rail carries only VO lines the scene
-   does not already print in its own typography. This film is built from
-   kinetic type, so the hook, the eruption, the numbers and the closing lines
-   are already on screen; repeating them as subtitles would double every word.
-   What the rail adds is the connective explanation - the part with no card.
-   One group on screen at a time, max two lines, 2-7 words, no word karaoke.
-   Times measured on voiceover.mp3 (68.597 s) with ffmpeg silencedetect at
-   -32 dB / 0.25 s; re-measure when the VO is regenerated. */
+/* Phrase-level captions on the garis air. No card, no grey box: every group
+   sits on a mint waterline that reads as the episode's own boundary between
+   legend and recorded fact. Lavender marks the legend word in the line.
+
+   Groups are key lines only — a scene prints its own type, so the rail goes
+   silent wherever the scene already says the sentence. Timings come from
+   word-level timestamps of assets/audio/voiceover.mp3 (103.31 s). */
 #root{position:absolute;inset:0;pointer-events:none}
+#cap-scrim{position:absolute;left:0;right:0;top:1100px;height:560px;
+  background:linear-gradient(180deg,rgba(8,8,10,0) 0%,rgba(8,8,10,.55) 32%,
+    rgba(8,8,10,.78) 66%,rgba(8,8,10,0) 100%)}
 #cap-host{position:absolute;inset:0}
 
-.npl-cap{top:1300px;left:var(--npl-margin);right:var(--npl-margin)}
+.npl-cap{top:1176px;left:var(--npl-margin);right:var(--npl-margin)}
 .npl-cap .npl-cap-line{
-  background:rgba(6,8,12,.82);
-  border-left:3px solid var(--npl-signal);
-  font-size:42px;
-  line-height:1.14;
-  padding:12px 20px;
+  display:inline-block;
+  max-width:100%;
+  position:relative;
+  padding:0 0 22px;
+  background:none;
+  border:0;
+  font-family:var(--npl-font-body);
+  font-size:46px;
+  font-weight:800;
+  line-height:1.18;
+  letter-spacing:-.015em;
+  color:var(--npl-ink);
+  text-shadow:0 2px 16px rgba(0,0,0,.92),0 0 40px rgba(0,0,0,.6);
 }
-.npl-cap .npl-cap-key{color:var(--npl-highlight)}
-.npl-cap .npl-cap-key.warm{color:var(--npl-alert)}
+/* the garis air: a hairline under the phrase, fading at both ends */
+.npl-cap .npl-cap-line::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
+  background:linear-gradient(90deg,rgba(92,242,192,0) 0%,rgba(92,242,192,.75) 10%,
+    rgba(92,242,192,.75) 74%,rgba(92,242,192,0) 100%);
+}
+.npl-cap .npl-cap-key{font-style:normal;color:var(--npl-horror-a)}
+
+/* Punch lines get a brighter, heavier tide and a size step — never a card. */
+.npl-cap.punch .npl-cap-line{font-size:52px;letter-spacing:-.02em}
+.npl-cap.punch .npl-cap-line::after{
+  height:3px;
+  background:linear-gradient(90deg,rgba(92,242,192,.15) 0%,rgba(92,242,192,.95) 8%,
+    rgba(92,242,192,.95) 82%,rgba(92,242,192,0) 100%);
+}
 </style>
 <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
-  <div class="clip" id="cap-stage" data-start="0" data-duration="68.6" data-track-index="1" data-track-kind="captions">
-    <!-- The rail sits at y 1300, inside the caption band: above the platform's
-         bottom UI, below the scene's own content. Declared intentional so the
-         safe-zone audit does not flag every phrase. -->
-    <div id="cap-host" data-layout-allow-safe-zone>
+  <div class="clip" id="cap-stage" data-start="0" data-duration="101.60" data-track-index="1" data-track-kind="captions">
+    <div id="cap-scrim"></div>
+    <div id="cap-host" data-layout-allow-safe-zone data-layout-allow-caption-zone>
 
-      <!-- 0-19 s: hook and eruption are printed by s1/s2. Rail stays silent. -->
+      <div class="npl-cap" id="cap-01" data-cap-start="5.72" data-cap-duration="3.50">
+        <span class="npl-cap-line">Katanya, itu warna<br>kesukaan <em class="npl-cap-key">sang ratu.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-02" data-cap-start="14.10" data-cap-duration="2.72">
+        <span class="npl-cap-line">Tapi ceritanya…<br><em class="npl-cap-key">tidak satu versi.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-03" data-cap-start="26.10" data-cap-duration="1.88">
+        <span class="npl-cap-line"><em class="npl-cap-key">Menghilang</em> ke dalam air.</span>
+      </div>
+      <div class="npl-cap" id="cap-04" data-cap-start="30.72" data-cap-duration="3.44">
+        <span class="npl-cap-line">Kulitnya rusak.<br>Ia berkelana ke selatan.</span>
+      </div>
+      <div class="npl-cap punch" id="cap-05" data-cap-start="34.20" data-cap-duration="3.74">
+        <span class="npl-cap-line">Ombak besar datang.<br><em class="npl-cap-key">Ia tak pernah kembali.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-06" data-cap-start="38.00" data-cap-duration="3.90">
+        <span class="npl-cap-line">Orang-orang menyebut<br>kedua sosok ini</span>
+      </div>
+      <div class="npl-cap" id="cap-07" data-cap-start="42.05" data-cap-duration="2.96">
+        <span class="npl-cap-line">Dalam kepercayaan Jawa,<br>mereka dua.</span>
+      </div>
+      <div class="npl-cap" id="cap-08" data-cap-start="55.80" data-cap-duration="3.76">
+        <span class="npl-cap-line">Keraton Yogyakarta<br>melabuh sesaji.</span>
+      </div>
+      <div class="npl-cap" id="cap-09" data-cap-start="59.60" data-cap-duration="3.58">
+        <span class="npl-cap-line">Kain. Kemben hijau.<br>Batik bermotif hijau.</span>
+      </div>
+      <div class="npl-cap" id="cap-10" data-cap-start="63.25" data-cap-duration="2.28">
+        <span class="npl-cap-line">Sebagian dikubur<br>di pasir hitam,</span>
+      </div>
+      <div class="npl-cap punch" id="cap-11" data-cap-start="65.58" data-cap-duration="1.76">
+        <span class="npl-cap-line"><em class="npl-cap-key">Tepat di atas garis air.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-12" data-cap-start="67.42" data-cap-duration="2.58">
+        <span class="npl-cap-line">Naskah lama juga<br>menyebut namanya.</span>
+      </div>
+      <div class="npl-cap" id="cap-13" data-cap-start="74.55" data-cap-duration="3.88">
+        <span class="npl-cap-line">Di Surakarta, satu kursi<br>selalu kosong.</span>
+      </div>
+      <div class="npl-cap punch" id="cap-14" data-cap-start="79.80" data-cap-duration="1.34">
+        <span class="npl-cap-line"><em class="npl-cap-key">Di sini batasnya.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-15" data-cap-start="85.40" data-cap-duration="2.08">
+        <span class="npl-cap-line">Bukan klaim yang<br>bisa dibuktikan.</span>
+      </div>
+      <div class="npl-cap" id="cap-16" data-cap-start="87.70" data-cap-duration="2.30">
+        <span class="npl-cap-line">Larangan baju hijau<br>itu sendiri…</span>
+      </div>
+      <div class="npl-cap" id="cap-17" data-cap-start="90.06" data-cap-duration="2.18">
+        <span class="npl-cap-line">Lebih banyak beredar<br>sebagai cerita,</span>
+      </div>
+      <div class="npl-cap punch" id="cap-18" data-cap-start="92.30" data-cap-duration="1.42">
+        <span class="npl-cap-line"><em class="npl-cap-key">Bukan hasil penelitian.</em></span>
+      </div>
+      <div class="npl-cap" id="cap-19" data-cap-start="93.82" data-cap-duration="2.08">
+        <span class="npl-cap-line">Yang mencekam<br>bukan ombaknya.</span>
+      </div>
+      <div class="npl-cap" id="cap-20" data-cap-start="95.95" data-cap-duration="3.20">
+        <span class="npl-cap-line">Tapi satu cerita yang<br>bertahan ratusan tahun.</span>
+      </div>
+      <div class="npl-cap" id="cap-21" data-cap-start="99.25" data-cap-duration="2.28">
+        <span class="npl-cap-line">Dan masih dihormati<br>sampai hari ini.</span>
+      </div>
 
-      <div class="npl-cap" id="cap-01" data-cap-start="19.05" data-cap-duration="1.45">
-        <span class="npl-cap-line" data-layout-allow-caption-zone>Abu dan <em class="npl-cap-key">gas belerang</em></span>
-      </div>
-      <div class="npl-cap" id="cap-02" data-cap-start="20.55" data-cap-duration="1.35">
-        <span class="npl-cap-line">terlontar ke atmosfer.</span>
-      </div>
-      <div class="npl-cap" id="cap-03" data-cap-start="22.35" data-cap-duration="1.60">
-        <span class="npl-cap-line">Jadi lapisan partikel</span>
-      </div>
-      <div class="npl-cap" id="cap-04" data-cap-start="24.00" data-cap-duration="1.55">
-        <span class="npl-cap-line">yang memantulkan<br><em class="npl-cap-key">sinar Matahari</em></span>
-      </div>
-      <div class="npl-cap" id="cap-05" data-cap-start="25.60" data-cap-duration="1.85">
-        <span class="npl-cap-line">kembali ke luar angkasa.</span>
-      </div>
-
-      <!-- 28-32 s prints the ±0,5 C gauge; 34-36 s prints KACAU. Silent. -->
-
-      <div class="npl-cap" id="cap-06" data-cap-start="32.75" data-cap-duration="1.05">
-        <span class="npl-cap-line">Kedengarannya kecil, ya?</span>
-      </div>
-
-      <!-- 37-45 s prints the three effect cards. Silent. -->
-
-      <div class="npl-cap" id="cap-07" data-cap-start="46.50" data-cap-duration="1.20">
-        <span class="npl-cap-line">Dan ini bagian</span>
-      </div>
-      <div class="npl-cap" id="cap-08" data-cap-start="47.75" data-cap-duration="1.20">
-        <span class="npl-cap-line">paling <em class="npl-cap-key">nggak terduga.</em></span>
-      </div>
-      <div class="npl-cap" id="cap-09" data-cap-start="49.60" data-cap-duration="1.50">
-        <span class="npl-cap-line">Di Swiss, sekelompok penulis</span>
-      </div>
-      <div class="npl-cap" id="cap-10" data-cap-start="51.15" data-cap-duration="1.20">
-        <span class="npl-cap-line">terjebak di dalam rumah</span>
-      </div>
-      <div class="npl-cap" id="cap-11" data-cap-start="52.40" data-cap-duration="1.25">
-        <span class="npl-cap-line">karena cuaca suram.</span>
-      </div>
-
-      <!-- 54 s onward: the Shelley card and the closing sentence are printed. -->
-
+      <!-- 101.60 s onward: the signature outro prints "Sini aku ceritain." -->
     </div>
   </div>
 </div>
 <script>
 (function(){
   const tl = gsap.timeline({ paused: true });
+  const DUR = 101.60;
+
+  tl.fromTo("#cap-scrim", {opacity:0}, {opacity:1, duration:0.6, ease:"power2.out"}, 0);
   NPL.captions(tl, "#cap-host");
-  tl.set({}, {}, 68.6);
+
+  tl.set({}, {}, DUR);
   window.__timelines["captions"] = tl;
 })();
 </script>

@@ -204,4 +204,72 @@
   };
 
   window.NPL = NPL;
+
+  /* ------------------------------------------------------------
+     LAB REPORT LAYER (v2, additive). All deterministic.
+     ------------------------------------------------------------ */
+
+  /* Claim stamp slam: lands hard, one micro-shake, no bounce. */
+  NPL.stamp = function (tl, target, at, opts) {
+    var o = opts || {};
+    var rot = o.rotate == null ? -4 : o.rotate;
+    tl.fromTo(
+      target,
+      { opacity: 0, scale: 1.7, rotation: rot - 7, transformOrigin: "50% 50%" },
+      { opacity: 1, scale: 1, rotation: rot, duration: 0.17, ease: "power3.in" },
+      at
+    );
+    tl.fromTo(target, { x: 0 }, { x: 7, duration: 0.05, ease: "steps(1)" }, at + 0.17);
+    tl.to(target, { x: -5, duration: 0.05, ease: "steps(1)" }, at + 0.22);
+    tl.to(target, { x: 0, duration: 0.06, ease: "steps(1)" }, at + 0.27);
+  };
+
+  /* mm:ss from seconds. */
+  NPL.clock = function (v) {
+    var t = Math.max(0, Math.round(v));
+    var m = Math.floor(t / 60);
+    var s = t % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  };
+
+  /* Counter: text is a pure function of the tween, so it is seek-safe. */
+  NPL.counter = function (tl, sel, at, dur, from, to, fmt) {
+    var el = document.querySelector(sel);
+    var f = fmt || NPL.clock;
+    var st = { v: from };
+    if (el) el.textContent = f(from);
+    return tl.fromTo(
+      st,
+      { v: from },
+      {
+        v: to, duration: dur, ease: "none",
+        onUpdate: function () { if (el) el.textContent = f(st.v); }
+      },
+      at
+    );
+  };
+
+  /* Film grain: seeded jitter on steps, alive without motion spam. */
+  NPL.grain = function (tl, sel, duration, opts) {
+    var o = opts || {};
+    var rnd = NPL.rng(o.seed || 7);
+    var step = o.step || 0.12;
+    for (var t = 0; t < duration; t += step) {
+      tl.set(sel, { x: Math.round((rnd() - 0.5) * 60), y: Math.round((rnd() - 0.5) * 60) }, t);
+    }
+  };
+
+  /* Star field: seeded circles injected into an <svg>. */
+  NPL.stars = function (svgSel, n, seed, w, h) {
+    var svg = document.querySelector(svgSel);
+    if (!svg) return;
+    var rnd = NPL.rng(seed || 3);
+    var out = "";
+    for (var i = 0; i < n; i++) {
+      var r = (0.8 + rnd() * 1.7).toFixed(1);
+      out += '<circle cx="' + Math.round(rnd() * w) + '" cy="' + Math.round(rnd() * h) +
+        '" r="' + r + '" fill="#f5f3ef" fill-opacity="' + (0.18 + rnd() * 0.5).toFixed(2) + '"/>';
+    }
+    svg.innerHTML = out;
+  };
 })();
