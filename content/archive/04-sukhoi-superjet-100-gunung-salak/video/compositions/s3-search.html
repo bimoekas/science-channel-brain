@@ -1,0 +1,73 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#0b1220 0%,#050a14 100%);font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#photo{position:absolute;left:0;top:0;width:1080px;height:1240px;overflow:hidden}
+#photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 52%;filter:contrast(1.10) saturate(.9) brightness(.72)}
+#scrim{position:absolute;left:0;top:0;width:1080px;height:1240px;background:
+  linear-gradient(180deg,rgba(4,9,18,.90) 0%,rgba(4,9,18,.26) 32%,rgba(5,8,17,.70) 70%,#050a14 100%)}
+#head{position:absolute;left:60px;top:180px}
+#head p{margin:0;font-size:30px;font-weight:800;letter-spacing:.2em;color:#7fdcff}
+#head h1{margin:14px 0 0;font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-.035em;color:#fff}
+#mark{position:absolute;left:50%;top:760px;width:150px;height:150px;margin-left:-75px;opacity:0}
+#mark .ring{position:absolute;inset:0;border:3px solid #ff8a3d;border-radius:50%;opacity:.9}
+#mark .ring2{position:absolute;inset:34px;border:2px solid rgba(255,138,61,.55);border-radius:50%}
+#mark .h{position:absolute;left:50%;top:-26px;width:2px;height:26px;background:#ff8a3d;margin-left:-1px}
+#mark .h2{position:absolute;left:50%;bottom:-26px;width:2px;height:26px;background:#ff8a3d;margin-left:-1px}
+#mark .v{position:absolute;top:50%;left:-26px;height:2px;width:26px;background:#ff8a3d;margin-top:-1px}
+#mark .v2{position:absolute;top:50%;right:-26px;height:2px;width:26px;background:#ff8a3d;margin-top:-1px}
+#loc{position:absolute;left:60px;right:60px;top:972px;opacity:0}
+#loc p{margin:0;font-size:28px;font-weight:800;letter-spacing:.16em;color:#ff8a3d}
+#loc h2{margin:8px 0 0;font-size:52px;font-weight:900;line-height:1.06;letter-spacing:-.03em;color:#fff}
+#lost{position:absolute;left:60px;right:60px;top:1120px;opacity:0;
+  border-left:8px solid #ff5a2f;padding:16px 0 16px 22px}
+#lost p{margin:0;font-size:46px;font-weight:900;letter-spacing:-.02em;color:#ffb59f}
+</style>
+
+<div id="root" data-composition-id="s3-search" data-width="1080" data-height="1920">
+  <div class="clip" id="s3-stage" data-start="0" data-duration="8.35" data-track-index="1">
+    <div id="photo" data-layout-allow-overflow><img id="ph" src="assets/images/mt-salak-indonesia-2019.jpg" alt="Gunung Salak dilihat dari kejauhan"></div>
+    <div id="scrim"></div>
+
+    <div id="head" data-layout-allow-safe-zone>
+      <p>PENCARIAN</p>
+      <h1>Gunung Salak</h1>
+    </div>
+
+    <div id="mark">
+      <div class="ring"></div>
+      <div class="ring2"></div>
+      <div class="h"></div><div class="h2"></div>
+      <div class="v"></div><div class="v2"></div>
+    </div>
+
+    <div id="loc" data-layout-allow-safe-zone>
+      <p>LOKASI PESAWAT</p>
+      <h2>Lereng Gunung Salak</h2>
+    </div>
+
+    <div id="lost" data-layout-allow-safe-zone><p>Tidak selamat.</p></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 8.35;
+
+  tl.fromTo("#ph", {scale:1.03}, {scale:1.10, duration:8.35, ease:"none"}, 0);
+  tl.fromTo("#scrim", {opacity:0}, {opacity:1, duration:0.8, ease:"power2.out"}, 0);
+  NPL.reveal(tl, "#head", 0.1, {y:16, blur:8, duration:0.5});
+
+  /* local = abs - 23.65. "Puing pesawat ditemukan di lereng Gunung Salak." 1.65-5.21 */
+  tl.fromTo("#mark", {opacity:0, scale:1.6}, {opacity:1, scale:1, duration:0.5, ease:"power3.out"}, 1.60);
+  tl.fromTo("#loc", {opacity:0, y:14}, {opacity:1, y:0, duration:0.42, ease:"power2.out"}, 1.95);
+  /* "Seluruh orang di dalam pesawat tidak selamat." 5.23-8.32 */
+  tl.fromTo("#lost", {opacity:0, x:-18}, {opacity:1, x:0, duration:0.45, ease:"power2.out"}, 5.25);
+  tl.to("#mark", {opacity:0.45, duration:0.4}, 5.25);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s3-search"] = tl;
+})();
+</script>
+</template>

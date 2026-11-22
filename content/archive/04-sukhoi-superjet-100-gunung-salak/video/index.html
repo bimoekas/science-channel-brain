@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Sukhoi Superjet 100 di Gunung Salak</title>
+<link rel="stylesheet" href="assets/brand/tokens.css">
+<style>
+  html,body{margin:0;padding:0;background:#08080a;}
+  #root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#08080a;}
+  [data-composition-src]{position:absolute;left:0;top:0;width:1080px;height:1920px;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="assets/brand/brand.js"></script>
+</head>
+<body>
+<!-- Sukhoi Superjet 100 di Gunung Salak (9 Mei 2012)
+     Audio: assets/audio/voiceover.mp3 — 79.07 s
+     S1 hook        0.00 -  9.05   "Sembilan Mei... penerbangan demonstrasi."
+     S2 setup       9.05 - 23.65   "Di udara, kru meminta izin... kontak hilang."
+     S3 search     23.65 - 32.00   "Pencarian dimulai... tidak selamat."
+     S4 investigasi 32.00 - 53.15  "Investigasi resmi... laporan investigasi resmi."
+     S5 myth       53.15 - 67.75   "Gunung Salak dikenal... bukan penjelasan terverifikasi."
+     S6 payoff     67.75 - 79.90   "Yang mencekam... hidup sebagai cerita." + penutup
+     Signature outro: 77.50 - 79.90 (tepat saat "Sini aku ceritain.") -->
+<div id="root" data-composition-id="main" data-start="0" data-duration="79.90" data-width="1080" data-height="1920" data-resolution="portrait">
+  <audio id="voiceover" data-hf-id="hf-voiceover-main" class="clip" src="assets/audio/voiceover.mp3" data-start="0" data-duration="79.07" data-track-index="3" data-volume="1" style="z-index: 10"></audio>
+
+  <div class="clip" id="scene-1-hook" data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="9.05" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-2-setup" data-composition-id="s2-setup" data-composition-src="compositions/s2-setup.html" data-start="9.05" data-duration="14.60" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-3-search" data-composition-id="s3-search" data-composition-src="compositions/s3-search.html" data-start="23.65" data-duration="8.35" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-4-investigation" data-composition-id="s4-investigation" data-composition-src="compositions/s4-investigation.html" data-start="32.00" data-duration="21.15" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-5-myth" data-composition-id="s5-myth" data-composition-src="compositions/s5-myth.html" data-start="53.15" data-duration="14.60" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-6-payoff" data-composition-id="s6-payoff" data-composition-src="compositions/s6-payoff.html" data-start="67.75" data-duration="11.32" data-track-index="1" data-width="1080" data-height="1920"></div>
+
+  <!-- Watermark -->
+  <div class="clip" id="brand-watermark" data-composition-id="watermark" data-composition-src="compositions/brand/watermark.html" data-start="0" data-duration="77.50" data-track-index="2" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
+
+  <!-- Captions layer -->
+  <div class="clip" id="brand-captions" data-composition-id="captions" data-composition-src="compositions/brand/captions.html" data-start="0" data-duration="77.50" data-track-index="4" data-width="1080" data-height="1920" data-track-kind="captions"></div>
+
+  <!-- Signature outro: mengunci di detik 77.50 (tepat saat penutup berbunyi) -->
+  <div class="clip" id="brand-signature-outro" data-composition-id="signature-outro" data-composition-src="compositions/brand/signature-outro.html" data-start="77.50" data-duration="2.40" data-track-index="5" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = gsap.timeline({ paused: true });
+  window.__timelines["main"].set({}, {}, 79.90);
+</script>
+</body>
+</html>

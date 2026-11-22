@@ -1,0 +1,76 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:#050a14;font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#photos{position:absolute;left:0;top:0;width:1080px;height:900px;display:flex;gap:4px}
+#photos .ph{overflow:hidden;position:relative}
+#photos .ph img{display:block;width:100%;height:100%;object-fit:cover}
+#pa{width:640px}#pb{width:436px;flex:1 1 auto}
+#pa img{object-position:50% 50%;filter:contrast(1.05) saturate(.85) brightness(.78)}
+#pb img{object-position:40% 40%;filter:contrast(1.02) saturate(.9) brightness(.72)}
+#scrim{position:absolute;left:0;top:0;width:1080px;height:900px;background:
+  linear-gradient(180deg,rgba(5,10,20,.42) 0%,rgba(5,10,20,.10) 40%,rgba(5,10,20,.86) 84%,#050a14 100%)}
+
+#lead{position:absolute;left:60px;right:60px;top:900px;opacity:0}
+#lead p{margin:0;font-size:46px;font-weight:900;line-height:1.14;letter-spacing:-.03em;color:#fff}
+#lead span{color:#ffc857}
+
+#frame{position:absolute;left:60px;right:60px;top:1030px;height:196px;border-radius:24px;
+  background:rgba(8,16,30,.88);border:2px solid rgba(255,255,255,.14);overflow:hidden;opacity:0}
+#frame::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;
+  background:linear-gradient(180deg,#7fdcff,#b39cff)}
+#a{position:absolute;left:40px;right:36px;top:32px;display:flex;align-items:baseline;gap:20px;opacity:0}
+#b{position:absolute;left:40px;right:36px;top:122px;display:flex;align-items:baseline;gap:20px;opacity:0}
+#a .tag,#b .tag{flex:0 0 190px;font-size:28px;font-weight:900;letter-spacing:.14em}
+#a .tag{color:#7fdcff}
+#b .tag{color:#ffc857}
+#a p,#b p{margin:0;font-size:42px;font-weight:900;line-height:1.1;color:#f4f7fb}
+#div{position:absolute;left:40px;right:36px;top:106px;height:2px;background:rgba(255,255,255,.16);transform-origin:0 50%;opacity:0}
+</style>
+
+<div id="root" data-composition-id="s6-payoff" data-width="1080" data-height="1920">
+  <div class="clip" id="s6-stage" data-start="0" data-duration="12.45" data-track-index="1">
+    <div id="photos" data-layout-allow-overflow>
+      <div class="ph" id="pa"><img src="assets/images/mount-salak-seen-from-a-rice-field.jpg" alt="Gunung Salak dari sawah"></div>
+      <div class="ph" id="pb"><img src="assets/images/mount-salak-at-sunset.jpg" alt="Gunung Salak saat matahari terbenam"></div>
+    </div>
+    <div id="scrim"></div>
+
+    <div id="lead" data-layout-allow-safe-zone>
+      <p>Yang mencekam bukan kabutnya,<br>tapi <span>batas yang jelas.</span></p>
+    </div>
+
+    <div id="frame" data-layout-allow-safe-zone>
+      <div id="a"><span class="tag">TERCATAT</span><p>Bukti.</p></div>
+      <div id="div"></div>
+      <div id="b"><span class="tag">HIDUP</span><p>Cerita.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 12.45;
+
+  /* local = abs - 67.75 */
+  tl.fromTo("#photos", {opacity:0, scale:1.05}, {opacity:1, scale:1, duration:1.2, ease:"power2.out"}, 0);
+  tl.fromTo("#scrim", {opacity:0}, {opacity:1, duration:0.9, ease:"power2.out"}, 0);
+  NPL.reveal(tl, "#lead", 0.12, {y:16, blur:8, duration:0.55});
+  tl.to("#lead", {opacity:0.45, duration:0.6}, 4.5);
+
+  /* "Mana yang tercatat sebagai bukti," 4.58-6.69 */
+  tl.fromTo("#frame", {opacity:0, y:14}, {opacity:1, y:0, duration:0.5, ease:"power2.out"}, 4.55);
+  tl.fromTo("#a", {opacity:0, y:12}, {opacity:1, y:0, duration:0.4, ease:"power2.out"}, 4.65);
+  tl.fromTo("#div", {opacity:0, scaleX:0.6}, {opacity:1, scaleX:1, duration:0.4, ease:"power2.out"}, 6.55);
+  /* "dan mana yang hidup sebagai cerita." 6.58-9.57 */
+  tl.fromTo("#b", {opacity:0, y:12}, {opacity:1, y:0, duration:0.4, ease:"power2.out"}, 6.60);
+
+  /* 9.75 local (abs 77.50): the signature outro takes the frame */
+  tl.to("#s6-stage > *", {opacity:0, duration:0.20, ease:"power2.in"}, 9.52);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s6-payoff"] = tl;
+})();
+</script>
+</template>

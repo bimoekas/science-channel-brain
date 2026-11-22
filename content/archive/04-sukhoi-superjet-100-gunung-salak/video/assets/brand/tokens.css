@@ -1,0 +1,272 @@
+/* NGGAK PENTING LAB — design tokens (canonical source).
+   Linked once from video/index.html <head>, so it applies to every scene.
+   Scenes read var(--npl-*); never redefine these inside a scene. */
+
+:root {
+  /* ---- core: black, off-white, neutral gray ---- */
+  --npl-black: #08080a;
+  --npl-coal: #0f0f12;
+  --npl-graphite: #17171c;
+  --npl-gray-700: #2a2a31;
+  --npl-gray-500: #5c5c66;
+  --npl-gray-400: #8a8a93;
+  --npl-gray-300: #b4b2ad;
+  --npl-gray-200: #d6d3cc;
+  --npl-ink: #f5f3ef;
+
+  /* ---- semantic accents, shared by all pillars ---- */
+  --npl-signal: #7ed4ff;
+  --npl-alert: #ff5a2f;
+  --npl-highlight: #ffc94a;
+
+  /* ---- niche palettes: same grammar, different temperature ----
+     Komedi / Horror are active niches. Legacy pillar tokens kept for compatibility. */
+  --npl-komedi-a: #ffc94a;
+  --npl-komedi-b: #ff4d6d;
+  --npl-horror-a: #b39cff;
+  --npl-horror-b: #5cf2c0;
+  /* legacy (archive/old episodes) */
+  --npl-earth-a: #7ed4ff;
+  --npl-earth-b: #ff5a2f;
+  --npl-human-a: #ffc94a;
+  --npl-human-b: #ff4d6d;
+  --npl-scifi-a: #b39cff;
+  --npl-scifi-b: #5cf2c0;
+
+  /* ---- type families ----
+     Inter is bundled by HyperFrames (400/700/900; 500/600 are fetched and cached).
+     Instrument Serif is NOT bundled, so EB Garamond (bundled) carries the
+     editorial accent. To swap in Instrument Serif: put its .woff2 in
+     assets/fonts/, add an @font-face in index.html, then point this at it. */
+  --npl-font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --npl-font-accent: "EB Garamond", Georgia, serif;
+  --npl-font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ---- type scale, authored for 1080x1920 ---- */
+  --npl-hero-size: 132px;
+  --npl-hero-weight: 900;
+  --npl-hero-lh: 0.9;
+  --npl-hero-track: -0.045em;
+
+  --npl-section-size: 84px;
+  --npl-section-weight: 800;
+  --npl-section-lh: 0.95;
+  --npl-section-track: -0.03em;
+
+  --npl-highlight-size: 64px;
+  --npl-highlight-weight: 800;
+  --npl-highlight-lh: 1;
+
+  --npl-caption-size: 44px;
+  --npl-caption-weight: 600;
+  --npl-caption-lh: 1.12;
+
+  --npl-label-size: 28px;
+  --npl-label-weight: 600;
+  --npl-label-lh: 1.1;
+  --npl-label-track: 0.04em;
+
+  /* ---- layout ---- */
+  --npl-margin: 90px;
+  --npl-safe-top: 170px;
+  --npl-safe-bottom: 600px;
+
+  /* ---- motion ---- */
+  --npl-ease-camera: power2.inOut;
+  --npl-ease-type: power3.out;
+  --npl-ease-enter: back.out(1.4);
+  --npl-ease-exit: power2.in;
+  --npl-ease-comic: elastic.out(1, 0.5);
+}
+
+/* ============================================================
+   Shared primitives. Global on purpose: a scene gets the type and
+   caption system without re-declaring it.
+   ============================================================ */
+
+.npl-hero {
+  margin: 0;
+  font-family: var(--npl-font-display);
+  font-size: var(--npl-hero-size);
+  font-weight: var(--npl-hero-weight);
+  line-height: var(--npl-hero-lh);
+  letter-spacing: var(--npl-hero-track);
+  color: var(--npl-ink);
+  text-wrap: balance;
+}
+
+.npl-section {
+  margin: 0;
+  font-family: var(--npl-font-display);
+  font-size: var(--npl-section-size);
+  font-weight: var(--npl-section-weight);
+  line-height: var(--npl-section-lh);
+  letter-spacing: var(--npl-section-track);
+  color: var(--npl-ink);
+  text-wrap: balance;
+}
+
+.npl-highlight {
+  margin: 0;
+  font-family: var(--npl-font-display);
+  font-size: var(--npl-highlight-size);
+  font-weight: var(--npl-highlight-weight);
+  line-height: var(--npl-highlight-lh);
+  color: var(--npl-highlight);
+}
+
+.npl-accent {
+  font-family: var(--npl-font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.npl-label {
+  margin: 0;
+  font-family: var(--npl-font-body);
+  font-size: var(--npl-label-size);
+  font-weight: var(--npl-label-weight);
+  line-height: var(--npl-label-lh);
+  letter-spacing: var(--npl-label-track);
+  text-transform: uppercase;
+  color: var(--npl-gray-400);
+}
+
+/* ---- captions: phrase level, max two lines ---- */
+.npl-cap {
+  position: absolute;
+  left: var(--npl-margin);
+  right: var(--npl-margin);
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.npl-cap-line {
+  display: inline-block;
+  padding: 14px 22px;
+  font-family: var(--npl-font-body);
+  font-size: var(--npl-caption-size);
+  font-weight: var(--npl-caption-weight);
+  line-height: var(--npl-caption-lh);
+  color: var(--npl-ink);
+  background: rgba(8, 8, 10, 0.72);
+  border-left: 3px solid var(--npl-gray-500);
+}
+
+.npl-cap-key {
+  font-style: normal;
+  color: var(--npl-highlight);
+}
+
+/* ---- watermark ---- */
+.npl-wm {
+  position: absolute;
+  left: var(--npl-margin);
+  bottom: calc(var(--npl-safe-bottom) - 70px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.42;
+}
+
+.npl-wm img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+/* ---- reality-skip overlay ---- */
+.npl-skip {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.npl-skip-band {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.npl-skip-red {
+  background: #ff0033;
+}
+
+.npl-skip-cyan {
+  background: #00e5ff;
+}
+
+/* ============================================================
+   LAB REPORT LAYER (v2, additive). Brand concept: "dijawab seperti
+   laporan laboratorium". Claim labels become on-screen stamps, every
+   episode is a numbered case file, and numbers are graphic objects.
+   Nothing above is changed, so legacy scenes keep rendering.
+   ============================================================ */
+:root {
+  --npl-fact: #7ed4ff;      /* label FAKTA */
+  --npl-hypo: #ffc94a;      /* label HIPOTESIS / TEORI */
+  --npl-fiction: #ff5a2f;   /* label FIKSI / SPEKULASI */
+  --npl-hair: rgba(245, 243, 239, 0.22);
+}
+
+/* Shared ground: one soft pillar-temperature bloom, never a flat fill. */
+.npl-ground {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(1000px 900px at 88% 10%, rgba(179, 156, 255, 0.17), rgba(8, 8, 10, 0) 62%),
+    radial-gradient(900px 700px at 6% 96%, rgba(92, 242, 192, 0.07), rgba(8, 8, 10, 0) 60%),
+    var(--npl-black);
+}
+.npl-vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 46%, rgba(8, 8, 10, 0) 42%, rgba(8, 8, 10, 0.78) 100%);
+}
+
+/* Case-file header: KASUS 003 · SCI-FI PARODY */
+.npl-case {
+  margin: 0; display: flex; align-items: center; gap: 16px;
+  font-family: var(--npl-font-body); font-size: var(--npl-label-size);
+  font-weight: var(--npl-label-weight); line-height: var(--npl-label-lh);
+  letter-spacing: var(--npl-label-track); text-transform: uppercase;
+  color: var(--npl-gray-400);
+}
+.npl-case b { color: var(--npl-ink); font-weight: 900; }
+.npl-case i { display: block; width: 56px; height: 3px; background: var(--npl-alert); }
+
+/* Claim stamp: square, hard border, no radius. Rotate with GSAP, not CSS. */
+.npl-stamp {
+  display: inline-block; margin: 0; padding: 8px 22px 8px 26px;
+  border: 4px solid currentColor; background: rgba(8, 8, 10, 0.55);
+  font-family: var(--npl-font-display); font-size: 44px; font-weight: 900;
+  line-height: 1; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--npl-fiction);
+}
+.npl-stamp.fact { color: var(--npl-fact); }
+.npl-stamp.hypo { color: var(--npl-hypo); }
+.npl-stamp.fiction { color: var(--npl-fiction); }
+
+/* Garis air: the episode's boundary image — legend above, recorded fact below.
+   Scenes position it (top/left) and animate scaleX from 0 to draw it. */
+.npl-waterline {
+  position: absolute; left: 0; right: 0; height: 2px;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg,
+    rgba(92, 242, 192, 0) 0%, rgba(92, 242, 192, 0.9) 18%,
+    rgba(92, 242, 192, 0.9) 82%, rgba(92, 242, 192, 0) 100%);
+}
+.npl-waterline::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -30px; height: 60px;
+  background: radial-gradient(58% 100% at 50% 100%,
+    rgba(92, 242, 192, 0.16), rgba(92, 242, 192, 0) 72%);
+}
+
+/* Numbers as objects. tabular-nums keeps a counter from jittering. */
+.npl-num {
+  margin: 0; font-family: var(--npl-font-display); font-weight: 900;
+  letter-spacing: -0.05em; line-height: 0.85;
+  font-variant-numeric: tabular-nums; color: var(--npl-highlight);
+}

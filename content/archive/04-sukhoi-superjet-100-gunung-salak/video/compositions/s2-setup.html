@@ -1,0 +1,72 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#0b1220 0%,#050a14 100%);font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#photo{position:absolute;left:0;top:0;width:1080px;height:1180px;overflow:hidden}
+#photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:38% 55%;filter:contrast(1.08) saturate(1.02) brightness(.82)}
+#scrim{position:absolute;left:0;top:0;width:1080px;height:1180px;background:
+  linear-gradient(180deg,rgba(4,9,18,.90) 0%,rgba(4,9,18,.34) 30%,rgba(5,8,17,.62) 66%,#050a14 100%)}
+#head{position:absolute;left:60px;right:60px;top:180px}
+#head .kick{margin:0;font-size:30px;font-weight:800;letter-spacing:.2em;color:#7fdcff}
+#head h1{margin:14px 0 0;font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-.035em;color:#fff}
+#steps{position:absolute;left:60px;right:60px;top:560px;display:flex;flex-direction:column;gap:22px}
+.step{display:flex;align-items:center;gap:20px;padding:22px 26px;border-radius:22px;
+  background:rgba(8,16,30,.78);border:2px solid rgba(127,220,255,.28);opacity:0}
+.step i{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:52px;height:52px;
+  border-radius:50%;background:rgba(127,220,255,.14);border:2px solid rgba(127,220,255,.6);
+  font-size:28px;font-weight:900;color:#7fdcff;font-style:normal}
+.step p{margin:0;font-size:36px;font-weight:800;line-height:1.2;letter-spacing:-.01em;color:#f4f7fb}
+.step.alert{border-color:rgba(255,90,47,.55);background:rgba(30,8,4,.84)}
+.step.alert i{background:rgba(255,90,47,.14);border-color:rgba(255,90,47,.75);color:#ff5a2f}
+.step.alert p{color:#ffd9cc}
+#place{position:absolute;left:60px;top:1058px;display:flex;align-items:center;gap:14px;
+  font-size:30px;font-weight:800;letter-spacing:.06em;color:#cfe3ff;opacity:0}
+#place b{color:#ffc857}
+</style>
+
+<div id="root" data-composition-id="s2-setup" data-width="1080" data-height="1920">
+  <div class="clip" id="s2-stage" data-start="0" data-duration="14.6" data-track-index="1">
+    <div id="photo" data-layout-allow-overflow><img id="ph" src="assets/images/sukhoi-superjet-100-maks2011-97004.jpg" alt="Sukhoi Superjet 100 di landasan"></div>
+    <div id="scrim"></div>
+
+    <div id="head" data-layout-allow-safe-zone>
+      <p class="kick">PENERBANGAN</p>
+      <h1>Demonstrasi</h1>
+    </div>
+
+    <div id="steps" data-layout-allow-safe-zone>
+      <div class="step" id="st1"><i>1</i><p>Minta turun ketinggian</p></div>
+      <div class="step" id="st2"><i>2</i><p>Diizinkan</p></div>
+      <div class="step alert" id="st3"><i>3</i><p>Kontak hilang</p></div>
+    </div>
+
+    <div id="place" data-layout-allow-safe-zone><b>Gunung Salak</b> &middot; Jawa Barat</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 14.6;
+
+  tl.fromTo("#ph", {scale:1.02}, {scale:1.09, duration:14.6, ease:"none"}, 0);
+  tl.fromTo("#scrim", {opacity:0}, {opacity:1, duration:0.9, ease:"power2.out"}, 0);
+
+  NPL.reveal(tl, "#head", 0.12, {y:16, blur:8, duration:0.5});
+
+  /* local = abs - 9.05. "kru meminta izin menurunkan ketinggian" 2.23-5.93 */
+  tl.fromTo("#st1", {opacity:0, x:-24}, {opacity:1, x:0, duration:0.42, ease:"power2.out"}, 2.20);
+  /* "Permintaan itu direspons." 6.10-7.13 */
+  tl.fromTo("#st2", {opacity:0, x:-24}, {opacity:1, x:0, duration:0.42, ease:"power2.out"}, 6.05);
+  /* "kontak dengan pesawat hilang" 8.36-10.82 */
+  tl.fromTo("#st3", {opacity:0, x:-24}, {opacity:1, x:0, duration:0.42, ease:"power2.out"}, 8.30);
+  tl.fromTo("#st3", {borderColor:"rgba(255,90,47,.55)"},
+    {borderColor:"rgba(255,90,47,.95)", duration:0.5, yoyo:true, repeat:1, ease:"sine.inOut"}, 8.75);
+  /* "Di wilayah Gunung Salak, Jawa Barat." 12.06-14.28 */
+  tl.fromTo("#place", {opacity:0, y:10}, {opacity:1, y:0, duration:0.4, ease:"power2.out"}, 12.0);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s2-setup"] = tl;
+})();
+</script>
+</template>

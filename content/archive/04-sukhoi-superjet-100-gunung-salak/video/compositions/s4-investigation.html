@@ -1,0 +1,84 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#0b1220 0%,#050a14 100%);font-family:Inter,system-ui,sans-serif;color:#f4f7fb}
+#photo{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+#photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 46%;
+  filter:contrast(1.05) saturate(.55) brightness(.42)}
+#scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(5,10,20,.94) 0%,rgba(5,10,20,.86) 40%,rgba(5,10,20,.90) 74%,#050a14 100%)}
+#head{position:absolute;left:60px;right:60px;top:200px}
+#head .kick{margin:0;font-size:30px;font-weight:800;letter-spacing:.2em;color:#7fdcff}
+#head h1{margin:14px 0 0;font-size:66px;font-weight:900;line-height:1.04;letter-spacing:-.035em;color:#fff}
+#board{position:absolute;left:60px;right:60px;top:520px;height:500px;border-radius:36px;
+  background:linear-gradient(135deg,rgba(18,32,58,.82),rgba(7,17,31,.66));border:2px solid rgba(255,255,255,.15);
+  box-shadow:0 30px 90px rgba(0,0,0,.5);backdrop-filter:blur(16px);overflow:hidden;opacity:0}
+#board::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;
+  background:linear-gradient(180deg,#ff8a3d,#ffc857)}
+#scan{position:absolute;left:12px;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,rgba(127,220,255,0),rgba(127,220,255,.85),rgba(127,220,255,0));
+  box-shadow:0 0 24px rgba(127,220,255,.55);opacity:0}
+.tick{position:absolute;left:52px;right:44px;display:flex;align-items:center;gap:18px;opacity:0}
+.tick i{flex:0 0 auto;width:16px;height:16px;border-radius:4px;background:#7fdcff;box-shadow:0 0 12px rgba(127,220,255,.6)}
+.tick s{flex:1 1 auto;height:2px;background:rgba(255,255,255,.16);display:block}
+.tick em{flex:0 0 auto;font-style:normal;font-size:30px;font-weight:800;letter-spacing:.06em;color:#cfe3ff}
+#t1{top:76px} #t2{top:190px} #t3{top:304px} #t4{top:418px}
+#stamp{position:absolute;left:60px;top:1060px;opacity:0}
+#note{position:absolute;left:60px;right:60px;top:1160px;font-size:34px;font-weight:700;
+  line-height:1.28;color:#cfe3ff;opacity:0}
+</style>
+
+<div id="root" data-composition-id="s4-investigation" data-width="1080" data-height="1920">
+  <div class="clip" id="s4-stage" data-start="0" data-duration="21.15" data-track-index="1">
+    <div id="photo" data-layout-allow-overflow><img id="ph" src="assets/images/sukhoi-superjet-100-95b-ssj-100-95b-rossiya-airlines-ra-8910.jpg" alt="Sukhoi Superjet 100 dari bawah saat mengudara"></div>
+    <div id="scrim"></div>
+
+    <div id="head" data-layout-allow-safe-zone>
+      <p class="kick">BERKAS &mdash; INVESTIGASI</p>
+      <h1>Komite Nasional<br>Keselamatan Transportasi</h1>
+    </div>
+
+    <div id="board" data-layout-allow-safe-zone>
+      <div id="scan"></div>
+      <div class="tick" id="t1"><i></i><em>Rute</em><s></s></div>
+      <div class="tick" id="t2"><i></i><em>Permintaan turun</em><s></s></div>
+      <div class="tick" id="t3"><i></i><em>Posisi</em><s></s></div>
+      <div class="tick" id="t4"><i></i><em>Data kokpit</em><s></s></div>
+    </div>
+
+    <div id="stamp" data-layout-allow-safe-zone><span class="npl-stamp fact">FAKTA</span></div>
+    <p id="note" data-layout-allow-safe-zone>Faktor dan kesimpulan dirinci dalam laporan resmi.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 21.15;
+
+  tl.fromTo("#ph", {scale:1.0}, {scale:1.08, duration:21.15, ease:"none"}, 0);
+  tl.fromTo("#scrim", {opacity:0}, {opacity:1, duration:0.9, ease:"power2.out"}, 0);
+  NPL.reveal(tl, "#head", 0.12, {y:16, blur:8, duration:0.5});
+  tl.fromTo("#board", {opacity:0, y:20}, {opacity:1, y:0, duration:0.6, ease:"power2.out"}, 0.55);
+
+  /* A scan line sweeps the board from the start, so the panel is never dead
+     while the voiceover names the investigating body. */
+  tl.fromTo("#scan", {opacity:0.9, y:0}, {opacity:0.35, y:497, duration:5.2, ease:"none"}, 0.9);
+  tl.to("#scan", {opacity:0, duration:0.4}, 6.1);
+
+  /* local = abs - 32.00. "Penyelidik menelusuri data dan rekaman penerbangan." 5.06-8.45 */
+  tl.fromTo("#t1", {opacity:0, x:-18}, {opacity:1, x:0, duration:0.35, ease:"power2.out"}, 8.55);
+  tl.fromTo("#t2", {opacity:0, x:-18}, {opacity:1, x:0, duration:0.35, ease:"power2.out"}, 10.45);
+  /* 10.48-13.09 "posisi pesawat di kawasan pegunungan" */
+  tl.fromTo("#t3", {opacity:0, x:-18}, {opacity:1, x:0, duration:0.35, ease:"power2.out"}, 12.90);
+  /* 12.98-15.60 "serta data dan peringatan di kokpit" */
+  tl.fromTo("#t4", {opacity:0, x:-18}, {opacity:1, x:0, duration:0.35, ease:"power2.out"}, 15.45);
+  /* 15.57-18.47 "Faktor-faktor dan kesimpulan... laporan resmi" */
+  NPL.stamp(tl, "#stamp", 15.60);
+  tl.fromTo("#note", {opacity:0, y:12}, {opacity:1, y:0, duration:0.45, ease:"power2.out"}, 16.30);
+
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s4-investigation"] = tl;
+})();
+</script>
+</template>
