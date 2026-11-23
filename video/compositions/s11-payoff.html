@@ -2,48 +2,36 @@
 <style>
 #root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
   font-family:var(--npl-font-display);color:var(--npl-ink)}
-/* Text-free on purpose: the caption rail carries every word of this beat, so
-   the frame works instead. A ruler of years draws itself during "ratusan
-   tahun", then keeps ticking, still, at the end. */
-#s11-ruler{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:860px;
-  height:120px;display:flex;align-items:flex-end;gap:0}
-#s11-ruler i{display:block;flex:1;width:2px;background:rgba(92,242,192,.30)}
-#s11-ruler i.major{background:rgba(92,242,192,.78)}
-#s11-base{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:980px;
-  height:2px;transform-origin:0 50%;
-  background:linear-gradient(90deg,rgba(92,242,192,0),rgba(92,242,192,.9) 16%,
-    rgba(92,242,192,.9) 84%,rgba(92,242,192,0))}
-#s11-glow{position:absolute;left:0;right:0;top:640px;height:560px;
-  background:radial-gradient(52% 46% at 50% 74%,rgba(92,242,192,.14),rgba(8,8,10,0) 72%);
-  opacity:0}
+/* The payoff is carried by the captions, so the page carries two photographs:
+   the surf it is not about, and the page that is. No drawn ruler. */
+ #s11-plate{left:var(--npl-margin);right:var(--npl-margin);bottom:500px;
+  color:var(--apl-ink)}
+#s11-plate .apl-photo-slot{display:block;height:400px;overflow:hidden}
+/* The last beat is about a story that outlived everyone, so the ground is the
+   crowd of the dead at the river's edge — and the plate in front is the real
+   manuscript it comes from. Imagined behind, documented in front. */
+#s11-stage .apl-photo img{object-position:50% 58%}
 </style>
-<div id="root" data-composition-id="s11-payoff" data-width="1080" data-height="1920">
-  <div class="clip" id="s11-stage" data-start="0" data-duration="7.84" data-track-index="1">
-    <div class="npl-ground"></div>
-    <div class="npl-vignette"></div>
-    <div id="s11-glow"></div>
-    <div id="s11-ruler" data-layout-allow-safe-zone><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div id="s11-base" data-layout-allow-safe-zone></div>
+<div id="root" data-composition-id="s11-payoff" data-width="1080" data-height="1920" data-hold>
+  <div class="clip" id="s11-stage" data-start="0" data-duration="7.84" data-track-index="1" data-hold>
+    <div class="apl-photo apl-photo--etching"><div id="s11-cam" data-layout-allow-overflow style="position:absolute;inset:0"><img src="assets/images/nyi-roro-kidul/engraving-souls-dore.jpg" alt=""></div></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
+
+    <figure id="s11-plate" class="apl-inset" data-layout-allow-safe-zone data-layout-allow-overflow>
+      <div class="apl-photo-slot"><img src="assets/images/nyi-roro-kidul/manuscript-bratayuda.jpg" alt=""></div>
+      <figcaption><b>Bratayuda.</b> Naskah, disalin berkali-kali.</figcaption>
+    </figure>
+    <div id="s11-flash" style="position:absolute;inset:0;background:#f5f3ef;opacity:0;pointer-events:none"></div>
   </div>
 </div>
 <script>
 (function(){
-  /* local = abs - 93.76 */
+  /* Horror deviation (user-approved): slow drift + controlled climax hit. */
   const tl = gsap.timeline({ paused: true });
   const DUR = 7.84;
-  const ticks = document.querySelectorAll("#s11-ruler i");
-  const rnd = NPL.rng(41);
-  Array.prototype.forEach.call(ticks, function(el, i){
-    const major = i % 4 === 0;
-    /* Heights are a seeded function of index, so two renders match exactly. */
-    const h = major ? 84 + Math.round(rnd() * 30) : 26 + Math.round(rnd() * 26);
-    el.style.height = h + "px";
-    if (major) el.className = "major";
-  });
-  tl.fromTo("#s11-base", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.80, ease:"power2.inOut"}, 0.10);
-  tl.fromTo("#s11-ruler i", {opacity:0, scaleY:0}, {opacity:1, scaleY:1, duration:.30, ease:"power3.out", stagger:.018}, 0.24);
-  /* 98.00 — "ratusan tahun": the frame warms behind the ruler. */
-  tl.fromTo("#s11-glow", {opacity:0}, {opacity:1, duration:.90, ease:"power2.inOut"}, 4.24);
+  NPL.horrorCamera(tl, "#s11-cam", DUR, { fromScale: 1, toScale: 1.07, toY: -12, ease: "power1.inOut" });
+  /* Controlled jumpscare: short flash at payoff beat (~"Yang mencekam..." abs 95.22 -> local 1.46). */
+  NPL.jumpscare(tl, { at: 1.46, flash: "#s11-flash", target: "#s11-plate", punch: 1.03, dur: 0.18, flashMax: 0.22 });
   tl.set({}, {}, DUR);
   window.__timelines = window.__timelines || {};
   window.__timelines["s11-payoff"] = tl;

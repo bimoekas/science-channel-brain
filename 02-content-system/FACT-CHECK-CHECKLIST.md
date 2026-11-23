@@ -5,11 +5,12 @@ Gunakan checklist ini untuk setiap script sebelum produksi.
 ## Pemeriksaan klaim
 
 - [ ] Identifikasi setiap klaim faktual, termasuk klaim tersirat dalam lelucon, perbandingan, atau narasi misteri/cerita.
-- [ ] **Horror (wajib):** punya basis real story (kesaksian/omongan orang atau narasumber, fakta/peristiwa sejarah, atau mitos/legenda/cerita rakyat daerah) — bukan horor ngawang/karangan tanpa pijakan. Catat asal/sumber ceritanya. **Runut faktual & ringkas:** cantumkan kronologi, temuan/keterangan (apa yang ditemukan/tercatat), dan bedakan tegas dari mitos/cerita beredar; hindari narasi yang hanya atmosfer/seram tanpa fakta. Tiap detail faktual (tanggal, tempat, jumlah, jam, temuan, penyebab) wajib bersumber atau ditandai **TBD/perlu verifikasi**.
+- [ ] **Horror (wajib):** punya basis real story (kesaksian/omongan orang atau narasumber, fakta/peristiwa sejarah, atau mitos/legenda/cerita rakyat daerah) — bukan horor ngawang/karangan tanpa pijakan. Catat asal/sumber ceritanya. Bangun dari **detail konkret** yang bisa dirujuk (nama, tempat, tanggal, benda, temuan) — jangan narasi yang hanya atmosfer kosong. Tiap detail faktual wajib bersumber atau ditandai **TBD/perlu verifikasi**. Label kepastian dibedakan secara internal di Source notes.
 - [ ] Catat sumber/rujukan/asal untuk setiap klaim atau cerita (bila ada).
 - [ ] Pastikan kekuatan klaim sesuai bukti (jangan melebih-lebihkan kepastian).
 - [ ] Bedakan dan beri label jelas: **fakta/fakta sejarah terverifikasi**, **teori**, **hipotesis**, **spekulasi**, **kesaksian/cerita beredar**, **mitos/legenda/cerita rakyat**, atau **fiksi** (rekonstruksi/dramatisasi).
 - [ ] **Mitos sebagai isi (boleh):** mitos/legenda bersumber boleh mengisi porsi besar cerita tanpa bantahan. Syarat: sumber disebut, dan sikap diserahkan ke penonton ("percaya atau tidak, ini yang diceritakan"). Tidak perlu "membuktikan salah" — cukup jangan menyebutnya fakta.
+- [ ] **Tanpa disclaimer meta di layar/VO:** jangan tulis `bukan hasil penelitian`, `bukan klaim yang bisa dibuktikan`, `belum terbukti secara ilmiah`. Kepastian rendah disampaikan lewat atribusi narasi (`katanya`, `cerita yang beredar`, `tercatat di`) dan Source notes — bukan kalimat permintaan maaf yang mematahkan dread.
 - [ ] Pastikan penjelasan/konteks tetap akurat saat humor/efek tegang dihilangkan.
 - [ ] Humor/tegang tidak mendistorsi fakta dan tidak menyajikan cerita/rumor sebagai fakta terverifikasi.
 - [ ] Horror: target 18+ (dewasa); tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis; tidak menakut-nakuti berlebihan.

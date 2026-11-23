@@ -12,7 +12,7 @@
 
 ## Explanation (3–50 seconds)
 
-[Explain the core idea accurately. Mark claims and keep certainty aligned with evidence. Horror berbasis real story: **runut faktual & ringkas** (narator tenang-dingin; kronologi → temuan/keterangan → mitos/cerita beredar dipisah), seram dari detail nyata; cantumkan basis/asal/sumber dan label klaim.]
+[Explain the core idea accurately. Horror berbasis real story: bangun dari **detail konkret** yang bersumber (nama, tempat, tanggal, benda, temuan); narator tenang-dingin; seram dari detail, jeda, dan kontras — bukan disclaimer meta. Mitos boleh memimpin kalau bersumber. Kepastian/label klaim tinggal di Source notes, bukan di narasi.]
 
 ## Payoff / ending (50–90 seconds)
 

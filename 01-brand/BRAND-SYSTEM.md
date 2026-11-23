@@ -53,9 +53,9 @@ Tiga peran, satu keluarga dominan.
 
 | Peran | Font | Berat | Ukuran (1080×1920) | Line-height | Tracking |
 | --- | --- | --- | --- | --- | --- |
-| Hero | Inter | 900 | 110–150px (`--npl-hero-size` 132) | 0.90 | -0.045em |
-| Section title | Inter | 800 | 72–96px (`--npl-section-size` 84) | 0.95 | -0.03em |
-| Highlight | Inter | 800 | 56–72px (`--npl-highlight-size` 64) | 1.00 | — |
+| Hero | EB Garamond (horror deviation, user-approved) | 700/900 look via 700 | 110–150px (`--npl-hero-size` 132) | 0.90 | -0.045em |
+| Section title | EB Garamond | 700/800 look via 700 | 72–96px (`--npl-section-size` 84) | 0.95 | -0.03em |
+| Highlight | EB Garamond | 700 | 56–72px (`--npl-highlight-size` 64) | 1.00 | — |
 | Caption | Inter | 500–600 | 42–48px (`--npl-caption-size` 44) | 1.12 | — |
 | Small label | Inter | 600 | 24–30px (`--npl-label-size` 28) | 1.10 | +0.04em, uppercase |
 | Accent (sparingly) | EB Garamond italic | 400 | inherit | — | -0.01em |
@@ -63,11 +63,7 @@ Tiga peran, satu keluarga dominan.
 Kelas siap pakai: `.npl-hero`, `.npl-section`, `.npl-highlight`, `.npl-label`,
 `.npl-accent` (untuk `<em>`/`<span>` di dalam judul).
 
-**Deviasi yang harus diketahui:** spesifikasi meminta **Instrument Serif** untuk aksen.
-Instrument Serif tidak dibundel oleh HyperFrames dan tidak tersedia offline di mesin ini,
-sehingga **EB Garamond** (bundled) dipakai sebagai pengganti. Cara menukarnya sudah ditulis
-di komentar `tokens.css`: taruh `.woff2` di `assets/fonts/`, tambah `@font-face` di
-`index.html`, lalu ubah `--npl-font-accent`.
+**Deviasi horror (user-approved, 2026-05):** display horror pakai **EB Garamond** bundled (`--npl-font-display`) untuk rasa arsip/seram; Inter tetap body/caption. Ganti font berlisensi lain dengan `.woff2` di `assets/fonts/`, `@font-face` di `index.html`, lalu update token.
 
 Bobot yang tersedia: Inter 400/700/900 dibundel; 500/600 diambil dan di-cache oleh runtime.
 Jangan memakai 100–300 atau 800 untuk teks panjang — 800 dirender dari 900/700 fallback dan
@@ -267,6 +263,8 @@ NPL.realitySkip(tl, { at: 4.3, target: "#eg-globe", layer: "#eg-skip", punch: 22
 - `NPL.enter(tl, sel, at, {scale, y, origin, duration})` — objek masuk.
 - `NPL.exit(tl, sel, at, {y, blur, duration})` — keluar.
 - `NPL.drift(tl, sel, duration, {x, y})` — mikro-gerak kontinu.
+- `NPL.horrorCamera(tl, sel, duration, {at, fromScale, toScale, fromX, toX, fromY, toY, ease, origin})` — slow zoom/drift deterministik (deviasi horror, user-approved).
+- `NPL.jumpscare(tl, {at, flash, target, punch, dur, flashMax})` — hit klimaks singkat terkontrol (deviasi horror, user-approved). Tanpa gore.
 - `NPL.rng(seed)` — PRNG deterministik (Lehmer). Satu-satunya sumber acak yang diizinkan.
 
 Semua mengembalikan tween, semua deterministik, semua memakai `fromTo` dengan state awal
@@ -278,8 +276,7 @@ di tween.
 
 Setiap scene adalah frame film.
 
-**Wajib:** full-bleed, asimetris, kedalaman FG/MG/BG, skala dan perspektif yang berubah,
-kamera yang punya alasan, metafora visual (bukan ikon generik), dan satu titik fokus per beat.
+**Wajib:** full-bleed, asimetris, kedalaman FG/MG/BG, satu titik fokus per beat, metafora visual (bukan ikon generik). Kamera default diam; deviasi horror (user-approved) boleh slow zoom/drift deterministik hemat pada wrapper gambar.
 
 **Dilarang:** layout PowerPoint, motion graphics korporat, kartu rounded berisi teks,
 dashboard statis, komposisi tengah berulang, kotak pembungkus teks dekoratif.

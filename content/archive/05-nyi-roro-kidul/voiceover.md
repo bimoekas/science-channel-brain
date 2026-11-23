@@ -97,7 +97,8 @@ dan masih dihormati sampai hari ini.
 
 - **Target durasi:** 70–90 dtk (TBD — ukur audio final). Kalau <70 dtk, tambah detail konkret (versi ketiga, nama pantai lain). Kalau >90 dtk, potong baris naskah ketiga.
 - **Etika 18+:** hormati kepercayaan & masyarakat pesisir; tanpa glorifikasi; tanpa klaim bahwa sosoknya nyata.
-- **Klaim:** semua soal sosok = legenda/kepercayaan. Praktik Labuhan & naskah = tercatat; detail tanggal/jumlah sesaji wajib verifikasi ulang ke sumber Keraton sebelum upload.
-- **Larangan hijau:** disebut sebagai kepercayaan beredar, bukan temuan penelitian. Sumber akademik belum dikonfirmasi (lihat `script.md` → Source notes).
+- **Klaim:** semua soal sosok = legenda/kepercayaan. Praktik Labuhan & naskah = tercatat. Sudah diverifikasi 2026-11-22 ke situs Kraton dan edisi teks (lihat `script.md` → Source notes).
+- **Larangan hijau:** disebut sebagai kepercayaan beredar, bukan temuan penelitian. Sumber akademiknya ada (Yuwono 2023, *Panangkaran*), tetapi artikel itu mendokumentasikan kepercayaan warga, bukan menguji sebab-akibatnya — jadi "bukan hasil penelitian" di VO tetap benar.
+- **Catatan istilah:** VO menyebut "kemben hijau"; daftar resmi Kraton memakai *semekan*. Tidak direkam ulang — caption mengikuti ucapan, figcaption layar memakai istilah resmi.
 - **Uji telinga wajib:** dengarkan utuh mata tertutup sebelum lanjut ke Flow. Kalau tidak ada satu titik yang merinding, revisi teks/jeda — jangan tambah tag.
 - **Output:** audio final simpan di luar repo; tautkan di `meta.md`.

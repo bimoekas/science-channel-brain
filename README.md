@@ -18,13 +18,13 @@ Menyimpan brand identity, content system, workflow riset, scriptwriting, voice g
 ## Content niches
 
 1. **Komedi** — relatable harian, absurd-realita keseharian Indonesia.
-2. **Horror** — misteri/tegang berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah), bukan karangan ngawang. Target 18+ (dewasa): tema gelap/mature boleh, tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis; label & bedakan cerita/kesaksian/mitos vs fakta terverifikasi.
+2. **Horror** — misteri/tegang berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah), bukan karangan ngawang. Seram dari detail konkret, jeda, kontras — bukan disclaimer meta. Label kepastian di Source notes; di layar/VO pakai atribusi narasi. Target 18+ (dewasa): tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari gore/kekerasan eksplisit-grafis.
 
 ## Aturan utama
 
 - Satu video punya satu ide inti dan satu payoff. Target audiens 18+ (dewasa), bukan semua umur.
 - **Komedi:** humor boleh absurd, relatable, dan ringan.
-- **Horror:** wajib berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah) — bukan ngawang; cantumkan asal/sumber cerita. Tegang/merinding dan tema dewasa/gelap boleh, tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
+- **Horror:** wajib berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah) — bukan ngawang; cantumkan asal/sumber cerita. Seram dari detail konkret, jeda, kontras — bukan disclaimer meta. Label kepastian di Source notes; di layar/VO pakai atribusi narasi. Tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari gore/kekerasan eksplisit-grafis.
 - Jika ada klaim/fakta/cerita: jaga akurasi, bedakan fakta, fakta sejarah terverifikasi, teori, hipotesis, spekulasi, kesaksian/cerita beredar, rumor/legenda/mitos, dan fiksi. Jangan menyajikan cerita/rumor sebagai fakta terverifikasi.
 - Jangan mengubah brand voice tanpa persetujuan.
 

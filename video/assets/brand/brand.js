@@ -102,6 +102,49 @@
     );
   };
 
+  /* Horror camera drift (user-approved deviation): slow deterministic push/drift.
+     Target a dedicated image wrapper; do not combine with CSS transform. */
+  NPL.horrorCamera = function (tl, target, duration, opts) {
+    var o = opts || {};
+    return tl.fromTo(
+      target,
+      {
+        scale: o.fromScale == null ? 1 : o.fromScale,
+        x: o.fromX == null ? 0 : o.fromX,
+        y: o.fromY == null ? 0 : o.fromY,
+        transformOrigin: o.origin || "50% 50%"
+      },
+      {
+        scale: o.toScale == null ? 1.08 : o.toScale,
+        x: o.toX == null ? 0 : o.toX,
+        y: o.toY == null ? -10 : o.toY,
+        duration: duration,
+        ease: o.ease || "power1.inOut"
+      },
+      o.at == null ? 0 : o.at
+    );
+  };
+
+  /* Controlled horror hit (user-approved deviation). No gore/graphic violence.
+     Use sparingly at climax; keep short and readable. */
+  NPL.jumpscare = function (tl, opts) {
+    var o = opts || {};
+    var at = o.at == null ? 0 : o.at;
+    var flash = o.flash;
+    var target = o.target;
+    var punch = o.punch == null ? 1.04 : o.punch;
+    var dur = o.dur == null ? 0.18 : o.dur;
+    if (target) {
+      tl.fromTo(target, { scale: 1 }, { scale: punch, duration: 0.04, ease: "power2.out" }, at);
+      tl.to(target, { scale: 1, duration: dur, ease: "power2.out" }, at + 0.04);
+    }
+    if (flash) {
+      tl.fromTo(flash, { opacity: 0 }, { opacity: o.flashMax == null ? 0.35 : o.flashMax, duration: 0.03, ease: "steps(1)" }, at);
+      tl.to(flash, { opacity: 0, duration: 0.2, ease: "power2.out" }, at + 0.03);
+      tl.set(flash, { opacity: 0 }, at + 0.24);
+    }
+  };
+
   /* ------------------------------------------------------------
      Phrase-level captions, authored in the scene HTML so Studio can
      edit them. Each group is written as:

@@ -1,0 +1,4 @@
+SFX generated locally with ffmpeg lavfi (anoisesrc filters) on 2026-11-23.
+No third-party samples. Safe for project use.
+- rumble-low.mp3: brown noise, lowpass 180Hz, 4s fade in/out
+- thunder-hit.mp3: brown+white noise mix, 3s impact/decay

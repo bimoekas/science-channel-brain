@@ -2,57 +2,56 @@
 <style>
 #root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
   font-family:var(--npl-font-display);color:var(--npl-ink)}
-/* The pivot of the episode: two names, and which one the tradition ranks first.
-   Caption 08 answers it, so the rail stays silent until 48.20. */
-#s6-head{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:386px}
-#s6-duo{margin:34px 0 0;display:flex;flex-direction:column;gap:34px}
+/* Two names, filed side by side. A catalogue sheet: entry I, entry II, and
+   the rank the tradition gives each. */
+/* The cleft plate goes bright at mid-frame, straight through the second entry.
+   A scrim over the type zone keeps both names on the same ground. */
+#s6-scrim{position:absolute;left:0;right:0;top:300px;height:820px;
+  background:linear-gradient(180deg,rgba(20,19,15,.90) 0%,rgba(20,19,15,.80) 46%,
+    rgba(20,19,15,.55) 74%,rgba(20,19,15,0) 100%)}
+#s6-head{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:400px}
+#s6-list{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:492px}
+#s6-row{margin:0 0 34px;display:flex;gap:26px;align-items:baseline}
+#s6-row b{flex:none;width:64px;font-family:var(--apl-font-mono);font-size:36px;
+  font-weight:700;letter-spacing:.08em;color:rgba(236,231,220,.62)}
 #s6-a,#s6-b{margin:0;font-size:78px;font-weight:900;line-height:.98;
-  letter-spacing:-.035em}
-#s6-a{color:var(--npl-ink)}
-#s6-b{color:var(--npl-horror-a)}
-#s6-b small{display:block;margin-top:16px;font-family:var(--npl-font-body);
-  font-size:var(--npl-label-size);font-weight:600;letter-spacing:var(--npl-label-track);
-  text-transform:uppercase;color:var(--npl-gray-400)}
-#s6-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:800px}
-#s6-rank{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:868px;
-  display:flex;align-items:flex-end;gap:16px}
-#s6-rank b{display:block;flex:1;font-family:var(--npl-font-display);font-weight:900;
-  font-size:96px;line-height:.85;letter-spacing:-.05em;color:var(--npl-gray-500)}
-#s6-rank b.on{color:var(--npl-horror-b)}
-#s6-rank b em{display:block;margin-top:14px;font-family:var(--npl-font-body);
-  font-style:normal;font-size:28px;font-weight:600;letter-spacing:.04em;
-  text-transform:uppercase;color:var(--npl-gray-400)}
+  letter-spacing:-.035em;visibility:hidden}
+#s6-a{color:var(--apl-paper)}
+#s6-b{color:var(--apl-paper)}
+#s6-b small{display:block;margin-top:14px;font-family:var(--apl-font-mono);
+  font-size:28px;font-weight:500;letter-spacing:.10em;text-transform:uppercase;
+  color:rgba(236,231,220,.80)}
+#s6-note{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:936px;
+  margin:0;font-family:var(--apl-font-accent);font-style:italic;font-size:44px;
+  line-height:1.25;color:rgba(236,231,220,.88);visibility:hidden}
+#s6-foot{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:1092px}
 </style>
-<div id="root" data-composition-id="s6-dua-nama" data-width="1080" data-height="1920">
-  <div class="clip" id="s6-stage" data-start="0" data-duration="13.19" data-track-index="1">
-    <div class="npl-ground"></div>
-    <div class="npl-vignette"></div>
+<div id="root" data-composition-id="s6-dua-nama" data-width="1080" data-height="1920" data-hold>
+  <div class="clip" id="s6-stage" data-start="0" data-duration="13.19" data-track-index="1" data-hold>
+    <div class="apl-photo"><div id="s6-cam" data-layout-allow-overflow style="position:absolute;inset:0"><img src="assets/images/nyi-roro-kidul/pantai-pelang-celah-karang.jpg" alt=""></div></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
+    <div id="s6-scrim"></div>
 
-    <div id="s6-head" data-layout-allow-safe-zone data-hold>
-      <p class="npl-label">Satu nama, dua sosok</p>
-      <div id="s6-duo">
-        <p id="s6-a">Nyi Roro Kidul</p>
-        <p id="s6-b">Kanjeng Ratu Kidul<small>kepercayaan Jawa</small></p>
-      </div>
+    <div id="s6-head" data-layout-allow-safe-zone>
+      <p class="apl-meta"><b>Lembar 06</b> — satu nama, dua sosok</p>
     </div>
-    <div id="s6-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
-    <div id="s6-rank" data-layout-allow-safe-zone>
-      <b id="s6-r1">I<em>disebut pertama</em></b>
-      <b id="s6-r2" class="on">II<em>bawahannya</em></b>
+    <div id="s6-list" data-layout-allow-safe-zone>
+      <div id="s6-row"><b>I</b><p id="s6-a">Nyi Roro Kidul</p></div>
+      <div id="s6-row"><b>II</b><p id="s6-b">Kanjeng Ratu Kidul</p></div>
     </div>
+    <p id="s6-foot" class="apl-foot" data-layout-allow-safe-zone><sup>[5]</sup> Sering disamakan dalam cerita populer.</p>
   </div>
 </div>
 <script>
 (function(){
-  /* local = abs - 37.96 */
+  /* local = abs - 37.96. The ruled sheet is on the page first; each name
+     prints into its row on the word that names it: "Nyi Roro Kidul" 45.07
+     (local 7.11), "dan Kanjeng Ratu Kidul" 46.48 (8.55). No motion. */
   const tl = gsap.timeline({ paused: true });
   const DUR = 13.19;
-  tl.fromTo("#s6-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.04);
-  tl.fromTo("#s6-a", {opacity:0, y:18, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.44, ease:"power3.out"}, 7.08); /* 45.04 */
-  tl.fromTo("#s6-b", {opacity:0, y:18, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.44, ease:"power3.out"}, 8.26); /* 46.22 */
-  tl.fromTo("#s6-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.62, ease:"power2.inOut"}, 10.24); /* 48.20 */
-  tl.fromTo("#s6-r1", {opacity:0, y:14}, {opacity:1, y:0, duration:.34, ease:"power2.out"}, 10.30);
-  tl.fromTo("#s6-r2", {opacity:0, y:14}, {opacity:1, y:0, duration:.34, ease:"power2.out"}, 11.40); /* 49.36 */
+  NPL.horrorCamera(tl, "#s6-cam", DUR, { fromScale: 1, toScale: 1.05, toX: 8, toY: -6, ease: "power1.inOut" });
+  tl.set("#s6-a", {visibility:"visible"}, 7.11);
+  tl.set("#s6-b", {visibility:"visible"}, 8.55);
   tl.set({}, {}, DUR);
   window.__timelines = window.__timelines || {};
   window.__timelines["s6-dua-nama"] = tl;

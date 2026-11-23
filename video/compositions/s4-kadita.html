@@ -2,58 +2,30 @@
 <style>
 #root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
   font-family:var(--npl-font-display);color:var(--npl-ink)}
-/* Version one, told as a list of things done to her. No figure on screen: the
-   persona is legend, so only the acts are printed. */
-#s4-head{position:absolute;left:var(--npl-margin);top:400px}
-#s4-name{margin:24px 0 0;font-size:124px;font-weight:900;line-height:.9;
-  letter-spacing:-.045em;color:var(--npl-ink)}
-#s4-line{position:absolute;left:var(--npl-margin);top:700px;margin:0;
-  font-family:var(--npl-font-accent);font-style:italic;font-size:52px;
-  color:var(--npl-gray-200)}
-#s4-acts{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:820px}
-#s4-acts p{margin:0 0 26px;display:flex;align-items:baseline;gap:26px;
-  font-size:62px;font-weight:800;letter-spacing:-.02em;line-height:1}
-#s4-acts span{display:block;width:44px;height:3px;flex:none;
-  background:var(--npl-horror-a);align-self:center}
-#s4-acts p.small{font-size:44px;font-weight:600;color:var(--npl-gray-300)}
-#s4-acts p.small span{background:var(--npl-gray-500)}
-#s4-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:1068px}
+/* Version one, listed as acts. No figure on screen: the persona is legend,
+   so the plate shows the place she was driven to, not a face. */
+#s4-head{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:420px}
+#s4-name{margin:22px 0 0;font-size:118px;font-weight:900;line-height:.9;
+  letter-spacing:-.045em;color:var(--apl-paper)}
+#s4-foot{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:1080px}
 </style>
-<div id="root" data-composition-id="s4-kadita" data-width="1080" data-height="1920">
-  <div class="clip" id="s4-stage" data-start="0" data-duration="11.16" data-track-index="1">
-    <div class="npl-ground"></div>
-    <div class="npl-vignette"></div>
+<div id="root" data-composition-id="s4-kadita" data-width="1080" data-height="1920" data-hold>
+  <div class="clip" id="s4-stage" data-start="0" data-duration="11.16" data-track-index="1" data-hold>
+    <div class="apl-photo apl-photo--engraving"><div id="s4-cam" data-layout-allow-overflow style="position:absolute;inset:0"><img src="assets/images/nyi-roro-kidul/engraving-wanderer-above-the-sea-of-fog-friedrich.jpg" alt=""></div></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
 
     <div id="s4-head" data-layout-allow-safe-zone>
-      <p class="npl-label">Versi pertama</p>
+      <p class="apl-meta"><b>Versi satu</b> — Pajajaran</p>
       <h1 id="s4-name">Dewi Kadita</h1>
     </div>
-    <p id="s4-line" data-layout-allow-safe-zone>Putri Pajajaran.</p>
-    <div id="s4-acts" data-layout-allow-safe-zone>
-      <p id="s4-a1"><span></span>Dikutuk</p>
-      <p id="s4-a2"><span></span>Diusir</p>
-      <p id="s4-a3" class="small"><span></span>sakit.</p>
-    </div>
-    <div id="s4-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
+    <p id="s4-foot" class="apl-foot" data-layout-allow-safe-zone><sup>[4]</sup> Versi Galuh Pakuan menamainya Dewi Srêngéngé.</p>
   </div>
 </div>
 <script>
 (function(){
-  /* local = abs - 16.84 */
   const tl = gsap.timeline({ paused: true });
   const DUR = 11.16;
-  tl.fromTo("#s4-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.02);
-  tl.fromTo("#s4-name", {opacity:0, y:22, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.50, ease:"power3.out"}, 0.12);
-  tl.fromTo("#s4-line", {opacity:0, y:12}, {opacity:1, y:0, duration:.40, ease:"power2.out"}, 2.56);
-  tl.fromTo("#s4-a1", {opacity:0, x:-18}, {opacity:1, x:0, duration:.30, ease:"power3.out"}, 4.16);
-  tl.fromTo("#s4-a2", {opacity:0, x:-18}, {opacity:1, x:0, duration:.30, ease:"power3.out"}, 5.90);
-  tl.fromTo("#s4-a3", {opacity:0, x:-18}, {opacity:1, x:0, duration:.30, ease:"power3.out"}, 6.91);
-  /* 24.20 — "berjalan ke selatan": the waterline draws, then the caption
-     takes the line "menghilang ke dalam air" at 26.10. */
-  tl.fromTo("#s4-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.85, ease:"power2.inOut"}, 7.36);
-  tl.fromTo("#s4-head", {opacity:1}, {opacity:.30, duration:.40, ease:"power2.inOut"}, 9.02);
-  tl.fromTo("#s4-line", {opacity:1}, {opacity:.26, duration:.40, ease:"power2.inOut", immediateRender:false}, 9.02);
-  tl.fromTo("#s4-acts", {opacity:1}, {opacity:.26, duration:.40, ease:"power2.inOut"}, 9.02);
+  NPL.horrorCamera(tl, "#s4-cam", DUR, { fromScale: 1, toScale: 1.07, toX: -10, toY: -8, ease: "power1.inOut" });
   tl.set({}, {}, DUR);
   window.__timelines = window.__timelines || {};
   window.__timelines["s4-kadita"] = tl;

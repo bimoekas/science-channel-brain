@@ -1,132 +1,185 @@
 <template>
 <style>
-/* Phrase-level captions on the garis air. No card, no grey box: every group
-   sits on a mint waterline that reads as the episode's own boundary between
-   legend and recorded fact. Lavender marks the legend word in the line.
-
-   Groups are key lines only — a scene prints its own type, so the rail goes
-   silent wherever the scene already says the sentence. Timings come from
-   word-level timestamps of assets/audio/voiceover.mp3 (103.31 s). */
-#root{position:absolute;inset:0;pointer-events:none}
-#cap-scrim{position:absolute;left:0;right:0;top:1100px;height:560px;
-  background:linear-gradient(180deg,rgba(8,8,10,0) 0%,rgba(8,8,10,.55) 32%,
-    rgba(8,8,10,.78) 66%,rgba(8,8,10,0) 100%)}
-#cap-host{position:absolute;inset:0}
-
-.npl-cap{top:1176px;left:var(--npl-margin);right:var(--npl-margin)}
-.npl-cap .npl-cap-line{
-  display:inline-block;
-  max-width:100%;
-  position:relative;
-  padding:0 0 22px;
-  background:none;
-  border:0;
-  font-family:var(--npl-font-body);
-  font-size:46px;
-  font-weight:800;
-  line-height:1.18;
-  letter-spacing:-.015em;
-  color:var(--npl-ink);
-  text-shadow:0 2px 16px rgba(0,0,0,.92),0 0 40px rgba(0,0,0,.6);
-}
-/* the garis air: a hairline under the phrase, fading at both ends */
-.npl-cap .npl-cap-line::after{
-  content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
-  background:linear-gradient(90deg,rgba(92,242,192,0) 0%,rgba(92,242,192,.75) 10%,
-    rgba(92,242,192,.75) 74%,rgba(92,242,192,0) 100%);
-}
-.npl-cap .npl-cap-key{font-style:normal;color:var(--npl-horror-a)}
-
-/* Punch lines get a brighter, heavier tide and a size step — never a card. */
-.npl-cap.punch .npl-cap-line{font-size:52px;letter-spacing:-.02em}
-.npl-cap.punch .npl-cap-line::after{
-  height:3px;
-  background:linear-gradient(90deg,rgba(92,242,192,.15) 0%,rgba(92,242,192,.95) 8%,
-    rgba(92,242,192,.95) 82%,rgba(92,242,192,0) 100%);
-}
+  /* Full-coverage captions: transcript-timed, word-accurate. */
+  #cap-stage .npl-cap { bottom: 360px; left: 72px; right: 72px; text-align: center; }
+  #cap-stage .npl-cap-line {
+    display: inline-block;
+    font-family: var(--npl-font-display);
+    font-size: 44px; font-weight: 500; font-style: italic; line-height: 1.2;
+    letter-spacing: 0.08em;
+    padding: 0;
+    color: rgba(232, 228, 220, 0.88);
+    background: none;
+    border: 0;
+    border-left: 0;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 24px rgba(20, 4, 4, 0.45);
+    max-width: 920px;
+  }
+  #cap-stage .npl-cap-key { color: rgba(232, 228, 220, 0.92); font-style: inherit; }
 </style>
 <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
-  <div class="clip" id="cap-stage" data-start="0" data-duration="101.60" data-track-index="1" data-track-kind="captions">
-    <div id="cap-scrim"></div>
-    <div id="cap-host" data-layout-allow-safe-zone data-layout-allow-caption-zone>
-
-      <div class="npl-cap" id="cap-01" data-cap-start="5.72" data-cap-duration="3.50">
-        <span class="npl-cap-line">Katanya, itu warna<br>kesukaan <em class="npl-cap-key">sang ratu.</em></span>
+  <div class="clip" id="cap-stage" data-start="0" data-duration="103.70" data-track-index="2" data-hold>
+    <div class="npl-cap-safe" data-layout-allow-safe-zone data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>
+      <div class="npl-cap" id="cap-01" data-cap-start="0.07" data-cap-duration="3.93">
+        <span class="npl-cap-line">Di pantai selatan, ada aturan yang tak pernah ditulis.</span>
       </div>
-      <div class="npl-cap" id="cap-02" data-cap-start="14.10" data-cap-duration="2.72">
-        <span class="npl-cap-line">Tapi ceritanya…<br><em class="npl-cap-key">tidak satu versi.</em></span>
+      <div class="npl-cap" id="cap-02" data-cap-start="4.07" data-cap-duration="1.72">
+        <span class="npl-cap-line">Jangan pakai baju hijau.</span>
       </div>
-      <div class="npl-cap" id="cap-03" data-cap-start="26.10" data-cap-duration="1.88">
-        <span class="npl-cap-line"><em class="npl-cap-key">Menghilang</em> ke dalam air.</span>
+      <div class="npl-cap" id="cap-03" data-cap-start="5.87" data-cap-duration="3.61">
+        <span class="npl-cap-line">Katanya, itu warna kesukaan sang ratu.</span>
       </div>
-      <div class="npl-cap" id="cap-04" data-cap-start="30.72" data-cap-duration="3.44">
-        <span class="npl-cap-line">Kulitnya rusak.<br>Ia berkelana ke selatan.</span>
+      <div class="npl-cap" id="cap-04" data-cap-start="9.87" data-cap-duration="2.23">
+        <span class="npl-cap-line">Namanya Nyi Roro Kidul,</span>
       </div>
-      <div class="npl-cap punch" id="cap-05" data-cap-start="34.20" data-cap-duration="3.74">
-        <span class="npl-cap-line">Ombak besar datang.<br><em class="npl-cap-key">Ia tak pernah kembali.</em></span>
+      <div class="npl-cap" id="cap-05" data-cap-start="12.15" data-cap-duration="1.77">
+        <span class="npl-cap-line">Penguasa laut selatan.</span>
       </div>
-      <div class="npl-cap" id="cap-06" data-cap-start="38.00" data-cap-duration="3.90">
-        <span class="npl-cap-line">Orang-orang menyebut<br>kedua sosok ini</span>
+      <div class="npl-cap" id="cap-06" data-cap-start="13.99" data-cap-duration="1.13">
+        <span class="npl-cap-line">Tapi ceritanya,</span>
       </div>
-      <div class="npl-cap" id="cap-07" data-cap-start="42.05" data-cap-duration="2.96">
-        <span class="npl-cap-line">Dalam kepercayaan Jawa,<br>mereka dua.</span>
+      <div class="npl-cap" id="cap-07" data-cap-start="15.41" data-cap-duration="1.47">
+        <span class="npl-cap-line">tidak satu versi.</span>
       </div>
-      <div class="npl-cap" id="cap-08" data-cap-start="55.80" data-cap-duration="3.76">
-        <span class="npl-cap-line">Keraton Yogyakarta<br>melabuh sesaji.</span>
+      <div class="npl-cap" id="cap-08" data-cap-start="16.95" data-cap-duration="2.23">
+        <span class="npl-cap-line">Ada yang menyebutnya Dewi Kadita,</span>
       </div>
-      <div class="npl-cap" id="cap-09" data-cap-start="59.60" data-cap-duration="3.58">
-        <span class="npl-cap-line">Kain. Kemben hijau.<br>Batik bermotif hijau.</span>
+      <div class="npl-cap" id="cap-09" data-cap-start="19.23" data-cap-duration="1.57">
+        <span class="npl-cap-line">Putri Pajajaran.</span>
       </div>
-      <div class="npl-cap" id="cap-10" data-cap-start="63.25" data-cap-duration="2.28">
-        <span class="npl-cap-line">Sebagian dikubur<br>di pasir hitam,</span>
+      <div class="npl-cap" id="cap-10" data-cap-start="20.87" data-cap-duration="3.53">
+        <span class="npl-cap-line">Dikutuk ibu tiri, diusir, sakit.</span>
       </div>
-      <div class="npl-cap punch" id="cap-11" data-cap-start="65.58" data-cap-duration="1.76">
-        <span class="npl-cap-line"><em class="npl-cap-key">Tepat di atas garis air.</em></span>
+      <div class="npl-cap" id="cap-11" data-cap-start="24.47" data-cap-duration="1.42">
+        <span class="npl-cap-line">Berjalan ke selatan,</span>
       </div>
-      <div class="npl-cap" id="cap-12" data-cap-start="67.42" data-cap-duration="2.58">
-        <span class="npl-cap-line">Naskah lama juga<br>menyebut namanya.</span>
+      <div class="npl-cap" id="cap-12" data-cap-start="25.92" data-cap-duration="2.14">
+        <span class="npl-cap-line">lalu menghilang ke dalam air.</span>
       </div>
-      <div class="npl-cap" id="cap-13" data-cap-start="74.55" data-cap-duration="3.88">
-        <span class="npl-cap-line">Di Surakarta, satu kursi<br>selalu kosong.</span>
+      <div class="npl-cap" id="cap-13" data-cap-start="28.27" data-cap-duration="1.12">
+        <span class="npl-cap-line">Ada versi lain,</span>
       </div>
-      <div class="npl-cap punch" id="cap-14" data-cap-start="79.80" data-cap-duration="1.34">
-        <span class="npl-cap-line"><em class="npl-cap-key">Di sini batasnya.</em></span>
+      <div class="npl-cap" id="cap-14" data-cap-start="29.68" data-cap-duration="2.72">
+        <span class="npl-cap-line">seorang putri, kulitnya rusak.</span>
       </div>
-      <div class="npl-cap" id="cap-15" data-cap-start="85.40" data-cap-duration="2.08">
-        <span class="npl-cap-line">Bukan klaim yang<br>bisa dibuktikan.</span>
+      <div class="npl-cap" id="cap-15" data-cap-start="32.47" data-cap-duration="1.72">
+        <span class="npl-cap-line">Ia berkelana ke selatan,</span>
       </div>
-      <div class="npl-cap" id="cap-16" data-cap-start="87.70" data-cap-duration="2.30">
-        <span class="npl-cap-line">Larangan baju hijau<br>itu sendiri…</span>
+      <div class="npl-cap" id="cap-16" data-cap-start="34.27" data-cap-duration="1.79">
+        <span class="npl-cap-line">ombak besar datang,</span>
       </div>
-      <div class="npl-cap" id="cap-17" data-cap-start="90.06" data-cap-duration="2.18">
-        <span class="npl-cap-line">Lebih banyak beredar<br>sebagai cerita,</span>
+      <div class="npl-cap" id="cap-17" data-cap-start="36.36" data-cap-duration="1.78">
+        <span class="npl-cap-line">dan ia tak pernah kembali.</span>
       </div>
-      <div class="npl-cap punch" id="cap-18" data-cap-start="92.30" data-cap-duration="1.42">
-        <span class="npl-cap-line"><em class="npl-cap-key">Bukan hasil penelitian.</em></span>
+      <div class="npl-cap" id="cap-18" data-cap-start="38.27" data-cap-duration="2.22">
+        <span class="npl-cap-line">Orang-orang menyebut kedua sosok ini</span>
       </div>
-      <div class="npl-cap" id="cap-19" data-cap-start="93.82" data-cap-duration="2.08">
-        <span class="npl-cap-line">Yang mencekam<br>bukan ombaknya.</span>
+      <div class="npl-cap" id="cap-19" data-cap-start="40.55" data-cap-duration="1.25">
+        <span class="npl-cap-line">dengan satu nama.</span>
       </div>
-      <div class="npl-cap" id="cap-20" data-cap-start="95.95" data-cap-duration="3.20">
-        <span class="npl-cap-line">Tapi satu cerita yang<br>bertahan ratusan tahun.</span>
+      <div class="npl-cap" id="cap-20" data-cap-start="41.87" data-cap-duration="1.98">
+        <span class="npl-cap-line">Padahal dalam kepercayaan Jawa,</span>
       </div>
-      <div class="npl-cap" id="cap-21" data-cap-start="99.25" data-cap-duration="2.28">
-        <span class="npl-cap-line">Dan masih dihormati<br>sampai hari ini.</span>
+      <div class="npl-cap" id="cap-21" data-cap-start="43.88" data-cap-duration="1.10">
+        <span class="npl-cap-line">mereka dua.</span>
       </div>
-
-      <!-- 101.60 s onward: the signature outro prints "Sini aku ceritain." -->
+      <div class="npl-cap" id="cap-22" data-cap-start="45.07" data-cap-duration="1.38">
+        <span class="npl-cap-line">Nyi Roro Kidul</span>
+      </div>
+      <div class="npl-cap" id="cap-23" data-cap-start="46.48" data-cap-duration="1.84">
+        <span class="npl-cap-line">dan Kanjeng Ratu Kidul,</span>
+      </div>
+      <div class="npl-cap" id="cap-24" data-cap-start="49.15" data-cap-duration="1.85">
+        <span class="npl-cap-line">pertama disebut sebagai bawahannya.</span>
+      </div>
+      <div class="npl-cap" id="cap-25" data-cap-start="51.07" data-cap-duration="2.30">
+        <span class="npl-cap-line">Yang tercatat bukan sosoknya,</span>
+      </div>
+      <div class="npl-cap" id="cap-26" data-cap-start="53.40" data-cap-duration="2.60">
+        <span class="npl-cap-line">tapi yang mereka lakukan setiap tahun.</span>
+      </div>
+      <div class="npl-cap" id="cap-27" data-cap-start="56.07" data-cap-duration="2.00">
+        <span class="npl-cap-line">Keraton Yogyakarta melabuh sesaji</span>
+      </div>
+      <div class="npl-cap" id="cap-28" data-cap-start="58.10" data-cap-duration="1.74">
+        <span class="npl-cap-line">ke pantai Parangkusumo.</span>
+      </div>
+      <div class="npl-cap" id="cap-29" data-cap-start="59.87" data-cap-duration="1.61">
+        <span class="npl-cap-line">Kain, kemben hijau,</span>
+      </div>
+      <div class="npl-cap" id="cap-30" data-cap-start="61.51" data-cap-duration="1.73">
+        <span class="npl-cap-line">batik bermotif hijau.</span>
+      </div>
+      <div class="npl-cap" id="cap-31" data-cap-start="63.27" data-cap-duration="2.25">
+        <span class="npl-cap-line">Sebagian dikubur di pasir hitam,</span>
+      </div>
+      <div class="npl-cap" id="cap-32" data-cap-start="65.55" data-cap-duration="1.85">
+        <span class="npl-cap-line">tepat di atas garis air.</span>
+      </div>
+      <div class="npl-cap" id="cap-33" data-cap-start="67.47" data-cap-duration="2.77">
+        <span class="npl-cap-line">Naskah-naskah lama juga menyebut namanya.</span>
+      </div>
+      <div class="npl-cap" id="cap-34" data-cap-start="70.27" data-cap-duration="1.39">
+        <span class="npl-cap-line">Babad Tanah Jawi,</span>
+      </div>
+      <div class="npl-cap" id="cap-35" data-cap-start="71.69" data-cap-duration="1.48">
+        <span class="npl-cap-line">Babad Dipanegara,</span>
+      </div>
+      <div class="npl-cap" id="cap-36" data-cap-start="73.20" data-cap-duration="1.24">
+        <span class="npl-cap-line">Serat Centhini.</span>
+      </div>
+      <div class="npl-cap" id="cap-37" data-cap-start="74.47" data-cap-duration="1.39">
+        <span class="npl-cap-line">Dan di Surakarta,</span>
+      </div>
+      <div class="npl-cap" id="cap-38" data-cap-start="75.89" data-cap-duration="3.95">
+        <span class="npl-cap-line">satu kursi selalu dibiarkan kosong, untuknya.</span>
+      </div>
+      <div class="npl-cap" id="cap-39" data-cap-start="79.87" data-cap-duration="1.50">
+        <span class="npl-cap-line">Di sini batasnya,</span>
+      </div>
+      <div class="npl-cap" id="cap-40" data-cap-start="81.40" data-cap-duration="1.93">
+        <span class="npl-cap-line">yang tersisa adalah legenda,</span>
+      </div>
+      <div class="npl-cap" id="cap-41" data-cap-start="83.36" data-cap-duration="2.08">
+        <span class="npl-cap-line">kepercayaan, dan tradisi.</span>
+      </div>
+      <div class="npl-cap" id="cap-42" data-cap-start="85.47" data-cap-duration="2.17">
+        <span class="npl-cap-line">Bukan klaim yang bisa dibuktikan.</span>
+      </div>
+      <div class="npl-cap" id="cap-43" data-cap-start="87.67" data-cap-duration="2.10">
+        <span class="npl-cap-line">Dan larangan baju hijau itu sendiri,</span>
+      </div>
+      <div class="npl-cap" id="cap-44" data-cap-start="89.80" data-cap-duration="2.24">
+        <span class="npl-cap-line">lebih banyak beredar sebagai cerita.</span>
+      </div>
+      <div class="npl-cap" id="cap-45" data-cap-start="92.07" data-cap-duration="1.77">
+        <span class="npl-cap-line">Bukan hasil penelitian.</span>
+      </div>
+      <div class="npl-cap" id="cap-46" data-cap-start="93.87" data-cap-duration="2.25">
+        <span class="npl-cap-line">Yang mencekam bukan ombaknya,</span>
+      </div>
+      <div class="npl-cap" id="cap-47" data-cap-start="96.15" data-cap-duration="1.72">
+        <span class="npl-cap-line">tapi satu cerita</span>
+      </div>
+      <div class="npl-cap" id="cap-48" data-cap-start="97.90" data-cap-duration="1.34">
+        <span class="npl-cap-line">yang bertahan ratusan tahun.</span>
+      </div>
+      <div class="npl-cap" id="cap-49" data-cap-start="99.27" data-cap-duration="1.53">
+        <span class="npl-cap-line">Dan masih dihormati</span>
+      </div>
+      <div class="npl-cap" id="cap-50" data-cap-start="100.83" data-cap-duration="2.77">
+        <span class="npl-cap-line">sampai hari ini. Sini aku ceritain.</span>
+      </div>
     </div>
   </div>
 </div>
 <script>
 (function(){
   const tl = gsap.timeline({ paused: true });
-  const DUR = 101.60;
-
-  tl.fromTo("#cap-scrim", {opacity:0}, {opacity:1, duration:0.6, ease:"power2.out"}, 0);
-  NPL.captions(tl, "#cap-host");
-
+  const DUR = 103.70;
+  NPL.captions(tl, "#cap-stage");
   tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
   window.__timelines["captions"] = tl;
 })();
 </script>

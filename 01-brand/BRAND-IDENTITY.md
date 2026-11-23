@@ -79,7 +79,7 @@ Semua aset logo berupa SVG yang dapat diedit di `video/assets/brand/`.
 ## Tone of voice
 
 - Bahasa Indonesia percakapan, kalimat pendek, tanpa jargon yang tidak dijelaskan.
-- Komedi: ringan, jenaka, relatable. Horror: tegang, narator tenang-dingin, **runut faktual & ringkas** (kronologi → temuan/keterangan → mitos/cerita beredar dipisah) — seram dari detail nyata, bukan kata-kata seram/atmosfer ngambang; berpijak pada cerita/sumber nyata, tidak eksploitasi.
+- Komedi: ringan, jenaka, relatable. Horror: tegang, narator tenang-dingin, detail konkret; seram dari hal yang spesifik + jeda + kontras nada, bukan dari adjektiva seram, bukan dari disclaimer meta. Berpijak pada cerita/sumber nyata, tidak eksploitasi.
 - Tidak pernah mengklaim lebih pasti daripada buktinya; kesaksian/cerita beredar/mitos/legenda diberi label jelas dan dibedakan dari fakta terverifikasi.
 - **Mitos boleh jadi isi, bukan cuma catatan kaki.** Selama asalnya bersumber, sebuah mitos/legenda boleh menempati porsi besar cerita — tidak wajib didampingi bantahan. Syaratnya dua: (1) sumbernya disebut, (2) sikapnya diserahkan ke penonton — "percaya atau tidak, ini yang diceritakan orang", bukan "ini yang terjadi". Yang dilarang tetap satu: menyebut mitos sebagai fakta terverifikasi.
 

@@ -133,3 +133,55 @@ Baris `Batas:` di tiap ide di bawah hanya mencatat **kekhususan** yang tidak ter
 - **Label klaim:** Status kawasan, sejarah, budaya tercatat [fakta terverifikasi, perlu sumber]; keramat/cerita gaib & mitos [mitos/kepercayaan/cerita beredar, tidak dibuktikan].
 - **Batas:** Hormati kepercayaan & masyarakat/adat setempat.
 - **Status:** Ide pilot — perlu riset, script, dan fact-check.
+
+## Horror (Misteri, Real Story — Luar Negeri)
+
+Batas global tetap berlaku. Tambahan: sebut negara/daerah/versi cerita; hormati budaya & kepercayaan asal; jangan exotifikasi; sumber/rujukan wajib saat produksi.
+
+### 11. Kuchisake-onna, urban legend Jepang
+
+- **Niche:** Horror (Misteri, Real Story)
+- **Pertanyaan inti:** Dari mana cerita Kuchisake-onna berasal, dan bagaimana urban legend ini menyebar di Jepang?
+- **Ide inti:** Telusuri asal-usul Kuchisake-onna (wanita bermulut robek) sebagai urban legend Jepang, variasi versi, periode kemunculan cerita yang tercatat di liputan/rujukan budaya, dan cara cerita itu hidup di masyarakat.
+- **Basis cerita (wajib):** Urban legend/cerita beredar Jepang [tradisi lisan/cerita beredar] + rujukan budaya/liputan/penelusuran folklor yang dapat dirujuk bila ada. **Wajib cantumkan asal/versi cerita & sumber saat produksi.**
+- **Hook:** “Seorang wanita bertanya, 'Apa aku cantik?' Jawabanmu menentukan apa yang terjadi selanjutnya… tapi dari mana cerita itu benar-benar datang?”
+- **Payoff:** Seramnya urban legend yang menyebar luas, dengan batas jelas antara cerita beredar dan fakta tercatat.
+- **Label klaim:** Sosok, pertanyaan, variasi cerita [urban legend/cerita beredar, perlu sumber]; konteks kemunculan/penyebaran yang terdokumentasi [fakta budaya/media terverifikasi, jika bersumber].
+- **Batas:** Tanpa kekerasan eksplisit-grafis; hormati konteks budaya Jepang.
+- **Status:** Ide pilot — perlu riset, script, dan fact-check.
+
+### 12. La Llorona, legenda sungai Amerika Latin
+
+- **Niche:** Horror (Misteri, Real Story)
+- **Pertanyaan inti:** Bagaimana legenda La Llorona diwariskan di berbagai wilayah Amerika Latin, dan apa yang tetap sama di setiap versi?
+- **Ide inti:** Ulas legenda La Llorona ("wanita yang menangis") sebagai cerita rakyat lintas wilayah (Meksiko dan bagian Amerika Latin/AS barat daya), variasi versi, dan fungsi ceritanya dalam budaya lisan.
+- **Basis cerita (wajib):** Mitos/legenda/cerita rakyat [tradisi lisan/cerita beredar, lintas versi daerah] + rujukan folklor/budaya yang dapat dirujuk bila ada. **Wajib cantumkan daerah/versi & sumber saat produksi.**
+- **Hook:** “Di dekat sungai, ada tangisan yang katanya bukan milik orang hidup. Ceritanya berpindah negara, tapi tangisannya tetap sama… siapa La Llorona dalam cerita yang diwariskan?”
+- **Payoff:** Legenda yang berubah bentuk di tiap tempat, tapi tetap mencekam; batas mitos dan fakta tetap jelas.
+- **Label klaim:** Sosok, tangisan, variasi kisah [mitos/legenda/cerita beredar, perlu sumber]; konteks budaya/folklor tercatat [fakta budaya terverifikasi, jika bersumber].
+- **Batas:** Tanpa glorifikasi kekerasan terhadap anak/keluarga; hindari detail kekerasan eksplisit-grafis; hormati budaya asal.
+- **Status:** Ide pilot — perlu riset, script, dan fact-check.
+
+### 13. Insiden Dyatlov Pass, Pegunungan Ural (1959)
+
+- **Niche:** Horror (Misteri, Real Story)
+- **Pertanyaan inti:** Apa yang catatan investigasi katakan tentang kematian sembilan pendaki di Dyatlov Pass, dan mana yang tetap spekulasi?
+- **Ide inti:** Bahas insiden Dyatlov Pass (1959, Pegunungan Ural, Uni Soviet/Rusia) dari catatan investigasi resmi, temuan terdokumentasi, dan perkembangan penjelasan resmi; pisahkan dari teori spekulatif yang populer.
+- **Basis cerita (wajib):** Fakta/peristiwa terdokumentasi (laporan investigasi, catatan resmi, rujukan tepercaya) + teori/spekulasi yang beredar [spekulasi/cerita beredar]. **Wajib cantumkan sumber/rujukan saat produksi.**
+- **Hook:** “Sembilan pendaki meninggalkan tenda di tengah malam bersalju. Catatan resmi punya temuan, tapi sebagian pertanyaan masih memicu spekulasi… mana bukti, mana dugaan?”
+- **Payoff:** Misteri nyata dari celah pertanyaan, tanpa melampaui bukti yang ada.
+- **Label klaim:** Kronologi, lokasi, temuan & kesimpulan investigasi resmi [fakta sejarah terverifikasi, perlu sumber]; penjelasan alternatif populer [teori/spekulasi/cerita beredar, tidak setara bukti].
+- **Batas:** Hormati korban & keluarga; hindari detail/gambar kondisi korban; tanpa glorifikasi bahaya.
+- **Status:** Ide pilot — perlu riset, script, dan fact-check.
+
+### 14. Banshee, pembawa kabar duka dalam folklor Irlandia
+
+- **Niche:** Horror (Misteri, Real Story)
+- **Pertanyaan inti:** Apa itu Banshee dalam folklor Irlandia, dan bagaimana cerita ratapan ini diwariskan?
+- **Ide inti:** Ulas Banshee sebagai sosok dalam folklor Irlandia yang dikaitkan dengan ratapan/kabar duka, variasi tradisi lisan, dan konteks budaya yang tercatat; bedakan mitos/kepercayaan dari rujukan folklor.
+- **Basis cerita (wajib):** Mitos/legenda/folklor Irlandia [tradisi lisan/kepercayaan/cerita beredar] + rujukan folklor/budaya yang dapat dirujuk bila ada. **Wajib cantumkan asal/versi & sumber saat produksi.**
+- **Hook:** “Kalau ratapan itu terdengar di malam hari, sebagian cerita Irlandia bilang: itu bukan angin. Tapi siapa Banshee dalam cerita yang diwariskan?”
+- **Payoff:** Dingin dan dekat, karena mitosnya menyentuh kehilangan; batas cerita dan fakta tetap jelas.
+- **Label klaim:** Sosok, ratapan, kaitan dengan kematian [mitos/legenda/kepercayaan/cerita beredar, perlu sumber]; konteks folklor/budaya tercatat [fakta budaya terverifikasi, jika bersumber].
+- **Batas:** Hormati kepercayaan & budaya Irlandia; jangan sajikan sebagai pertanda kematian yang faktual.
+- **Status:** Ide pilot — perlu riset, script, dan fact-check.

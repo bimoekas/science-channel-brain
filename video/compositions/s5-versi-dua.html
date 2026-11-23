@@ -2,42 +2,34 @@
 <style>
 #root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
   font-family:var(--npl-font-display);color:var(--npl-ink)}
-/* Version two has no name in the telling. The frame keeps it that way. */
-#s5-head{position:absolute;left:var(--npl-margin);top:470px}
-#s5-title{margin:26px 0 0;font-size:132px;font-weight:900;line-height:.9;
-  letter-spacing:-.045em;color:var(--npl-gray-200)}
-#s5-wl{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:900px}
-#s5-mark{position:absolute;left:var(--npl-margin);top:960px;margin:0;
-  font-family:var(--npl-font-accent);font-style:italic;font-size:44px;
-  color:var(--npl-gray-400)}
+/* Second version: a different name, the same sea. The card is an index-card:
+   one heading, one line of hand, nothing else. */
+#s5-card{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:466px;
+  background:var(--apl-paper);color:var(--apl-ink);padding:40px 38px 34px}
+#s5-card .apl-meta{color:rgba(20,19,15,.72)}
+#s5-card .apl-meta b{color:var(--apl-ink)}
+#s5-title{margin:20px 0 0;font-size:74px;font-weight:900;line-height:.96;
+  letter-spacing:-.035em;color:var(--apl-ink)}
+/* Doré's watercolour is warm and low-contrast; the boat sits centre-low, so
+   crop under the sky and let the wave and the oars carry the frame. */
+#s5-stage .apl-photo img{object-position:50% 72%;filter:grayscale(1) contrast(1.62) brightness(.72)}
 </style>
-<div id="root" data-composition-id="s5-versi-dua" data-width="1080" data-height="1920">
-  <div class="clip" id="s5-stage" data-start="0" data-duration="9.96" data-track-index="1">
-    <div class="npl-ground"></div>
-    <div class="npl-vignette"></div>
+<div id="root" data-composition-id="s5-versi-dua" data-width="1080" data-height="1920" data-hold>
+  <div class="clip" id="s5-stage" data-start="0" data-duration="9.96" data-track-index="1" data-hold>
+    <div class="apl-photo apl-photo--engraving"><div id="s5-cam" data-layout-allow-overflow style="position:absolute;inset:0"><img src="assets/images/nyi-roro-kidul/engraving-after-the-shipwreck-dore.jpg" alt=""></div></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
 
-    <div id="s5-head" data-layout-allow-safe-zone>
-      <p class="npl-label">Versi kedua</p>
-      <h1 id="s5-title">Tanpa nama.</h1>
+    <div id="s5-card" data-layout-allow-safe-zone>
+      <p class="apl-meta"><b>Versi dua</b> — Joyo Kulon</p>
+      <p id="s5-title">Banyu Bening<br>Gelang Kencana</p>
     </div>
-    <div id="s5-wl" class="npl-waterline" data-layout-allow-safe-zone></div>
-    <p id="s5-mark" data-layout-allow-safe-zone>Seorang putri, tanpa nama dalam cerita.</p>
   </div>
 </div>
 <script>
 (function(){
-  /* local = abs - 28.00 */
   const tl = gsap.timeline({ paused: true });
   const DUR = 9.96;
-  tl.fromTo("#s5-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.04);
-  tl.fromTo("#s5-title", {opacity:0, y:20, filter:"blur(9px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.50, ease:"power3.out"}, 0.18);
-  tl.fromTo("#s5-mark", {opacity:0, y:10}, {opacity:1, y:0, duration:.40, ease:"power2.out"}, 0.62);
-  /* 30.70 — "kulitnya rusak": the claim steps back under the caption. */
-  tl.fromTo("#s5-title", {opacity:1}, {opacity:.30, duration:.45, ease:"power2.inOut", immediateRender:false}, 2.60);
-  tl.fromTo("#s5-mark", {opacity:1}, {opacity:.22, duration:.45, ease:"power2.inOut", immediateRender:false}, 2.60);
-  /* 34.20 — "ombak besar datang": the tide crosses the frame. */
-  tl.fromTo("#s5-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.70, ease:"power2.inOut"}, 6.18);
-  tl.fromTo("#s5-title", {opacity:.30}, {opacity:.14, duration:.60, ease:"power2.in", immediateRender:false}, 6.20);
+  NPL.horrorCamera(tl, "#s5-cam", DUR, { fromScale: 1, toScale: 1.06, toY: -8, ease: "power1.inOut" });
   tl.set({}, {}, DUR);
   window.__timelines = window.__timelines || {};
   window.__timelines["s5-versi-dua"] = tl;

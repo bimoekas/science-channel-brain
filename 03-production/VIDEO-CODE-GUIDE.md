@@ -58,6 +58,7 @@ Panduan agar AI menghasilkan kode video konsisten untuk channel ini (HyperFrames
 - Deterministik: tanpa `Date.now()`, `Math.random()` tanpa seed, network fetch, timer, `repeat:-1`. Ukur layout sekali sebelum tween (bukan di `onUpdate`).
 - Durasi root = panjang video (overrun terpotong). Naikkan root `data-duration` agar menutup clip terakhir.
 - Media: `<video>` bersuara `data-has-audio="true"` (tanpa `muted`); footage/silent `muted playsinline`. `<audio>` butuh `id`, tanpa `crossorigin`. Waktu pada `<video>`, bukan wrapper.
+- **Audio/SFX clip:** taruh file di `video/assets/audio/sfx/` (lisensi dicatat di `LICENSE.txt`/manifest). Tambah `<audio class="clip" id="..." src="assets/audio/sfx/..." data-start="..." data-duration="..." data-track-index="..." data-volume="..." data-fade-in="..." data-fade-out="...">` di `index.html`. Wajib: `id`, `class="clip"`, `data-start`, `data-duration`, `data-track-index`, `data-volume` (0.1–3.98). Opsional: `data-fade-in`, `data-fade-out`, `data-media-start`. SFX overlap = lane beda. VO prioritas; bed/drone ducking; hit/jumpscare singkat, hening 200–400ms sebelum hit efektif. Jangan nutup narasi.
 - Font: bundled (Inter, Montserrat, Outfit, Poppins, Nunito, Oswald, dll.) resolve by name; font lain butuh `@font-face` ke `assets/fonts/`.
 - Frame 0 tidak kosong (thumbnail kuat). Beri napas tenang 0.5–1 dtk di jeda (akhir hook, mechanism→effects, sebelum closing); baris akhir tahan ≥2 dtk.
 
@@ -116,10 +117,11 @@ Penjelasan sistem lengkap: `01-brand/BRAND-SYSTEM.md`.
   dan penempatan: `BRAND-SYSTEM.md` §4a. Jangan menggambar ulang symbol per komposisi —
   pakai `<img src="assets/brand/logo-symbol.svg">`.
 
-**Motion (GSAP, deterministik) — SIMPEL & RINGAN**
-- Default: layout statis + **fade opacity sederhana** (`fromTo` opacity 0→1, ~0.3–0.6s, `power2.out`) bila perlu. Hold tenang; tidak ada gerak kontinu.
-- Hindari: slide (x/y), pan/zoom/kamera bergerak, scale/blur/rotation berlebihan, parallax, bounce/elastic, mikro-gerak kontinu, partikel/SVG animasi rumit, loop hiasan, wipe/glitch/transisi berat. Pakai hard cut/fade sederhana.
-- Durasi & timing tetap mengikuti VO/beat map; akhir ≥2 dtk bila relevan. Jaga performa/render ringan.
+**Motion (GSAP, deterministik)**
+- Default: layout statis + fade opacity sederhana (`fromTo` opacity 0→1, ~0.3–0.6s, `power2.out`) bila perlu. Hard cut/fade utama.
+- Deviasi horror (user-approved, 2026-05): boleh slow zoom-in + camera drift deterministik pada wrapper gambar (`NPL.horrorCamera`, contoh scale `1->1.08` 6s, `power1.inOut`/linear). Boleh jumpscare/klimaks terkontrol (`NPL.jumpscare`: hit singkat, flash kecil, punch scale ringan) — tanpa gore/kekerasan eksplisit-grafis, tanpa glorifikasi, tidak berlebihan.
+- Tetap hindari: slide liar, parallax berat, bounce/elastic, mikro-gerak kontinu tak bermakna, partikel/SVG rumit, loop hiasan. Jangan tween transform CSS pada elemen yang dianimasi GSAP.
+- Durasi & timing tetap mengikuti VO/beat map; akhir ≥2 dtk bila relevan.
 
 **Signature outro (wajib, konsisten)**
 - File: `video/compositions/brand/signature-outro.html`, durasi 2 dtk, di-mount sekali di root.

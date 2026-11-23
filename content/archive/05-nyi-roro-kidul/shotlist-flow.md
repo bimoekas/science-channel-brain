@@ -20,20 +20,20 @@ Audio final: `video/assets/audio/voiceover-norm.mp3` — **103,3 dtk** (di atas 
 
 ## Peta waktu (perkiraan — verifikasi dulu)
 
-Diturunkan dari `silencedetect` pada `voiceover-norm.mp3`. Tanda ⚠ berarti belum dicek dengan
-mendengar langsung; geser setelah dikonfirmasi. Shot tidak harus tepat di batas ini — HyperFrames
-memakai `data-start` sendiri, peta ini hanya untuk menentukan kapan visual harus berganti.
+Diturunkan dari `silencedetect` pada `voiceover-norm.mp3`, lalu diverifikasi ulang terhadap
+timestamp per kata di `video/transcript.json` (2026-11-22). Shot tidak harus tepat di batas ini —
+HyperFrames memakai `data-start` sendiri, peta ini hanya untuk menentukan kapan visual berganti.
 
 | Beat | Mulai | Durasi | Baris VO |
 | --- | --- | --- | --- |
 | 1. Hook | 0,0 | 8,7 | "Di pantai selatan, ada aturan tak tertulis. JANGAN pakai baju hijau." |
 | 2. Larangan | 8,7 | 5,3 | "Katanya, itu warna kesukaan sang ratu." |
 | 3. Nama | 14,0 | 9,9 | "Namanya Nyi Roro Kidul. Penguasa laut selatan. Tapi ceritanya… tidak satu versi." |
-| 4. Versi Kadita | 23,9 | 13,6 ⚠ | "Dewi Kadita. Putri Pajajaran. Dikutuk ibu tiri. Diusir… menghilang ke dalam air." |
+| 4. Versi Kadita | 23,9 | 13,6 | "Dewi Kadita. Putri Pajajaran. Dikutuk ibu tiri. Diusir… menghilang ke dalam air." |
 | 5. Versi kedua | 37,5 | 7,3 | "Ada versi lain. Kulitnya rusak. Berkelana ke selatan. Ombak besar datang… tak kembali." |
 | 6. Dua nama | 44,8 | 6,4 | "Dua sosok, satu nama… Nyi Roro Kidul dan Kanjeng Ratu Kidul." |
 | 7. Pivot | 51,1 | 5,0 | "Yang tercatat, bukan sosoknya. Tapi yang mereka lakukan setiap tahun." |
-| 8. Labuhan | 56,1 | 23,2 ⚠ | "Keraton Yogyakarta melabuh sesaji… Kain. Kemben hijau. Dikubur di pasir hitam." |
+| 8. Labuhan | 56,1 | 23,2 | "Keraton Yogyakarta melabuh sesaji… Kain. Kemben hijau. Dikubur di pasir hitam." |
 | 9. Naskah | (di dalam beat 8) | — | "Babad Tanah Jawi. Babad Dipanegara. Serat Centhini. Satu kursi… kosong." |
 | 10. Batas | 79,9 | 14,2 | "Di sini batasnya. Yang tersisa adalah legenda… lebih banyak beredar sebagai cerita." |
 | 11. Payoff | 94,1 | 7,9 | "Yang mencekam bukan ombaknya. Tapi satu cerita yang bertahan ratusan tahun." |
@@ -137,9 +137,10 @@ done
 
 `-an` wajib — klip Flow bersuara dan akan bertabrakan dengan `voiceover.mp3`.
 
-## Dua hal terbuka
+## Dua hal yang dulu terbuka — keduanya sudah ditutup
 
-1. **Audio 103,3 dtk, di atas target 70–90.** Pilihan: potong ke ~88 dtk (buang satu versi cerita),
-   atau terima 103 dtk (video sedikit lebih panjang dari format). Shot list ini memakai 103 dtk.
-2. **Beat 4 dan 8 panjangnya belum dikonfirmasi** — timer di tabel berasal dari deteksi hening,
-   bukan dari mendengar. Dengar audio sekali dan geser angkanya sebelum mengisi `data-start`.
+1. **Audio 103,3 dtk, di atas target 70–90.** Diputuskan 2026-11-22: **diterima**. Tidak dipotong,
+   shot list tetap memakai 103 dtk.
+2. **Beat 4 dan 8.** Timer di tabel sekarang sudah dicek terhadap timestamp per kata di
+   `video/transcript.json`, bukan cuma deteksi hening. Tanda ⚠ dihapus. Batas klip di
+   `index.html` dan caption di `compositions/brand/captions.html` memakai data kata yang sama.

@@ -2,64 +2,47 @@
 <style>
 #root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);
   font-family:var(--npl-font-display);color:var(--npl-ink)}
-/* The one thing in the episode that is a documented act, drawn as a diagram:
-   three cloths carried down to the sand and buried just above the waterline.
-   No labels on the cloths — the caption names them. */
-#s8-head{position:absolute;left:var(--npl-margin);top:400px}
-#s8-place{margin:24px 0 0;font-size:96px;font-weight:900;line-height:.94;
-  letter-spacing:-.04em}
-#s8-diagram{position:absolute;left:0;right:0;top:700px;height:420px}
-#s8-cloths{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:100px;
-  display:flex;gap:24px}
-#s8-cloths i{display:block;flex:1;height:120px;
-  background:linear-gradient(165deg,rgba(92,242,192,.55),rgba(92,242,192,.16));
-  border:2px solid rgba(92,242,192,.62)}
-#s8-sand{position:absolute;left:0;right:0;bottom:0;height:190px;
-  background:linear-gradient(180deg,#101014,#08080a)}
-#s8-wl{position:absolute;left:0;right:0;bottom:190px;height:2px;transform-origin:0 50%;
-  background:linear-gradient(90deg,rgba(92,242,192,0),rgba(92,242,192,.85) 22%,
-    rgba(92,242,192,.85) 78%,rgba(92,242,192,0))}
-/* The one claim in the episode that carries a record: stamped, not narrated. */
-#s8-stamp{position:absolute;left:var(--npl-margin);top:580px}
+/* The one documented act in the episode, shown the way an archive shows it:
+   a photograph mounted on the page with its own printed caption. No drawn
+   cloths, no waterline, no animation — the plate is the evidence. */
+#s8-head{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:390px}
+#s8-place{margin:22px 0 0;font-size:96px;font-weight:900;line-height:.94;
+  letter-spacing:-.04em;color:var(--apl-paper)}
+#s8-stamp{position:absolute;left:var(--npl-margin);top:592px}
+#s8-stamp .apl-stamp{border-color:var(--apl-stamp);color:var(--apl-stamp)}
+#s8-plate{left:var(--npl-margin);right:var(--npl-margin);top:680px;
+  color:var(--apl-ink)}
+#s8-plate .apl-photo-slot{display:block;height:430px;overflow:hidden}
+#s8-foot{position:absolute;left:var(--npl-margin);right:var(--npl-margin);top:1210px}
+/* The procession runs left to right along the waterline, so keep the sand and
+   the surf in frame instead of the empty sky above the bearers. */
+#s8-stage .apl-photo img{object-position:44% 74%}
 </style>
-<div id="root" data-composition-id="s8-labuhan" data-width="1080" data-height="1920">
+<div id="root" data-composition-id="s8-labuhan" data-width="1080" data-height="1920" data-hold>
   <div class="clip" id="s8-stage" data-start="0" data-duration="11.56" data-track-index="1" data-hold>
-    <div class="npl-ground"></div>
-    <div class="npl-vignette"></div>
+    <div class="apl-photo"><div id="s8-cam" data-layout-allow-overflow style="position:absolute;inset:0"><img src="assets/images/nyi-roro-kidul/labuhan-parangtritis.jpg" alt=""></div></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
 
     <div id="s8-head" data-layout-allow-safe-zone>
-      <p class="npl-label">Labuhan · tiap tahun</p>
+      <p class="apl-meta"><b>Lembar 08</b> — Labuhan, tiap tahun</p>
       <h1 id="s8-place">Parangkusumo</h1>
     </div>
-    <p id="s8-stamp" class="npl-stamp fact" data-layout-allow-safe-zone>tercatat</p>
+    <p id="s8-stamp" data-layout-allow-safe-zone><span class="apl-stamp">tercatat</span></p>
 
-    <div id="s8-diagram" data-layout-allow-overflow>
-      <div id="s8-cloths"><i></i><i></i><i></i></div>
-      <div id="s8-wl"></div>
-      <div id="s8-sand"></div>
-    </div>
+    <figure id="s8-plate" class="apl-inset" data-layout-allow-safe-zone data-layout-allow-overflow>
+      <div class="apl-photo-slot"><img src="assets/images/nyi-roro-kidul/batik.jpg" alt=""></div>
+      <figcaption><b>Gadhung mlathi.</b> Hijau dalam daftar sesaji Kraton.</figcaption>
+    </figure>
+
+    <p id="s8-foot" class="apl-foot" data-layout-allow-safe-zone><sup>[7]</sup> Tiap 30 Rejeb, sehari setelah Jumenengan Dalem.</p>
   </div>
 </div>
 <script>
 (function(){
-  /* local = abs - 55.80 */
+  /* Horror deviation (user-approved): slow drift on archival photo. */
   const tl = gsap.timeline({ paused: true });
   const DUR = 11.56;
-  tl.fromTo("#s8-head .npl-label", {opacity:0}, {opacity:1, duration:.26, ease:"power2.out"}, 0.04);
-  tl.fromTo("#s8-place", {opacity:0, y:18, filter:"blur(8px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.46, ease:"power3.out"}, 0.16);
-  /* 57.20 — "melabuh sesaji": the waterline cuts the frame, the cloths arrive.
-     The stamp lands with them: this is the act the record holds, so its status
-     is printed, not implied. */
-  tl.fromTo("#s8-wl", {scaleX:0, opacity:0}, {scaleX:1, opacity:1, duration:.60, ease:"power2.inOut"}, 1.40);
-  NPL.stamp(tl, "#s8-stamp", 1.40);
-  tl.fromTo("#s8-sand", {opacity:0}, {opacity:1, duration:.50, ease:"power2.out"}, 1.46);
-  tl.fromTo("#s8-cloths i", {opacity:0, y:-26}, {opacity:1, y:0, duration:.42, ease:"power2.out", stagger:.12}, 1.60);
-  /* 63.25 — "sebagian dikubur": two of the three settle below the line. */
-  tl.fromTo("#s8-cloths i:nth-child(1)", {y:0}, {y:96, opacity:.55, duration:.75, ease:"power2.inOut"}, 7.45);
-  tl.fromTo("#s8-cloths i:nth-child(3)", {y:0}, {y:96, opacity:.55, duration:.75, ease:"power2.inOut"}, 7.57);
-  /* 65.58 — "tepat di atas garis air": the line answers. */
-  tl.fromTo("#s8-wl", {filter:"brightness(1)"}, {filter:"brightness(2.2)", duration:.30, ease:"power2.out"}, 9.78);
-  tl.fromTo("#s8-wl", {filter:"brightness(2.2)"}, {filter:"brightness(1)", duration:.60, ease:"power2.inOut", immediateRender:false}, 10.08);
+  NPL.horrorCamera(tl, "#s8-cam", DUR, { fromScale: 1, toScale: 1.05, toX: -6, toY: -8, ease: "power1.inOut" });
   tl.set({}, {}, DUR);
   window.__timelines = window.__timelines || {};
   window.__timelines["s8-labuhan"] = tl;

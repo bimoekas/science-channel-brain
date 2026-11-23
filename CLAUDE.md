@@ -34,7 +34,7 @@ Bila tugas menyentuh `voiceover.md` (siapa pun yang memintanya):
 - Bedakan tegas: fakta terverifikasi / fakta sejarah / teori / hipotesis / spekulasi / kesaksian / mitos / legenda / fiksi. Jangan sajikan mitos sebagai fakta.
 - Mitos bersumber boleh **jadi isi utama**, tidak wajib dibantah. Syarat: sebut sumbernya, serahkan sikap ke penonton ("percaya atau tidak, ini yang diceritakan orang") — bukan "ini yang terjadi".
 - Sumber wajib dicantumkan di `script.md` → Source notes, dengan tanggal akses.
-- Klaim yang sumbernya lemah (mis. artikel populer, Wikipedia tanpa catatan kaki) harus disebut lemah di Source notes dan di VO disebut sebagai "kepercayaan/cerita yang beredar", bukan temuan.
+- Klaim yang sumbernya lemah: turun tingkat kepastian di Source notes. Di layar/VO cukup atribusi narasi (`katanya`, `cerita yang beredar`) — jangan patahkan dread dengan disclaimer meta (`bukan hasil penelitian`, `tidak bisa dibuktikan`, `belum terbukti secara ilmiah`). Seram datang dari detail dan jeda, bukan dari pengakuan batas.
 - Audiens 18+. Hormati korban/keluarga/masyarakat/kepercayaan. Tanpa glorifikasi, tanpa gore/kekerasan eksplisit-grafis.
 
 ## Aturan keras: jangan timpa konten aktif
@@ -47,3 +47,11 @@ Bila tugas menyentuh `voiceover.md` (siapa pun yang memintanya):
 Untuk kerja di `video/`: baca `video/CLAUDE.md` dan ikuti skill HyperFrames. Kontrak ringkas ada di `03-production/VIDEO-CODE-GUIDE.md`.
 
 Hasil akhir = bisa di-preview di HyperFrames Studio. **Jangan render MP4** kecuali user meminta eksplisit — render sangat lambat dan bukan gate kelulusan.
+
+## Aturan keras: saluran Telegram
+
+Bila sesi dimulai dari pesan Telegram, setiap balasan ke user **wajib** lewat tool `reply` (plugin telegram), bukan teks di terminal — teks terminal tidak sampai ke user.
+
+- Kirim update di awal kerja panjang, saat milestone, dan saat selesai.
+- Bila kerja memakan banyak langkah, kirim satu baris progres sebelum lanjut, supaya user tidak menunggu tanpa kabar.
+- Balasan terminal tetap ditulis (untuk log sesi), tetapi tidak menggantikan `reply`.

@@ -5,7 +5,7 @@
 - Visual harus mendukung makna dan suasana; jangan membuat klaim terlihat lebih pasti daripada buktinya. Bedakan fakta terverifikasi vs kesaksian/cerita beredar/mitos/legenda/fiksi bila relevan.
 - Format: 70–90 detik, vertikal 9:16, satu ide inti, satu pertanyaan inti, dan satu payoff.
 - Audiens: 18+ (dewasa), bukan semua umur; visual harus jelas dan ditujukan untuk audiens dewasa.
-- Target 18+ (dewasa). Komedi: humor absurd-relatable. Horror: tegang/misterius, **wajib berbasis real story** (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah — bukan karangan ngawang), **runut faktual ringkas** (kronologi → temuan/keterangan → mitos dipisah) — seram dari detail nyata, bukan sekadar kata/visual seram ngambang; tanpa glorifikasi kekerasan/pelaku, tidak mengeksploitasi; hindari visual/deskripsi gore atau kekerasan eksplisit-grafis (lihat `README.md`).
+- Target 18+ (dewasa). Komedi: humor absurd-relatable. Horror: tegang/misterius, **wajib berbasis real story** (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah — bukan karangan ngawang), seram dari detail konkret, jeda, kontras. Deviasi user-approved (2026-05): jumpscare/klimaks terkontrol boleh untuk seram; tetap tanpa gore/kekerasan eksplisit-grafis, tanpa glorifikasi, tidak berlebihan. (lihat `README.md`).
 
 ## Identitas
 
@@ -65,8 +65,7 @@ pakai yang sudah didefinisikan, jangan menulis ulang nilainya.
   sebaliknya). Satu tarikan garis, sekali, dengan alasan naratif. Bukan hiasan setiap cut.
 
 **Yang tidak berubah antar niche**
-- Kamera tidak menyentuh apa pun: tanpa zoom, pan, parallax, atau dorongan kamera. Semua perubahan
-  lewat cut.
+- Kamera: default diam, perubahan lewat cut. Deviasi horror (user-approved, 2026-05): boleh slow zoom-in + camera drift deterministik hemat pada wrapper gambar (`NPL.horrorCamera`).
 - Tipe adalah gambar: `.npl-hero`/`.npl-section`, satu kata berwarna aksen, tanpa kartu pembungkus.
 - Satu sensor visual per video: Horror desaturasi, Komedi jenuh. Jangan dicampur.
 
@@ -109,8 +108,7 @@ pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir
 - **Ukuran Font Caption:** `var(--npl-caption-size)` = 44px / 600 / 1.12 (rentang 42–48px). Jangan
   menulis angka sendiri; baca token.
 - **Safe Area:** Tetap menjaga jarak aman dari sisi bawah (TikTok/Reels UI).
-- **Gerak minimal:** hindari animasi berat — tidak ada slide/pan/zoom/kamera bergerak, parallax,
-  partikel/SVG animasi kompleks, atau mikro-gerak kontinu. Pakai cut/fade opacity sederhana bila perlu.
+- **Gerak:** default cut/fade sederhana. Deviasi horror (user-approved, 2026-05): boleh slow zoom-in + camera drift deterministik pada wrapper gambar, hemat. Tetap hindari slide liar, parallax berat, partikel/SVG kompleks, mikro-gerak kontinu tak bermakna.
 - **Relevan:** visual membantu menjelaskan ide, bukan menghiasinya.
 - **Hierarki teks:** **caption (sinkron audio notes/VO) adalah teks utama dan terbesar** di layar.
   Teks lain hanya info/label pendukung (konteks, data, nama) — lebih kecil, ringkas, dan ditempatkan
@@ -155,10 +153,18 @@ pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir
 - Ambient sinematik, pulse synth halus, tension atmosferik, perkusi minimal.
 - Mix -14 LUFS integrated, maksimum -1 dBTP, ducking musik 4–8 dB saat VO.
 - VO prioritas tertinggi; SFX tidak boleh menutupi narasi; diam sebelum punchline boleh.
-- Status aset: **belum ada file audio di repo**. Lihat `video/assets/audio/manifest.json`.
-  Jangan mereferensikan path yang belum ada di disk.
+- Status aset: cek `video/assets/audio/manifest.json` dan file di disk. Jangan mereferensikan path yang belum ada.
+
+### SFX & ambience horror (wajib mendukung narasi)
+
+- **Perbanyak SFX relevan cerita**, bukan dekorasi acak. Pilih SFX yang tumbuh dari konteks/topik: contoh Nyi Roro Kidul/laut selatan — gamelan Jawa pelan, kenong/gong jarak, ombak, angin pesisir, bel kecil, drone rendah; sesuaikan topik lain (hutan, rumah tua, jalan malam, ritual, dll.). Hindari SFX generik yang tidak nyambung.
+- **Layering:** bed/drone rendah kontinu tipis, ambience lokasi, accent/foley, hit/jumpscare terkontrol. Bed ducking saat VO; accent boleh naik di jeda/punchline/payoff.
+- **Kontras & timing:** hening 200–400ms sebelum hit/jumpscare meningkatkan kaget. Jumpscare/SFX tajam singkat, terkontrol, tanpa gore/grafis. Jangan menumpuk SFX keras sepanjang durasi.
+- **Lisensi:** pakai aset CC0/royalty-free/berlisensi jelas. Catat sumber/lisensi di `video/assets/audio/sfx/LICENSE.txt` atau manifest. Jangan pakai aset lisensi tidak jelas.
+- **Narasi tetap utama:** SFX mendukung narasi naskah yang detail, jeda, dan kontras; seram dari fakta/suasana, bukan adjektiva. Styling/visual brand tetap mengikuti sistem SINI AKU CERITAIN.
 
 ## Catatan produksi
 
-- Sesuaikan visual dengan script dan hasil fact-check bila ada klaim/cerita (`02-content-system/SCRIPT-TEMPLATE.md`, `02-content-system/FACT-CHECK-CHECKLIST.md`). Horror: berbasis real story (kesaksian/narasumber, fakta sejarah, mitos/legenda daerah), misteri/tegang non-grafis, label & asal cerita jelas.
+- Sesuaikan visual dengan script dan hasil fact-check bila ada klaim/cerita (`02-content-system/SCRIPT-TEMPLATE.md`, `02-content-system/FACT-CHECK-CHECKLIST.md`). Horror: berbasis real story (kesaksian/narasumber, fakta sejarah, mitos/legenda daerah), misteri/tegang non-grafis. Label kepastian di Source notes/catatan kaki; di layar/VO hindari disclaimer meta yang mematahkan dread.
+- **Visual horror: foto atau lukisan/gravir, dua-duanya boleh.** Pilih yang melayani dread dan konsisten secara tone. Foto = jejak yang tercatat; lukisan/gravir = yang dibayangkan — boleh dipakai untuk beat legenda/mitos. Perlakuan gelap (desaturasi, kontras, vignette, invert untuk etsa) wajib supaya menyatu. Jangan pernah memberi label tempat/orang nyata pada lukisan/gravir yang bukan dokumentasi tempat itu. Lisensi tetap wajib jelas di CREDITS.
 - Episode legacy (mis. 1816/pilar lama) tidak ditulis ulang; brand layer dapat ditambahkan di atasnya. Episode baru wajib memakai `--npl-*` dari `tokens.css` (`--npl-komedi-*` / `--npl-horror-*`).

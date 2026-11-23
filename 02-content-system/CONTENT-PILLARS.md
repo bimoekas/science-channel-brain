@@ -12,7 +12,7 @@ Channel punya dua niche konten. Setiap niche mengikuti aturan inti: satu ide int
 ## 2. Horror (Misteri, Berbasis Real Story)
 
 - **Definisi:** Cerita seram/tegang berbasis **real story** — wajib punya pijakan nyata, bukan karangan/ngawang.
-- **Gaya penceritaan (ringkas):** narator tenang-dingin, **runut faktual** — buka fakta/konteks → **kronologi** → **temuan/keterangan** (apa yang ditemukan/tercatat) → **mitos/cerita beredar** dipisah tegas. Seram/mencekam dari detail nyata & kontras fakta, bukan dari kata-kata seram/atmosfer ngambang. Jujur soal tingkat kepastian/sumber.
+- **Gaya penceritaan:** narator tenang, dingin, terkontrol. Seram/mencekam lahir dari **detail yang spesifik** (nama, tempat, tanggal, benda, nama naskah), jeda, dan kontras nada — bukan dari adjektiva seram, bukan dari atmosfer kosong, bukan dari disclaimer meta. Mitos boleh memimpin narasi kalau bersumber.
 - **Basis cerita (wajib, minimal satu):**
   - **Kesaksian/omongan orang:** cerita dari narasumber/saksi atau pengalaman/cerita yang beredar (urban legend) — sebutkan sumber/asal.
   - **Fakta/peristiwa sejarah:** kejadian atau catatan sejarah terdokumentasi.
@@ -20,7 +20,8 @@ Channel punya dua niche konten. Setiap niche mengikuti aturan inti: satu ide int
 - **Cakupan:** Kasus misteri nyata terdokumentasi, urban legend, kisah saksi/narasumber, misteri peristiwa sejarah, mitos/legenda & asal-usul daerah, fenomena janggal yang diceritakan/tercatat — dibahas dari sisi cerita dan konteks/fakta yang bisa diverifikasi.
 - **Batasan tegas:**
   - **Wajib cantumkan basis/asal cerita** (narasumber/kesaksian, catatan/sumber sejarah, atau mitos/legenda daerah). Dilarang horror ngawang/fiksi murni tanpa pijakan.
-  - Wajib beri label & bedakan: **kesaksian/cerita beredar**, **fakta sejarah terverifikasi**, **mitos/legenda**, **spekulasi**, atau **fiksi** (rekonstruksi/dramatisasi). Jangan menyajikan cerita/rumor sebagai fakta terverifikasi; sampaikan tingkat kepastian secara jujur.
+  - **Label & kepastian wajib di Source notes** (fakta sejarah terverifikasi / kesaksian / mitos/legenda / spekulasi / fiksi). Di layar/VO, atribusikan lewat cerita (`katanya`, `tercatat di`, `orang menyebut`) — jangan keluar dari cerita untuk minta maaf meta-sains (`bukan hasil penelitian`, `tidak bisa dibuktikan`).
+  - Jangan menyajikan cerita/rumor sebagai fakta terverifikasi.
   - Tanpa glorifikasi kekerasan atau pelaku; tidak mengeksploitasi.
   - Hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
   - Target 18+ (dewasa): tegang/merinding dan tema dewasa/gelap boleh; tidak menakut-nakuti berlebihan.

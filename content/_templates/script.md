@@ -12,7 +12,7 @@
 
 ## Penjelasan & payoff (3–87 detik)
 
-[Jelaskan ide inti dan bangun payoff secara akurat. Tandai dan beri label klaim; sesuaikan kepastian dengan bukti. Horror berbasis real story: **runut faktual & ringkas** (narator tenang-dingin; kronologi → temuan/keterangan → mitos/cerita beredar dipisah), seram dari detail nyata; cantumkan basis/asal/sumber dan label jelas (fakta/kesaksian/mitos/spekulasi/fiksi).]
+[Jelaskan ide inti dan bangun payoff secara akurat. Horror berbasis real story: bangun dari **detail konkret** bersumber (nama, tempat, tanggal, benda, temuan); narator tenang-dingin; seram dari detail, jeda, kontras — bukan disclaimer meta. Mitos boleh memimpin kalau bersumber. Kepastian/label klaim tinggal di Source notes, bukan di narasi.]
 
 ## Penutup (fixed)
 

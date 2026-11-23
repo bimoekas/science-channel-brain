@@ -34,11 +34,9 @@
   --npl-scifi-b: #5cf2c0;
 
   /* ---- type families ----
-     Inter is bundled by HyperFrames (400/700/900; 500/600 are fetched and cached).
-     Instrument Serif is NOT bundled, so EB Garamond (bundled) carries the
-     editorial accent. To swap in Instrument Serif: put its .woff2 in
-     assets/fonts/, add an @font-face in index.html, then point this at it. */
-  --npl-font-display: "Inter", system-ui, -apple-system, sans-serif;
+     Horror deviation (user-approved): EB Garamond (bundled) carries display for
+     darker archival feel. Inter stays body/caption for readability at 1080x1920. */
+  --npl-font-display: "EB Garamond", Georgia, "Times New Roman", serif;
   --npl-font-accent: "EB Garamond", Georgia, serif;
   --npl-font-body: "Inter", system-ui, -apple-system, sans-serif;
 
@@ -270,3 +268,163 @@
   letter-spacing: -0.05em; line-height: 0.85;
   font-variant-numeric: tabular-nums; color: var(--npl-highlight);
 }
+
+/* ============================================================
+   ARCHIVE PLATE LAYER (v3, additive). Second visual grammar for the
+   same channel: the episode is a sheet pulled from a case archive —
+   a real photograph mounted on the page, a hairline plate around it,
+   numbered footnotes under the type, and captions printed on a band
+   of paper instead of floating on the dark.
+
+   Nothing above is changed, so the case-file episodes keep rendering.
+   Scenes opt in by using .apl-* classes and .apl-paper on their root.
+   ============================================================ */
+:root {
+  --apl-paper: #ece7dc;        /* warm paper: caption band, footnotes */
+  --apl-paper-soft: rgba(236, 231, 220, 0.94);
+  --apl-ink: #14130f;          /* ink on paper */
+  --apl-rule: rgba(236, 231, 220, 0.30);
+  --apl-rule-ink: rgba(20, 19, 15, 0.24);
+  --apl-stamp: #c8442e;        /* red archive ink */
+  --apl-stamp-ink: #a02c1a;    /* the same red, dark enough for paper */
+  /* Only families the renderer can resolve deterministically: it maps "SF Mono"
+     and Menlo to JetBrains Mono, so the archive labels render the same on every
+     machine instead of falling back to whatever monospace is installed. */
+  --apl-font-mono: "SF Mono", Menlo, "JetBrains Mono", Consolas, monospace;
+  --apl-font-accent: var(--npl-font-accent);
+}
+
+/* The photograph. Real archive image, mounted full-bleed, desaturated so the
+   type stays the subject. Never a person's face: archive plates are places,
+   objects, documents. */
+.apl-photo { position: absolute; inset: 0; overflow: hidden; }
+.apl-photo img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: grayscale(1) contrast(1.06) brightness(0.82);
+}
+/* A warm paper wash keeps the plate from going cold-blue like a security feed. */
+.apl-photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(20, 19, 15, 0.55) 0%, rgba(20, 19, 15, 0.10) 34%,
+    rgba(20, 19, 15, 0.30) 62%, rgba(20, 19, 15, 0.88) 100%);
+}
+
+/* A painting of the dead. Keep its own tones — it is already dark — but pull
+   the colour out so it sits beside the photographs without looking imported. */
+.apl-photo--engraving img {
+  filter: grayscale(1) contrast(1.22) brightness(0.78);
+}
+.apl-photo--engraving::after {
+  background:
+    radial-gradient(118% 80% at 50% 44%, rgba(20,19,15,0) 34%, rgba(20,19,15,.42) 76%,
+      rgba(8,8,10,.86) 100%),
+    linear-gradient(180deg,
+      rgba(20, 19, 15, 0.50) 0%, rgba(20, 19, 15, 0.12) 34%,
+      rgba(20, 19, 15, 0.34) 62%, rgba(20, 19, 15, 0.90) 100%);
+}
+
+/* An etching is black ink on white paper, so it is inverted: the page becomes
+   the dark ground and the hatching becomes the light. That is the whole reason
+   it reads as horror instead of as a museum scan. */
+.apl-photo--etching img {
+  filter: grayscale(1) invert(1) contrast(1.18) brightness(0.62);
+}
+.apl-photo--etching::after {
+  background:
+    radial-gradient(110% 74% at 50% 52%, rgba(8,8,10,0) 22%, rgba(8,8,10,.62) 66%,
+      rgba(8,8,10,.97) 100%),
+    linear-gradient(180deg,
+      rgba(8, 8, 10, 0.78) 0%, rgba(8, 8, 10, 0.34) 34%,
+      rgba(8, 8, 10, 0.52) 62%, rgba(8, 8, 10, 0.94) 100%);
+}
+
+/* The plate: hairline frame inset from the edge, with corner ticks. Reads as
+   a mounted print, not a rounded card. */
+.apl-plate { position: absolute; inset: 52px; pointer-events: none; }
+.apl-plate::before {
+  content: ""; position: absolute; inset: 0;
+  border: 1px solid var(--apl-rule);
+}
+.apl-plate i {
+  position: absolute; width: 26px; height: 26px;
+  border: 2px solid rgba(236, 231, 220, 0.72);
+}
+.apl-plate i:nth-child(1) { left: -2px; top: -2px; border-right: 0; border-bottom: 0; }
+.apl-plate i:nth-child(2) { right: -2px; top: -2px; border-left: 0; border-bottom: 0; }
+.apl-plate i:nth-child(3) { left: -2px; bottom: -2px; border-right: 0; border-top: 0; }
+.apl-plate i:nth-child(4) { right: -2px; bottom: -2px; border-left: 0; border-top: 0; }
+
+/* Archive metadata: the small print that tells you what you are looking at. */
+.apl-meta {
+  margin: 0; font-family: var(--apl-font-mono);
+  font-size: 28px; font-weight: 500; line-height: 1.25;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: rgba(236, 231, 220, 0.72);
+}
+.apl-meta b { color: var(--apl-paper); font-weight: 700; }
+
+/* Numbered footnote: [3] then the note. Sits under the type, above the band. */
+/* A footnote needs a ground of its own: over a photograph, an unmounted line
+   of small type either fights the image or disappears into it. */
+.apl-foot {
+  margin: 0; display: flex; gap: 14px; align-items: baseline;
+  padding: 12px 18px 12px 16px;
+  background: rgba(20, 19, 15, 0.78);
+  border-left: 3px solid var(--apl-stamp);
+  font-family: var(--apl-font-mono); font-size: 30px; font-weight: 500;
+  line-height: 1.3; letter-spacing: 0.02em;
+  color: rgba(236, 231, 220, 0.95);
+}
+/* On the dark plate the archive red is too dark to read, so the marker uses a
+   lifted tint of the same hue; the printed stamp keeps the true red. */
+.apl-foot sup {
+  flex: none; font-size: 28px; font-weight: 700;
+  color: #f0846c; letter-spacing: 0.08em;
+}
+
+/* Caption band: paper, ink type, printed rule above. The archive's own voice. */
+.apl-band {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: var(--apl-paper-soft);
+  border-top: 3px solid var(--apl-ink);
+  padding: 44px var(--npl-margin) 96px;
+}
+
+/* Red archive stamp (paper-safe): square, hard, no radius. */
+.apl-stamp {
+  display: inline-block; margin: 0; padding: 6px 18px 6px 22px;
+  border: 3px solid var(--apl-stamp); background: transparent;
+  font-family: var(--apl-font-mono); font-size: 30px; font-weight: 700;
+  line-height: 1.1; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--apl-stamp);
+}
+
+/* ============================================================
+   Inset plate — a photograph mounted on the page, not behind it.
+   The full-bleed .apl-photo is the scene's ground; this is evidence
+   laid on the desk: paper matte, hairline border, printed caption,
+   and no motion. Use it where the episode shows a thing rather than
+   a place. Always pair with a real photograph; never a drawn stand-in.
+   ============================================================ */
+.apl-inset {
+  position: absolute; margin: 0; padding: 18px 18px 0;
+  background: var(--apl-paper);
+  border: 2px solid var(--apl-ink);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.62);
+}
+.apl-inset .apl-photo-slot { display: block; overflow: hidden; }
+.apl-inset img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: grayscale(1) contrast(1.05) brightness(0.94);
+}
+/* The matte is paper, so the caption can be plain ink, no ground needed. */
+.apl-inset figcaption {
+  margin: 0; padding: 14px 2px 16px;
+  font-family: var(--apl-font-mono); font-size: 28px; font-weight: 600;
+  line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(20, 19, 15, 0.82);
+}
+.apl-inset figcaption b { color: var(--apl-stamp-ink); font-weight: 700; }

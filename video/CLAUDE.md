@@ -109,6 +109,6 @@ Then look at what you changed: `npx hyperframes snapshot --at <seconds>` (or `--
    Scene timelines manually added to this root must not be paused. A paused
    child does not advance when the root is seeked. The runtime activates
    registered composition siblings, not arbitrary nested scene timelines.
-4. A video with sound keeps it on the `<video>` (`data-has-audio="true"`, no `muted`). Use a separate `<audio>` for music, voiceover, replacement audio, J/L cuts, or audio detached in Studio. Silent footage and b-roll: `muted`.
+4. A video with sound keeps it on the `<video>` (`data-has-audio="true"`, no `muted`). Use a separate `<audio>` for music, voiceover, replacement audio, J/L cuts, or audio detached in Studio. Silent footage and b-roll: `muted`. SFX/ambience: `<audio class="clip">` dengan `id/data-start/data-duration/data-track-index/data-volume`; file di `assets/audio/sfx/`, lisensi dicatat. Perbanyak SFX relevan cerita (mis. Nyi Roro Kidul: gamelan/kenong/gong jarak, ombak, angin, bel, drone) — dukung narasi, tidak nutup VO, hening 200–400ms sebelum hit/jumpscare. Detail: `03-production/VIDEO-STYLE-GUIDE.md` §Audio, `03-production/VIDEO-CODE-GUIDE.md` §3.
 5. Sub-compositions use `data-composition-src="compositions/file.html"` to reference other HTML files
 6. Only deterministic logic — no `Date.now()`, no `Math.random()`, no network fetches
