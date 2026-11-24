@@ -59,8 +59,15 @@ Panduan agar AI menghasilkan kode video konsisten untuk channel ini (HyperFrames
 - Durasi root = panjang video (overrun terpotong). Naikkan root `data-duration` agar menutup clip terakhir.
 - Media: `<video>` bersuara `data-has-audio="true"` (tanpa `muted`); footage/silent `muted playsinline`. `<audio>` butuh `id`, tanpa `crossorigin`. Waktu pada `<video>`, bukan wrapper.
 - **Audio/SFX clip:** taruh file di `video/assets/audio/sfx/` (lisensi dicatat di `LICENSE.txt`/manifest). Tambah `<audio class="clip" id="..." src="assets/audio/sfx/..." data-start="..." data-duration="..." data-track-index="..." data-volume="..." data-fade-in="..." data-fade-out="...">` di `index.html`. Wajib: `id`, `class="clip"`, `data-start`, `data-duration`, `data-track-index`, `data-volume` (0.1–3.98). Opsional: `data-fade-in`, `data-fade-out`, `data-media-start`. SFX overlap = lane beda. VO prioritas; bed/drone ducking; hit/jumpscare singkat, hening 200–400ms sebelum hit efektif. Jangan nutup narasi.
+- **SFX sekali pakai:** satu file = satu momen. Jangan daftarkan file yang sama dua kali di `index.html`. Butuh dua momen mirip? Pakai file berbeda atau varian yang jelas beda (pitch/echo). Cek duplikat:
+  ```bash
+  grep -o 'src="assets/audio/sfx/[^"]*"' index.html | sort | uniq -c | sort -rn
+  ```
+  Angka >1 pada satu file = gagal. Bed/drone kontinu bukan default — hapus kecuali benar-benar perlu.
+- **Trim durasi:** file rekaman sering lebih panjang dari momennya. Set `data-duration` ke panjang momen (bukan panjang file) + fade-out. Cek file asli dengan `ffprobe`; jangan biarkan SFX 39s tumpah ke scene lain.
+- **Verifikasi mix:** setelah pasang, ukur per segmen: `npx hyperframes audio --range=<start>,<end> --json` → target ±-14 LUFS, peak > -1.3 dB, `clipping.count` = 0. Cek juga per-element (`--element="#id"`) untuk memastikan SFX benar-benar terdengar, bukan tenggelam.
 - Font: bundled (Inter, Montserrat, Outfit, Poppins, Nunito, Oswald, dll.) resolve by name; font lain butuh `@font-face` ke `assets/fonts/`.
-- Frame 0 tidak kosong (thumbnail kuat). Beri napas tenang 0.5–1 dtk di jeda (akhir hook, mechanism→effects, sebelum closing); baris akhir tahan ≥2 dtk.
+- Frame 0 tidak kosong (thumbnail kuat). **Bait + jangkar wajib terbaca penuh pada detik 1** (fade-in ≤0.3 dtk) — snapshot `--at 1` sebagai gate. Beri napas tenang 0.5–1 dtk di jeda (akhir hook, mechanism→effects, sebelum closing); baris akhir tahan ≥2 dtk.
 
 ## 4. Style SINI AKU CERITAIN (tetap, semua video)
 
@@ -81,7 +88,7 @@ Penjelasan sistem lengkap: `01-brand/BRAND-SYSTEM.md`.
 - Hero `--npl-hero-*`: 132px / 900 / 0.90 / -0.045em (rentang 110–150px).
 - Section `--npl-section-*`: 84px / 800 / 0.95 / -0.03em (72–96px).
 - Highlight `--npl-highlight-*`: 64px / 800 / 1.00 (56–72px).
-- Caption `--npl-caption-*`: 44px / 600 / 1.12 (42–48px).
+- Caption default: 44px / 500 italic / 1.2 (42–48px). `bottom >= 470px`, `right >= 160px`, `left 72px`, `max-width 800px` — aman dari UI TikTok/Reels kanan/bawah. Jangan kecilkan font; naikkan posisi/kurangi lebar.
 - Label `--npl-label-*`: 28px / 600 / 1.10 / +0.04em, uppercase (24–30px).
 - Tidak < 24px. `text-wrap: balance`. Bobot aman: 400/500/600/700/900.
 - **Deviasi:** Instrument Serif tidak dibundel → EB Garamond dipakai. Cara tukar ada di
@@ -89,7 +96,7 @@ Penjelasan sistem lengkap: `01-brand/BRAND-SYSTEM.md`.
 
 **Layout & caption (9:16)**
 - 1 fokus/beat, margin `--npl-margin` 90px. Safe area: `--npl-safe-top` 170px,
-  `--npl-safe-bottom` 600px, plus sisi kanan UI.
+  `--npl-safe-bottom` 600px.
 - **Hierarki teks:** caption (sinkron audio notes/VO) = teks utama & **terbesar**. Teks scene lain
   hanya info/label pendukung (konteks/data/nama), lebih kecil & ringkas, ditempatkan di atas zona
   caption agar **tidak tumpang tindih**.
@@ -113,9 +120,7 @@ Penjelasan sistem lengkap: `01-brand/BRAND-SYSTEM.md`.
 - Jika dipakai: bentuk vektor sederhana & jelas (bukan blok kasar), palet terbatas, label terbaca. Tanpa foto orang/manusia nyata, tanpa visual uncanny/generik, tanpa emoji acak.
 - Dilarang sebagai ikon brand: tanda tanya, lightbulb, rocket, atom, brain, mata, hantu,
   tengkorak, jam pasir, teleskop, kaca pembesar, pin lokasi.
-- Symbol brand = **kutip pembuka ganda** (`logo-symbol.svg`). Spesifikasi konstruksi, ukuran,
-  dan penempatan: `BRAND-SYSTEM.md` §4a. Jangan menggambar ulang symbol per komposisi —
-  pakai `<img src="assets/brand/logo-symbol.svg">`.
+- Symbol brand = **SAC monogram** (`logo-symbol.svg` square, `logo-symbol-wide.svg` wide). Spesifikasi/penempatan: `BRAND-SYSTEM.md` §4a. Jangan menggambar ulang symbol per komposisi — pakai `<img src="assets/brand/logo-symbol.svg">` atau wide sesuai slot.
 
 **Motion (GSAP, deterministik)**
 - Default: layout statis + fade opacity sederhana (`fromTo` opacity 0→1, ~0.3–0.6s, `power2.out`) bila perlu. Hard cut/fade utama.
@@ -162,21 +167,26 @@ Jalankan dari root (butuh Node 22+, FFmpeg, pnpm):
 
 ## 8. Rule guide (wajib, urutan kerja)
 1. **Sumber & kebenaran** — Baca `content/current/script.md` (hook/penjelasan/payoff, timing, source notes), `content/current/voiceover.md`, durasi `video/voiceover.mp3` = sumber timing. Patuhi `01-brand/BRAND-IDENTITY.md`, `02-content-system/CONTENT-PILLARS.md`, `03-production/VIDEO-STYLE-GUIDE.md`, `02-content-system/FACT-CHECK-CHECKLIST.md`. Jangan ubah brand voice; jaga akurasi & label klaim/cerita bila relevan. **Horror (wajib):** berbasis real story (kesaksian/narasumber/cerita orang, fakta sejarah, atau mitos/legenda daerah) — bukan ngawang; cantumkan asal/sumber; tanpa glorifikasi/eksploitasi, hindari visual/deskripsi gore atau kekerasan eksplisit-grafis.
-2. **Beat map + hook screen** — Pecah scene mengikuti timing VO (1 fokus/ide per beat). Tandai jeda napas 0.5–1 dtk (akhir hook, mechanism→effects, sebelum closing) dan hold baris akhir ≥2 dtk. **Frame 0 = thumbnail kuat, tidak pernah kosong.**
+2. **Aset visual nyata (wajib, sebelum kode scene)** — Jangan generate komposisi text-only/gradient placeholder. Kumpulkan aset visual nyata yang relevan per beat: foto arsip/lokasi/dokumen, footage/latar nyata, atau gravir/lukisan/ilustrasi historis domain publik. Simpan di `video/assets/images/<slug>/`, catat sumber+lisensi di `CREDITS.md` (atau manifest setara). Foto = tercatat/nyata; gravir/lukisan = dibayangkan/legenda — jangan beri label tempat/orang nyata yang bukan dokumentasi itu. Baru setelah aset siap: susun scene, pakai `NPL.horrorCamera` pada wrapper gambar bila perlu.
+3. **Beat map + hook screen** — Pecah scene mengikuti timing VO (1 fokus/ide per beat). Tandai jeda napas 0.5–1 dtk (akhir hook, mechanism→effects, sebelum closing) dan hold baris akhir ≥2 dtk. **Frame 0 = thumbnail kuat, tidak pernah kosong.**
    - **Opening bait screen wajib, ±3 dtk pertama** (0.0–3.0): frame yang berfungsi sebagai
      thumbnail bergerak, bukan label objek. Wajib ada **bait** (klaim/pertanyaan) + **jangkar
      konteks** (tanggal/tempat/angka); foto objek jadi latar, bukan isi. Tipe bait = terbesar di
      film (≥56px), frame 0 langsung terisi foto/gradien kuat. Bukan hitam, bukan logo saja, bukan
      "ini pesawat X", bukan langsung kronologi. Bait wajib dijawab video (bukan clickbait) dan
      untuk horror memakai petunjuk nyata, bukan kata "mengerikan"; mitos tidak ditulis sebagai fakta.
+   - **Gate thumbnail (detik 0–2).** Bait + jangkar harus **sudah terbaca penuh pada detik 1**
+     (fade-in ≤0.3 dtk). Snapshot `--at 1` dan baca: kalau frame detik 1 kosong/separuh/bergantung
+     pada gerak, layar gagal. Ini gate sebelum lanjut ke scene berikutnya — bukan saran.
    - **Pemisahan:** hook screen jadi scene sendiri (`s0-hook`/`s1-hook`) dengan `data-duration` ≈ 3.0 di `index.html`; scene berikutnya mulai tepat di akhirnya, VO tidak dipotong (bila VO kata pertama jatuh setelah 3 dtk, hook memakai `data-hold`; bila VO sudah bicara di detik 0, hook tetap jalan 3 dtk penuh dan scene 1 dimulai pada 3.0).
    - **Handover:** hard cut atau fade ≤0.4 dtk dari hook ke scene 1. Hook tidak boleh menduplikasi caption maupun tipe scene 1.
    - **Override durasi:** hook boleh <3 dtk hanya bila VO memaksa (baris pertama sudah menjelaskan hook); minimal 1.5 dtk agar teks terbaca.
-3. **Kunci look (tetap)** — Terapkan style **SINI AKU CERITAIN** (§4): token `--npl-*`, Inter + EB Garamond, caption per frasa sebagai teks utama/terbesar, layout aman 9:16 tanpa tumpang tindih. Teks scene hanya info pendukung kecil di atas zona caption. Peta = **siluet SVG `<path>` vektor halus** (garis pantai dikenali, bukan ellipse/rect blok); ikon/diagram flat konsisten & berlabel.
-4. **Kode deterministik** — Struktur & kontrak §2–§3: `index.html` + scene `<template>`, elemen ber-timing `class="clip"` + `data-start/duration`, `fromTo`, timeline paused ter-register setelah tween, id host/root/key konsisten, root `data-duration` menutup semua.
-5. **Animasi minimal** — Default statis + fade opacity sederhana; hindari slide/pan/zoom/blur/scale, kamera, mikro-gerak kontinu, partikel, dan transisi berat. 3D hanya bila benar-benar perlu & deterministik (§5). Jaga ringan.
-6. **Caption sinkron VO** — Turunkan caption dari audio key notes/narasi (`content/current/script.md` + `video/voiceover.mp3`), bagi per frasa (2–7 kata, ≤2 baris), beri `data-cap-start`/`data-cap-duration` selaras jeda ucapan (tidak statis), dan panggil `NPL.captions(tl, scope)`. Buang grup yang menduplikasi tipe scene (lihat §8 butir 3 & `BRAND-SYSTEM.md` §5.4).
-7. **QA gate** — `pnpm video:lint` & `pnpm video:check` **0 error**. `pnpm video:snapshot` momen kunci lalu baca hasilnya. Cek gerak & timing di Studio (`pnpm video:dev`). Render MP4 tidak diminta kecuali user minta eksplisit. Perbaiki P0/P1: safe zone, kontras, occlusion/overflow, teks <28px, dead stretch, peta/visual tak jelas, timing/caption vs VO. Klaim visual tidak lebih pasti dari bukti.
+4. **Kunci look (tetap)** — Terapkan style **SINI AKU CERITAIN** (§4): token `--npl-*`, Inter + EB Garamond, caption per frasa sebagai teks utama/terbesar, layout aman 9:16 tanpa tumpang tindih. **No overlay clutter:** jangan pakai `LEMBAR ...`, rail/kasus status, badge/stamp klaim, atau kotak catatan kaki penjelasan; kalau perlu konteks, satu baris kecil non-ganggu saja. Kredit sumber visual kecil di bawah (`data-layout-ignore` bila perlu), bukan box penjelasan. Peta = **siluet SVG `<path>` vektor halus** (garis pantai dikenali, bukan ellipse/rect blok); ikon/diagram flat konsisten & berlabel.
+5. **Kode deterministik** — Struktur & kontrak §2–§3: `index.html` + scene `<template>`, elemen ber-timing `class="clip"` + `data-start/duration`, `fromTo`, timeline paused ter-register setelah tween, id host/root/key konsisten, root `data-duration` menutup semua.
+6. **Animasi minimal** — Default statis + fade opacity sederhana; hindari slide/pan/zoom/blur/scale, kamera, mikro-gerak kontinu, partikel, dan transisi berat. 3D hanya bila benar-benar perlu & deterministik (§5). Jaga ringan.
+7. **Caption sinkron VO** — Turunkan caption dari audio key notes/narasi (`content/current/script.md` + `video/voiceover.mp3`), bagi per frasa (2–7 kata, ≤2 baris), beri `data-cap-start`/`data-cap-duration` selaras jeda ucapan (tidak statis), dan panggil `NPL.captions(tl, scope)`. Buang grup yang menduplikasi tipe scene (lihat §8 butir 3 & `BRAND-SYSTEM.md` §5.4).
+8. **Teks scene atas = kesimpulan, bukan echo VO.** Headline/kesimpulan scene harus interpretasi singkat; jangan copy kalimat caption/VO. SFX harus penuh/layered dan terdengar (cek volumedetect; jangan pelan).
+9. **QA gate** — `pnpm video:lint` & `pnpm video:check` **0 error**. `pnpm video:snapshot` momen kunci lalu baca hasilnya. Cek gerak & timing di Studio (`pnpm video:dev`). Render MP4 tidak diminta kecuali user minta eksplisit. Perbaiki P0/P1: safe zone, kontras, occlusion/overflow, teks <28px, dead stretch, peta/visual tak jelas, timing/caption vs VO. Klaim visual tidak lebih pasti dari bukti.
 
 ## 9. Rujukan skill & guide
 - **HyperFrames skill/CLI**: `/hyperframes` (kontrak & loop kerja), `/hyperframes-cli` (scaffold/check/snapshot/render/preview), `/hyperframes-registry` (blok siap pakai). Referensi: `npx hyperframes docs <topic>` — `data-attributes`, `gsap`, `compositions`, `rendering`, `examples`, `troubleshooting`. Untuk video: `references/format.md`, `motion.md`, `review.md`, `story.md`, `look.md`, `types/vertical.md`, `runtimes.md`, `types/3d.md`, `path-tracing.md`.

@@ -31,26 +31,19 @@ distempel statusnya saat diucapkan. Semua bahan sudah ada di `video/assets/brand
 pakai yang sudah didefinisikan, jangan menulis ulang nilainya.
 
 **Gambar**
+- **Wajib aset visual nyata sebelum generate video.** Jangan bikin scene text-only/gradient placeholder. Setiap scene harus punya visual nyata yang relevan: foto arsip/lokasi/dokumen, footage/latar nyata, atau gravir/lukisan/ilustrasi historis domain publik — dipilih sesuai beat narasi. Kumpulkan aset dulu, catat sumber+lisensi di `video/assets/images/<slug>/CREDITS.md` (atau manifest setara), baru susun komposisi.
 - Ground sinematik penuh: `.npl-ground` + `.npl-vignette`. Grain sudah terpasang sekali di root
   (`compositions/brand/grain.html`, opasitas .03 — lebih tinggi dari itu menurunkan teks abu-abu di
   bawah WCAG AA). Jangan tambah lapis grain kedua di dalam scene.
 - Foto arsip/lokasi yang relevan, **full-bleed**, desaturasi penuh (Horror) atau warna penuh (Komedi).
-  Foto dipakai sebagai bukti, bukan hiasan; jangan tampilkan orang/manusia nyata.
-- Tanpa kartu berbingkai, tanpa rounded frame, tanpa karakter kartun 2D. Ilustrasi hanya bila tidak
-  ada foto — bentuk vektor flat sederhana, berlabel, palet terbatas.
+  Foto dipakai sebagai bukti, bukan hiasan. Foto boleh memuat orang jika itu bagian dari arsip/dokumentasi nyata (utamakan sumber Wikipedia/Wikimedia Commons) dan relevan; beri kredit sumber kecil di bawah visual, jangan tambah kotak teks penjelasan besar (caption sudah ada).
+- **Foto vs gravir/lukisan:** foto = yang tercatat/nyata; gravir/lukisan/ilustrasi historis = yang dibayangkan/legenda/mitos — boleh untuk beat legenda, tapi jangan diberi keterangan tempat/orang nyata yang bukan dokumentasi itu. Perlakukan (desaturasi, kontras, vignette, invert/etching bila cocok) agar menyatu.
+- Tanpa kartu berbingkai, tanpa rounded frame, tanpa karakter kartun 2D. Bentuk vektor flat sederhana hanya untuk diagram/peta/label pendukung, bukan pengganti aset visual utama.
 
-**Baris konteks (pengganti wajah presenter)**
-- Satu baris di rail atas, hadir di setiap scene, nilainya berubah per beat:
-  `KASUS 004 · SUKHOI SUPERJET 100 · 2012`. Pakai `.npl-case` (`<b>` untuk angka/kata kunci, `<i>`
-  garis alert). Komedi: konteks nyata (`SENIN · 07:12 · KANTOR`), bukan punchline.
-- **Sudah terpasang sekali di root**, bukan per scene:
-  `video/compositions/brand/case-rail.html`, di-`data-start` 0–101.60 dan diganti nilainya
-  dengan `tl.set` di batas beat (bukan slide). Untuk episode baru: ganti tiga baris `<p class="npl-case">`
-  dan tiga angka waktu. Jangan salin rail ini ke dalam scene — dua rail akan bertumpuk.
-- **Isinya status, bukan pengulangan tipe scene.** Kalau scene sudah mencetak "Pesisir selatan Jawa"
-  sebagai kicker, rail tidak boleh mencetaknya lagi. Isi rail = status klaim (`LEGENDA · SUMBER LISAN`,
-  `TERCATAT · PRAKTIK & NASKAH`, `BATAS BUKTI · LEGENDA ≠ FAKTA`).
-- Ini yang mengikat penonton tanpa presenter di layar. Jangan dihilangkan, jangan dibuat mewah.
+**Baris konteks / label overlay**
+- **Default: jangan pakai label overlay teks seperti `LEMBAR 01 — ...`, `KASUS ...`, rail status, badge/stamp klaim, atau kotak catatan kaki penjelasan di scene.** Caption VO sudah carry narasi; visual + kredit sumber kecil cukup.
+- Kalau konteks wajib tampil, pakai satu baris kecil yang benar-benar perlu dan tidak ganggu (bukan template wajib tiap scene). Hindari duplikasi dengan caption/tipe scene.
+- Catatan kaki/sumber visual: pakai kredit sumber kecil di bawah (`data-layout-ignore` jika di bawah floor baca), bukan kotak penjelasan besar.
 
 **Stempel status klaim (Horror)**
 - Saat VO menyebut status sebuah klaim, stempelkan di layar: `.npl-stamp.fact` (`#7ed4ff`),
@@ -76,6 +69,11 @@ yang dilihat orang saat video masih diam di feed, sebelum ada klik. Ukur keberha
 pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir?*
 
 - **Wajib ada, ±3 detik pertama.** Detik 0–3 adalah layar ini, bukan langsung kronologi.
+- **Uji thumbnail (detik 0–2, wajib lulus).** Ambil frame detik 1.0–2.0 dan bayangkan ia jadi
+  gambar statis di feed. Lulus hanya bila: bait terbaca penuh, jangkar konteks terbaca, foto kuat,
+  dan tidak ada elemen yang bergantung pada gerak untuk bisa dimengerti. Bait harus **sudah
+  terpasang dan terbaca pada detik ke-1** (fade-in ≤0.3 dtk, bukan fade dari hitam). Kalau frame
+  detik 1 masih kosong/separuh, layar gagal — perbaiki sebelum lanjut.
 - **Bait dulu, bukan subjek dulu.** Foto pesawat/gunung/objek adalah **pendukung**, bukan isi
   layar. Kalau yang tampil hanya objeknya ("ini pesawat"), layar gagal. Yang harus dibaca pertama
   adalah **klaim atau pertanyaan yang bikin penasaran**, dengan objek sebagai latar.
@@ -105,9 +103,8 @@ pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir
   `.npl-cap-line` di `captions.html` menimpa token: background none, border 0, hairline mint 2px di
   bawah frasa (3px untuk baris punch), text-shadow gelap supaya terbaca di atas visual apa pun.
   Caption adalah tulisan di atas bukti, bukan badge mengapung di atasnya.
-- **Ukuran Font Caption:** `var(--npl-caption-size)` = 44px / 600 / 1.12 (rentang 42–48px). Jangan
-  menulis angka sendiri; baca token.
-- **Safe Area:** Tetap menjaga jarak aman dari sisi bawah (TikTok/Reels UI).
+- **Ukuran Font Caption:** `var(--npl-caption-size)` / default 44px / 500 / 1.2 (rentang 42–48px, italic display). Jangan kecilkan font untuk selesaikan masalah safe area; naikkan posisi dan kurangi lebar.
+- **Safe Area Caption (wajib):** `bottom >= 470px` dari bawah frame (aman dari caption platform, like/comment/share/save, nav). `right >= 160px` untuk hindari tombol kanan; `left` aman. `max-width` dikurangi agar 2 baris tidak menabrak UI. Tes di HP kecil sebelum publish.
 - **Gerak:** default cut/fade sederhana. Deviasi horror (user-approved, 2026-05): boleh slow zoom-in + camera drift deterministik pada wrapper gambar, hemat. Tetap hindari slide liar, parallax berat, partikel/SVG kompleks, mikro-gerak kontinu tak bermakna.
 - **Relevan:** visual membantu menjelaskan ide, bukan menghiasinya.
 - **Hierarki teks:** **caption (sinkron audio notes/VO) adalah teks utama dan terbesar** di layar.
@@ -125,6 +122,7 @@ pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir
   Maksimal 2 baris, 2–7 kata per grup, satu grup tampil pada satu waktu.
   Tipografi caption jelas & menonjol (ukuran dominan, kontras kuat, mudah dibaca). Karaoke kata-per-kata
   dilarang. Gerak caption ringan (fade sederhana). Detail: `BRAND-SYSTEM.md` §5.
+- **Teks scene atas ≠ caption/VO.** Teks besar/kecil di scene (headline/kesimpulan) harus **kesimpulan/interpretasi visual**, bukan mengulang kalimat VO/caption. Ringkas, kontras, beri makna; kalau mengulang VO, hapus atau ganti.
 - **Pacing:** ritme potongan mengikuti narasi (hook–penjelasan–payoff). Hard cut/fade sederhana
   sebagai transisi utama.
 - **Konsistensi:** token warna/tipe dari `video/assets/brand/tokens.css` dan utilitas
@@ -158,6 +156,9 @@ pertanyaan: *kalau frame ini jadi gambar statis, apakah orang berhenti menggulir
 ### SFX & ambience horror (wajib mendukung narasi)
 
 - **Perbanyak SFX relevan cerita**, bukan dekorasi acak. Pilih SFX yang tumbuh dari konteks/topik: contoh Nyi Roro Kidul/laut selatan — gamelan Jawa pelan, kenong/gong jarak, ombak, angin pesisir, bel kecil, drone rendah; sesuaikan topik lain (hutan, rumah tua, jalan malam, ritual, dll.). Hindari SFX generik yang tidak nyambung.
+- **Sekali pakai, tanpa pengulangan.** Satu file SFX dipakai **satu kali** di satu video. Jangan pakai file yang sama untuk beberapa momen (mis. impact yang sama di 1942, basement, dan payoff) — itu terdengar murah dan berulang. Kalau butuh momen serupa, pakai **file berbeda** (varian rekaman lain, atau pitch/treatment berbeda yang jelas terdengar beda). Bed/drone kontinu **bukan default**: pakai hanya bila benar-benar dibutuhkan, volume tipis, dan jangan diulang-ulang sepanjang video.
+- **Rekaman nyata > sintetis.** Prioritaskan rekaman asli (Pixabay/Freesound/Wikimedia CC0/CC BY). SFX sintetis (noise/sine dari ffmpeg) hanya darurat: sering terdengar seperti UFO/alat elektronik, bukan benda nyata. Verifikasi dengan spektrogram + dengar sebelum dipakai; buang yang tidak menyerupai sumbernya (mis. "tawa" yang cuma burst noise).
+- **Volume per SFX, bukan satu angka.** Setelah normalisasi file, atur `data-volume` per clip: bed/ambience jauh di bawah VO; accent/foley cukup terdengar; hit boleh naik di payoff. Cek mix per segmen (`hyperframes audio --range`) — target ±-14 LUFS, tanpa clipping.
 - **Layering:** bed/drone rendah kontinu tipis, ambience lokasi, accent/foley, hit/jumpscare terkontrol. Bed ducking saat VO; accent boleh naik di jeda/punchline/payoff.
 - **Kontras & timing:** hening 200–400ms sebelum hit/jumpscare meningkatkan kaget. Jumpscare/SFX tajam singkat, terkontrol, tanpa gore/grafis. Jangan menumpuk SFX keras sepanjang durasi.
 - **Lisensi:** pakai aset CC0/royalty-free/berlisensi jelas. Catat sumber/lisensi di `video/assets/audio/sfx/LICENSE.txt` atau manifest. Jangan pakai aset lisensi tidak jelas.
