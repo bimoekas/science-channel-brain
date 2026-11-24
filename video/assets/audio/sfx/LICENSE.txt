@@ -1,4 +1,32 @@
-SFX generated locally with ffmpeg lavfi (anoisesrc filters) on 2026-11-23.
-No third-party samples. Safe for project use.
-- rumble-low.mp3: brown noise, lowpass 180Hz, 4s fade in/out
-- thunder-hit.mp3: brown+white noise mix, 3s impact/decay
+SFX for SINI AKU CERITAIN — Lawang Sewu draft.
+
+REAL RECORDINGS (supplied by channel owner via video/assets/audio/sfx/downloaded/,
+normalized to -18 LUFS / -2 dBTP / 44.1kHz mono 192k):
+- door-creak-far.mp3    — door creak, 3.06s
+- metal-door-thud.mp3   — metal door thud, 2.88s
+- water-drip.mp3        — water drip, 39.6s (trimmed in timeline)
+- door-latch.mp3        — door latch, 1.61s
+- cold-wind-gust.mp3    — cold wind, 18.4s (trimmed in timeline)
+- glass-creak.mp3       — glass creak, 3.38s
+- whispers-far.mp3      — distant whispers, 10.87s
+- footsteps.mp3         — footsteps in hall, 10.53s (trimmed in timeline)
+- woman-cry.mp3         — woman crying, 8.10s (trimmed in timeline)
+
+Source/licence of the above: supplied by channel owner (user download).
+TODO: record exact source URL + licence (Pixabay/CC0/CC BY) before publish.
+
+SYNTHESIZED (ffmpeg lavfi, generated locally 2026-11-23, safe for project use):
+- drone-low.mp3         — brown noise bed, 137.5s (kept, volume 0.45)
+- impact-low.mp3        — brown+white impact, 3.2s (hit 1942, basement, payoff)
+- riser-dark.mp3        — pink-noise riser, 3.0s (sejarah)
+- creak-texture.mp3     — unused after real-SFX swap (kept for reference)
+- rumble-hit.mp3        — unused (kept)
+- rumble-low.mp3        — unused (kept)
+- thunder-hit.mp3       — unused (kept)
+- wind-dark.mp3         — unused (kept)
+
+REMOVED (sounded synthetic/UFO-like or too frequent rumble):
+- laugh-far.mp3 (synthetic noise burst, not a laugh)
+- glass-creak.mp3 old version (pure sine sweep)
+- damp-rumble.mp3 (constant rumble — user asked fewer rumble SFX)
+- rumble-buildup.mp3 (constant rumble — user asked fewer rumble SFX)

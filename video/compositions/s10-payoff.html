@@ -1,0 +1,38 @@
+<template>
+<style>
+#root{position:absolute;inset:0;overflow:hidden;background:var(--npl-black);font-family:var(--npl-font-display);color:var(--npl-ink)}
+#bg{position:absolute;inset:0}
+#bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:grayscale(1) contrast(1.08) brightness(.42)}
+#scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.18) 0%,rgba(8,8,10,.10) 28%,rgba(8,8,10,.52) 62%,rgba(8,8,10,.78) 100%)}
+#vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%)}
+#big{position:absolute;left:90px;right:90px;top:560px;margin:0;font-size:96px;font-weight:900;line-height:.92;letter-spacing:-.045em;color:rgba(245,243,239,.96);text-wrap:balance;text-shadow:0 8px 30px rgba(0,0,0,.55)}
+#small{position:absolute;left:90px;right:220px;top:810px;margin:0;font-family:var(--npl-font-body);font-size:34px;font-weight:500;line-height:1.35;color:rgba(232,228,220,.86);text-shadow:0 4px 18px rgba(0,0,0,.6)}
+#credit{position:absolute;left:90px;right:90px;bottom:610px;margin:0;font-family:var(--npl-font-body);font-size:18px;font-weight:500;line-height:1.2;letter-spacing:.01em;color:rgba(232,228,220,.52);text-shadow:0 2px 10px rgba(0,0,0,.8)}
+</style>
+<div id="root" data-composition-id="s10-payoff" data-width="1080" data-height="1920" data-hold>
+  <div class="clip" id="s10-payoff-stage" data-start="0" data-duration="20.92" data-track-index="1" data-hold>
+    <div id="s10-payoff-cam" data-layout-allow-overflow style="position:absolute;inset:0">
+      <div id="bg"><img src="assets/images/lawang-sewu/lawang-sewu-exterior.jpg" alt=""></div>
+    </div>
+    <div id="scrim"></div>
+    <div id="vignette"></div>
+    <div class="apl-plate"><i></i><i></i><i></i><i></i></div>
+    <p id="big" data-layout-allow-safe-zone>ARSIP<br>PUNYA BATAS.</p>
+    <p id="small" data-layout-allow-safe-zone>Bangunan tercatat; sisa yang lain tidak.</p>
+    <p id="credit" data-layout-allow-safe-zone data-layout-ignore>Foto: Wikimedia Commons / Public domain</p>
+  </div>
+</div>
+<script>
+(function(){
+  const tl = gsap.timeline({ paused: true });
+  const DUR = 20.92;
+  NPL.horrorCamera(tl, "#s10-payoff-cam", DUR, { fromScale: 1, toScale: 1.08, toX: 0, toY: -12, ease: "power1.inOut" });
+  tl.fromTo("#big", {opacity:0, y:18}, {opacity:1, y:0, duration:0.35, ease:"power2.out"}, 0.05);
+  tl.fromTo("#small", {opacity:0, y:12}, {opacity:1, y:0, duration:0.3, ease:"power2.out"}, 0.18);
+  tl.to(["#big", "#small"], {opacity:0, duration:0.30, ease:"power1.in"}, 20.00);
+  tl.set({}, {}, DUR);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["s10-payoff"] = tl;
+})();
+</script>
+</template>

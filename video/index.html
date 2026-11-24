@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1080, height=1920">
-<title>Legenda Nyi Roro Kidul</title>
+<title>Lawang Sewu</title>
 <link rel="stylesheet" href="assets/brand/tokens.css">
 <style>
   html,body{margin:0;padding:0;background:#08080a;}
@@ -14,57 +14,67 @@
 <script src="assets/brand/brand.js"></script>
 </head>
 <body>
-<!-- Legenda Nyi Roro Kidul, Ratu Pantai Selatan
-     Audio: assets/audio/voiceover-norm.mp3 — 103.31 s (-14.5 LUFS / -1.2 dBTP)
-     Beat map dari word-level timestamps whisper (`base`, --language id).
+<!-- Lawang Sewu: Sejarah Nyata dan Cerita yang Beredar
+     Audio: assets/audio/voiceover-norm.mp3 — 137.404 s (-14.2 LUFS / -1.2 dBTP)
+     Transcript: video/transcript.json (word timestamps, faster-whisper small/id).
+     Draft testing: 137.4s, diterima; fact-check nanti.
 
-     s1  hook        0.00 -   3.00   bait screen
-     s2  larangan    3.00 -   9.28   "Di pantai selatan... warna kesukaan sang ratu."
-     s3  nama        9.28 -  16.84   "Namanya Nyi Roro Kidul... tidak satu versi."
-     s4  kadita     16.84 -  28.00   "Dewi Kadita... menghilang ke dalam air."
-     s5  versi dua  28.00 -  37.96   "Ada versi lain... tak pernah kembali."
-     s6  dua nama   37.96 -  51.15   "Orang-orang menyebut kedua sosok ini..."
-     s7  tercatat   51.15 -  55.80   "Yang tercatat, bukan sosoknya."
-     s8  labuhan    55.80 -  67.36   "Keraton Yogyakarta melabuh sesaji..."
-     s9  naskah     67.36 -  79.75   "Babad Tanah Jawi... kursi kosong."
-     s10 batas      79.75 -  93.76   "Di sini batasnya... bukan hasil penelitian."
-     s11 payoff     93.76 - 101.60   "Yang mencekam bukan ombaknya..."
-     Signature outro 101.60 - 103.70 (tepat saat "Sini aku ceritain.") -->
-<div id="root" data-composition-id="main" data-start="0" data-duration="103.70" data-width="1080" data-height="1920" data-resolution="portrait">
-  <audio id="voiceover" data-hf-id="hf-voiceover-main" class="clip" src="assets/audio/voiceover-norm.mp3" data-start="0" data-duration="103.31" data-track-index="3" data-volume="1" style="z-index: 10"></audio>
+     s1  hook        0.00 -   3.00  bait
+     s2  sejarah     3.00 -  12.78  NIS / 1904
+     s3  nama       12.78 -  24.90  Lawang Sewu / seribu pintu
+     s4  fungsi     24.90 -  43.32  kantor administrasi, arsip, menara air
+     s5  1942       43.32 -  55.74  pendudukan Jepang (sensitif, perlu verifikasi)
+     s6  bawah      55.74 -  66.46  lorong bawah / batas arsip-cerita
+     s7  cerita     66.46 -  84.62  cerita beredar Semarang
+     s8  kesaksian  84.62 - 102.90  hawa dingin, diawasi, sosok
+     s9  versi     102.90 - 115.06  banyak versi menempel
+     s10 payoff    115.06 - 135.98  yang tertinggal di balik pintu
+     Signature outro 135.98 - 137.50  "Sini aku ceritain." -->
+<div id="root" data-composition-id="main" data-start="0" data-duration="137.50" data-width="1080" data-height="1920" data-resolution="portrait">
+  <audio id="voiceover" data-hf-id="hf-voiceover-main" class="clip" src="assets/audio/voiceover-norm.mp3" data-start="0" data-duration="137.40" data-track-index="3" data-volume="1" style="z-index: 10"></audio>
 
-  <!-- SFX (ffmpeg-generated, see assets/audio/sfx/LICENSE.txt). Below VO. -->
-  <audio id="sfx-rumble-payoff" class="clip" src="assets/audio/sfx/rumble-low.mp3" data-start="93.76" data-duration="4.00" data-track-index="6" data-volume="3.2" data-fade-in="0.60" data-fade-out="1.20"></audio>
-  <audio id="sfx-thunder-payoff" class="clip" src="assets/audio/sfx/thunder-hit.mp3" data-start="95.18" data-duration="2.80" data-track-index="7" data-volume="3.98" data-fade-in="0.01" data-fade-out="1.40"></audio>
+  <!-- SFX (ffmpeg-generated, see assets/audio/sfx/LICENSE.txt). Moment-based, sparse. -->
+  <audio id="sfx-riser-sejarah" class="clip" src="assets/audio/sfx/riser-dark.mp3" data-start="6.20" data-duration="3.00" data-track-index="9" data-volume="0.90" data-fade-in="0.20" data-fade-out="0.90"></audio>
+  <audio id="sfx-footsteps-cerita" class="clip" src="assets/audio/sfx/footsteps.mp3" data-start="72.30" data-duration="3.00" data-track-index="9" data-volume="1.20" data-fade-in="0.05" data-fade-out="0.90"></audio>
+  <audio id="sfx-hit-payoff" class="clip" src="assets/audio/sfx/impact-low.mp3" data-start="133.80" data-duration="3.20" data-track-index="7" data-volume="1.90" data-fade-in="0.01" data-fade-out="1.80"></audio>
+
+  <!-- Story SFX pass: hook, 1942, basement, doors, cold, figure, versions, payoff. -->
+  <audio id="sfx-door-creak-hook" class="clip" src="assets/audio/sfx/door-creak-far.mp3" data-start="0.40" data-duration="3.00" data-track-index="9" data-volume="1.10" data-fade-in="0.40" data-fade-out="1.20"></audio>
+  <audio id="sfx-metal-thud-1942" class="clip" src="assets/audio/sfx/metal-door-thud.mp3" data-start="43.70" data-duration="2.40" data-track-index="8" data-volume="0.85" data-fade-in="0.01" data-fade-out="0.80"></audio>
+  <audio id="sfx-water-drip-bawah" class="clip" src="assets/audio/sfx/water-drip.mp3" data-start="56.40" data-duration="9.40" data-track-index="8" data-volume="1.30" data-fade-in="1.20" data-fade-out="2.00"></audio>
+  <audio id="sfx-door-latch" class="clip" src="assets/audio/sfx/door-latch.mp3" data-start="80.90" data-duration="1.60" data-track-index="9" data-volume="1.00" data-fade-in="0.01" data-fade-out="0.70"></audio>
+  <audio id="sfx-cold-wind" class="clip" src="assets/audio/sfx/cold-wind-gust.mp3" data-start="86.00" data-duration="4.50" data-track-index="8" data-volume="1.20" data-fade-in="0.70" data-fade-out="1.30"></audio>
+  <audio id="sfx-glass-creak" class="clip" src="assets/audio/sfx/glass-creak.mp3" data-start="94.30" data-duration="2.60" data-track-index="9" data-volume="0.95" data-fade-in="0.02" data-fade-out="0.50"></audio>
+  <audio id="sfx-woman-cry" class="clip" src="assets/audio/sfx/woman-cry.mp3" data-start="96.80" data-duration="3.20" data-track-index="8" data-volume="1.10" data-fade-in="0.40" data-fade-out="1.20"></audio>
+  <audio id="sfx-whispers-versi" class="clip" src="assets/audio/sfx/whispers-far.mp3" data-start="102.60" data-duration="10.80" data-track-index="8" data-volume="0.55" data-fade-in="1.50" data-fade-out="2.50"></audio>
 
   <div class="clip" id="scene-1-hook" data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="3.00" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-2-larangan" data-composition-id="s2-larangan" data-composition-src="compositions/s2-larangan.html" data-start="3.00" data-duration="6.28" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-3-nama" data-composition-id="s3-nama" data-composition-src="compositions/s3-nama.html" data-start="9.28" data-duration="7.56" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-4-kadita" data-composition-id="s4-kadita" data-composition-src="compositions/s4-kadita.html" data-start="16.84" data-duration="11.16" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-5-versi-dua" data-composition-id="s5-versi-dua" data-composition-src="compositions/s5-versi-dua.html" data-start="28.00" data-duration="9.96" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-6-dua-nama" data-composition-id="s6-dua-nama" data-composition-src="compositions/s6-dua-nama.html" data-start="37.96" data-duration="13.19" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-7-tercatat" data-composition-id="s7-tercatat" data-composition-src="compositions/s7-tercatat.html" data-start="51.15" data-duration="4.65" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-8-labuhan" data-composition-id="s8-labuhan" data-composition-src="compositions/s8-labuhan.html" data-start="55.80" data-duration="11.56" data-track-index="1" data-width="1080" data-height="1920" data-hold></div>
-  <div class="clip" id="scene-9-naskah" data-composition-id="s9-naskah" data-composition-src="compositions/s9-naskah.html" data-start="67.36" data-duration="12.39" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-10-batas" data-composition-id="s10-batas" data-composition-src="compositions/s10-batas.html" data-start="79.75" data-duration="14.01" data-track-index="1" data-width="1080" data-height="1920"></div>
-  <div class="clip" id="scene-11-payoff" data-composition-id="s11-payoff" data-composition-src="compositions/s11-payoff.html" data-start="93.76" data-duration="7.84" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-2-sejarah" data-composition-id="s2-sejarah" data-composition-src="compositions/s2-sejarah.html" data-start="3.00" data-duration="9.78" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-3-nama" data-composition-id="s3-nama" data-composition-src="compositions/s3-nama.html" data-start="12.78" data-duration="12.12" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-4-fungsi" data-composition-id="s4-fungsi" data-composition-src="compositions/s4-fungsi.html" data-start="24.90" data-duration="18.42" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-5-1942" data-composition-id="s5-1942" data-composition-src="compositions/s5-1942.html" data-start="43.32" data-duration="12.42" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-6-bawah" data-composition-id="s6-bawah" data-composition-src="compositions/s6-bawah.html" data-start="55.74" data-duration="10.72" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-7-cerita" data-composition-id="s7-cerita" data-composition-src="compositions/s7-cerita.html" data-start="66.46" data-duration="18.16" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-8-kesaksian" data-composition-id="s8-kesaksian" data-composition-src="compositions/s8-kesaksian.html" data-start="84.62" data-duration="18.28" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-9-versi" data-composition-id="s9-versi" data-composition-src="compositions/s9-versi.html" data-start="102.90" data-duration="12.16" data-track-index="1" data-width="1080" data-height="1920"></div>
+  <div class="clip" id="scene-10-payoff" data-composition-id="s10-payoff" data-composition-src="compositions/s10-payoff.html" data-start="115.06" data-duration="20.92" data-track-index="1" data-width="1080" data-height="1920"></div>
 
   <!-- Watermark -->
-  <div class="clip" id="brand-watermark" data-composition-id="watermark" data-composition-src="compositions/brand/watermark.html" data-start="0" data-duration="101.60" data-track-index="2" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
+  <div class="clip" id="brand-watermark" data-composition-id="watermark" data-composition-src="compositions/brand/watermark.html" data-start="0" data-duration="135.98" data-track-index="2" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
 
   <!-- Captions layer -->
-  <div class="clip" id="brand-captions" data-composition-id="captions" data-composition-src="compositions/brand/captions.html" data-start="0" data-duration="101.60" data-track-index="4" data-width="1080" data-height="1920" data-track-kind="captions"></div>
+  <div class="clip" id="brand-captions" data-composition-id="captions" data-composition-src="compositions/brand/captions.html" data-start="0" data-duration="135.98" data-track-index="4" data-width="1080" data-height="1920" data-track-kind="captions"></div>
 
-  <!-- Film grain: satu lapis sensor di atas semua scene & caption -->
-  <div class="clip" id="brand-grain" data-composition-id="grain" data-composition-src="compositions/brand/grain.html" data-start="0" data-duration="101.60" data-track-index="7" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
+  <!-- Film grain -->
+  <div class="clip" id="brand-grain" data-composition-id="grain" data-composition-src="compositions/brand/grain.html" data-start="0" data-duration="135.98" data-track-index="9" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
 
-  <!-- Signature outro: mengunci di detik 101.60 (tepat saat penutup berbunyi) -->
-  <div class="clip" id="brand-signature-outro" data-composition-id="signature-outro" data-composition-src="compositions/brand/signature-outro.html" data-start="101.60" data-duration="2.10" data-track-index="5" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
+  <!-- Signature outro: "Sini aku ceritain." at 135.40, holds >=2s -->
+  <div class="clip" id="brand-signature-outro" data-composition-id="signature-outro" data-composition-src="compositions/brand/signature-outro.html" data-start="135.40" data-duration="2.10" data-track-index="5" data-width="1080" data-height="1920" data-track-kind="graphics"></div>
 </div>
 <script>
   window.__timelines = window.__timelines || {};
   window.__timelines["main"] = gsap.timeline({ paused: true });
-  window.__timelines["main"].set({}, {}, 103.70);
+  window.__timelines["main"].set({}, {}, 137.50);
 </script>
 </body>
 </html>
