@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- V2-B: Signal Slice — opening quote interrupted by full signal break, cinematic identity -->
+  <defs>
+    <clipPath id="sig-top"><rect x="0" y="0" width="64" height="30"/></clipPath>
+    <clipPath id="sig-bot"><rect x="0" y="35" width="64" height="29"/></clipPath>
+  </defs>
+  <!-- top block -->
+  <g clip-path="url(#sig-top)" fill="#F5F3EF">
+    <polygon points="8,10 30,10 37,46 15,46"/>
+    <polygon points="39,10 61,10 64,46 42,46"/>
+  </g>
+  <!-- bottom block: right side carries signal accent -->
+  <g clip-path="url(#sig-bot)">
+    <polygon points="8,10 30,10 37,46 15,46" fill="#F5F3EF"/>
+    <polygon points="39,10 61,10 64,46 42,46" fill="#FF5A2F"/>
+  </g>
+  <!-- thin signal gap is the background showing through -->
+</svg>

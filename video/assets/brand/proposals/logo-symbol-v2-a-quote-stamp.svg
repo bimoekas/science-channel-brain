@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- V2-A: Quote Stamp — bold editorial opening quote, strong silhouette, brand stamp feel -->
+  <g fill="#F5F3EF">
+    <polygon points="8,10 30,10 37,46 15,46"/>
+    <polygon points="39,10 59,10 64,32 44,32"/>
+  </g>
+  <polygon points="46,36 62,36 64,46 48,46" fill="#FF5A2F"/>
+</svg>

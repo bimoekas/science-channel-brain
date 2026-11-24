@@ -59,20 +59,13 @@ Satu identitas, dua suhu visual. Grammar sama — tipe editorial bold, simbol ta
 ## Logo
 
 - **Primary:** wordmark horizontal `SINI AKU CERITAIN.` — tipe editorial bold, tracking rapat,
-  titik akhir terbelah oleh satu glitch slice.
-- **Compact:** wordmark dua baris untuk watermark dan penempatan kecil.
-- **Symbol:** **kutip pembuka ganda** (`“`) — dua blok miring tebal, kutip kanan dipotong
-  satu signal break dengan pecahan aksen; terbaca pada 16px, dua tinta. Lihat spesifikasi
-  konstruksi di `BRAND-SYSTEM.md` §4.
-- **Closing lockup:** penutup `SINI AKU / CERITAIN.` + rule gradien + symbol, di outro.
+  titik akhir terbelah oleh satu signal slice.
+- **Compact:** wordmark satu baris + rule aksen untuk watermark dan penempatan kecil.
+- **Symbol:** **SAC monogram curve** (`logo-symbol.svg`, square-padded; `logo-symbol-wide.svg` wide) — dua tinta: `#F5F3EF` + aksen `#FF5A2F`; terbaca kecil, kuat besar. Source master: `video/assets/brand/proposals/SAC_Clean_Master/logo_primary.svg`.
+- **Closing lockup:** penutup `SINI AKU / CERITAIN.` + rule gradien + SAC symbol, di outro.
 - **Watermark:** rail vertikal di tepi kanan, di luar margin konten, opasitas rendah.
 
-**Kenapa kutip, bukan tanda tanya.** Tanda tanya adalah ikon "FAQ / bantuan / tidak tahu", dan
-klise nomor satu untuk kanal misteri — ia menanyakan cerita, bukan menceritakan. Kutip pembuka
-adalah tanda bahwa ada orang yang sedang berbicara: persis janji channel ini. Simbolnya juga
-tipografis, jadi satu bahasa dengan wordmark yang juga tipografis.
-
-Larangan: lightbulb, rocket, atom, brain, tanda tanya, mata, hantu, dan ikon klise lainnya.
+Larangan: lightbulb, rocket, atom, brain, tanda tanya, mata, hantu, tengkorak, dan ikon klise lainnya.
 
 Semua aset logo berupa SVG yang dapat diedit di `video/assets/brand/`.
 

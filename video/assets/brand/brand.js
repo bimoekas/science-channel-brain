@@ -1,4 +1,4 @@
-/* NGGAK PENTING LAB — reusable motion, caption and brand utilities.
+/* SINI AKU CERITAIN — reusable motion, caption and brand utilities.
    Linked once from video/index.html, after GSAP, so every scene can call
    window.NPL.*. Deterministic only: no Date.now(), no unseeded random. */
 
@@ -241,7 +241,7 @@
     host.innerHTML =
       '<div class="npl-wm">' +
       '<img src="assets/brand/logo-symbol.svg" alt="">' +
-      '<img src="assets/brand/logo-wordmark-compact.svg" alt="NGGAK PENTING LAB">' +
+      '<img src="assets/brand/logo-wordmark-compact.svg" alt="SINI AKU CERITAIN">' +
       "</div>";
     if (o.opacity != null) host.querySelector(".npl-wm").style.opacity = String(o.opacity);
   };

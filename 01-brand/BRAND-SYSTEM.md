@@ -109,7 +109,8 @@ Ground tidak harus gelap; suhu visual mengikuti niche. Grammar tipe, watermark, 
 | --- | --- | --- |
 | Wordmark horizontal | `logo-wordmark.svg` | opening, end card, thumbnail |
 | Wordmark compact | `logo-wordmark-compact.svg` | watermark, penempatan kecil |
-| Symbol | `logo-symbol.svg` | avatar, watermark, closing lockup |
+| Symbol (square) | `logo-symbol.svg` | avatar, watermark, slot kotak |
+| Symbol (wide) | `logo-symbol-wide.svg` | outro/penempatan lebar |
 
 - Ketiga SVG memakai `font-family="Inter, Helvetica, Arial"`. Karena itu wordmark
   **bergantung pada Inter**; jangan memakai SVG ini di luar proyek yang memuat Inter.
@@ -122,41 +123,29 @@ Ground tidak harus gelap; suhu visual mengikuti niche. Grammar tipe, watermark, 
   caption. Jangan menaikkan opasitas di atas `.4` — itu mulai terbaca sebagai UI.
 - Watermark fade-in pada 1.4s supaya hook pembuka bersih. Pertahankan.
 
-### 4a. Symbol (ikon) — kutip pembuka
+### 4a. Symbol (ikon) — SAC monogram
 
-**Makna.** Kutip pembuka berarti "ada orang yang sedang berbicara". Itu janji channel ini.
-Tanda tanya ditolak: ia ikon FAQ/bantuan, dan klise nomor satu kanal misteri — ia menanyakan
-cerita, bukan menceritakan.
+**Makna.** `SAC` lettermark dari `SINI AKU CERITAIN` — mark sinematik, tegas, terbaca kecil/besar. Dua tinta: off-white `#F5F3EF` + aksen `#FF5A2F`.
 
-**Konstruksi — `logo-symbol.svg`, viewBox `0 0 64 64`, tanpa stroke, semua `fill`.**
-
-Dua blok kutip identik, tebal, miring 6px ke kanan dari atas ke bawah. Kutip kanan dipotong
-`signal break`: bagian bawahnya terlepas dan bergeser +4px, diberi warna aksen.
-
-| Bagian | Bentuk | Koordinat (polygon, x/y) | Fill |
-| --- | --- | --- | --- |
-| Kutip kiri | trapesium miring | `12,16 28,16 34,38 18,38` | `#F5F3EF` |
-| Kutip kanan (atas) | trapesium miring, dipotong di y32 | `36,16 52,16 56,32 40,32` | `#F5F3EF` |
-| Pecahan (bawah) | potongan yang terlepas, geser +4px | `44,36 60,36 63,44 47,44` | `#FF5A2F` |
-
-- Jarak bebas: minim 6px dari tepi kiri/kanan viewBox, 16px dari atas, 20px dari bawah.
-- Dua tinta saja. Jangan menambah bayangan, gradien, outline, atau sudut bulat.
+**Aset:**
+- `logo-symbol.svg` — viewBox `0 0 64 64`, square-padded (avatar/watermark/slot kotak).
+- `logo-symbol-wide.svg` — wide mark (outro/penempatan lebar).
+- Source master: `video/assets/brand/proposals/SAC_Clean_Master/logo_primary.svg`.
 
 **Ukuran & penempatan.**
 
 | Pakai | Tinggi | Catatan |
 | --- | --- | --- |
 | Avatar / profil platform | penuh | isi kanvas, jangan tambah teks |
-| Closing lockup (outro) | 88px | kanan bawah, `--npl-margin` dari tepi |
+| Closing lockup (outro) | 88px | kanan bawah, `--npl-margin` dari tepi, pakai wide |
 | Watermark | 30px | bagian dari rail, opasitas `.34` |
-| Minimum absolut | 24px | di bawah ini pecahan aksen menyatu dengan kutip kanan |
+| Minimum absolut | 24px | uji keterbacaan kecil |
 
 **Larangan ikon.** Tanda tanya, lightbulb, rocket, atom, brain, mata, hantu, tengkorak, jam
-pasir, teleskop, kaca pembesar, pin lokasi. Semuanya ikon klise yang sudah dipakai ribuan
-kanal misteri — tidak membedakan apa pun.
+pasir, teleskop, kaca pembesar, pin lokasi.
 
-**Bila mengganti symbol:** ganti `logo-symbol.svg` saja. Wordmark, watermark, dan outro
-memuat file itu lewat `<img>`, jadi tidak ada markup yang perlu disentuh.
+**Bila mengganti symbol:** ganti `logo-symbol.svg`/`logo-symbol-wide.svg`. Wordmark, watermark, dan outro
+memuat lewat `<img>`.
 
 ---
 
@@ -359,11 +348,13 @@ Aturan:
 - [ ] **Opening bait screen ±3 dtk di awal**: bait (klaim/pertanyaan) + jangkar konteks, foto objek
       hanya latar — frame tetap menarik bila dijadikan thumbnail statis. Tipe terbesar, frame 0
       terisi, handover cut/fade ≤0.4 dtk ke scene 1, tidak mengulang caption atau tipe scene 1.
+      **Gate:** snapshot detik 1 — bait + jangkar sudah terbaca penuh (fade-in ≤0.3 dtk).
 - [ ] Caption ≤ 2 baris, 2–7 kata. **Nol duplikasi** — tidak ada grup caption yang mengulang
       teks tipe scene yang tampil pada jendela waktu yang sama. Diperiksa per grup, bukan sekilas.
 - [ ] Timing caption cocok dengan VO aktual.
 - [ ] Reality Skip dipakai pada momen yang tepat, bukan setiap cut.
 - [ ] Tidak ada `Date.now()`, `Math.random()`, `repeat:-1`, `tl.play()`.
 - [ ] Tidak ada path audio yang belum ada di disk.
+- [ ] **SFX sekali pakai:** tidak ada file SFX yang sama dipakai >1 kali (`grep -o 'src="assets/audio/sfx/[^"]*"' | sort | uniq -c`); bed/drone kontinu tidak dipasang tanpa alasan.
 - [ ] Outro memakai teks penutup yang benar (`Sini aku ceritain.`).
 - [ ] Snapshot frame di momen yang diedit sudah dibaca, bukan hanya check lulus.

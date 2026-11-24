@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- Opsi 1: Kutip buka sesuai BRAND-SYSTEM §4a. Dua tinta: off-white + alert accent shard. -->
+  <g fill="#F5F3EF">
+    <!-- Kutip kiri: trapesium miring 6px ke kanan -->
+    <polygon points="12,16 28,16 34,38 18,38"/>
+    <!-- Kutip kanan atas: dipotong di y32 -->
+    <polygon points="36,16 52,16 56,32 40,32"/>
+  </g>
+  <!-- Pecahan signal break: geser +4px, warna aksen -->
+  <g fill="#FF5A2F">
+    <polygon points="44,36 60,36 63,44 47,44"/>
+  </g>
+</svg>

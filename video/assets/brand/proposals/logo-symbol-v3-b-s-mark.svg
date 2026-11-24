@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- V3-B: S monogram built from geometric cuts — sharp, recognizable at small size -->
+  <g fill="#F5F3EF">
+    <path d="M50 10H14V28H40V36H14V54H50V36H24V28H50V10Z"/>
+  </g>
+  <!-- signal cut through middle bar -->
+  <rect x="30" y="26" width="10" height="12" fill="#08080A"/>
+  <rect x="33" y="29" width="4" height="6" fill="#FF5A2F"/>
+</svg>

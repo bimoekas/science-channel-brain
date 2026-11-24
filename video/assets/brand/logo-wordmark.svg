@@ -1,12 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120" role="img" aria-label="NGGAK PENTING.">
-  <!-- Primary horizontal wordmark: editorial all-caps, tight tracking,
-       with a single glitch slice through the final period. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" width="560" height="120" role="img" aria-label="SINI AKU CERITAIN.">
+  <!-- Primary horizontal wordmark: editorial bold, tight tracking, final period split by signal accent. -->
   <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="62" font-weight="900"
      fill="#F5F3EF" letter-spacing="-2.6">
-    <text x="0" y="82">NGGAK</text>
-    <text x="214" y="82">PENTING</text>
+    <text x="0" y="82">SINI AKU CERITAIN</text>
   </g>
-  <!-- the period, split into two shards -->
-  <rect x="474" y="62" width="15" height="8" fill="#F5F3EF"/>
-  <rect x="481" y="72" width="15" height="10" fill="#FF5A2F"/>
+  <rect x="513" y="62" width="15" height="8" fill="#F5F3EF"/>
+  <rect x="520" y="72" width="15" height="10" fill="#FF5A2F"/>
 </svg>

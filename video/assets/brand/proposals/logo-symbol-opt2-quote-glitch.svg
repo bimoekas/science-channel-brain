@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- Opsi 2: Kutip buka + signal break lebih tegas, feel sinematik/glitch. -->
+  <defs>
+    <clipPath id="cut">
+      <rect x="0" y="0" width="64" height="64"/>
+    </clipPath>
+  </defs>
+  <g fill="#F5F3EF">
+    <polygon points="12,16 28,16 34,38 18,38"/>
+    <polygon points="36,16 52,16 55,30 39,30"/>
+  </g>
+  <!-- Signal break: shard utama + ghost tipis -->
+  <g fill="#FF5A2F">
+    <polygon points="41,34 57,34 60,44 44,44"/>
+    <polygon points="39,46 47,46 48.5,50 40.5,50" opacity="0.45"/>
+  </g>
+</svg>

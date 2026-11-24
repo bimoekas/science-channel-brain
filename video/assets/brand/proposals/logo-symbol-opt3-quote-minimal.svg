@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SINI AKU CERITAIN symbol">
+  <!-- Opsi 3: Kutip buka minimal, bersih, tanpa shard - dua tinta lewat kutip kanan. -->
+  <g fill="#F5F3EF">
+    <polygon points="12,16 28,16 34,38 18,38"/>
+  </g>
+  <g fill="#FF5A2F">
+    <polygon points="36,16 52,16 58,38 42,38"/>
+  </g>
+</svg>
