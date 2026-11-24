@@ -25,3 +25,8 @@ snapshots/
 
 # Large stills kept out of git; archive folders own the images they use
 video/assets/images/
+
+# Local media/caches and raw source downloads
+video/.media/
+video/assets/audio/sfx/downloaded/
+video/assets/brand/proposals/*.zip
